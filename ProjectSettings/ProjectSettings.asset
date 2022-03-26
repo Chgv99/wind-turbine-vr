@@ -159,7 +159,7 @@ PlayerSettings:
     tvOS: 0
   overrideDefaultApplicationIdentifier: 0
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 22
+  AndroidMinSdkVersion: 23
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -786,7 +786,7 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 0
+  activeInputHandler: 1
   cloudProjectId: 
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
