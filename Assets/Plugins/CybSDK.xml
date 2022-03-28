@@ -1,0 +1,295 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CybSDK</name>
+    </assembly>
+    <members>
+        <member name="T:CybSDK.CVirt">
+            <summary>
+            [Deprecated] Entry class of the Cyberith Virtualizer SDK
+            </summary>
+            @deprecated Use class Virt instead.
+        </member>
+        <member name="M:CybSDK.CVirt.FindDevice">
+            <summary>
+            Finds a standard Virtualizer device object.
+            </summary>
+            Factory methods for a Virtualizer device object.
+            <returns>A valid <see cref="T:CybSDK.IVirtDevice"/>, or nullptr if no Virtualizer device was found.</returns>
+            @deprecated Use Virt.FindDevice instead.
+        </member>
+        <member name="M:CybSDK.CVirt.CreateDeviceMockupXInput">
+            <summary>
+            Creates a virtualizer mockup for xInput controller.
+            </summary>
+            <returns>A virtual <see cref="T:CybSDK.IVirtDevice"/>, driven by DirectX xInput.</returns>
+            @deprecated Use Virt.CreateDeviceMockupXInput instead.
+        </member>
+        <member name="T:CybSDK.VirtDeviceInfo">
+            <summary>
+            Struct containing all infos about a Virtualizer USB device.
+            </summary>
+        </member>
+        <member name="M:CybSDK.VirtDeviceInfo.GetVendorNameFromId(System.UInt16)">
+            <summary>
+            Returns the name for a given vendor Id.
+            </summary>
+            <returns>The name of a known vendor, otherwise "Unknown Vendor".</returns>
+        </member>
+        <member name="M:CybSDK.VirtDeviceInfo.GetProductNameFromId(System.UInt16)">
+            <summary>
+            Returns the name for a given product Id.
+            </summary>
+            <returns>The name of a known product, otherwise "Unknown Device"</returns>
+        </member>
+        <member name="M:CybSDK.VirtDeviceInfo.GetDevicePath">
+            <summary>
+            Returns the UBS device path used for the HID connection.
+            </summary>
+        </member>
+        <member name="F:CybSDK.VirtDeviceInfo.MajorVersion">
+            <summary>
+            The major firmware version.
+            </summary>
+        </member>
+        <member name="F:CybSDK.VirtDeviceInfo.MinorVersion">
+            <summary>
+            The minor firmware version.
+            </summary>
+        </member>
+        <member name="F:CybSDK.VirtDeviceInfo.VendorId">
+            <summary>
+            The USB vendor id.
+            </summary>
+        </member>
+        <member name="F:CybSDK.VirtDeviceInfo.VendorName">
+            <summary>
+            The USB vendor name.
+            </summary>
+        </member>
+        <member name="F:CybSDK.VirtDeviceInfo.ProductId">
+            <summary>
+            The USB product id.
+            </summary>
+        </member>
+        <member name="F:CybSDK.VirtDeviceInfo.ProductName">
+            <summary>
+            The USB product name.
+            </summary>
+        </member>
+        <member name="F:CybSDK.VirtDeviceInfo._devicePath">
+            <summary>
+            The UBS device path used for the HID connection.
+            </summary>
+        </member>
+        <member name="F:CybSDK.Internal.VirtDeviceNative.DevicePtr">
+            <summary>
+            Unmanaged pointer to the native device.
+            </summary>
+        </member>
+        <member name="T:CybSDK.IVirtDevice">
+            <summary>
+            Main interface all Virtualizer Devices have to implement.
+            </summary>
+        </member>
+        <member name="M:CybSDK.IVirtDevice.Open">
+            <summary>
+            Opens the connection to the Virtualizer device.
+            </summary>
+            <remarks>No other application can open this device at the same time.</remarks>
+            <returns>true if the connection was successfully opened, otherwise false.</returns>
+        </member>
+        <member name="M:CybSDK.IVirtDevice.IsOpen">
+            <summary>
+            Checks if the connection was opened before.
+            </summary>
+        </member>
+        <member name="M:CybSDK.IVirtDevice.Close">
+            <summary>
+            Closes the connection to the Virtualizer device.
+            </summary>
+        </member>
+        <member name="M:CybSDK.IVirtDevice.GetDeviceInfo">
+            <summary>
+            Returns the USB infos of this device.
+            </summary>
+        </member>
+        <member name="M:CybSDK.IVirtDevice.GetPlayerHeight">
+            <summary>
+            Returns the current player height relative to the default height.
+            </summary>
+            <remarks>The default height is set by the ResetPlayerHeight method.</remarks>
+            <remarks>height &lt; -threshold: crouching</remarks>
+            <remarks>height >  threshold: jumping</remarks>
+            <returns>1.00f = 1cm.</returns>
+        </member>
+        <member name="M:CybSDK.IVirtDevice.ResetPlayerHeight">
+            <summary>
+            Assigns the current height to the default height.
+            </summary>
+            <remarks>This method should be called while the player is asked to stand upright.</remarks>
+        </member>
+        <member name="M:CybSDK.IVirtDevice.GetPlayerOrientation">
+            <summary>
+            Returns the orientation of the player as an absolute value.
+            </summary>
+            <remarks>The origin is set by the ResetPlayerOrientation method and increases clockwise.</remarks>
+            <returns>logical: 0.00f to 1.00f (= physical: 0° to 360°).</returns>
+        </member>
+        <member name="M:CybSDK.IVirtDevice.ResetPlayerOrientation">
+            <summary>
+            Assigns the current orientation to the default vector.
+            </summary>
+            <remarks>This method should be called while the player is asked to look forward.</remarks>
+            <remarks>This orientation should be used to calibrate the HMD.</remarks>
+            @deprecated Unused as new Virtualizers orient themselves automatically.
+        </member>
+        <member name="M:CybSDK.IVirtDevice.GetMovementSpeed">
+            <summary>
+            Returns the current movement speed in meters per second.
+            </summary>
+            <returns>1.00f = 1m/s</returns>
+        </member>
+        <member name="M:CybSDK.IVirtDevice.GetMovementDirection">
+            <summary>
+            Returns the movement direction relative to the current player orientation.
+            </summary>
+            <remarks>The origin is the GetPlayerOrientation method and increases clockwise.</remarks>
+            <returns>logical: -1.00f to 1.00f (= physical: -180° to 180°).</returns>
+        </member>
+        <member name="M:CybSDK.IVirtDevice.HasHaptic">
+            <summary>
+            Checks if the Virtualizer device supports haptic feedback.
+            </summary>
+        </member>
+        <member name="M:CybSDK.IVirtDevice.HapticPlay">
+            <summary>
+            Play a signal on the haptic unit.
+            </summary>
+        </member>
+        <member name="M:CybSDK.IVirtDevice.HapticStop">
+            <summary>
+            Stop the haptic unit.
+            </summary>
+        </member>
+        <member name="M:CybSDK.IVirtDevice.HapticSetGain(System.Int32)">
+            <summary>
+            Set the gain (dB) level of the haptic unit.
+            </summary>
+            <param name="gain">The value can be 0, 1, 2 or 3.</param>
+        </member>
+        <member name="M:CybSDK.IVirtDevice.HapticSetFrequency(System.Int32)">
+            <summary>
+            Set the frequency (Hz) of a sine wave on the haptic unit.
+            </summary>
+            <param name="frequency">The value is valid between 0Hz and 80Hz.</param>
+        </member>
+        <member name="M:CybSDK.IVirtDevice.HapticSetVolume(System.Int32)">
+            <summary>
+            Sets the haptic feedback (change of amplitude) in the baseplate.
+            </summary>
+            <param name="volume">The value is valid between 0 (no feedback) and 100 (full feedback).</param>
+        </member>
+        <member name="T:CybSDK.CVirtDevice">
+            <summary>
+            [Deprecated] Base class all Virtualizer Devices have to implement.
+            </summary>
+            @deprecated Use interface IVirtDevice instead.
+        </member>
+        <member name="M:CybSDK.CVirtDevice.Open">
+            <inheritdoc cref="M:CybSDK.IVirtDevice.Open"/>
+        </member>
+        <member name="M:CybSDK.CVirtDevice.IsOpen">
+            <inheritdoc cref="M:CybSDK.IVirtDevice.IsOpen"/>
+        </member>
+        <member name="M:CybSDK.CVirtDevice.Close">
+            <inheritdoc cref="M:CybSDK.IVirtDevice.Close"/>
+        </member>
+        <member name="M:CybSDK.CVirtDevice.GetPlayerHeight">
+            <inheritdoc cref="M:CybSDK.IVirtDevice.GetPlayerHeight"/>
+        </member>
+        <member name="M:CybSDK.CVirtDevice.ResetPlayerHeight">
+            <inheritdoc cref="M:CybSDK.IVirtDevice.ResetPlayerHeight"/>
+        </member>
+        <member name="M:CybSDK.CVirtDevice.GetPlayerOrientation">
+            <inheritdoc cref="M:CybSDK.IVirtDevice.GetPlayerOrientation"/>
+        </member>
+        <member name="M:CybSDK.CVirtDevice.ResetPlayerOrientation">
+            <inheritdoc cref="M:CybSDK.IVirtDevice.ResetPlayerOrientation"/>
+            @deprecated Unused as new Virtualizers orient themselves automatically.
+        </member>
+        <member name="M:CybSDK.CVirtDevice.GetMovementSpeed">
+            <inheritdoc cref="M:CybSDK.IVirtDevice.GetMovementSpeed"/>
+        </member>
+        <member name="M:CybSDK.CVirtDevice.GetMovementDirection">
+            <inheritdoc cref="M:CybSDK.IVirtDevice.GetMovementDirection"/>
+        </member>
+        <member name="M:CybSDK.CVirtDevice.HasHaptic">
+            <inheritdoc cref="M:CybSDK.IVirtDevice.HasHaptic"/>
+        </member>
+        <member name="M:CybSDK.CVirtDevice.HapticPlay">
+            <inheritdoc cref="M:CybSDK.IVirtDevice.HapticPlay"/>
+        </member>
+        <member name="M:CybSDK.CVirtDevice.HapticSetFrequency(System.Int32)">
+            <inheritdoc cref="M:CybSDK.IVirtDevice.HapticSetFrequency(System.Int32)"/>
+        </member>
+        <member name="M:CybSDK.CVirtDevice.HapticSetGain(System.Int32)">
+            <inheritdoc cref="M:CybSDK.IVirtDevice.HapticSetGain(System.Int32)"/>
+        </member>
+        <member name="M:CybSDK.CVirtDevice.HapticSetVolume(System.Int32)">
+            <inheritdoc cref="M:CybSDK.IVirtDevice.HapticSetVolume(System.Int32)"/>
+        </member>
+        <member name="M:CybSDK.CVirtDevice.HapticStop">
+            <inheritdoc cref="M:CybSDK.IVirtDevice.HapticStop"/>
+        </member>
+        <member name="T:CybSDK.Virt">
+            <summary>
+            Entry class of the Cyberith Virtualizer SDK
+            </summary>
+        </member>
+        <member name="M:CybSDK.Virt.GetSDKVersion">
+            <summary>
+            Returns the version number of the Virtualizer SDK.
+            </summary>
+            <returns>(MajorVersion &lt;&lt; 8) + MinorVersion</returns>
+        </member>
+        <member name="M:CybSDK.Virt.GetNativeSDKVersion">
+            <summary>
+            Returns the version number of the native C++ Virtualizer SDK.
+            </summary>
+            <returns>(MajorVersion &lt;&lt; 8) + MinorVersion</returns>
+        </member>
+        <member name="M:CybSDK.Virt.FindDevice">
+            <summary>
+            Finds a standard Virtualizer device object.
+            </summary>
+            Factory methods for a Virtualizer device object.
+            <returns>A valid <see cref="T:CybSDK.IVirtDevice"/>, or nullptr if no Virtualizer device was found.</returns>
+        </member>
+        <member name="M:CybSDK.Virt.GetDevice(CybSDK.VirtDeviceInfo)">
+            <summary>
+            Returns a standard Virtualizer device described by the given device info.
+            </summary>
+            <param name="deviceInfo">A device info struct returned by <see cref="M:CybSDK.Virt.FindDevices"/>.</param>
+            <returns>A valid <see cref="T:CybSDK.IVirtDevice"/>, or nullptr if the Virtualizer device was not found.</returns>
+        </member>
+        <member name="M:CybSDK.Virt.FindDevices">
+            <summary>
+            Finds all Virtualizer devices and returns their info.
+            </summary>
+            <returns>A <see cref="T:CybSDK.VirtDeviceInfo"/> array, or null if no Virtualizer device was found.</returns>
+        </member>
+        <member name="M:CybSDK.Virt.CreateDeviceMockupXInput">
+            <summary>
+            Creates a virtualizer mockup for xInput controller.
+            </summary>
+            <returns>A virtual <see cref="T:CybSDK.IVirtDevice"/>, driven by DirectX xInput.</returns>
+        </member>
+        <member name="M:CybSDK.Virt.CreateDeviceMockupKeyboard">
+            <summary>
+            Creates a virtualizer mockup for Keyboard and Mouse input.
+            </summary>
+            <returns>A virtual <see cref="T:CybSDK.IVirtDevice"/>, driven by Keyboard and Mouse input.</returns>
+        </member>
+    </members>
+</doc>
