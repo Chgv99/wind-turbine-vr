@@ -2549,7 +2549,7 @@ MonoBehaviour:
     m_ActionId: c6fdde5e-7808-4892-a5eb-f9e4ca2450c8
     m_ActionName: XRI RightHand Interaction/Pause
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Generic XR Controller
+  m_DefaultControlScheme: 
   m_DefaultActionMap: XRI Head
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -2560,7 +2560,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694651955}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9359edda83b95774fafd3279f4b87ddb, type: 3}
   m_Name: 
