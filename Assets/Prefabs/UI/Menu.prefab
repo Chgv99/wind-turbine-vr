@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2421169903460412933}
   - component: {fileID: 2421169903460412938}
   - component: {fileID: 2421169903460412939}
+  - component: {fileID: 570936596747936610}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -123,6 +124,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RaycastTriggerInteraction: 1
+--- !u!114 &570936596747936610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2421169903460412936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847e7de111bf2334090768b20c514030, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2421169905504365608
 GameObject:
   m_ObjectHideFlags: 0
