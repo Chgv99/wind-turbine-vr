@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEditor;
 
 /** 
 * Implement movement functions
 * Must consider devices selected in configuration
 * */
 
-public class CharacterManager : MonoBehaviour
+public class CharacterAddonsController : MonoBehaviour
 {
     CharacterController cc;
 
@@ -17,7 +19,8 @@ public class CharacterManager : MonoBehaviour
     #endregion
 
     #region Vars
-    [SerializeField] float gravityFactor = 9.8f;
+    [HideInInspector] public bool gravity = false;
+    [HideInInspector] public float gravityFactor = 9.8f;
     float currentGravity;
     #endregion
 
@@ -43,3 +46,22 @@ public class CharacterManager : MonoBehaviour
         #endregion
     }
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(CharacterAddonsController))]
+public class CharacterAddonsController_Editor : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+
+        CharacterAddonsController script = (CharacterAddonsController)target;
+
+        script.gravity = EditorGUILayout.Toggle("Gravity", script.gravity);
+        if (script.gravity)
+        {
+            script.gravityFactor = EditorGUILayout.FloatField("Gravity Factor", script.gravityFactor);
+        }
+    }
+}
+#endif

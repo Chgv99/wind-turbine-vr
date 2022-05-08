@@ -2347,6 +2347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraOffset: {fileID: 0}
   camera: {fileID: 0}
+  gravity: 0
   gravityFactor: 9.8
 --- !u!114 &694651960
 MonoBehaviour:
