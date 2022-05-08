@@ -19,7 +19,9 @@ public class CharacterAddonsController : MonoBehaviour
     #endregion
 
     #region Vars
-    [HideInInspector] public bool hMovement;
+    private bool hmEnabled = false;
+
+    public bool hMovement;
     /*public bool HMovement { 
         get => hMovement; 
         set
@@ -54,15 +56,27 @@ public class CharacterAddonsController : MonoBehaviour
 
         #region Gravity
         currentGravity -= gravityFactor * Time.deltaTime;
-        cc.Move(new Vector3(0, currentGravity, 0));
-        if (cc.isGrounded) currentGravity = 0;
+        cc.Move(new Vector3(0, currentGravity, 0) * Time.deltaTime);
+        if (cc.isGrounded)
+        {
+            //print("grounded");
+            currentGravity = 0;
+        }
         #endregion
 
         #region Movement
-        /*if (horizontalMovement)
+        if (hMovement && !hmEnabled)
         {
-
-        }*/
+            //Enable horizontal movement
+            EnableHMovement();
+            hmEnabled = true;
+        }
+        else if (!hMovement && hmEnabled)
+        {
+            //Disable horizontal movement
+            DisableHMovement();
+            hmEnabled = false;
+        }
         #endregion
     }
 
@@ -81,8 +95,6 @@ public class CharacterAddonsController : MonoBehaviour
 [CustomEditor(typeof(CharacterAddonsController))]
 public class CharacterAddonsController_Editor : Editor
 {
-    private bool hmEnabled = false;
-
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
@@ -95,19 +107,8 @@ public class CharacterAddonsController_Editor : Editor
             script.gravityFactor = EditorGUILayout.FloatField("Gravity Factor", script.gravityFactor);
         }
 
-        script.hMovement = EditorGUILayout.Toggle("Horizontal Movement", script.hMovement);
-        if (script.hMovement && !hmEnabled)
-        {
-            //Enable horizontal movement
-            script.EnableHMovement();
-            hmEnabled = true;
-        } 
-        else if (!script.hMovement && hmEnabled)
-        {
-            //Disable horizontal movement
-            script.DisableHMovement();
-            hmEnabled = false;
-        }
+        //script.hMovement = EditorGUILayout.Toggle("Horizontal Movement", script.hMovement);
+        
     }
 }
 #endif
