@@ -13,7 +13,7 @@ public class PlayerInputController : MonoBehaviour
     private InputAction pause;
 
     #region VAR
-    [SerializeField] bool paused = false;
+    bool paused = false;
     #endregion
 
     // Start is called before the first frame update

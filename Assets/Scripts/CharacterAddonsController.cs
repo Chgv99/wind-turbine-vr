@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
+using UnityEngine.XR.Interaction.Toolkit;
 
 /** 
 * Implement movement functions
@@ -11,6 +12,9 @@ using UnityEditor;
 
 public class CharacterAddonsController : MonoBehaviour
 {
+    #region OBJECT REFS
+    GameObject ls; //Locomotion System
+    #endregion
     CharacterController cc;
 
     #region Camera
@@ -42,7 +46,9 @@ public class CharacterAddonsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ls = GameObject.Find("Locomotion System");
         cc = GetComponent<CharacterController>();
+        //ccd = GetComponent<CharacterControllerDriver>();
         
         cameraOffset = transform.Find("Camera Offset");
         camera = cameraOffset.Find("Main Camera");
@@ -83,11 +89,14 @@ public class CharacterAddonsController : MonoBehaviour
     public void EnableHMovement()
     {
         print("enabling hmovement");
+        ls.SetActive(true);
     }
 
     public void DisableHMovement()
     {
         print("disabling hmovement");
+        ls.SetActive(false);
+        //ccd.enabled = false;
     }
 }
 
