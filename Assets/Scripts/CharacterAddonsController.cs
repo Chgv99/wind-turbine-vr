@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
 using UnityEngine.XR.Interaction.Toolkit;
+using Hands;
 
 /** 
 * Implement movement functions
@@ -13,7 +14,13 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class CharacterAddonsController : MonoBehaviour
 {
     #region OBJECT REFS
+    #region external
     GameObject ls; //Locomotion System
+    #endregion
+    #region internal
+    [SerializeField] HandController leftHand;
+    [SerializeField] HandController rightHand;
+    #endregion
     #endregion
     CharacterController cc;
 
@@ -52,6 +59,9 @@ public class CharacterAddonsController : MonoBehaviour
         
         cameraOffset = transform.Find("Camera Offset");
         camera = cameraOffset.Find("Main Camera");
+
+        leftHand = transform.Find("Camera Offset/LeftHand Controller").GetComponent<HandController>();
+        rightHand = transform.Find("Camera Offset/RightHand Controller").GetComponent<HandController>();
     }
 
     // Update is called once per frame
@@ -97,6 +107,18 @@ public class CharacterAddonsController : MonoBehaviour
         print("disabling hmovement");
         ls.SetActive(false);
         //ccd.enabled = false;
+    }
+
+    public void EnableUIInteraction(){
+        print("enabling ui interaction");
+        StartCoroutine(leftHand.SetMode(HandMode.UI));
+        StartCoroutine(rightHand.SetMode(HandMode.UI));
+    }
+
+    public void DisableUIInteraction(){
+        print("disabling ui interaction");
+        StartCoroutine(leftHand.SetMode(HandMode.WORLD));
+        StartCoroutine(rightHand.SetMode(HandMode.WORLD));
     }
 }
 

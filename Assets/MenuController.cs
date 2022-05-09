@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MenuController : MonoBehaviour
 {
+    #region Components
+    CharacterAddonsController cac;
+    #endregion
     public Transform camera;
     [SerializeField] private GameObject pauseMenu;
     
@@ -13,6 +16,7 @@ public class MenuController : MonoBehaviour
 
     void Start(){
         if (camera == null) camera = transform.Find("Camera Offset/Main Camera");//.GetComponent<Camera>();
+        cac = GetComponent<CharacterAddonsController>();
     }
 
     void Update(){
@@ -24,9 +28,11 @@ public class MenuController : MonoBehaviour
         pauseMenu.transform.position = camera.position + camera.forward * distance;
         pauseMenu.transform.forward = camera.forward;
         pauseMenu.SetActive(true);
+        cac.EnableUIInteraction();
     }
 
     public void Close(){
         pauseMenu.SetActive(false);
+        cac.DisableUIInteraction();
     }
 }
