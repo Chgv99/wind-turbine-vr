@@ -6,7 +6,10 @@ public class MenuController : MonoBehaviour
 {
     public Transform camera;
     [SerializeField] private GameObject pauseMenu;
-    //[SerializeField] private GameObject pauseMenu;
+    
+    #region VARS
+    [SerializeField] [Range(1f, 4f)] private float distance = 2.5f;
+    #endregion
 
     void Start(){
         if (camera == null) camera = transform.Find("Camera Offset/Main Camera");//.GetComponent<Camera>();
@@ -17,7 +20,9 @@ public class MenuController : MonoBehaviour
     }
 
     public void Open(){
-        pauseMenu.transform.position = transform.position + camera.forward;
+        //Debug.Break();
+        pauseMenu.transform.position = camera.position + camera.forward * distance;
+        pauseMenu.transform.forward = camera.forward;
         pauseMenu.SetActive(true);
     }
 
