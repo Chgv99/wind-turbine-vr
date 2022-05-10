@@ -55,6 +55,18 @@ public class SettingsController : MonoBehaviour
         PlayerPrefs.SetFloat("VOL_MUSIC", value);
     }
 
+    #region MOVEMENT
+
+    public void SelectController(bool selection){
+        if (selection) PlayerPrefs.SetString("MOVEMENT", "CONTROLLER");
+    }
+
+    public void SelectPlatform(bool selection){
+        if (selection) PlayerPrefs.SetString("MOVEMENT", "PLATFORM");
+    }
+
+    #endregion
+
     // Update is called once per frame
     void Update()
     {
