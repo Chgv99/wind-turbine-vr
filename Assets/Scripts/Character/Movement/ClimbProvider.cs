@@ -4,74 +4,77 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ClimbProvider : MonoBehaviour
+namespace WindTurbineVR.Character.Movement
 {
-    public static event Action ClimbActive;
-    public static event Action ClimbInActive;
-
-    public CharacterController characterController;
-    public InputActionProperty velocityRight;
-    public InputActionProperty velocityLeft;
-
-    [SerializeField] private bool _rightActive = false;
-    [SerializeField] private bool _leftActive = false;
-
-    private void Start()
+    public class ClimbProvider : MonoBehaviour
     {
-        XRDirectClimbInteractor.ClimbHandActivated += HandActivated;
-        XRDirectClimbInteractor.ClimbHandDeactivated += HandDeactivated;
-    }
+        public static event Action ClimbActive;
+        public static event Action ClimbInActive;
 
-    private void OnDestroy()
-    {
-        XRDirectClimbInteractor.ClimbHandActivated -= HandActivated;
-        XRDirectClimbInteractor.ClimbHandDeactivated -= HandDeactivated;
-    }
+        public CharacterController characterController;
+        public InputActionProperty velocityRight;
+        public InputActionProperty velocityLeft;
 
-    private void HandActivated(string _controllerName)
-    {
-        Debug.Log("HandActivated");
-        if (_controllerName == "LeftHand Controller")
+        [SerializeField] private bool _rightActive = false;
+        [SerializeField] private bool _leftActive = false;
+
+        private void Start()
         {
-            _leftActive = true;
-            _rightActive = false;
-        }
-        else
-        {
-            _leftActive = false;
-            _rightActive = true;
+            XRDirectClimbInteractor.ClimbHandActivated += HandActivated;
+            XRDirectClimbInteractor.ClimbHandDeactivated += HandDeactivated;
         }
 
-        ClimbActive?.Invoke();
-    }
-
-    private void HandDeactivated(string _controllerName)
-    {
-        Debug.Log("HandDeactivated");
-        if (_rightActive && _controllerName == "RightHand Controller")
+        private void OnDestroy()
         {
-            _rightActive = false;
-            ClimbInActive?.Invoke();
+            XRDirectClimbInteractor.ClimbHandActivated -= HandActivated;
+            XRDirectClimbInteractor.ClimbHandDeactivated -= HandDeactivated;
         }
-        else if (_leftActive && _controllerName == "LeftHand Controller")
+
+        private void HandActivated(string _controllerName)
         {
-            _leftActive = false;
-            ClimbInActive?.Invoke();
-        }
-    }
+            Debug.Log("HandActivated");
+            if (_controllerName == "LeftHand Controller")
+            {
+                _leftActive = true;
+                _rightActive = false;
+            }
+            else
+            {
+                _leftActive = false;
+                _rightActive = true;
+            }
 
-    private void FixedUpdate()
-    {
-        if (_rightActive || _leftActive)
+            ClimbActive?.Invoke();
+        }
+
+        private void HandDeactivated(string _controllerName)
         {
-            Climb();
+            Debug.Log("HandDeactivated");
+            if (_rightActive && _controllerName == "RightHand Controller")
+            {
+                _rightActive = false;
+                ClimbInActive?.Invoke();
+            }
+            else if (_leftActive && _controllerName == "LeftHand Controller")
+            {
+                _leftActive = false;
+                ClimbInActive?.Invoke();
+            }
         }
-    }
 
-    private void Climb()
-    {
-        Vector3 velocity = _leftActive ? velocityLeft.action.ReadValue<Vector3>() : velocityRight.action.ReadValue<Vector3>();
+        private void FixedUpdate()
+        {
+            if (_rightActive || _leftActive)
+            {
+                Climb();
+            }
+        }
 
-        characterController.Move(characterController.transform.rotation * -velocity * Time.fixedDeltaTime);
+        private void Climb()
+        {
+            Vector3 velocity = _leftActive ? velocityLeft.action.ReadValue<Vector3>() : velocityRight.action.ReadValue<Vector3>();
+
+            characterController.Move(characterController.transform.rotation * -velocity * Time.fixedDeltaTime);
+        }
     }
 }
