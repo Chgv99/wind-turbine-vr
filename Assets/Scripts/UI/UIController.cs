@@ -6,6 +6,12 @@ using UnityEngine;
 
 namespace WindTurbineVR.UI
 {
+    public enum DisplayTrigger
+    {
+        Hover,
+        Selection
+    }
+
     public enum Mode
     {
         None = 0,

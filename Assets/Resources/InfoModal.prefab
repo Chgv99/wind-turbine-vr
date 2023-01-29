@@ -225,12 +225,22 @@ PrefabInstance:
     - target: {fileID: 5483714724633069137, guid: 4fca81c1f413fce49967ef4e82b85488,
         type: 3}
       propertyPath: m_Text
-      value: This InfoModal displays an InfoObject's information when hovered.
+      value: This InfoModal displays an InfoObject's information.
       objectReference: {fileID: 0}
     - target: {fileID: 8503936499194532900, guid: 4fca81c1f413fce49967ef4e82b85488,
         type: 3}
       propertyPath: m_Text
       value: InfoModal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503936499194532900, guid: 4fca81c1f413fce49967ef4e82b85488,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503936499194532900, guid: 4fca81c1f413fce49967ef4e82b85488,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fca81c1f413fce49967ef4e82b85488, type: 3}
