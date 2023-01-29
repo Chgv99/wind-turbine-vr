@@ -4,16 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using WindTurbineVR.UI;
 
-namespace WindTurbineVR
+namespace WindTurbineVR.UI
 {
     public class ModalController : MonoBehaviour
     {
         [SerializeField] GameObject button;
 
         [SerializeField]
-        Button closeButton;
+        GameObject buttonInstance;
 
         UIController uiCon;
 
@@ -34,14 +33,15 @@ namespace WindTurbineVR
 
         public void InstantiateCloseButton()
         {
-            GameObject buttonInstance = Instantiate(button, transform);
+            buttonInstance = Instantiate(button, transform);
             buttonInstance.transform.Find("Text").GetComponent<Text>().text = "Close";
             buttonInstance.GetComponent<Button>().onClick.AddListener(uiCon.Dispose);
         }
 
         private void OnDestroy()
         {
-            closeButton.onClick.RemoveListener(uiCon.Dispose);
+            if (buttonInstance != null) 
+                buttonInstance.GetComponent<Button>().onClick.RemoveListener(uiCon.Dispose);
         }
 
         // Update is called once per frame

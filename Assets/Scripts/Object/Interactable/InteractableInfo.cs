@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 using UnityEngine.XR.Interaction.Toolkit;
 using WindTurbineVR.UI;
 
@@ -17,20 +18,20 @@ namespace WindTurbineVR.Object.Interactable
     public class InteractableInfo : XRSimpleInteractable
     {
         [Space]
-        [SerializeField] GameObject UI;
+        protected GameObject UI;
 
         [Space]
-        [SerializeField] DisplayTrigger displayTrigger;
+        [SerializeField] protected DisplayTrigger displayTrigger;
 
         [Space]
-        [SerializeField] DisplayMode displayMode;
+        [SerializeField] protected DisplayMode displayMode;
 
-        GameObject _uiInstance;
+        protected GameObject _uiInstance;
 
         HoverEnterEvent _triggerEvent;
 
         // Start is called before the first frame update
-        void Start()
+        public void Start()
         {
             UI = Resources.Load("UI") as GameObject;
 
@@ -70,13 +71,29 @@ namespace WindTurbineVR.Object.Interactable
 
         private void ShowInfo(HoverEnterEventArgs arg0) => ShowInfo();
 
-        private void ShowInfo()
+        protected void ShowInfo()
+        {
+            /*if (_uiInstance == null)
+            {
+                _uiInstance = Instantiate(UI);
+                Vector3 position = transform.position;
+                _uiInstance.transform.position = new Vector3(position.x, position.y + 0.5f, position.z);
+                _uiInstance.GetComponent<UIController>().ContentType = ContentType.ObjectInfo;
+                _uiInstance.GetComponent<UIController>().DisplayMode = displayMode;
+                _uiInstance.GetComponent<UIController>().DisplayTrigger = displayTrigger;
+            }*/
+
+            Vector3 position = transform.position;
+            ShowInfo(position.y + 0.5f);
+        }
+
+        protected void ShowInfo(float height)
         {
             if (_uiInstance == null)
             {
                 _uiInstance = Instantiate(UI);
                 Vector3 position = transform.position;
-                _uiInstance.transform.position = new Vector3(position.x, position.y + 0.5f, position.z);
+                _uiInstance.transform.position = new Vector3(position.x, height, position.z);
                 _uiInstance.GetComponent<UIController>().ContentType = ContentType.ObjectInfo;
                 _uiInstance.GetComponent<UIController>().DisplayMode = displayMode;
                 _uiInstance.GetComponent<UIController>().DisplayTrigger = displayTrigger;
@@ -87,8 +104,13 @@ namespace WindTurbineVR.Object.Interactable
         {
             if (_uiInstance != null)
             {
-                Destroy(_uiInstance);
+                DisposeUI();
             }
+        }
+
+        protected void DisposeUI()
+        {
+            Destroy(_uiInstance);
         }
     }
 }

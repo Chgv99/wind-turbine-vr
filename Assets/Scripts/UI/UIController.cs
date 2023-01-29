@@ -17,7 +17,8 @@ namespace WindTurbineVR.UI
     public enum DisplayTrigger
     {
         Hover,
-        Selection
+        Selection,
+        TriggerStay
     }
 
     public enum ContentType
