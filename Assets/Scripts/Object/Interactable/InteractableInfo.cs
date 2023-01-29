@@ -9,6 +9,11 @@ using WindTurbineVR.UI;
 
 namespace WindTurbineVR.Object.Interactable
 {
+    /*
+     * Add timer behaviour to hover exit?
+     * 
+     */
+
     public class InteractableInfo : XRSimpleInteractable
     {
         [Space]
