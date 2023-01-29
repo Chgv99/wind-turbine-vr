@@ -17,6 +17,9 @@ namespace WindTurbineVR.Object.Interactable
         [Space]
         [SerializeField] DisplayTrigger displayTrigger;
 
+        [Space]
+        [SerializeField] DisplayMode displayMode;
+
         GameObject _uiInstance;
 
         HoverEnterEvent _triggerEvent;
@@ -30,6 +33,7 @@ namespace WindTurbineVR.Object.Interactable
             {
                 case DisplayTrigger.Hover:
                     hoverEntered.AddListener(ShowInfo);
+                    hoverExited.AddListener(DisposeUI);
                     break;
                 case DisplayTrigger.Selection:
                     selectEntered.AddListener(ShowInfo);
@@ -44,10 +48,16 @@ namespace WindTurbineVR.Object.Interactable
             {
                 case DisplayTrigger.Hover:
                     hoverEntered.RemoveListener(ShowInfo);
+                    hoverExited.RemoveListener(DisposeUI);
                     break;
                 case DisplayTrigger.Selection:
                     selectEntered.RemoveListener(ShowInfo);
                     break;
+            }
+
+            if (_uiInstance != null)
+            {
+
             }
         }
 
@@ -62,7 +72,17 @@ namespace WindTurbineVR.Object.Interactable
                 _uiInstance = Instantiate(UI);
                 Vector3 position = transform.position;
                 _uiInstance.transform.position = new Vector3(position.x, position.y + 0.5f, position.z);
-                _uiInstance.GetComponent<UIController>().Mode = Mode.ObjectInfo;
+                _uiInstance.GetComponent<UIController>().ContentType = ContentType.ObjectInfo;
+                _uiInstance.GetComponent<UIController>().DisplayMode = displayMode;
+                _uiInstance.GetComponent<UIController>().DisplayTrigger = displayTrigger;
+            }
+        }
+
+        private void DisposeUI(HoverExitEventArgs arg0)
+        {
+            if (_uiInstance != null)
+            {
+                Destroy(_uiInstance);
             }
         }
     }

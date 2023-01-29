@@ -10,6 +10,8 @@ namespace WindTurbineVR
 {
     public class ModalController : MonoBehaviour
     {
+        [SerializeField] GameObject button;
+
         [SerializeField]
         Button closeButton;
 
@@ -19,12 +21,22 @@ namespace WindTurbineVR
         void Awake()
         {
             uiCon = transform.parent.GetComponent<UIController>();
-            closeButton = transform.Find("CloseButton").GetComponent<Button>();
+            button = Resources.Load("Button") as GameObject;
 
+            /*closeButton = transform.Find("CloseButton").GetComponent<Button>();
+
+            //Modal needs to be disposed somehow unless undispossable
             if (closeButton != null)
             {
                 closeButton.onClick.AddListener(uiCon.Dispose);
-            }
+            }*/
+        }
+
+        public void InstantiateCloseButton()
+        {
+            GameObject buttonInstance = Instantiate(button, transform);
+            buttonInstance.transform.Find("Text").GetComponent<Text>().text = "Close";
+            buttonInstance.GetComponent<Button>().onClick.AddListener(uiCon.Dispose);
         }
 
         private void OnDestroy()
