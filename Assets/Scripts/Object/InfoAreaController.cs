@@ -37,7 +37,7 @@ namespace WindTurbineVR.Object
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("collider: " + other.gameObject);
+            Debug.Log("collider: " + other.gameObject.name);
             if (other.gameObject.name == "XR Origin")
             {
                 ShowInfo(other.transform.Find("CameraOffset/Main Camera").position.y);
@@ -46,6 +46,7 @@ namespace WindTurbineVR.Object
 
         private void OnTriggerExit(Collider other)
         {
+            Debug.Log("collider: " + other.gameObject.name);
             if (other.gameObject.name == "XR Origin") DisposeUI();
         }
     }
