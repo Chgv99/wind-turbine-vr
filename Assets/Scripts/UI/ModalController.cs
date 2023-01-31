@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using WindTurbineVR.Object;
 
 namespace WindTurbineVR.UI
 {
@@ -11,10 +12,13 @@ namespace WindTurbineVR.UI
     {
         [SerializeField] GameObject button;
 
-        [SerializeField]
-        GameObject buttonInstance;
+        [SerializeField] GameObject buttonInstance;
 
         UIController uiCon;
+
+        Info info;
+
+        internal Info Info { get => info; set => info = value; }
 
         // Start is called before the first frame update
         void Awake()
@@ -44,10 +48,10 @@ namespace WindTurbineVR.UI
                 buttonInstance.GetComponent<Button>().onClick.RemoveListener(uiCon.Dispose);
         }
 
-        // Update is called once per frame
-        void Update()
+        public void SetContent(string title, string description)
         {
-
-        }        
+            transform.Find("HeaderText").GetComponent<Text>().text = title != "" ? title : gameObject.name + " title";
+            transform.Find("ModalText").GetComponent<Text>().text = description != "" ? description : gameObject.name + " description";
+        }  
     }
 }

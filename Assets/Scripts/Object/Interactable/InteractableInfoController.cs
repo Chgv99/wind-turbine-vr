@@ -15,25 +15,17 @@ namespace WindTurbineVR.Object.Interactable
      * 
      */
 
-    public class InteractableInfo : XRSimpleInteractable
+    public class InteractableInfoController : InfoController
     {
         [Space]
-        protected GameObject UI;
-
-        [Space]
         [SerializeField] protected DisplayTrigger displayTrigger;
-
-        [Space]
-        [SerializeField] protected DisplayMode displayMode;
-
-        protected GameObject _uiInstance;
 
         HoverEnterEvent _triggerEvent;
 
         // Start is called before the first frame update
         public void Start()
         {
-            UI = Resources.Load("UI") as GameObject;
+            base.Start();
 
             switch (displayTrigger)
             {
@@ -87,7 +79,7 @@ namespace WindTurbineVR.Object.Interactable
             ShowInfo(position.y + 0.5f);
         }
 
-        protected void ShowInfo(float height)
+        protected override void ShowInfo(float height)
         {
             if (_uiInstance == null)
             {
@@ -97,6 +89,7 @@ namespace WindTurbineVR.Object.Interactable
                 _uiInstance.GetComponent<UIController>().ContentType = ContentType.ObjectInfo;
                 _uiInstance.GetComponent<UIController>().DisplayMode = displayMode;
                 _uiInstance.GetComponent<UIController>().DisplayTrigger = displayTrigger;
+                _uiInstance.GetComponent<UIController>().Info = Info;
             }
         }
 
