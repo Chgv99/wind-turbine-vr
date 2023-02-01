@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 779990489341645837}
   - component: {fileID: 1902546748537362209}
   - component: {fileID: 7055283462710852053}
+  - component: {fileID: 1326871010670952402}
   m_Layer: 0
   m_Name: InfoArea
   m_TagString: Untagged
@@ -123,8 +124,23 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  displayTrigger: 0
   displayMode: 1
+--- !u!114 &1326871010670952402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7006125272093284991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56fce5b1a4f5eb48a5e49fd088aebc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useInfoCard: 0
+  infoCard: {fileID: 0}
+  title: 
+  description: 
 --- !u!1 &8665736793155566483
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,6 +154,7 @@ GameObject:
   - component: {fileID: 2427015805603780085}
   - component: {fileID: 6559346886804154519}
   - component: {fileID: 7683204809622392088}
+  - component: {fileID: 6297184857526655305}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -305,5 +322,20 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  displayTrigger: 0
   displayMode: 1
+--- !u!114 &6297184857526655305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8665736793155566483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56fce5b1a4f5eb48a5e49fd088aebc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useInfoCard: 0
+  infoCard: {fileID: 0}
+  title: 
+  description: 

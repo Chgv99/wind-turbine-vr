@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using WindTurbineVR.Object;
+using TMPro;
 
 namespace WindTurbineVR.UI
 {
@@ -38,7 +39,7 @@ namespace WindTurbineVR.UI
         public void InstantiateCloseButton()
         {
             buttonInstance = Instantiate(button, transform);
-            buttonInstance.transform.Find("Text").GetComponent<Text>().text = "Close";
+            buttonInstance.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = "Close";
             buttonInstance.GetComponent<Button>().onClick.AddListener(uiCon.Dispose);
         }
 
@@ -50,8 +51,8 @@ namespace WindTurbineVR.UI
 
         public void SetContent(string title, string description)
         {
-            transform.Find("HeaderText").GetComponent<Text>().text = title != "" ? title : gameObject.name + " title";
-            transform.Find("ModalText").GetComponent<Text>().text = description != "" ? description : gameObject.name + " description";
+            transform.Find("HeaderText").GetComponent<TextMeshProUGUI>().text = title != "" ? title : gameObject.name + " title";
+            transform.Find("ModalText").GetComponent<TextMeshProUGUI>().text = description != "" ? description : gameObject.name + " description";
         }  
     }
 }

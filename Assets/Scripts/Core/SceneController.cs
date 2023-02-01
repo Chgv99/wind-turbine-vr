@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace WindTurbineVR.Core
 {
@@ -14,15 +15,28 @@ namespace WindTurbineVR.Core
         void Start()
         {
             Exception nullExc = new Exception("Variable not set to an instance of an object.");
-            //Debug.LogException("xrOrigin is not set", transform);
+            
             if (xrOrigin == null) Debug.LogException(nullExc);
-            if (camera == null) Debug.LogException(nullExc);
+            if (camera == null)
+            {
+                camera = xrOrigin.Find("Camera Offset/Main Camera");
+            }
         }
 
-        // Update is called once per frame
-        void Update()
+        public void PlayScene(int i)
         {
-        
+            SceneManager.LoadScene(i);
         }
+
+        public void PlayScene(string name)
+        {
+            SceneManager.LoadScene(name);
+        }
+
+        public void Quit()
+        {
+            Application.Quit();
+        }
+
     }
 }

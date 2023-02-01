@@ -32,13 +32,14 @@ namespace WindTurbineVR.UI
 
     public class UIController : MonoBehaviour
     {
-        [SerializeField] GameObject infoModal;
+        GameObject infoModal;
         GameObject areaInfoInstance;
 
         [SerializeField] DirectionController dc;
 
         ContentType contentType = ContentType.None;
         DisplayMode displayMode = DisplayMode.Static;
+        DisplayTrigger displayTrigger = DisplayTrigger.Hover;
 
         Info info;
 
@@ -48,9 +49,44 @@ namespace WindTurbineVR.UI
 
         public ContentType ContentType { get => contentType; set => contentType = value; }
         public DisplayMode DisplayMode { get => displayMode; set => displayMode = value; }
-        public DisplayTrigger DisplayTrigger { get; set; } = DisplayTrigger.Hover;
-        public GameObject AreaInfoInstance { get => areaInfoInstance; set => areaInfoInstance = value; }
+        public DisplayTrigger DisplayTrigger { get => displayTrigger; set => displayTrigger = value; }
         public Info Info { get => info; set => info = value; }
+
+        public GameObject AreaInfoInstance { get => areaInfoInstance; set => areaInfoInstance = value; }
+
+        private class DirectionController
+        {
+            Transform camera;
+            Transform ui;
+
+            DisplayMode displayMode;
+
+            public Transform UI { get => ui; set => ui = value; }
+            public DisplayMode DisplayMode { get => displayMode; set => displayMode = value; }
+
+            public DirectionController(Transform transform, DisplayMode displayMode)
+            {
+                this.UI = transform;
+                this.DisplayMode = displayMode;
+
+                camera = GameObject.Find("SceneController").GetComponent<SceneController>().camera;
+            }
+
+            public void SetDirection()
+            {
+                switch (DisplayMode)
+                {
+                    case DisplayMode.Static:
+                        break;
+                    case DisplayMode.StaticPivot:
+                        Debug.Log("Setting direction to " + (UI.position - camera.position));
+                        UI.rotation = Quaternion.LookRotation(UI.position - camera.position);
+                        break;
+                    case DisplayMode.FrontPivot:
+                        break;
+                }
+            }
+        }
 
         void Awake()
         {
@@ -60,8 +96,7 @@ namespace WindTurbineVR.UI
         void Start()
         {
             infoModal = Resources.Load("InfoModal") as GameObject;
-            Debug.Log("displayMode" + displayMode);
-            dc = new DirectionController(transform, displayMode);
+            dc = new DirectionController(transform, DisplayMode);
             dc.SetDirection();
             SetContent();
             GetComponent<Canvas>().enabled = true;
@@ -109,37 +144,6 @@ namespace WindTurbineVR.UI
         {
             if (AreaInfoInstance != null) Destroy(AreaInfoInstance);
             Destroy(gameObject);
-        }
-    }
-
-    public class DirectionController
-    {
-        Transform ui;
-        Transform camera;
-
-        DisplayMode displayMode;
-
-        public DirectionController(Transform transform, DisplayMode displayMode)
-        {
-            this.ui = transform;
-            this.displayMode = displayMode;
-
-            camera = GameObject.Find("SceneController").GetComponent<SceneController>().camera;
-        }
-
-        public void SetDirection()
-        {
-            switch (displayMode)
-            {
-                case DisplayMode.Static:
-                    break;
-                case DisplayMode.StaticPivot:
-                    Debug.Log("Setting direction to " + (ui.position - camera.position));
-                    ui.rotation = Quaternion.LookRotation(ui.position - camera.position);
-                    break;
-                case DisplayMode.FrontPivot:
-                    break;
-            }
         }
     }
 }

@@ -7,6 +7,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 215260632491287372, guid: 4fca81c1f413fce49967ef4e82b85488,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 215260632491287372, guid: 4fca81c1f413fce49967ef4e82b85488,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 215260632491287372, guid: 4fca81c1f413fce49967ef4e82b85488,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 215260632491287372, guid: 4fca81c1f413fce49967ef4e82b85488,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 781630661673262082, guid: 4fca81c1f413fce49967ef4e82b85488,
         type: 3}
       propertyPath: m_Pivot.x
@@ -117,6 +137,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: InfoModal
       objectReference: {fileID: 0}
+    - target: {fileID: 781630661673262140, guid: 4fca81c1f413fce49967ef4e82b85488,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 781630662526433601, guid: 4fca81c1f413fce49967ef4e82b85488,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -160,7 +185,7 @@ PrefabInstance:
     - target: {fileID: 781630663273105846, guid: 4fca81c1f413fce49967ef4e82b85488,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 262.1
+      value: 262.09998
       objectReference: {fileID: 0}
     - target: {fileID: 781630663273105846, guid: 4fca81c1f413fce49967ef4e82b85488,
         type: 3}
@@ -232,25 +257,15 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5483714724633069137, guid: 4fca81c1f413fce49967ef4e82b85488,
+    - target: {fileID: 5120016551555062032, guid: 4fca81c1f413fce49967ef4e82b85488,
         type: 3}
-      propertyPath: m_Text
-      value: This InfoModal displays an InfoObject's information.
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8503936499194532900, guid: 4fca81c1f413fce49967ef4e82b85488,
+    - target: {fileID: 6438304838094019420, guid: 4fca81c1f413fce49967ef4e82b85488,
         type: 3}
-      propertyPath: m_Text
-      value: InfoModal
-      objectReference: {fileID: 0}
-    - target: {fileID: 8503936499194532900, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8503936499194532900, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 14
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fca81c1f413fce49967ef4e82b85488, type: 3}
