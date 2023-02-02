@@ -834,6 +834,51 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackgroundTurbine
       objectReference: {fileID: 0}
+    - target: {fileID: 4300065345418601649, guid: fe7c718c0226b314b93a8e9b06f22048,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300065345418601649, guid: fe7c718c0226b314b93a8e9b06f22048,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300065345418601649, guid: fe7c718c0226b314b93a8e9b06f22048,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300065345418601649, guid: fe7c718c0226b314b93a8e9b06f22048,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300065345418601649, guid: fe7c718c0226b314b93a8e9b06f22048,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9000321
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300065345418601649, guid: fe7c718c0226b314b93a8e9b06f22048,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 1.2947368e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300065345418601649, guid: fe7c718c0226b314b93a8e9b06f22048,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.43582368
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300065345418601649, guid: fe7c718c0226b314b93a8e9b06f22048,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -1.1478215e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300065345418601649, guid: fe7c718c0226b314b93a8e9b06f22048,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 51.675
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe7c718c0226b314b93a8e9b06f22048, type: 3}
 --- !u!1 &1694824880
