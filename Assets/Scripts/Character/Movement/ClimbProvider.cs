@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using WindTurbineVR.VR;
 
 namespace WindTurbineVR.Character.Movement
 {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace WindTurbineVR.Object.Scriptable
+namespace WindTurbineVR.Core.Scriptable
 {
     [CreateAssetMenu(fileName = "New Info Card", menuName = "Info Card")]
     public class InfoCard : ScriptableObject

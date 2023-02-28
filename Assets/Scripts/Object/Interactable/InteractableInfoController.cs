@@ -7,6 +7,7 @@ using UnityEngine.Events;
 using UnityEngine.UIElements;
 using UnityEngine.XR.Interaction.Toolkit;
 using WindTurbineVR.UI;
+using WindTurbineVR.Object;
 
 namespace WindTurbineVR.Object.Interactable
 {

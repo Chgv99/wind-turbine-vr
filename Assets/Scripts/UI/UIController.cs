@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using WindTurbineVR.Core;
-using WindTurbineVR.Object;
+//using WindTurbineVR.Object;
 
 namespace WindTurbineVR.UI
 {

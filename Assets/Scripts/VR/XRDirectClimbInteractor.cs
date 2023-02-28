@@ -4,33 +4,36 @@ using UnityEngine;
 using System;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class XRDirectClimbInteractor : XRDirectInteractor
+namespace WindTurbineVR.VR
 {
-    public static event Action<string> ClimbHandActivated;
-    public static event Action<string> ClimbHandDeactivated;
-
-    private string _controllerName;
-
-    protected override void Start()
+    public class XRDirectClimbInteractor : XRDirectInteractor
     {
-        base.Start();
-        _controllerName = transform.parent.gameObject.name;
-    }
-    protected override void OnSelectEntered(SelectEnterEventArgs args)
-    {
-        base.OnSelectEntered(args);
+        public static event Action<string> ClimbHandActivated;
+        public static event Action<string> ClimbHandDeactivated;
 
-        if (args.interactableObject.transform.gameObject.tag == "Climbable")
+        private string _controllerName;
+
+        protected override void Start()
         {
-            ClimbHandActivated?.Invoke(_controllerName);
+            base.Start();
+            _controllerName = transform.parent.gameObject.name;
+        }
+        protected override void OnSelectEntered(SelectEnterEventArgs args)
+        {
+            base.OnSelectEntered(args);
+
+            if (args.interactableObject.transform.gameObject.tag == "Climbable")
+            {
+                ClimbHandActivated?.Invoke(_controllerName);
+            }
+
+        }
+        protected override void OnSelectExited(SelectExitEventArgs args)
+        {
+            base.OnSelectExited(args);
+
+            ClimbHandDeactivated?.Invoke(_controllerName);
         }
 
     }
-    protected override void OnSelectExited(SelectExitEventArgs args)
-    {
-        base.OnSelectExited(args);
-
-        ClimbHandDeactivated?.Invoke(_controllerName);
-    }
-
 }

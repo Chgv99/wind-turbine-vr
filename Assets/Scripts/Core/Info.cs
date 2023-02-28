@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
-using WindTurbineVR.Object.Scriptable;
+//using WindTurbineVR.Core.Scriptable;
 
-namespace WindTurbineVR.Object
+namespace WindTurbineVR.Core
 {
     public class Info : MonoBehaviour
     {
         public bool useInfoCard = false;
 
-        [SerializeField] InfoCard infoCard;
+        [SerializeField] Scriptable.InfoCard infoCard;
 
         [SerializeField] string title;
         [SerializeField] string description;
@@ -18,7 +18,9 @@ namespace WindTurbineVR.Object
             {
                 return useInfoCard ? infoCard.title : title;
             }
-            set => title = value; }
+            set => title = value; 
+        }
+
         public string Description 
         { 
             get 
