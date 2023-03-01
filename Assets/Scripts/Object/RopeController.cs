@@ -47,6 +47,12 @@ namespace WindTurbineVR.Object
         // Start is called before the first frame update
         void Start()
         {
+            #region Object init
+
+            jointPrefab = Resources.Load("Rope/RopeJoint") as GameObject;
+
+            #endregion
+
             #region Object error treatment
             if (beginning == null) Error.LogException("Beginning object is missing. On GameObject \"" + gameObject.name + "\".");
             if (end == null) Error.LogException("End object is missing. On GameObject \"" + gameObject.name + "\".");
