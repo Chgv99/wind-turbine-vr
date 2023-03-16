@@ -43,6 +43,8 @@ namespace WindTurbineVR.UI
 
         Info info;
 
+        Task[] tasks;
+
         bool initializated = false;
 
         bool immortal = false;
@@ -51,9 +53,10 @@ namespace WindTurbineVR.UI
         public DisplayMode DisplayMode { get => displayMode; set => displayMode = value; }
         public DisplayTrigger DisplayTrigger { get => displayTrigger; set => displayTrigger = value; }
         public Info Info { get => info; set => info = value; }
+        public Task[] Tasks { get => tasks; set => tasks = value; }
 
         public GameObject AreaInfoInstance { get => areaInfoInstance; set => areaInfoInstance = value; }
-
+        
         private class DirectionController
         {
             Transform camera;
@@ -74,17 +77,10 @@ namespace WindTurbineVR.UI
 
             public void SetDirection()
             {
-                switch (DisplayMode)
-                {
-                    case DisplayMode.Static:
-                        break;
-                    case DisplayMode.StaticPivot:
-                        Debug.Log("Setting direction to " + (UI.position - camera.position));
-                        UI.rotation = Quaternion.LookRotation(UI.position - camera.position);
-                        break;
-                    case DisplayMode.FrontPivot:
-                        break;
-                }
+                Debug.Log("DisplayMode: " + DisplayMode);
+
+                Debug.Log("Setting direction to " + (UI.position - camera.position));
+                UI.rotation = Quaternion.LookRotation(UI.position - camera.position);
             }
         }
 
@@ -95,7 +91,7 @@ namespace WindTurbineVR.UI
 
         void Start()
         {
-            infoModal = Resources.Load("InfoModal") as GameObject;
+            infoModal = Resources.Load("UI/Modal/InfoModal") as GameObject;
             dc = new DirectionController(transform, DisplayMode);
             dc.SetDirection();
             SetContent();
@@ -112,7 +108,16 @@ namespace WindTurbineVR.UI
                 
             }
 
-            dc.SetDirection();
+            switch (DisplayMode)
+            {
+                case DisplayMode.Static:
+                    break;
+                case DisplayMode.StaticPivot:
+                    dc.SetDirection();
+                    break;
+                case DisplayMode.FrontPivot:
+                    break;
+            }
         }
 
         public void SetContent()
@@ -137,7 +142,8 @@ namespace WindTurbineVR.UI
             {
                 infoModalInstance.GetComponent<ModalController>().InstantiateCloseButton(AreaInfoInstance);
             }*/
-            infoModalInstance.GetComponent<ModalController>().SetContent(Info.Title, Info.Description);
+            if (Tasks != null) infoModalInstance.GetComponent<ModalController>().SetContent(Info.Title, Info.Description, Tasks);
+            else infoModalInstance.GetComponent<ModalController>().SetContent(Info.Title, Info.Description);
         }
 
         public void Dispose()

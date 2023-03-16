@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 using UnityEngine.XR.Interaction.Toolkit;
 using WindTurbineVR.UI;
 using WindTurbineVR.Object;
+using System.Threading.Tasks;
 
 namespace WindTurbineVR.Object.Interactable
 {
@@ -21,7 +22,7 @@ namespace WindTurbineVR.Object.Interactable
         [Space]
         [SerializeField] protected DisplayTrigger displayTrigger;
 
-        HoverEnterEvent _triggerEvent;
+        //HoverEnterEvent _triggerEvent;
 
         // Start is called before the first frame update
         public void Start()
@@ -31,13 +32,18 @@ namespace WindTurbineVR.Object.Interactable
             switch (displayTrigger)
             {
                 case DisplayTrigger.Hover:
-                    hoverEntered.AddListener(ShowInfo);
-                    hoverExited.AddListener(DisposeUI);
+                    //hoverEntered.AddListener(ShowInfo);
+                    //hoverExited.AddListener(DisposeUI);
+                    hoverEntered.AddListener(Enable);
+                    hoverExited.AddListener(Disable);
                     break;
                 case DisplayTrigger.Selection:
                     selectEntered.AddListener(ShowInfo);
                     break;
             }
+
+            ShowInfo();
+            Disable();
         }
 
         protected override void OnDestroy()
@@ -46,8 +52,10 @@ namespace WindTurbineVR.Object.Interactable
             switch (displayTrigger)
             {
                 case DisplayTrigger.Hover:
-                    hoverEntered.RemoveListener(ShowInfo);
-                    hoverExited.RemoveListener(DisposeUI);
+                    //hoverEntered.RemoveListener(ShowInfo);
+                    //hoverExited.RemoveListener(DisposeUI);
+                    hoverEntered.RemoveListener(Enable);
+                    hoverExited.RemoveListener(Disable);
                     break;
                 case DisplayTrigger.Selection:
                     selectEntered.RemoveListener(ShowInfo);
@@ -82,18 +90,23 @@ namespace WindTurbineVR.Object.Interactable
 
         protected override void ShowInfo(float height)
         {
+            //Debug.Log("Show Info")
+            //Debug.Log(taskList.Length);
             if (_uiInstance == null)
             {
                 _uiInstance = Instantiate(UI);
                 Vector3 position = transform.position;
                 _uiInstance.transform.position = new Vector3(position.x, height, position.z);
-                _uiInstance.GetComponent<UIController>().ContentType = ContentType.ObjectInfo;
-                _uiInstance.GetComponent<UIController>().DisplayMode = displayMode;
-                _uiInstance.GetComponent<UIController>().DisplayTrigger = displayTrigger;
-                _uiInstance.GetComponent<UIController>().Info = Info;
+                UIController uic = _uiInstance.GetComponent<UIController>();
+                uic.ContentType = ContentType.ObjectInfo;
+                uic.DisplayMode = displayMode;
+                uic.DisplayTrigger = displayTrigger;
+                uic.Info = Info;
+                uic.Tasks = taskList;
             }
         }
 
+        /*
         private void DisposeUI(HoverExitEventArgs arg0)
         {
             if (_uiInstance != null)
@@ -106,5 +119,6 @@ namespace WindTurbineVR.Object.Interactable
         {
             Destroy(_uiInstance);
         }
+        */
     }
 }

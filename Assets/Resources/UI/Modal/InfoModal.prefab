@@ -172,6 +172,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeaderText
       objectReference: {fileID: 0}
+    - target: {fileID: 781630663273105845, guid: 4fca81c1f413fce49967ef4e82b85488,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 781630663273105845, guid: 4fca81c1f413fce49967ef4e82b85488,
+        type: 3}
+      propertyPath: m_VerticalFit
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 781630663273105846, guid: 4fca81c1f413fce49967ef4e82b85488,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -195,7 +205,7 @@ PrefabInstance:
     - target: {fileID: 781630663273105846, guid: 4fca81c1f413fce49967ef4e82b85488,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 147.05
+      value: 147.04999
       objectReference: {fileID: 0}
     - target: {fileID: 781630663273105846, guid: 4fca81c1f413fce49967ef4e82b85488,
         type: 3}
@@ -206,6 +216,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModalText
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037419211520095633, guid: 4fca81c1f413fce49967ef4e82b85488,
+        type: 3}
+      propertyPath: m_text
+      value: This InfoModal displays an InfoObject's information
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037419211520095633, guid: 4fca81c1f413fce49967ef4e82b85488,
+        type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488811665070218461, guid: 4fca81c1f413fce49967ef4e82b85488,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488811665070218461, guid: 4fca81c1f413fce49967ef4e82b85488,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488811665070218461, guid: 4fca81c1f413fce49967ef4e82b85488,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 262.09998
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488811665070218461, guid: 4fca81c1f413fce49967ef4e82b85488,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 147.04999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488811665070218461, guid: 4fca81c1f413fce49967ef4e82b85488,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4428987926523084445, guid: 4fca81c1f413fce49967ef4e82b85488,
         type: 3}

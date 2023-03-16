@@ -33,6 +33,12 @@ namespace WindTurbineVR.Core
             SceneManager.LoadScene(name);
         }
 
+        public void EventLog(string str)
+        {
+            Debug.Log(str);
+            Debug.Break();
+        }
+
         public void Quit()
         {
             Application.Quit();

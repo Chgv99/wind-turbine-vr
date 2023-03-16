@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 using WindTurbineVR.Object.Interactable;
 using WindTurbineVR.UI;
 
@@ -25,6 +26,9 @@ namespace WindTurbineVR.Object
             base.Start();
             //UI = Resources.Load("UI") as GameObject;
             displayTrigger = DisplayTrigger.TriggerStay;
+
+            ShowInfo();
+            Disable();
         }
 
         // Update is called once per frame
@@ -36,17 +40,32 @@ namespace WindTurbineVR.Object
         private void OnTriggerEnter(Collider other)
         {
             //Debug.Log("collider: " + other.gameObject.name);
-            if (other.gameObject.name == "XR Origin")
-            {
-                ShowInfo(other.transform.Find("CameraOffset/Main Camera").position.y);
-            }
+            if (other.gameObject.name != "XR Origin") return;
+
+            if (_uiInstance == null) return;
+
+            //ShowInfo(other.transform.Find("CameraOffset/Main Camera").position.y);
+            Enable();
+            float height = other.transform.Find("CameraOffset/Main Camera").position.y;
+            _uiInstance.transform.position = new Vector3(transform.position.x, height, transform.position.z);
         }
 
         private void OnTriggerExit(Collider other)
         {
             //Debug.Log("collider: " + other.gameObject.name);
-            if (other.gameObject.name == "XR Origin") DisposeUI();
+            if (other.gameObject.name != "XR Origin") return;
+
+            //DisposeUI();
+            Disable();
         }
+
+        /*
+        private void Enable()
+        {
+            base.Enable();
+
+
+        }*/
 
         protected override void ShowInfo(float height)
         {
@@ -55,11 +74,13 @@ namespace WindTurbineVR.Object
                 _uiInstance = Instantiate(UI);
                 Vector3 position = transform.position;
                 _uiInstance.transform.position = new Vector3(position.x, height, position.z);
-                _uiInstance.GetComponent<UIController>().ContentType = ContentType.ObjectInfo;
-                _uiInstance.GetComponent<UIController>().DisplayMode = displayMode;
-                _uiInstance.GetComponent<UIController>().DisplayTrigger = displayTrigger;
-                _uiInstance.GetComponent<UIController>().AreaInfoInstance = this.gameObject;
-                _uiInstance.GetComponent<UIController>().Info = Info;
+                UIController uic = _uiInstance.GetComponent<UIController>();
+                uic.ContentType = ContentType.ObjectInfo;
+                uic.DisplayMode = displayMode;
+                uic.DisplayTrigger = displayTrigger;
+                uic.AreaInfoInstance = this.gameObject;
+                uic.Info = Info;
+                uic.Tasks = taskList;
             }
         }
     }
