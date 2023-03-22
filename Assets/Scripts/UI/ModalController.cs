@@ -49,17 +49,24 @@ namespace WindTurbineVR.UI
                 buttonInstance.GetComponent<Button>().onClick.RemoveListener(uiCon.Dispose);
         }
 
-        public void SetContent(string title, string description, Task[] tasks)
+        public void SetContent(string title, string description, List<TaskController> tasks)
         {
             SetContent(title, description);
 
             GameObject taskDisplay = Resources.Load("UI/Modal/Task") as GameObject;
-            for (int i = 0; i < tasks.Length; i++)
+            //for (int i = 0; i < tasks.Count; i++)
+            foreach (TaskController tc in tasks)
             {
+                if (tc == null) continue;
+
+                if (tc.Task == null) Error.LogException("TaskController contains a null Task");
+
+                Task task = tc.Task;
+                Debug.Log("task: " + task.Description);
                 GameObject taskInstance = Instantiate(taskDisplay, transform.Find("Tasks"));
                 Transform toggle = taskInstance.transform.Find("Toggle");
-                toggle.GetComponent<Toggle>().isOn = tasks[i].Completed;
-                toggle.transform.Find("Label").GetComponent<TextMeshProUGUI>().text = tasks[i].Description;
+                toggle.GetComponent<Toggle>().isOn = task.Completed;
+                toggle.transform.Find("Label").GetComponent<TextMeshProUGUI>().text = task.Description;
             }
         }
 

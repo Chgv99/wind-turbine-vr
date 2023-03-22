@@ -102,7 +102,7 @@ namespace WindTurbineVR.Object.Interactable
                 uic.DisplayMode = displayMode;
                 uic.DisplayTrigger = displayTrigger;
                 uic.Info = Info;
-                uic.Tasks = taskList;
+                uic.taskControllerList = taskList;
             }
         }
 

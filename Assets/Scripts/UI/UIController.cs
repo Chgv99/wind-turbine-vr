@@ -32,6 +32,10 @@ namespace WindTurbineVR.UI
 
     public class UIController : MonoBehaviour
     {
+        public SceneController sceneController;
+
+        //public TaskManager taskManager;
+
         GameObject infoModal;
         GameObject areaInfoInstance;
 
@@ -43,7 +47,13 @@ namespace WindTurbineVR.UI
 
         Info info;
 
-        Task[] tasks;
+        public List<TaskController> taskControllerList;
+
+        /** TODO
+         * Perpetuar cambios en la lista de tasks:
+         * Ahora se leen desde TaskManager en SceneController
+         * Hay clases que intentan recogerlo de UIController (esta clase).
+         */
 
         bool initializated = false;
 
@@ -53,10 +63,12 @@ namespace WindTurbineVR.UI
         public DisplayMode DisplayMode { get => displayMode; set => displayMode = value; }
         public DisplayTrigger DisplayTrigger { get => displayTrigger; set => displayTrigger = value; }
         public Info Info { get => info; set => info = value; }
-        public Task[] Tasks { get => tasks; set => tasks = value; }
+        
 
         public GameObject AreaInfoInstance { get => areaInfoInstance; set => areaInfoInstance = value; }
-        
+
+        GameObject _infoModalInstance;
+
         private class DirectionController
         {
             Transform camera;
@@ -91,6 +103,11 @@ namespace WindTurbineVR.UI
 
         void Start()
         {
+            sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
+            sceneController.TaskRemoved.AddListener(UpdateObjectInfo);
+
+            //taskManager = GameObject.Find("SceneController").GetComponent<TaskManager>();
+            
             infoModal = Resources.Load("UI/Modal/InfoModal") as GameObject;
             dc = new DirectionController(transform, DisplayMode);
             dc.SetDirection();
@@ -134,16 +151,25 @@ namespace WindTurbineVR.UI
             }
         }
 
+        // taskRemoved event listener
+        public void UpdateObjectInfo()
+        {
+            if (_infoModalInstance != null) Destroy(_infoModalInstance);
+            ShowObjectInfo();
+        }
+
         private void ShowObjectInfo()
         {
-            GameObject infoModalInstance = Instantiate(infoModal, transform);
-            if (DisplayTrigger != DisplayTrigger.Hover) infoModalInstance.GetComponent<ModalController>().InstantiateCloseButton();
+            _infoModalInstance = Instantiate(infoModal, transform);
+            if (DisplayTrigger != DisplayTrigger.Hover) _infoModalInstance.GetComponent<ModalController>().InstantiateCloseButton();
             /*if (DisplayTrigger != DisplayTrigger.TriggerStay && AreaInfoInstance != null)
             {
                 infoModalInstance.GetComponent<ModalController>().InstantiateCloseButton(AreaInfoInstance);
             }*/
-            if (Tasks != null) infoModalInstance.GetComponent<ModalController>().SetContent(Info.Title, Info.Description, Tasks);
-            else infoModalInstance.GetComponent<ModalController>().SetContent(Info.Title, Info.Description);
+
+            //Debug.Log(taskControllerList.Count + "lista");
+            if (taskControllerList != null) _infoModalInstance.GetComponent<ModalController>().SetContent(Info.Title, Info.Description, taskControllerList);
+            else _infoModalInstance.GetComponent<ModalController>().SetContent(Info.Title, Info.Description);
         }
 
         public void Dispose()

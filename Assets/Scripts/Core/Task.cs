@@ -18,7 +18,7 @@ namespace WindTurbineVR.Core
         public bool Completed { get => completed; }
         public string Description { get => description; }
 
-        public Task() { this.description = description; this.completed = false; }
+        public Task() { this.description = _DEFAULT_DESC; this.completed = false; }
 
         public Task(string description) { this.description = description; this.completed = false; }
 

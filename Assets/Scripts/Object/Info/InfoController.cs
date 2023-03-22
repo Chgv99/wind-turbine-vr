@@ -25,6 +25,7 @@ namespace WindTurbineVR.Object
      */
 
     [RequireComponent(typeof(Info))]
+    [RequireComponent(typeof(TaskManager))]
     public abstract class InfoController : XRSimpleInteractable
     {
         protected GameObject UI;
@@ -36,8 +37,8 @@ namespace WindTurbineVR.Object
         [SerializeField] protected DisplayMode displayMode;
 
         [Space]
-        [SerializeField] string[] tasks;
-        protected Task[] taskList;
+        //[SerializeField] string[] tasks;
+        protected List<TaskController> taskList;
 
         //HoverEnterEvent _triggerEvent;
 
@@ -49,10 +50,12 @@ namespace WindTurbineVR.Object
             UI = Resources.Load("UI/UI") as GameObject;
             Info = GetComponent<Info>();
 
-            GenerateTasks();
+            taskList = GetComponent<TaskManager>().Tasks;
+            Debug.Log("taskList on infocontroller:" + taskList.Count);
+            //GenerateTasks();
         }
 
-        private void GenerateTasks()
+        /*private void GenerateTasks()
         {
             if (tasks.Length <= 0) return;
 
@@ -63,7 +66,7 @@ namespace WindTurbineVR.Object
                 taskList[i] = new Task(tasks[i]);
                 Debug.Log(taskList[i]);
             }
-        }
+        }*/
 
         protected void Enable(HoverEnterEventArgs arg0) => Enable();
 

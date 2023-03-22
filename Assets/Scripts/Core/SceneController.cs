@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace WindTurbineVR.Core
@@ -10,6 +11,10 @@ namespace WindTurbineVR.Core
     {
         public Transform xrOrigin;
         public Transform camera;
+
+        private UnityEvent taskRemoved;
+
+        public UnityEvent TaskRemoved { get => taskRemoved; }
 
         // Start is called before the first frame update
         void Start()
@@ -21,6 +26,8 @@ namespace WindTurbineVR.Core
             {
                 camera = xrOrigin.Find("Camera Offset/Main Camera");
             }
+
+            taskRemoved = new UnityEvent();
         }
 
         public void PlayScene(int i)

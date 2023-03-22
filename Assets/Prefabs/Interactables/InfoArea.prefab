@@ -53,10 +53,11 @@ GameObject:
   - component: {fileID: 5225682319830871426}
   - component: {fileID: 2427015805603780085}
   - component: {fileID: 6559346886804154519}
-  - component: {fileID: 7683204809622392088}
+  - component: {fileID: 5908749389890500727}
   - component: {fileID: 6297184857526655305}
+  - component: {fileID: 2217145787379075226}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: AreaInfoController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,7 +142,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.00000005960464, y: 0, z: -0.00000008940696}
---- !u!114 &7683204809622392088
+--- !u!114 &5908749389890500727
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,7 +224,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   displayMode: 0
-  tasks: []
 --- !u!114 &6297184857526655305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,3 +240,16 @@ MonoBehaviour:
   infoCard: {fileID: 0}
   title: 
   description: 
+--- !u!114 &2217145787379075226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8665736793155566483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a90f2dab79e854188cc83f220216aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tasks: []
