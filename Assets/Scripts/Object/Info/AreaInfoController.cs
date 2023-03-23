@@ -80,9 +80,6 @@ namespace WindTurbineVR.Object
                 uic.DisplayTrigger = displayTrigger;
                 uic.AreaInfoInstance = this.gameObject;
                 uic.Info = Info;
-                Debug.Log("taskList" + taskList);
-                Debug.Log("taskListCount" + taskList.Count);
-                Debug.Log("taskList0: " + taskList[0].Description);
                 uic.taskControllerList = taskList;
             }
         }

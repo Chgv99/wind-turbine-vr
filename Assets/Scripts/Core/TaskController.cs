@@ -16,7 +16,7 @@ namespace WindTurbineVR.Core
         public Task Task { get => task; }
         public string Description { get => description; }
 
-        private UnityEvent taskRemoved;
+        private UnityEvent taskChecked;
 
         // Start is called before the first frame update
         void Start()
@@ -25,12 +25,11 @@ namespace WindTurbineVR.Core
             //taskManager.AddTask(this); //this component
             if (description == "")
             {
-                Debug.LogError("Empty task description. This will produce a <DEFAULT TASK>.");
-                Debug.Break();
+                Error.LogException("Empty task description. This will produce a <DEFAULT TASK>.");
                 task = new Task();
             }
             task = new Task(description);
-            taskRemoved = GameObject.Find("SceneController").GetComponent<SceneController>().TaskRemoved;
+            taskChecked = GameObject.Find("SceneController").GetComponent<SceneController>().TaskChecked;
         }
 
         // Update is called once per frame
@@ -43,10 +42,12 @@ namespace WindTurbineVR.Core
         public void ActionListener()
         {
             Debug.Log("action listener");
+            Debug.Log("null event? " + taskChecked == null);
             // Call event for ui to update,
-            taskRemoved?.Invoke();
-            // then destroy this component.
-            Destroy(this);
+            taskChecked?.Invoke();
+            // then check task
+            task.Check();
+            //Destroy(this);
         }
     }
 }

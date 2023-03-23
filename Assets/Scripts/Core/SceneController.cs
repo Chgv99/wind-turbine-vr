@@ -12,9 +12,9 @@ namespace WindTurbineVR.Core
         public Transform xrOrigin;
         public Transform camera;
 
-        private UnityEvent taskRemoved;
+        private UnityEvent taskChecked;
 
-        public UnityEvent TaskRemoved { get => taskRemoved; }
+        public UnityEvent TaskChecked { get => taskChecked; }
 
         // Start is called before the first frame update
         void Start()
@@ -27,7 +27,7 @@ namespace WindTurbineVR.Core
                 camera = xrOrigin.Find("Camera Offset/Main Camera");
             }
 
-            taskRemoved = new UnityEvent();
+            taskChecked = new UnityEvent();
         }
 
         public void PlayScene(int i)
@@ -43,7 +43,7 @@ namespace WindTurbineVR.Core
         public void EventLog(string str)
         {
             Debug.Log(str);
-            Debug.Break();
+            //Debug.Break();
         }
 
         public void Quit()

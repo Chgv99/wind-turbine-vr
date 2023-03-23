@@ -89,9 +89,9 @@ namespace WindTurbineVR.UI
 
             public void SetDirection()
             {
-                Debug.Log("DisplayMode: " + DisplayMode);
+                //Debug.Log("DisplayMode: " + DisplayMode);
 
-                Debug.Log("Setting direction to " + (UI.position - camera.position));
+                //Debug.Log("Setting direction to " + (UI.position - camera.position));
                 UI.rotation = Quaternion.LookRotation(UI.position - camera.position);
             }
         }
@@ -104,7 +104,7 @@ namespace WindTurbineVR.UI
         void Start()
         {
             sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
-            sceneController.TaskRemoved.AddListener(UpdateObjectInfo);
+            sceneController.TaskChecked.AddListener(UpdateObjectInfo);
 
             //taskManager = GameObject.Find("SceneController").GetComponent<TaskManager>();
             
@@ -154,8 +154,10 @@ namespace WindTurbineVR.UI
         // taskRemoved event listener
         public void UpdateObjectInfo()
         {
-            if (_infoModalInstance != null) Destroy(_infoModalInstance);
-            ShowObjectInfo();
+            Debug.Log("UpdateObjectInfo");
+            _infoModalInstance.GetComponent<ModalController>().UpdateTasks();
+            /*if (_infoModalInstance != null) Destroy(_infoModalInstance);
+            ShowObjectInfo();*/
         }
 
         private void ShowObjectInfo()

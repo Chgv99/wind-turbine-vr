@@ -17,6 +17,9 @@ namespace WindTurbineVR.UI
 
         UIController uiCon;
 
+        List<TaskController> tcs;
+        List<Toggle> toggles;
+
         Info info;
 
         internal Info Info { get => info; set => info = value; }
@@ -49,13 +52,28 @@ namespace WindTurbineVR.UI
                 buttonInstance.GetComponent<Button>().onClick.RemoveListener(uiCon.Dispose);
         }
 
-        public void SetContent(string title, string description, List<TaskController> tasks)
+        public void UpdateTasks()
+        {
+            Debug.Log("UpdateTasks");
+            if (tcs.Count != toggles.Count) Error.LogException("Task list size is different from toggle list size.");
+
+            for (int i = 0; i < tcs.Count; i++)
+            {
+                if (tcs[i].Task.Completed) toggles[i].isOn = true;
+            }
+        }
+
+        public void SetContent(string title, string description, List<TaskController> tcs)
         {
             SetContent(title, description);
 
+            this.tcs = tcs;
+
+            toggles = new List<Toggle>();
+
             GameObject taskDisplay = Resources.Load("UI/Modal/Task") as GameObject;
             //for (int i = 0; i < tasks.Count; i++)
-            foreach (TaskController tc in tasks)
+            foreach (TaskController tc in tcs)
             {
                 if (tc == null) continue;
 
@@ -64,9 +82,14 @@ namespace WindTurbineVR.UI
                 Task task = tc.Task;
                 Debug.Log("task: " + task.Description);
                 GameObject taskInstance = Instantiate(taskDisplay, transform.Find("Tasks"));
-                Transform toggle = taskInstance.transform.Find("Toggle");
-                toggle.GetComponent<Toggle>().isOn = task.Completed;
-                toggle.transform.Find("Label").GetComponent<TextMeshProUGUI>().text = task.Description;
+                
+                Transform toggleT = taskInstance.transform.Find("Toggle");
+                toggleT.Find("Label").GetComponent<TextMeshProUGUI>().text = task.Description;
+
+                Toggle toggle = toggleT.GetComponent<Toggle>();
+                toggle.isOn = task.Completed;
+                
+                toggles.Add(toggle);
             }
         }
 
