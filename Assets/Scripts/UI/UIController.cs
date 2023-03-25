@@ -32,7 +32,7 @@ namespace WindTurbineVR.UI
 
     public class UIController : MonoBehaviour
     {
-        public SceneController sceneController;
+        public TurbineSceneController sceneController;
 
         //public TaskManager taskManager;
 
@@ -84,7 +84,7 @@ namespace WindTurbineVR.UI
                 this.UI = transform;
                 this.DisplayMode = displayMode;
 
-                camera = GameObject.Find("SceneController").GetComponent<SceneController>().camera;
+                camera = GameObject.Find("SceneController").GetComponent<SceneController>().Camera;
             }
 
             public void SetDirection()
@@ -103,7 +103,7 @@ namespace WindTurbineVR.UI
 
         void Start()
         {
-            sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
+            sceneController = GameObject.Find("SceneController").GetComponent<TurbineSceneController>();
             sceneController.TaskChecked.AddListener(UpdateObjectInfo);
 
             //taskManager = GameObject.Find("SceneController").GetComponent<TaskManager>();

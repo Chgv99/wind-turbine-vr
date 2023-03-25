@@ -29,7 +29,7 @@ namespace WindTurbineVR.Core
                 task = new Task();
             }
             task = new Task(description);
-            taskChecked = GameObject.Find("SceneController").GetComponent<SceneController>().TaskChecked;
+            taskChecked = GameObject.Find("SceneController").GetComponent<TurbineSceneController>().TaskChecked;
         }
 
         // Update is called once per frame

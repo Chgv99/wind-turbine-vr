@@ -10,24 +10,20 @@ namespace WindTurbineVR.Core
     public class SceneController : MonoBehaviour
     {
         public Transform xrOrigin;
-        public Transform camera;
+        Transform camera;
 
-        private UnityEvent taskChecked;
-
-        public UnityEvent TaskChecked { get => taskChecked; }
+        public Transform Camera { get => camera; set => camera = value; }
 
         // Start is called before the first frame update
-        void Start()
+        public virtual void Start()
         {
             Exception nullExc = new Exception("Variable not set to an instance of an object.");
             
             if (xrOrigin == null) Debug.LogException(nullExc);
-            if (camera == null)
+            if (Camera == null)
             {
-                camera = xrOrigin.Find("Camera Offset/Main Camera");
+                Camera = xrOrigin.Find("Camera Offset/Main Camera");
             }
-
-            taskChecked = new UnityEvent();
         }
 
         public void PlayScene(int i)
