@@ -260,6 +260,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 955004621367340760, guid: bb9927492287c5a428dac552c6b606b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2253912397562253267, guid: bb9927492287c5a428dac552c6b606b4,
         type: 3}
       propertyPath: m_RootOrder
@@ -319,6 +324,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6575241570959728850, guid: bb9927492287c5a428dac552c6b606b4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb9927492287c5a428dac552c6b606b4, type: 3}
@@ -545,7 +555,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331216061}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1331216063
 Camera:
   m_ObjectHideFlags: 0
@@ -12661,6 +12671,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xrOrigin: {fileID: 243572956}
+  wind_speed: 0
+  wind_direction: 0
 --- !u!33 &2253736426894758425
 MeshFilter:
   m_ObjectHideFlags: 0

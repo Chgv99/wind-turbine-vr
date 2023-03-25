@@ -17664,7 +17664,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764784603}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &764784605
 Camera:
   m_ObjectHideFlags: 0
@@ -49858,6 +49858,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 955004621367340760, guid: bb9927492287c5a428dac552c6b606b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2253912397562253267, guid: bb9927492287c5a428dac552c6b606b4,
         type: 3}
       propertyPath: m_RootOrder
@@ -49917,6 +49922,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6575241570959728850, guid: bb9927492287c5a428dac552c6b606b4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb9927492287c5a428dac552c6b606b4, type: 3}
@@ -50728,3 +50738,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xrOrigin: {fileID: 2122964997}
+  wind_speed: 0
+  wind_direction: 0

@@ -26,15 +26,9 @@ namespace WindTurbineVR.Core
             }
         }
 
-        public void PlayScene(int i)
-        {
-            SceneManager.LoadScene(i);
-        }
+        public void PlayScene(int i) => SceneManager.LoadScene(i);
 
-        public void PlayScene(string name)
-        {
-            SceneManager.LoadScene(name);
-        }
+        public void PlayScene(string name) => SceneManager.LoadScene(name);
 
         public void EventLog(string str)
         {

@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DemoScene.unity
     guid: 832e5dc0197cf81419ed7953672e6902
+  - enabled: 1
+    path: Assets/Scenes/Turbine.unity
+    guid: 1f3c8dc8a6a47f04082af6f8bb621a9a
+  - enabled: 1
+    path: Assets/Scenes/TurbineAerial.unity
+    guid: 6ef6a2e02714134479edca795a1b534a
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260,
       type: 2}
