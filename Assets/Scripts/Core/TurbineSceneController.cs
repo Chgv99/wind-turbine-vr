@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,12 +18,12 @@ namespace WindTurbineVR.Core
 
         /** Wind Speed in km per hour
          * Covering up to level 8 on the Beaufort scale. **/
-        [SerializeField] [Range(0, 74)] float wind_speed = 0f;
+        [SerializeField][Range(0, 74)] float wind_speed = 0f;
         /** Wind Direction in degrees
          * Taking North as 0/360º. **/
         [SerializeField][Range(0, 359)] float wind_direction = 0f;
 
-        private UnityEvent taskChecked;
+        UnityEvent taskChecked;
 
         public float Wind_speed { get => wind_speed; }
         public float Wind_direction { get => wind_direction; set => wind_direction = value; }
@@ -35,24 +36,21 @@ namespace WindTurbineVR.Core
             base.Start();
             taskChecked = new UnityEvent();
 
-            if (SceneManager.GetActiveScene().name == "Turbine")
+            sceneHelper.LoadAsync();
+
+            /*if (SceneManager.GetActiveScene().name == "Turbine")
                 if (!SceneManager.GetSceneByName("TurbineAerial").isLoaded)
                 {
                     SceneManager.LoadScene("TurbineAerial", LoadSceneMode.Additive);
-                }
+                }*/
 
             #region STATIC dump
             wind_speed = s_wind_speed;
             wind_direction = s_wind_direction;
             #endregion
 
-            if (SceneManager.GetActiveScene().name == "Turbine")
-                StartCoroutine(SwitchSceneCo());
-        }
-
-        void OnLevelWasLoaded()
-        {
-            
+            //if (SceneManager.GetActiveScene().name == "Turbine")
+            //    StartCoroutine(SwitchSceneCo());
         }
 
         IEnumerator SwitchSceneCo()
@@ -74,11 +72,7 @@ namespace WindTurbineVR.Core
             s_wind_direction = wind_direction;
             #endregion
             Debug.Log("SwitchScene from " + SceneManager.GetActiveScene().name);
-            //if (SceneManager.GetActiveScene().name == "Turbine") PlayScene("TurbineAerial");
-            //if (SceneManager.GetActiveScene().name == "TurbineAerial") PlayScene("Turbine");
-
-            if (SceneManager.GetActiveScene().name == "Turbine") SceneManager.SetActiveScene(SceneManager.GetSceneByName("TurbineAerial"));
-            if (SceneManager.GetActiveScene().name == "TurbineAerial") SceneManager.SetActiveScene(SceneManager.GetSceneByName("Turbine"));
+            sceneHelper.LoadAsync();
         }
     }
 }
