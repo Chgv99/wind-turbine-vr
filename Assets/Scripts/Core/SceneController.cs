@@ -34,7 +34,6 @@ namespace WindTurbineVR.Core
             public void AllowSceneActivation() => asyncOperation.allowSceneActivation = true;
         }
 
-
         // Start is called before the first frame update
         public virtual void Start()
         {

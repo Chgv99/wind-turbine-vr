@@ -65,14 +65,14 @@ namespace WindTurbineVR.Core
         
         }
 
-        void SwitchScene()
+        public void SwitchScene()
         {
             #region STATIC load
             s_wind_speed = wind_speed;
             s_wind_direction = wind_direction;
             #endregion
             Debug.Log("SwitchScene from " + SceneManager.GetActiveScene().name);
-            sceneHelper.LoadAsync();
+            sceneHelper.AllowSceneActivation();
         }
     }
 }
