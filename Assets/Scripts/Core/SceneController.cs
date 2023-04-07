@@ -40,10 +40,11 @@ namespace WindTurbineVR.Core
             sceneHelper = new SceneHelper();
             Exception nullExc = new Exception("Variable not set to an instance of an object.");
             
-            if (xrOrigin == null) Debug.LogException(nullExc);
-            if (Camera == null)
+            if (xrOrigin == null) Error.LogException(nullExc.Message);
+            if (camera == null)
             {
-                Camera = xrOrigin.Find("Camera Offset/Main Camera");
+                Error.LogException(nullExc.Message);
+                camera = xrOrigin.Find("CameraOffset/Main Camera");
             }
         }
 
