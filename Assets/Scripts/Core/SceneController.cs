@@ -43,7 +43,7 @@ namespace WindTurbineVR.Core
             if (xrOrigin == null) Error.LogException(nullExc.Message);
             if (camera == null)
             {
-                Error.LogException(nullExc.Message);
+                //Error.LogExceptionNoBreak(nullExc.Message);
                 camera = xrOrigin.Find("CameraOffset/Main Camera");
             }
         }
