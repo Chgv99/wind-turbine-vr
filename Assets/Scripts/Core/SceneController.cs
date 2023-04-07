@@ -21,10 +21,11 @@ namespace WindTurbineVR.Core
         {
             Exception nullExc = new Exception("Variable not set to an instance of an object.");
             
-            if (xrOrigin == null) Debug.LogException(nullExc);
+            if (xrOrigin == null) Error.LogException(nullExc.Message);
             if (camera == null)
             {
-                camera = xrOrigin.Find("Camera Offset/Main Camera");
+                Error.LogException(nullExc.Message);
+                camera = xrOrigin.Find("CameraOffset/Main Camera");
             }
 
             taskChecked = new UnityEvent();
