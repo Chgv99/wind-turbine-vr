@@ -3520,7 +3520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb952bb541f123c439252014a76d764a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioController: {fileID: 0}
+  audioController: {fileID: 1472272166}
   xrOrigin: {fileID: 7696548425528374971}
   wind_speed: 0
   wind_direction: 0
@@ -4283,6 +4283,18 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7055283462710852053, guid: dc89fb3dc9f0df046b051dc339707216, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dc89fb3dc9f0df046b051dc339707216, type: 3}
+--- !u!114 &1472272166 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8005800094911903872, guid: 6e41c34188bbe4348a80f5dc4ee42366,
+    type: 3}
+  m_PrefabInstance: {fileID: 1090644406}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e33efb46a192ab49ad86782ad6029c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1486615148
 PrefabInstance:
   m_ObjectHideFlags: 0
