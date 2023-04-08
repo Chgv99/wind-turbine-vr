@@ -104,6 +104,9 @@ namespace WindTurbineVR.UI
         void Start()
         {
             sceneController = GameObject.Find("SceneController").GetComponent<TurbineSceneController>();
+            Debug.Log("debug");
+            Debug.Log(sceneController);
+            Debug.Log(sceneController.TaskChecked);
             sceneController.TaskChecked.AddListener(UpdateObjectInfo);
 
             //taskManager = GameObject.Find("SceneController").GetComponent<TaskManager>();

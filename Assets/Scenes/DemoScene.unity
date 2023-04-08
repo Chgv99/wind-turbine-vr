@@ -1593,18 +1593,6 @@ Transform:
   m_Father: {fileID: 439588100}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 209.265, z: 0}
---- !u!114 &523102243 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2251088846158053234, guid: 4da1bc6ef7a1a6c4a9e17edcbabb81da,
-    type: 3}
-  m_PrefabInstance: {fileID: 2251088845821722282}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de35e3736d7dc5241b672e0c7ac5c6d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &560099453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1870,7 +1858,7 @@ MonoBehaviour:
   m_HoverExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 523102243}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: WindTurbineVR.Core.SceneController, Core
         m_MethodName: EventLog
         m_Mode: 5
@@ -1885,7 +1873,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 523102243}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: WindTurbineVR.Core.SceneController, Core
         m_MethodName: EventLog
         m_Mode: 5
@@ -1900,7 +1888,7 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 523102243}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: WindTurbineVR.Core.SceneController, Core
         m_MethodName: EventLog
         m_Mode: 5
@@ -3445,6 +3433,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53405f035bc38784f93d69c8d69f03e1, type: 3}
+--- !u!1 &1130083381 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2251088846158053245, guid: 4da1bc6ef7a1a6c4a9e17edcbabb81da,
+    type: 3}
+  m_PrefabInstance: {fileID: 2251088845821722282}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1130083382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130083381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb952bb541f123c439252014a76d764a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xrOrigin: {fileID: 7696548425528374971}
+  wind_speed: 0
+  wind_direction: 0
 --- !u!1 &1130104076
 GameObject:
   m_ObjectHideFlags: 0
@@ -3706,7 +3715,7 @@ MonoBehaviour:
   m_HoverExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 523102243}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: WindTurbineVR.Core.SceneController, Core
         m_MethodName: EventLog
         m_Mode: 5
@@ -3721,7 +3730,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 523102243}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: WindTurbineVR.Core.SceneController, Core
         m_MethodName: EventLog
         m_Mode: 5
@@ -3736,7 +3745,7 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 523102243}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: WindTurbineVR.Core.SceneController, Core
         m_MethodName: EventLog
         m_Mode: 5
@@ -7321,6 +7330,11 @@ PrefabInstance:
       propertyPath: xrOrigin
       value: 
       objectReference: {fileID: 7696548425528374971}
+    - target: {fileID: 2251088846158053234, guid: 4da1bc6ef7a1a6c4a9e17edcbabb81da,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2251088846158053235, guid: 4da1bc6ef7a1a6c4a9e17edcbabb81da,
         type: 3}
       propertyPath: m_RootOrder
@@ -7381,7 +7395,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneController
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2251088846158053234, guid: 4da1bc6ef7a1a6c4a9e17edcbabb81da, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4da1bc6ef7a1a6c4a9e17edcbabb81da, type: 3}
 --- !u!1 &2569889238951780971
 GameObject:
