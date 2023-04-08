@@ -35,7 +35,7 @@ namespace WindTurbineVR.Core
             Debug.Log("Start()");
             base.Start();
             taskChecked = new UnityEvent();
-
+            Debug.Log(taskChecked);
             sceneHelper.LoadAsync();
 
             /*if (SceneManager.GetActiveScene().name == "Turbine")
