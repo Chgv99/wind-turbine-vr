@@ -24,6 +24,8 @@ namespace WindTurbineVR.Core.Audio
         [Range(.1f, 3f)] [SerializeField] 
         public float pitch;
 
+        public bool loop;
+
         #region Private
         [HideInInspector] AudioSource source;
         #endregion
@@ -37,6 +39,7 @@ namespace WindTurbineVR.Core.Audio
                 source.clip = clip;
                 source.volume = volume;
                 source.pitch = pitch;
+                source.loop = loop;
             }
         }
     }
