@@ -16,8 +16,6 @@ namespace WindTurbineVR.Core.Audio
             {
                 s.Source = gameObject.AddComponent<AudioSource>();
             }
-
-            Play("Test");
         }
 
         public void Play(string name)

@@ -5,11 +5,14 @@ using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using WindTurbineVR.Core.Audio;
 
 namespace WindTurbineVR.Core
 {
     public class SceneController : MonoBehaviour
     {
+        public AudioController audioController;
+
         public Transform xrOrigin;
         Transform camera;
 
@@ -39,13 +42,12 @@ namespace WindTurbineVR.Core
         {
             sceneHelper = new SceneHelper();
             Exception nullExc = new Exception("Variable not set to an instance of an object.");
-            
+
+            if (audioController == null) Error.LogException(nullExc.Message);
             if (xrOrigin == null) Error.LogException(nullExc.Message);
-            if (camera == null)
-            {
-                //Error.LogExceptionNoBreak(nullExc.Message);
-                camera = xrOrigin.Find("CameraOffset/Main Camera");
-            }
+            if (camera == null) camera = xrOrigin.Find("CameraOffset/Main Camera");
+
+            audioController.Play("Test");
         }
 
         public void PlayScene(int i) => SceneManager.LoadScene(i);
