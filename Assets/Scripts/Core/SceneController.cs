@@ -11,7 +11,10 @@ namespace WindTurbineVR.Core
 {
     public class SceneController : MonoBehaviour
     {
+        #region Audio
         public AudioController audioController;
+        public void PlaySound(string name) => audioController.Play(name);
+        #endregion
 
         public Transform xrOrigin;
         Transform camera;
@@ -64,6 +67,5 @@ namespace WindTurbineVR.Core
         {
             Application.Quit();
         }
-
     }
 }

@@ -794,6 +794,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
+  - clip: {fileID: 8300000, guid: 93bb58b5f37910d46b4586e395f7976d, type: 3}
+    name: Click
+    volume: 1
+    pitch: 1
   - clip: {fileID: 8300000, guid: 20e6a596cf88238469cea48fb8ab5019, type: 3}
     name: Test
     volume: 1
