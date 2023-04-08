@@ -1285,6 +1285,11 @@ PrefabInstance:
       propertyPath: xrOrigin
       value: 
       objectReference: {fileID: 1023708254}
+    - target: {fileID: 2251088846158053234, guid: 4da1bc6ef7a1a6c4a9e17edcbabb81da,
+        type: 3}
+      propertyPath: audioController
+      value: 
+      objectReference: {fileID: 1227470164}
     - target: {fileID: 2251088846158053235, guid: 4da1bc6ef7a1a6c4a9e17edcbabb81da,
         type: 3}
       propertyPath: m_RootOrder
@@ -1676,7 +1681,6 @@ GameObject:
   - component: {fileID: 2077088683828169717}
   - component: {fileID: 2077088683828169716}
   - component: {fileID: 2077088683828169712}
-  - component: {fileID: 8457080006046541145}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -2315,20 +2319,6 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: Use a modal to inform the user of something, or to have them confirm something.
     Generally keep text short.
---- !u!114 &8457080006046541145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2077088683828169719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fc10306013aab54f812db7f6c7450eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneController: {fileID: 0}
-  taskControllerList: []
 --- !u!114 &8750410388774453570
 MonoBehaviour:
   m_ObjectHideFlags: 0
