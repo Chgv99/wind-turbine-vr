@@ -20,7 +20,7 @@ namespace WindTurbineVR
         void Update()
         {
             Quaternion deltaRotation = Quaternion.Euler(
-                new Vector3(0,0,velocity) * Time.fixedDeltaTime);
+                new Vector3(0,0,-velocity) * Time.fixedDeltaTime);
 
             rotor.MoveRotation(rotor.rotation * deltaRotation);
         }
