@@ -43,7 +43,7 @@ namespace WindTurbineVR.Core
         // Start is called before the first frame update
         public virtual void Start()
         {
-            sceneHelper = new SceneHelper();
+            Debug.Log("SceneController Start()");
             Exception nullExc = new Exception("Variable not set to an instance of an object.");
 
             if (audioController == null) Error.LogExceptionNoBreak(nullExc.Message);

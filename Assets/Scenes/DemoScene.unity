@@ -2089,7 +2089,7 @@ GameObject:
   - component: {fileID: 647095792}
   - component: {fileID: 647095791}
   - component: {fileID: 647095793}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: SocketCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2418,7 +2418,7 @@ GameObject:
   - component: {fileID: 778174303}
   - component: {fileID: 778174302}
   - component: {fileID: 778174301}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: SocketSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7605,6 +7605,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6575241570959728848, guid: bb9927492287c5a428dac552c6b606b4,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 2039
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb9927492287c5a428dac552c6b606b4, type: 3}
