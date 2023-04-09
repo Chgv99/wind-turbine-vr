@@ -53,7 +53,7 @@ namespace WindTurbineVR.Core
             //sceneHelper = new SceneHelper();
             
             loadingScreen = Resources.Load("UI/LoadingScreen") as GameObject;
-            _loadingScreenInstance.GetComponent<LoadingScreenController>().SetCamera(Camera.GetComponent<Camera>());
+            //_loadingScreenInstance.GetComponent<LoadingScreenController>().SetCamera(Camera.GetComponent<Camera>());
             //if (_loadingScreenInstance != null) _loadingScreenInstance.GetComponent<LoadingScreenController>().Destroy();
 
             Exception nullExc = new Exception("Variable not set to an instance of an object.");
@@ -67,13 +67,13 @@ namespace WindTurbineVR.Core
 
         public void PlayScene(int i)
         {
-            _loadingScreenInstance = Instantiate(loadingScreen);
+            _loadingScreenInstance = Instantiate(loadingScreen, camera);
             SceneManager.LoadScene(i);
         }
 
         public void PlayScene(string name)
         {
-            _loadingScreenInstance = Instantiate(loadingScreen);
+            _loadingScreenInstance = Instantiate(loadingScreen, camera);
             SceneManager.LoadScene(name);
         }
 

@@ -22,7 +22,7 @@ namespace WindTurbineVR.Core
                 Destroy(gameObject);
             }
 
-            SetCamera(SceneController.instance.Camera.GetComponent<Camera>());
+            //SetCamera(SceneController.instance.Camera.GetComponent<Camera>());
         }
 
         public void SetCamera(Camera camera)
