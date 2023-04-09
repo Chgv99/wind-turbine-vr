@@ -32,12 +32,12 @@ namespace WindTurbineVR.Core
         // Start is called before the first frame update
         public override void Start()
         {
-            Debug.Log("Start()");
+            Debug.Log("TurbineSceneController Start()");
             base.Start();
-            sceneHelper = new SceneHelper();
+            //sceneHelper = new SceneHelper();
             taskChecked = new UnityEvent();
             Debug.Log(taskChecked);
-            sceneHelper.LoadAsync();
+            //sceneHelper.LoadAsync();
 
             /*if (SceneManager.GetActiveScene().name == "Turbine")
                 if (!SceneManager.GetSceneByName("TurbineAerial").isLoaded)
