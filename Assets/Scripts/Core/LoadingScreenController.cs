@@ -6,7 +6,25 @@ namespace WindTurbineVR.Core
 {
     public class LoadingScreenController : MonoBehaviour
     {
-        static LoadingScreenController _instance;
+        Animator blackbox;
+
+        private void Start()
+        {
+            blackbox = GetComponent<Animator>();
+        }
+
+        public void StartLoading()
+        {
+            blackbox.Play("blackbox-in");
+        }
+
+        public void StopLoading()
+        {
+            blackbox.Play("blackbox-out");
+        }
+
+        //Old behaviour
+        /*static LoadingScreenController _instance;
 
         // Start is called before the first frame update
         void Start()
@@ -48,6 +66,6 @@ namespace WindTurbineVR.Core
         void OnDestroy()
         {
             if (_instance != null) _instance = null;
-        }
+        }*/
     }
 }

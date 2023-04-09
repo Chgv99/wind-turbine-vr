@@ -22,8 +22,8 @@ namespace WindTurbineVR.Core
         public Transform xrOrigin;
         Transform camera;
 
-        GameObject loadingScreen;
-        static GameObject _loadingScreenInstance;
+        //GameObject loadingScreen;
+        //static GameObject _loadingScreenInstance;
 
         public Transform Camera { get => camera; set => camera = value; }
 
@@ -52,7 +52,7 @@ namespace WindTurbineVR.Core
             instance = this;
             //sceneHelper = new SceneHelper();
             
-            loadingScreen = Resources.Load("UI/LoadingScreen") as GameObject;
+            //loadingScreen = Resources.Load("UI/LoadingScreen") as GameObject;
             //_loadingScreenInstance.GetComponent<LoadingScreenController>().SetCamera(Camera.GetComponent<Camera>());
             //if (_loadingScreenInstance != null) _loadingScreenInstance.GetComponent<LoadingScreenController>().Destroy();
 
@@ -67,13 +67,15 @@ namespace WindTurbineVR.Core
 
         public void PlayScene(int i)
         {
-            _loadingScreenInstance = Instantiate(loadingScreen, camera);
+            //_loadingScreenInstance = Instantiate(loadingScreen, camera);
+            camera.Find("LoadingScreen").GetComponent<LoadingScreenController>().StartLoading();
             SceneManager.LoadScene(i);
         }
 
         public void PlayScene(string name)
         {
-            _loadingScreenInstance = Instantiate(loadingScreen, camera);
+            //_loadingScreenInstance = Instantiate(loadingScreen, camera);
+            camera.Find("LoadingScreen").GetComponent<LoadingScreenController>().StartLoading();
             SceneManager.LoadScene(name);
         }
 
