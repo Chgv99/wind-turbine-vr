@@ -16,8 +16,14 @@ namespace WindTurbineVR.Core
         public void PlaySound(string name) => audioController.Play(name);
         #endregion
 
+        [HideInInspector]
+        public static SceneController instance;
+
         public Transform xrOrigin;
         Transform camera;
+
+        GameObject loadingScreen;
+        static GameObject _loadingScreenInstance;
 
         public Transform Camera { get => camera; set => camera = value; }
 
@@ -43,7 +49,13 @@ namespace WindTurbineVR.Core
         // Start is called before the first frame update
         public virtual void Start()
         {
-            sceneHelper = new SceneHelper();
+            instance = this;
+            //sceneHelper = new SceneHelper();
+            
+            loadingScreen = Resources.Load("UI/LoadingScreen") as GameObject;
+            _loadingScreenInstance.GetComponent<LoadingScreenController>().SetCamera(Camera.GetComponent<Camera>());
+            //if (_loadingScreenInstance != null) _loadingScreenInstance.GetComponent<LoadingScreenController>().Destroy();
+
             Exception nullExc = new Exception("Variable not set to an instance of an object.");
 
             if (audioController == null) Error.LogExceptionNoBreak(nullExc.Message);
@@ -53,15 +65,23 @@ namespace WindTurbineVR.Core
             audioController.Play("Test");
         }
 
-        public void PlayScene(int i) => SceneManager.LoadScene(i);
+        public void PlayScene(int i)
+        {
+            _loadingScreenInstance = Instantiate(loadingScreen);
+            SceneManager.LoadScene(i);
+        }
 
-        public void PlayScene(string name) => SceneManager.LoadScene(name);
+        public void PlayScene(string name)
+        {
+            _loadingScreenInstance = Instantiate(loadingScreen);
+            SceneManager.LoadScene(name);
+        }
 
-        public void EventLog(string str)
+        /*public void EventLog(string str)
         {
             Debug.Log(str);
             //Debug.Break();
-        }
+        }*/
 
         public void Quit()
         {
