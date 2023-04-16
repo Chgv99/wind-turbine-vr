@@ -6,9 +6,9 @@ namespace WindTurbineVR.Core
 {
     public class RotorController : MonoBehaviour
     {
-        //GameObject climateController;
+        float torque = 0;
 
-        [SerializeField][Range(0, 2f)] float torque = 0;
+        public float Torque { get => torque; set => torque = value; }
 
         // Start is called before the first frame update
         void Start()
@@ -16,13 +16,13 @@ namespace WindTurbineVR.Core
             //climateController = GameObject.Find("ClimateController");
             //if (climateController == null) Error.LogException("ClimateController not found");
 
-
+            //Debug.Log("rotor " + transform.forward);
         }
 
         // Update is called once per frame
         void FixedUpdate()
         {
-            GetComponent<Rigidbody>().AddTorque(new Vector3(0, 0, -torque));
+            GetComponent<Rigidbody>().AddTorque(new Vector3(0, 0, -Torque));
         }
     }
 }
