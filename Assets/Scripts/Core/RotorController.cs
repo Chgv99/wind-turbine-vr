@@ -22,7 +22,7 @@ namespace WindTurbineVR.Core
         // Update is called once per frame
         void FixedUpdate()
         {
-            GetComponent<Rigidbody>().AddTorque(new Vector3(0, 0, -Torque));
+            GetComponent<Rigidbody>().AddTorque(transform.forward * -Torque);
         }
     }
 }

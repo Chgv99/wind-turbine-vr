@@ -6,11 +6,14 @@ namespace WindTurbineVR.Core
 {
     public class BladeController : MonoBehaviour
     {
+        ClimateController climate;
         RotorController rotor;
 
         // Start is called before the first frame update
         void Start()
         {
+            climate = GameObject.Find("ClimateController").GetComponent<ClimateController>()
+                ;
             rotor = transform.parent.parent.GetComponent<RotorController>();
 
             if (rotor == null) Error.LogException("RotorController not found");
@@ -24,7 +27,7 @@ namespace WindTurbineVR.Core
             Debug.Log("blade angle: " + transform.localEulerAngles.x); //max (min) is 290
             Debug.Log("torque sent (1): " + transform.localEulerAngles.x.Remap(360, 290, 0, 1));
             //Debug.Log("torque sent (2): " + );
-            //Debug.Log("rotor's negative blue: " + (-transform.parent.forward) );
+            Debug.Log("rotor's negative blue: " + (-transform.parent.parent.forward) );
             rotor.Torque = transform.localEulerAngles.x.Remap(360, 290, 0, 1);
         }
 
