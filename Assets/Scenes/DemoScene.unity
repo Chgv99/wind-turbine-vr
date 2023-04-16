@@ -1843,9 +1843,9 @@ MonoBehaviour:
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 579787673}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: WindTurbineVR.Core.TaskController, Core
-        m_MethodName: ActionListener
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1873,7 +1873,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 579787673}
         m_TargetAssemblyTypeName: WindTurbineVR.Core.SceneController, Core
         m_MethodName: EventLog
         m_Mode: 5
@@ -1947,7 +1947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f226d93eb90738f44ae5fdd09f7dd00c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: task test
+  description: Cube
 --- !u!4 &604397202 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 272835373090799027, guid: b178c60b3311a0c4aa693067d0988497,
@@ -2089,7 +2089,7 @@ GameObject:
   - component: {fileID: 647095792}
   - component: {fileID: 647095791}
   - component: {fileID: 647095793}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: SocketCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2418,7 +2418,7 @@ GameObject:
   - component: {fileID: 778174303}
   - component: {fileID: 778174302}
   - component: {fileID: 778174301}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: SocketSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3731,7 +3731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f226d93eb90738f44ae5fdd09f7dd00c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: task test
+  description: Sphere
 --- !u!135 &1166355309
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3770,16 +3770,16 @@ MonoBehaviour:
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1166355308}
-        m_TargetAssemblyTypeName: WindTurbineVR.Core.TaskController, Core
-        m_MethodName: ActionListener
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Socket Interactor [Hover Entered].
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   m_HoverExited:
@@ -3800,10 +3800,10 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: WindTurbineVR.Core.SceneController, Core
-        m_MethodName: EventLog
-        m_Mode: 5
+      - m_Target: {fileID: 1166355308}
+        m_TargetAssemblyTypeName: WindTurbineVR.Core.TaskController, Core
+        m_MethodName: ActionListener
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7605,6 +7605,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6575241570959728848, guid: bb9927492287c5a428dac552c6b606b4,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 2039
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb9927492287c5a428dac552c6b606b4, type: 3}

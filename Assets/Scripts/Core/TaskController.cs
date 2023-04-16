@@ -42,11 +42,14 @@ namespace WindTurbineVR.Core
         public void ActionListener()
         {
             Debug.Log("action listener");
-            Debug.Log("null event? " + taskChecked == null);
-            // Call event for ui to update,
-            taskChecked?.Invoke();
-            // then check task
+            Debug.Log("null event? ");
+            Debug.Log(taskChecked == null);
+            Debug.Log(taskChecked);
+            // Check task
             task.Check();
+            // Then call event for ui to update,
+            taskChecked?.Invoke();
+
             //Destroy(this);
         }
     }
