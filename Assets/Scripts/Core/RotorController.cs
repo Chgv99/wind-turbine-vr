@@ -6,24 +6,48 @@ namespace WindTurbineVR.Core
 {
     public class RotorController : MonoBehaviour
     {
+        List<BladeController> blades = new List<BladeController>();
+
+        [SerializeField] float velocity; //degrees per frame
+
+        //public float Velocity { get => velocity; set => velocity = value; }
+
+        /* OLD BEHAVIOUR
         float torque = 0;
 
         public float Torque { get => torque; set => torque = value; }
-
+        */
         // Start is called before the first frame update
         void Start()
         {
+            int count = transform.childCount;
+
+            for (int i = 0; i < count; i++) {
+                Transform child = transform.GetChild(i);
+                if (child.gameObject.name != "BladeContainer") continue;
+
+                blades.Add(child.GetChild(0).GetComponent<BladeController>());
+            }
             //climateController = GameObject.Find("ClimateController");
             //if (climateController == null) Error.LogException("ClimateController not found");
-
             //Debug.Log("rotor " + transform.forward);
         }
 
         // Update is called once per frame
         void FixedUpdate()
         {
-            //GetComponent<Rigidbody>().torqye = -transform.forward * new Vector3(0, 0, GetComponent<Rigidbody>().angularVelocity.z);
-            GetComponent<Rigidbody>().AddRelativeTorque(transform.forward * -Torque);
+            velocity = 0;
+            foreach (BladeController blade in blades)
+            {
+                velocity += blade.Contribution;
+            }
+            Quaternion deltaRotation = Quaternion.Euler(
+                new Vector3(0, 0, -velocity) * Time.fixedDeltaTime);
+
+            GetComponent<Rigidbody>().MoveRotation(GetComponent<Rigidbody>().rotation * deltaRotation);
+
+            // OLD BEHAVIOUR
+            //GetComponent<Rigidbody>().AddRelativeTorque(transform.forward * -Torque);
         }
     }
 }

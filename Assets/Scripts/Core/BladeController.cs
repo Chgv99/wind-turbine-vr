@@ -9,6 +9,10 @@ namespace WindTurbineVR.Core
         ClimateController climate;
         RotorController rotor;
 
+        float contribution = 0f;
+
+        public float Contribution { get => contribution; set => contribution = value; }
+
         // Start is called before the first frame update
         void Start()
         {
@@ -24,11 +28,17 @@ namespace WindTurbineVR.Core
         // Update is called once per frame
         void Update()
         {
-            Debug.Log("blade angle: " + transform.localEulerAngles.x); //max (min) is 290
+            Contribution = transform.localEulerAngles.x.Remap(360, 290, 0, 16.66f);
+
+            /*Debug.Log("blade angle: " + transform.localEulerAngles.x); //max (min) is 290
             Debug.Log("torque sent (1): " + transform.localEulerAngles.x.Remap(360, 290, 0, 1));
-            //Debug.Log("torque sent (2): " + );
             Debug.Log("rotor's negative blue: " + (-transform.parent.parent.forward) );
-            rotor.Torque = transform.localEulerAngles.x.Remap(360, 290, 0, 1);
+            rotor.Torque = transform.localEulerAngles.x.Remap(360, 290, 0, 3);*/
+        }
+
+        private void FixedUpdate()
+        {
+            
         }
 
         public void TurnOn()

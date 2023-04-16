@@ -750,7 +750,7 @@ PrefabInstance:
     - target: {fileID: 3627455059573290664, guid: 5a58055c382d7724a972e05dbb800175,
         type: 3}
       propertyPath: m_Name
-      value: BladeContainer (1)
+      value: BladeContainer
       objectReference: {fileID: 0}
     - target: {fileID: 3627455059573290665, guid: 5a58055c382d7724a972e05dbb800175,
         type: 3}
@@ -819,7 +819,7 @@ PrefabInstance:
     - target: {fileID: 3627455059573290664, guid: 5a58055c382d7724a972e05dbb800175,
         type: 3}
       propertyPath: m_Name
-      value: BladeContainer (2)
+      value: BladeContainer
       objectReference: {fileID: 0}
     - target: {fileID: 3627455059573290665, guid: 5a58055c382d7724a972e05dbb800175,
         type: 3}
@@ -30260,6 +30260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f637282d65c860449e85ecdba95c112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 0
 --- !u!54 &5456614998489249342
 Rigidbody:
   m_ObjectHideFlags: 0
