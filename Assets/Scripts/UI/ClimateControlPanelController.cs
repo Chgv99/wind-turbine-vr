@@ -27,7 +27,7 @@ namespace WindTurbineVR.UI
         void Update()
         {
             climate.WindSpeed = windSlider.value;
-            windSliderText.text = windSlider.value + " km/h";
+            windSliderText.text = windSlider.value.ToString("F2") + " km/h";
         }
     }
 }
