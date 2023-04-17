@@ -16,13 +16,19 @@ namespace WindTurbineVR.Core
         // Start is called before the first frame update
         void Start()
         {
-            climate = GameObject.Find("ClimateController").GetComponent<ClimateController>()
-                ;
+            climate = GameObject.Find("ClimateController").GetComponent<ClimateController>();
             rotor = transform.parent.parent.GetComponent<RotorController>();
 
             if (rotor == null) Error.LogException("RotorController not found");
 
             TurnOn();
+            //StartCoroutine(TestRoutine());
+        }
+
+        IEnumerator TestRoutine()
+        {
+            yield return new WaitForSecondsRealtime(10);
+            TurnOff();
         }
 
         // Update is called once per frame
@@ -41,9 +47,14 @@ namespace WindTurbineVR.Core
             
         }
 
-        public void TurnOn()
+        public void TurnOn() => CoroutineCheck(RotateOn());
+
+        public void TurnOff() => CoroutineCheck(RotateOff());
+
+        void CoroutineCheck(IEnumerator coroutine)
         {
-            StartCoroutine(RotateOn());
+            StopAllCoroutines();
+            StartCoroutine(coroutine);
         }
 
         IEnumerator RotateOn()
@@ -63,9 +74,19 @@ namespace WindTurbineVR.Core
             yield return null;
         }
 
-        /**IEnumerator RotateOff()
+        IEnumerator RotateOff()
         {
+            float moveSpeed = 0.1f;
+            float angle = 0;
 
-        }*/
+            // Stops rotation when the angles are near to the angle objective (0)
+            while (transform.localEulerAngles.x < -1.5f /*|| (transform.localEulerAngles.x > -1 && transform.localEulerAngles.x < 1)*/)
+            {
+                transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(angle, 0, 0), moveSpeed * Time.deltaTime);
+                yield return null;
+            }
+            transform.localRotation = Quaternion.Euler(angle, 0, 0);
+            yield return null;
+        }
     }
 }

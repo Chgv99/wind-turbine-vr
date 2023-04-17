@@ -8,7 +8,9 @@ namespace WindTurbineVR.Core
     {
         List<BladeController> blades = new List<BladeController>();
 
-        [SerializeField] float velocity; //degrees per frame
+        [SerializeField] static float velocity; //degrees per frame
+
+        public List<BladeController> Blades { get => blades; set => blades = value; }
 
         //public float Velocity { get => velocity; set => velocity = value; }
 
@@ -26,7 +28,7 @@ namespace WindTurbineVR.Core
                 Transform child = transform.GetChild(i);
                 if (child.gameObject.name != "BladeContainer") continue;
 
-                blades.Add(child.GetChild(0).GetComponent<BladeController>());
+                Blades.Add(child.GetChild(0).GetComponent<BladeController>());
             }
             //climateController = GameObject.Find("ClimateController");
             //if (climateController == null) Error.LogException("ClimateController not found");
@@ -37,7 +39,7 @@ namespace WindTurbineVR.Core
         void FixedUpdate()
         {
             velocity = 0;
-            foreach (BladeController blade in blades)
+            foreach (BladeController blade in Blades)
             {
                 velocity += blade.Contribution;
             }

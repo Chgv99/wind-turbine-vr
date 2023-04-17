@@ -20788,6 +20788,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3627455060144469838, guid: 5a58055c382d7724a972e05dbb800175,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627455060144469838, guid: 5a58055c382d7724a972e05dbb800175,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -3.0536807e-33
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a58055c382d7724a972e05dbb800175, type: 3}
 --- !u!1 &3628007348767362888
@@ -30216,7 +30226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f637282d65c860449e85ecdba95c112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 0
 --- !u!54 &5456614998489249342
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -35220,6 +35229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1636548733385480941}
+  - component: {fileID: 6401337621154929968}
   m_Layer: 0
   m_Name: Wind-Turbine (Provisional)
   m_TagString: Untagged
@@ -35227,6 +35237,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6401337621154929968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6401337621154929967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f70c4a4b5c95b48ab47f0404dfc5a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rc: {fileID: 5456614998489249341}
 --- !u!4 &6417334106641047855
 Transform:
   m_ObjectHideFlags: 0
