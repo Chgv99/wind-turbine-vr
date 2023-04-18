@@ -22,6 +22,11 @@ namespace WindTurbineVR.Character
             switchAerialActionReference.action.started += CallSwitchToAerialEvent;
         }
 
+        private void OnDestroy()
+        {
+            switchAerialActionReference.action.started -= CallSwitchToAerialEvent;
+        }
+
         // Update is called once per frame
         void Update()
         {
