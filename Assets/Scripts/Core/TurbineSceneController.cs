@@ -12,8 +12,7 @@ namespace WindTurbineVR.Core
     {
         #region STATIC
         // vars that prevail when SwitchScene() is called
-        static float s_wind_speed;
-        static float s_wind_direction;
+        static TurbineData td;
         #endregion
 
         /** Wind Speed in km per hour
@@ -46,8 +45,8 @@ namespace WindTurbineVR.Core
                 }*/
 
             #region STATIC dump
-            wind_speed = s_wind_speed;
-            wind_direction = s_wind_direction;
+            wind_speed = td.WindSpeed;
+            wind_direction = td.WindDirection;
             #endregion
 
             //if (SceneManager.GetActiveScene().name == "Turbine")
@@ -69,9 +68,9 @@ namespace WindTurbineVR.Core
         public void SwitchScene()
         {
             #region STATIC load
-            s_wind_speed = wind_speed;
-            s_wind_direction = wind_direction;
+            td = new TurbineData(wind_speed, wind_direction);
             #endregion
+
             Debug.Log("SwitchScene from " + SceneManager.GetActiveScene().name);
             sceneHelper.AllowSceneActivation();
         }
