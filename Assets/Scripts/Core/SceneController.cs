@@ -56,6 +56,7 @@ namespace WindTurbineVR.Core
             //_loadingScreenInstance.GetComponent<LoadingScreenController>().SetCamera(Camera.GetComponent<Camera>());
             //if (_loadingScreenInstance != null) _loadingScreenInstance.GetComponent<LoadingScreenController>().Destroy();
 
+            Debug.Log("SceneController Start()");
             Exception nullExc = new Exception("Variable not set to an instance of an object.");
 
             if (audioController == null) Error.LogExceptionNoBreak(nullExc.Message);

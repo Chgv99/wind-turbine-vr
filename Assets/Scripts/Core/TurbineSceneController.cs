@@ -20,7 +20,7 @@ namespace WindTurbineVR.Core
          * Covering up to level 8 on the Beaufort scale. **/
         [SerializeField][Range(0, 74)] float wind_speed = 0f;
         /** Wind Direction in degrees
-         * Taking North as 0/360º. **/
+         * Taking North as 0/360ï¿½. **/
         [SerializeField][Range(0, 359)] float wind_direction = 0f;
 
         UnityEvent taskChecked;
@@ -32,8 +32,9 @@ namespace WindTurbineVR.Core
         // Start is called before the first frame update
         public override void Start()
         {
-            Debug.Log("Start()");
+            Debug.Log("TurbineSceneController Start()");
             base.Start();
+            //sceneHelper = new SceneHelper();
             taskChecked = new UnityEvent();
             Debug.Log(taskChecked);
             sceneHelper = new SceneHelper();
