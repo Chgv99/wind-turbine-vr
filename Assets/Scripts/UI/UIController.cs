@@ -12,6 +12,7 @@ namespace WindTurbineVR.UI
     {
         Static,
         StaticPivot,
+        StaticAlternative,
         FrontPivot
     }
 
@@ -136,6 +137,8 @@ namespace WindTurbineVR.UI
                     dc.SetDirection();
                     break;
                 case DisplayMode.FrontPivot:
+                    break;
+                case DisplayMode.StaticAlternative:
                     break;
             }
         }

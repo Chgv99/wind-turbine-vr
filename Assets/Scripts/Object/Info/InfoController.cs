@@ -36,6 +36,8 @@ namespace WindTurbineVR.Object
         [Space]
         [SerializeField] protected DisplayMode displayMode;
 
+        [SerializeField] protected Transform alternativeUI;
+
         [Space]
         //[SerializeField] string[] tasks;
         protected List<TaskController> taskList;
