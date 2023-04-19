@@ -36,6 +36,8 @@ namespace WindTurbineVR.Object
         [Space]
         [SerializeField] protected DisplayMode displayMode;
 
+        [SerializeField] protected Transform alternativeUI;
+
         [Space]
         //[SerializeField] string[] tasks;
         protected List<TaskController> taskList;
@@ -72,16 +74,18 @@ namespace WindTurbineVR.Object
 
         protected void Enable()
         {
+            Debug.Log("enable");
             if (_uiInstance != null)
             {
                 _uiInstance.SetActive(true);
             }
         }
 
-        protected void Disable(HoverExitEventArgs arg0) => Enable();
+        protected void Disable(HoverExitEventArgs arg0) => Disable();
 
         protected void Disable()
         {
+            Debug.Log("disable");
             if (_uiInstance != null)
             {
                 _uiInstance.SetActive(false);

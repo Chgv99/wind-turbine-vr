@@ -43,13 +43,15 @@ namespace WindTurbineVR.UI
         {
             buttonInstance = Instantiate(button, transform);
             buttonInstance.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = "Close";
-            buttonInstance.GetComponent<Button>().onClick.AddListener(uiCon.Dispose);
+            //buttonInstance.GetComponent<Button>().onClick.AddListener(uiCon.Dispose);
+            buttonInstance.GetComponent<Button>().onClick.AddListener(uiCon.Disable);
         }
 
         private void OnDestroy()
         {
-            if (buttonInstance != null) 
-                buttonInstance.GetComponent<Button>().onClick.RemoveListener(uiCon.Dispose);
+            if (buttonInstance != null)
+                //buttonInstance.GetComponent<Button>().onClick.RemoveListener(uiCon.Dispose);
+                buttonInstance.GetComponent<Button>().onClick.RemoveListener(uiCon.Disable);
         }
 
         public void UpdateTasks()
