@@ -79,12 +79,12 @@ namespace WindTurbineVR.UI
             public Transform UI { get => ui; set => ui = value; }
             public DisplayMode DisplayMode { get => displayMode; set => displayMode = value; }
 
-            public DirectionController(Transform transform, DisplayMode displayMode)
+            public DirectionController(SceneController sceneController, Transform transform, DisplayMode displayMode)
             {
                 this.UI = transform;
                 this.DisplayMode = displayMode;
 
-                camera = GameObject.Find("SceneController").GetComponent<SceneController>().Camera;
+                camera = sceneController.Camera;
             }
 
             public void SetDirection()
@@ -112,7 +112,7 @@ namespace WindTurbineVR.UI
             //taskManager = GameObject.Find("SceneController").GetComponent<TaskManager>();
             
             infoModal = Resources.Load("UI/Modal/InfoModal") as GameObject;
-            dc = new DirectionController(transform, DisplayMode);
+            dc = new DirectionController(sceneController, transform, DisplayMode);
             dc.SetDirection();
             SetContent();
             GetComponent<Canvas>().enabled = true;
