@@ -34,17 +34,26 @@ namespace WindTurbineVR.Object.Interactable
                 case DisplayTrigger.Hover:
                     //hoverEntered.AddListener(ShowInfo);
                     //hoverExited.AddListener(DisposeUI);
-                    hoverEntered.AddListener(Enable);
-                    hoverExited.AddListener(Disable);
+                    hoverEntered.AddListener(HoverEnable);
+                    hoverExited.AddListener(HoverDisable);
                     break;
                 case DisplayTrigger.Selection:
-                    selectEntered.AddListener(ShowInfo);
+                    //selectEntered.AddListener(ShowInfo);
+                    selectEntered.AddListener(SelectEnable);
                     break;
             }
 
             ShowInfo();
             Disable();
         }
+
+        protected void HoverEnable(HoverEnterEventArgs arg0) => Enable();
+
+        protected void HoverDisable(HoverExitEventArgs arg0) => Disable();
+
+        protected void SelectEnable(SelectEnterEventArgs arg0) => Enable();
+
+        protected void SelectDisable(SelectExitEventArgs arg0) => Disable();
 
         protected override void OnDestroy()
         {
@@ -58,7 +67,7 @@ namespace WindTurbineVR.Object.Interactable
                     hoverExited.RemoveListener(Disable);
                     break;
                 case DisplayTrigger.Selection:
-                    selectEntered.RemoveListener(ShowInfo);
+                    selectEntered.RemoveListener(SelectEnable);
                     break;
             }
 
@@ -90,7 +99,7 @@ namespace WindTurbineVR.Object.Interactable
 
         protected override void ShowInfo(float height)
         {
-            //Debug.Log("Show Info")
+            Debug.Log("Show Info");
             //Debug.Log(taskList.Length);
             if (_uiInstance == null)
             {

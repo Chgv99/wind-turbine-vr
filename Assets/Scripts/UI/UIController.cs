@@ -177,6 +177,11 @@ namespace WindTurbineVR.UI
             else _infoModalInstance.GetComponent<ModalController>().SetContent(Info.Title, Info.Description);
         }
 
+        public void Disable()
+        {
+            gameObject.SetActive(false);
+        }
+
         public void Dispose()
         {
             if (AreaInfoInstance != null) Destroy(AreaInfoInstance);
