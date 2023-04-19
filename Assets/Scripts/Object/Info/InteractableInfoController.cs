@@ -105,10 +105,16 @@ namespace WindTurbineVR.Object.Interactable
             {
                 _uiInstance = Instantiate(UI);
                 Vector3 position = new Vector3();
-                if (displayMode == DisplayMode.StaticAlternative) position = (alternativeUI != null) ? alternativeUI.position : position;
+                Quaternion rotation = new Quaternion();
+                if (displayMode == DisplayMode.StaticAlternative || displayMode == DisplayMode.StaticAlternativeFixed)
+                {
+                    position = (alternativeUI != null) ? alternativeUI.position : position;
+                    rotation = (alternativeUI != null) ? alternativeUI.rotation : rotation;
+                }
                 else position = new Vector3(transform.position.x, height, transform.position.z);
 
                 _uiInstance.transform.position = position;
+                _uiInstance.transform.rotation = rotation;
                 UIController uic = _uiInstance.GetComponent<UIController>();
                 uic.ContentType = ContentType.ObjectInfo;
                 uic.DisplayMode = displayMode;

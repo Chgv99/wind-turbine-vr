@@ -11,8 +11,10 @@ namespace WindTurbineVR.UI
     public enum DisplayMode
     {
         Static,
+        StaticFixed, //won't look for the player on awake
         StaticPivot,
         StaticAlternative,
+        StaticAlternativeFixed, //won't look for the player on awake
         FrontPivot
     }
 
@@ -114,7 +116,12 @@ namespace WindTurbineVR.UI
             
             infoModal = Resources.Load("UI/Modal/InfoModal") as GameObject;
             dc = new DirectionController(sceneController, transform, DisplayMode);
-            dc.SetDirection();
+            
+            if (displayMode != DisplayMode.StaticFixed && displayMode != DisplayMode.StaticAlternativeFixed)
+            {
+                dc.SetDirection();
+            }
+
             SetContent();
             GetComponent<Canvas>().enabled = true;
         }
@@ -131,14 +138,18 @@ namespace WindTurbineVR.UI
 
             switch (DisplayMode)
             {
-                case DisplayMode.Static:
-                    break;
                 case DisplayMode.StaticPivot:
                     dc.SetDirection();
+                    break;
+                case DisplayMode.Static:
+                    break;
+                case DisplayMode.StaticFixed:
                     break;
                 case DisplayMode.FrontPivot:
                     break;
                 case DisplayMode.StaticAlternative:
+                    break;
+                case DisplayMode.StaticAlternativeFixed:
                     break;
             }
         }
