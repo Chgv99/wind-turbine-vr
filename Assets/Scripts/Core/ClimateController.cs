@@ -38,7 +38,7 @@ namespace WindTurbineVR.Core
             DontDestroyOnLoad(gameObject);
             _instance = gameObject;
 
-            WindDirection = Vector3.forward;
+            WindDirection = new Vector3(1,0,1);//Vector3.forward;
         }
 
         // Update is called once per frame

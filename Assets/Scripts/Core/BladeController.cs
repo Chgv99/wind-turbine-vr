@@ -13,6 +13,10 @@ namespace WindTurbineVR.Core
 
         public float Contribution { get => contribution; set => contribution = value; }
 
+        Transform center;
+
+        [SerializeField] bool debug;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -22,7 +26,9 @@ namespace WindTurbineVR.Core
             if (rotor == null) Error.LogException("RotorController not found");
 
             TurnOn();
-            //StartCoroutine(TestRoutine());
+
+
+            center = transform.Find("Center");
         }
 
         IEnumerator TestRoutine()
@@ -31,28 +37,39 @@ namespace WindTurbineVR.Core
             TurnOff();
         }
 
-        // Update is called once per frame
-        void Update()
+        void DrawDebug(float bwangle)
         {
             // Debug Rays
             /// Z AXIS REFERENCE
             Debug.DrawRay(transform.position, -Vector3.forward.normalized * 100, Color.red);
             ///Blade
-            Debug.DrawRay(transform.position, transform.up.normalized * 50, new Color(0,50,0));
+            Debug.DrawRay(center.position, transform.up.normalized * 10, new Color(0, 50, 0));
             //Debug.DrawRay(transform.position, Vector3.ProjectOnPlane(transform.up.normalized, Vector3.left) * 50, Color.green);
             ///Wind
-            Debug.DrawRay(transform.position + new Vector3(0,1,0), climate.Wind.normalized * 100, Color.blue);
+            Debug.DrawRay(center.position, -climate.Wind.normalized * 10, Color.blue);
+            Debug.DrawRay(center.position, climate.Wind.normalized * 10, Color.white);
+
 
             Debug.Log("------------");
             Debug.Log("Blade vector: " + transform.up.normalized);
             Debug.Log("Wind vector: " + climate.Wind.normalized);
             Debug.Log("------------");
             Debug.Log("blade angle = " + Vector3.Angle(transform.up, -Vector3.forward));
-            Debug.Log("wind angle = " + Vector3.Angle(climate.Wind, -Vector3.forward));
-            Debug.Log("Blade-Wind angle = " + Vector3.Angle(climate.Wind, transform.up));
-            Debug.Log("Blade-Wind angle cosine = " + Mathf.Abs(Mathf.Cos(Vector3.Angle(climate.Wind, transform.up))));
-            
-            Contribution = transform.localEulerAngles.x.Remap(360, 290, 0, 16.66f);
+            Debug.Log("wind angle = " + Vector3.Angle(-climate.Wind, -Vector3.forward));
+            Debug.Log("Blade-Wind angle = " + bwangle);
+            Debug.Log("Blade-Wind angle cosine = " + Mathf.Cos(bwangle));
+            Debug.Log("Blade-Wind angle difference unit = " + bwangle.Remap(90, 20, 0, 1));
+
+
+            Debug.Log("contribution: " + 16.66f * bwangle.Remap(90, 20, 0, 1));
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            float bwangle = Vector3.Angle(-climate.Wind, transform.up);
+            if (debug) DrawDebug(bwangle);
+            Contribution = 16.66f * bwangle.Remap(90, 20, 0, 1);//transform.localEulerAngles.x.Remap(360, 290, 0, 16.66f);
 
             /*Debug.Log("blade angle: " + transform.localEulerAngles.x); //max (min) is 290
             Debug.Log("torque sent (1): " + transform.localEulerAngles.x.Remap(360, 290, 0, 1));
