@@ -708,6 +708,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BladeContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 3627455059573290664, guid: 5a58055c382d7724a972e05dbb800175,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3627455059573290665, guid: 5a58055c382d7724a972e05dbb800175,
         type: 3}
       propertyPath: m_RootOrder
@@ -20732,6 +20737,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BladeContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627455059573290664, guid: 5a58055c382d7724a972e05dbb800175,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3627455059573290665, guid: 5a58055c382d7724a972e05dbb800175,
         type: 3}

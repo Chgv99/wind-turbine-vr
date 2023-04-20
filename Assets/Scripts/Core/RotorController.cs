@@ -41,6 +41,7 @@ namespace WindTurbineVR.Core
             velocity = 0;
             foreach (BladeController blade in Blades)
             {
+                //Debug.Log("velocity " + velocity + "+" + blade.Contribution);
                 velocity += blade.Contribution;
             }
             Quaternion deltaRotation = Quaternion.Euler(

@@ -34,6 +34,24 @@ namespace WindTurbineVR.Core
         // Update is called once per frame
         void Update()
         {
+            // Debug Rays
+            /// Z AXIS REFERENCE
+            Debug.DrawRay(transform.position, -Vector3.forward.normalized * 100, Color.red);
+            ///Blade
+            Debug.DrawRay(transform.position, transform.up.normalized * 50, new Color(0,50,0));
+            //Debug.DrawRay(transform.position, Vector3.ProjectOnPlane(transform.up.normalized, Vector3.left) * 50, Color.green);
+            ///Wind
+            Debug.DrawRay(transform.position + new Vector3(0,1,0), climate.Wind.normalized * 100, Color.blue);
+
+            Debug.Log("------------");
+            Debug.Log("Blade vector: " + transform.up.normalized);
+            Debug.Log("Wind vector: " + climate.Wind.normalized);
+            Debug.Log("------------");
+            Debug.Log("blade angle = " + Vector3.Angle(transform.up, -Vector3.forward));
+            Debug.Log("wind angle = " + Vector3.Angle(climate.Wind, -Vector3.forward));
+            Debug.Log("Blade-Wind angle = " + Vector3.Angle(climate.Wind, transform.up));
+            Debug.Log("Blade-Wind angle cosine = " + Mathf.Abs(Mathf.Cos(Vector3.Angle(climate.Wind, transform.up))));
+            
             Contribution = transform.localEulerAngles.x.Remap(360, 290, 0, 16.66f);
 
             /*Debug.Log("blade angle: " + transform.localEulerAngles.x); //max (min) is 290

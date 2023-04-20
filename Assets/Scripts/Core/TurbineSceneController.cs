@@ -50,7 +50,7 @@ namespace WindTurbineVR.Core
             #endregion
 
             //if (SceneManager.GetActiveScene().name == "Turbine")
-                StartCoroutine(SwitchSceneCo());
+                //StartCoroutine(SwitchSceneCo());
         }
 
         IEnumerator SwitchSceneCo()
