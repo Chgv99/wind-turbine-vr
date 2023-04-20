@@ -45,12 +45,12 @@ namespace WindTurbineVR.Core
                 }*/
 
             #region STATIC dump
-            wind_speed = td.WindSpeed;
-            wind_direction = td.WindDirection;
+            wind_speed = (td != null) ? td.WindSpeed : 0;
+            wind_direction = (td != null) ? td.WindDirection : 0;
             #endregion
 
             //if (SceneManager.GetActiveScene().name == "Turbine")
-            //    StartCoroutine(SwitchSceneCo());
+                StartCoroutine(SwitchSceneCo());
         }
 
         IEnumerator SwitchSceneCo()
