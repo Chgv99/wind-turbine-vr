@@ -4,9 +4,13 @@ using UnityEngine;
 
 namespace WindTurbineVR.Core
 {
-    public class VeletaController : MonoBehaviour
+    public class VaneController : MonoBehaviour
     {
         ClimateController climate;
+
+        Quaternion windDirection;
+
+        public Quaternion WindDirection { get => windDirection; }
 
         // Start is called before the first frame update
         void Start()
@@ -17,7 +21,8 @@ namespace WindTurbineVR.Core
         // Update is called once per frame
         void Update()
         {
-            transform.rotation = climate.WindDirection;
+            windDirection = climate.WindDirection;
+            transform.rotation = WindDirection;
             //transform.rotation = Quaternion.LookRotation(transform.position, climate.WindDirection * Vector3.forward);
         }
     }
