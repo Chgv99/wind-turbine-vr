@@ -22,15 +22,16 @@ namespace WindTurbineVR.Core
             //if (am == null) Error.LogException("AnemometerController not found");
 
             SwitchOn();
+            //get nacelle rotation
+            //compare with current wind rotation
+            //do rotation
+            Debug.Log("turbinecontroller winddirection: " + vc.WindDirection);
+            nc.Rotate(vc.WindDirection, vc);
         }
 
         void Update()
         {
-            Debug.Log("turbinecontroller winddirection: " + vc.WindDirection);
-            nc.Rotate(vc.WindDirection);
-            //get nacelle rotation
-            //compare with current wind rotation
-            //do rotation
+            
         }
 
         public void SwitchOn() => rc.TurnOn();
