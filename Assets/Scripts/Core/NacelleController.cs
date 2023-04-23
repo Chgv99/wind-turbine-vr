@@ -12,6 +12,8 @@ namespace WindTurbineVR.Core
         //bool rotate
 
         #region Internal rotational values
+        float threshold = 90f;
+
         bool doRotate = false;
         float progress;
         Quaternion startRotation;
@@ -28,13 +30,26 @@ namespace WindTurbineVR.Core
 
         void Rotate(Quaternion startRotation, Quaternion endRotation)
         {
-            Debug.Log("Rotate (NacelleController). Start and end rotation = " + startRotation + " to " + endRotation);
+            Vector3 startVector = startRotation * Vector3.forward;
+            Vector3 endVector = new Vector3(transform.rotation.eulerAngles.x, endRotation.eulerAngles.y, transform.rotation.eulerAngles.z); // endRotation * Vector3.forward;
+            //endVector = new Vector3(transform.rotation.eulerAngles.)
+            endRotation = Quaternion.Euler(endVector); //new Quaternion(transform.rotation.x, endRotation.y, transform.rotation.z, transform.rotation.w), //endRotation,
 
-            this.startRotation = startRotation;
-            this.endRotation = endRotation;
+            //startVector.
+            //Debug.Log("startVector")
 
-            doRotate = true;
-            progress = 0;
+            float diffAngle = Vector3.Angle(startVector, endVector);
+            Debug.Log("DiffAngle: " + diffAngle);
+            if (diffAngle > threshold)
+            {
+                Debug.Log("Rotate (NacelleController). Start and end rotation = " + startRotation + " to " + endRotation);
+
+                this.startRotation = startRotation;
+                this.endRotation = endRotation;
+
+                doRotate = true;
+                progress = 0;
+            }
         }
 
         // Update is called once per frame
@@ -44,19 +59,16 @@ namespace WindTurbineVR.Core
             {
                 progress += Time.deltaTime;
 
-                Vector3 newDirection = new Vector3(transform.rotation.eulerAngles.x, endRotation.eulerAngles.y, transform.rotation.eulerAngles.z);
-                Quaternion objective = Quaternion.Euler(newDirection); //new Quaternion(transform.rotation.x, endRotation.y, transform.rotation.z, transform.rotation.w), //endRotation,
-
                 Debug.Log("rotating. progress: " + progress);
                 Debug.Log("start: " + startRotation);
                 Debug.Log("current: " + transform.rotation);
-                Debug.Log("end: " + objective);
+                Debug.Log("end: " + endRotation);
                 //Debug.Log(new Quaternion(transform.rotation.x, endRotation.y, transform.rotation.z, transform.rotation.w));
                 
                 transform.rotation = Quaternion.Lerp(
-                    transform.rotation,
-                    objective,
-                    progress * 0.0001f
+                    startRotation, //transform.rotation
+                    endRotation,
+                    progress * 0.01f
                 );
             }
         }
