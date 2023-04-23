@@ -25,7 +25,7 @@ namespace WindTurbineVR.Core
 
             if (rotor == null) Error.LogException("RotorController not found");
 
-            TurnOn();
+            //TurnOn();
 
 
             center = transform.Find("Center");
@@ -68,7 +68,7 @@ namespace WindTurbineVR.Core
         void Update()
         {
             Debug.Log("Climate Wind (Blade Controller) = " + climate.Wind);
-            float bwangle = Vector3.Angle(-climate.Wind, transform.up);
+            float bwangle = Vector3.Angle(climate.WindDirection * -Vector3.forward, transform.up);
             if (debug) DrawDebug(bwangle);
             Contribution = 16.66f * bwangle.Remap(90, 20, 0, 1);//transform.localEulerAngles.x.Remap(360, 290, 0, 16.66f);
 

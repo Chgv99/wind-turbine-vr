@@ -8,25 +8,20 @@ namespace WindTurbineVR.Core
     {
         [SerializeField] RotorController rc;
         
-        List<BladeController> bc;
+        //List<BladeController> bc;
 
         // Start is called before the first frame update
         void Start()
         {
             if (rc == null) Error.LogException("RotorController not found");
-            bc = rc.Blades;
+            //bc = rc.Blades;
 
-            if (bc == null) Error.LogException("BladeController not found");
+            //if (bc == null) Error.LogException("BladeController not found");
+            SwitchOn();
         }
 
-        public void SwitchOn()
-        {
-            foreach (BladeController bc in bc) bc.TurnOn();
-        }
+        public void SwitchOn() => rc.TurnOn();
 
-        public void SwitchOf()
-        {
-            foreach (BladeController bc in bc) bc.TurnOff();
-        }
+        public void SwitchOff() => rc.TurnOff();
     }
 }

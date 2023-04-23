@@ -15,7 +15,7 @@ namespace WindTurbineVR.Core
         [SerializeField] Transform windTransform;
 
         private Vector3 wind;
-        private Vector3 windDirection;
+        private Quaternion windDirection;
         private float windSpeed = 1; // rango de 0 a 1 (de 0 a 100 km/h)
 
         /** Un aerogenerador opera con vientos de entre 10.8 a 90 km/h.
@@ -23,7 +23,7 @@ namespace WindTurbineVR.Core
          * protocolos de seguridad.*/
 
         public Vector3 Wind { get => wind; }
-        public Vector3 WindDirection { get => windDirection; set => windDirection = value; }
+        public Quaternion WindDirection { get => windDirection; set => windDirection = value; }
         public float WindSpeed { get => windSpeed; set => windSpeed = value * 100; } //devuelve de 0 a 100 km/h)
 
         //public Vector2 Wind { get => wind; set => wind = value; }
@@ -41,7 +41,7 @@ namespace WindTurbineVR.Core
             _instance = gameObject;
 
             //WindDirection = new Vector3(0,0,1);//Vector3.forward;
-            WindDirection = windTransform.rotation * Vector3.forward;
+            WindDirection = windTransform.rotation;// * Vector3.forward;
         }
 
         // Update is called once per frame
@@ -49,9 +49,9 @@ namespace WindTurbineVR.Core
         {
             Debug.Log("--------------------");
             //Debug.Log("WindTransform eulerAngles = " + windTransform.eulerAngles);
-            WindDirection = windTransform.rotation * Vector3.forward;
-            Debug.DrawRay(windTransform.position, WindDirection * 10, Color.yellow);
-            wind = WindDirection * WindSpeed;
+            WindDirection = windTransform.rotation; // * Vector3.forward;
+            Debug.DrawRay(windTransform.position, WindDirection * Vector3.forward * 10, Color.yellow);
+            wind = WindDirection * Vector3.forward * WindSpeed;
             Debug.Log("Climate Wind (Climate Controller) = " + wind);
         }
     }

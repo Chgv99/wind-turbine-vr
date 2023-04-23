@@ -52,5 +52,15 @@ namespace WindTurbineVR.Core
             // OLD BEHAVIOUR
             //GetComponent<Rigidbody>().AddRelativeTorque(transform.forward * -Torque);
         }
+
+        public void TurnOn()
+        {
+            foreach (BladeController blade in Blades) blade.TurnOn();
+        }
+
+        public void TurnOff()
+        {
+            foreach (BladeController blade in Blades) blade.TurnOff();
+        }
     }
 }
