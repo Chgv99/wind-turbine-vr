@@ -48,8 +48,8 @@ namespace WindTurbineVR.Core
             ///Wind
             Debug.DrawRay(center.position, -climate.Wind.normalized * 10, Color.blue);
             Debug.DrawRay(center.position, climate.Wind.normalized * 10, Color.white);
-
-
+            
+            /*
             Debug.Log("------------");
             Debug.Log("Blade vector: " + transform.up.normalized);
             Debug.Log("Wind vector: " + climate.Wind.normalized);
@@ -59,7 +59,7 @@ namespace WindTurbineVR.Core
             Debug.Log("Blade-Wind angle = " + bwangle);
             Debug.Log("Blade-Wind angle cosine = " + Mathf.Cos(bwangle));
             Debug.Log("Blade-Wind angle difference unit = " + bwangle.Remap(90, 20, 0, 1));
-
+            */
 
             Debug.Log("contribution: " + 16.66f * bwangle.Remap(90, 20, 0, 1));
         }
@@ -67,6 +67,7 @@ namespace WindTurbineVR.Core
         // Update is called once per frame
         void Update()
         {
+            Debug.Log("Climate Wind (Blade Controller) = " + climate.Wind);
             float bwangle = Vector3.Angle(-climate.Wind, transform.up);
             if (debug) DrawDebug(bwangle);
             Contribution = 16.66f * bwangle.Remap(90, 20, 0, 1);//transform.localEulerAngles.x.Remap(360, 290, 0, 16.66f);
