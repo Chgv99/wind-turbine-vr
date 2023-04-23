@@ -28,6 +28,8 @@ namespace WindTurbineVR.Core
 
         void Rotate(Quaternion startRotation, Quaternion endRotation)
         {
+            Debug.Log("Rotate (NacelleController). Start and end rotation = " + startRotation + " to " + endRotation);
+
             this.startRotation = startRotation;
             this.endRotation = endRotation;
 
@@ -41,11 +43,20 @@ namespace WindTurbineVR.Core
             if (doRotate)
             {
                 progress += Time.deltaTime;
+
+                Vector3 newDirection = new Vector3(transform.rotation.eulerAngles.x, endRotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+                Quaternion objective = Quaternion.Euler(newDirection); //new Quaternion(transform.rotation.x, endRotation.y, transform.rotation.z, transform.rotation.w), //endRotation,
+
                 Debug.Log("rotating. progress: " + progress);
+                Debug.Log("start: " + startRotation);
+                Debug.Log("current: " + transform.rotation);
+                Debug.Log("end: " + objective);
+                //Debug.Log(new Quaternion(transform.rotation.x, endRotation.y, transform.rotation.z, transform.rotation.w));
+                
                 transform.rotation = Quaternion.Lerp(
                     transform.rotation,
-                    new Quaternion(transform.rotation.x, endRotation.y, transform.rotation.z, transform.rotation.w), //endRotation,
-                    progress// * 2
+                    objective,
+                    progress * 0.0001f
                 );
             }
         }

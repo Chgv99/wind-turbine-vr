@@ -23,6 +23,7 @@ namespace WindTurbineVR.Core
 
             SwitchOn();
 
+            Debug.Log("turbinecontroller winddirection: " + vc.WindDirection);
             nc.Rotate(vc.WindDirection);
         }
 
