@@ -968,6 +968,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2139650972}
+  - component: {fileID: 2139650973}
   m_Layer: 0
   m_Name: "G\xF3ndola"
   m_TagString: Untagged
@@ -992,6 +993,18 @@ Transform:
   m_Father: {fileID: 1636548733385480941}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2139650973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139650971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44670c236cc1feb46835f524f58abc20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &7097968743176259
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -7463,6 +7476,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e12a2e3040d39df4a91d3bd677a82e85, type: 3}
+--- !u!114 &1133086991107731530 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4821487982641691331, guid: e12a2e3040d39df4a91d3bd677a82e85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1133086991107731529}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b26b1af86b7c145b9bb2f41c4b766a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &1133877641644228980
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -35504,7 +35529,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1636548733385480941}
   - component: {fileID: 6401337621154929968}
-  - component: {fileID: 6401337621154929969}
   m_Layer: 0
   m_Name: Wind-Turbine (Provisional)
   m_TagString: Untagged
@@ -35525,21 +35549,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rc: {fileID: 5456614998489249341}
-  nc: {fileID: 0}
-  vc: {fileID: 0}
---- !u!114 &6401337621154929969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6401337621154929967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44670c236cc1feb46835f524f58abc20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nacelle: {fileID: 0}
+  nc: {fileID: 2139650973}
+  vc: {fileID: 1133086991107731530}
 --- !u!4 &6417334106641047855
 Transform:
   m_ObjectHideFlags: 0
