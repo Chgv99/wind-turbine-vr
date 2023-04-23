@@ -35504,6 +35504,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1636548733385480941}
   - component: {fileID: 6401337621154929968}
+  - component: {fileID: 6401337621154929969}
   m_Layer: 0
   m_Name: Wind-Turbine (Provisional)
   m_TagString: Untagged
@@ -35524,6 +35525,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rc: {fileID: 5456614998489249341}
+  nc: {fileID: 0}
+  vc: {fileID: 0}
+--- !u!114 &6401337621154929969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6401337621154929967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44670c236cc1feb46835f524f58abc20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nacelle: {fileID: 0}
 --- !u!4 &6417334106641047855
 Transform:
   m_ObjectHideFlags: 0

@@ -47,12 +47,12 @@ namespace WindTurbineVR.Core
         // Update is called once per frame
         void Update()
         {
-            Debug.Log("--------------------");
+            //Debug.Log("--------------------");
             //Debug.Log("WindTransform eulerAngles = " + windTransform.eulerAngles);
             WindDirection = windTransform.rotation; // * Vector3.forward;
             Debug.DrawRay(windTransform.position, WindDirection * Vector3.forward * 10, Color.yellow);
             wind = WindDirection * Vector3.forward * WindSpeed;
-            Debug.Log("Climate Wind (Climate Controller) = " + wind);
+            //Debug.Log("Climate Wind (Climate Controller) = " + wind);
         }
     }
 }
