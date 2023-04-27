@@ -24,9 +24,7 @@ namespace WindTurbineVR.Core
 
         public Vector3 Wind { get => wind; }
         public Quaternion WindDirection { get => windDirection; set => windDirection = value; }
-        public float WindSpeed { get => windSpeed; set => windSpeed = value * 100; } //devuelve de 0 a 100 km/h)
-
-        //public Vector2 Wind { get => wind; set => wind = value; }
+        public float WindSpeed { get => windSpeed; set => windSpeed = value * 100; } //devuelve de 0 a 100 km/h
 
         // Start is called before the first frame update
         void Start()
@@ -40,8 +38,7 @@ namespace WindTurbineVR.Core
             DontDestroyOnLoad(gameObject);
             _instance = gameObject;
 
-            //WindDirection = new Vector3(0,0,1);//Vector3.forward;
-            WindDirection = windTransform.rotation;// * Vector3.forward;
+            WindDirection = windTransform.rotation;
         }
 
         // Update is called once per frame
