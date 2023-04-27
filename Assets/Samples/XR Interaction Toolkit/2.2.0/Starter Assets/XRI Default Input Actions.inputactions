@@ -1546,13 +1546,22 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchWrist",
+                    "type": "Button",
+                    "id": "a344d0e6-e488-4239-b962-323d07a3be90",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "c1431d1e-cc64-4462-aff9-a548255e194f",
-                    "path": "<XRController>{RightHand}/primary",
+                    "id": "344c7d0a-7fce-49c2-829e-c69b3367eefc",
+                    "path": "<XRController>{RightHand}/primaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1562,12 +1571,23 @@
                 },
                 {
                     "name": "",
-                    "id": "a5070ce9-7de7-4289-8c97-c862837e134a",
-                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "id": "02b2dde8-9b8a-4dd8-bbfd-975250748086",
+                    "path": "<XRController>{LeftHand}/secondaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SwitchAerial",
+                    "action": "SwitchWrist",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "34e56cf2-1ed1-4daa-9c39-604db969176d",
+                    "path": "<XRController>{LeftHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchWrist",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

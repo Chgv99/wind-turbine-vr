@@ -76,10 +76,10 @@ namespace WindTurbineVR.Core
             {
                 progress += Time.deltaTime;
 
-                Debug.Log("rotating. progress: " + progress);
+                /*Debug.Log("rotating. progress: " + progress);
                 Debug.Log("start: " + startRotation);
                 Debug.Log("current: " + transform.rotation);
-                Debug.Log("end: " + endRotation);
+                Debug.Log("end: " + endRotation);*/
                 //Debug.Log(new Quaternion(transform.rotation.x, endRotation.y, transform.rotation.z, transform.rotation.w));
                 
                 transform.rotation = Quaternion.Lerp(
