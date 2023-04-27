@@ -55,6 +55,8 @@ namespace WindTurbineVR.Core
             audioController.Play("Test");
         }
 
+        public void ReturnToMenu() => PlayScene(0);
+
         public void PlayScene(int i) => SceneManager.LoadScene(i);
 
         public void PlayScene(string name) => SceneManager.LoadScene(name);
