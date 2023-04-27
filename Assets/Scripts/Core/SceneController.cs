@@ -31,8 +31,10 @@ namespace WindTurbineVR.Core
             {
                 Scene activeScene = SceneManager.GetActiveScene();
 
-                if (activeScene.name == "Turbine") asyncOperation = SceneManager.LoadSceneAsync("TurbineAerial");
-                if (activeScene.name == "TurbineAerial") asyncOperation = SceneManager.LoadSceneAsync("Turbine");
+                //if (activeScene.name == "Turbine") asyncOperation = SceneManager.LoadSceneAsync("TurbineAerial");
+                //if (activeScene.name == "TurbineAerial") asyncOperation = SceneManager.LoadSceneAsync("Turbine");
+                if (activeScene.buildIndex == 1) asyncOperation = SceneManager.LoadSceneAsync(2);
+                if (activeScene.buildIndex == 2) asyncOperation = SceneManager.LoadSceneAsync(1);
 
                 asyncOperation.allowSceneActivation = false;
             }
