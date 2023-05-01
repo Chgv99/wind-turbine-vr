@@ -107,7 +107,7 @@ namespace WindTurbineVR.Object.Info
             _uiInstance = Instantiate(UI);
 
             Vector3 position = new Vector3();
-            Quaternion rotation = new Quaternion();
+            Quaternion rotation = transform.rotation;
 
             if (displayMode == DisplayMode.StaticAlternative || displayMode == DisplayMode.StaticAlternativeFixed)
             {
