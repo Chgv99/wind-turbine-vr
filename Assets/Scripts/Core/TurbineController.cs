@@ -46,16 +46,21 @@ namespace WindTurbineVR.Core
             nc.SetRotation(turbineDataController.NacelleRotation);
 
             SwitchOn();
-            //get nacelle rotation
-            //compare with current wind rotation
-            //do rotation
-            nc.Rotate(vc.WindDirection, vc);
         }
 
         void Update()
         {
             turbineDataController.RotorRotation = rc.GetRotation();
             turbineDataController.NacelleRotation = nc.GetRotation();
+
+            /** TODO: CALL NACELLE ROTATION
+             * DIRECTLY FROM VANE CONTROLLER
+             * (THEY COMMUNICATE DIRECTLY)*/
+            //get nacelle rotation
+            //compare with current wind rotation
+            //do rotation
+            //nc.Rotate(vc.WindDirection, vc);
+            nc.DirectionObjective = vc.WindDirection;
         }
 
         public void SwitchOn() => SwitchStatusOn();

@@ -6,6 +6,8 @@ using UnityEngine.UIElements;
 
 namespace WindTurbineVR.Core
 {
+    /** TODO: RENAME CONTROLLER TO YAW CONTROLLER */
+
     public class NacelleController : MonoBehaviour
     {
         //Transform nacelle;
@@ -21,7 +23,10 @@ namespace WindTurbineVR.Core
         float progress;
         Quaternion startRotation;
         Quaternion endRotation;
+        Quaternion directionObjective;
         #endregion
+
+        public Quaternion DirectionObjective { get => directionObjective; set => directionObjective = value; }
 
         // Start is called before the first frame update
         void Start()
@@ -29,6 +34,7 @@ namespace WindTurbineVR.Core
             
         }
 
+        /*
         public void Rotate(Quaternion rotation, VaneController vc)
         {
             this.vc = vc;
@@ -45,24 +51,12 @@ namespace WindTurbineVR.Core
             //endVector = new Vector3(transform.rotation.eulerAngles.)
             endRotation = Quaternion.Euler(endVector); //new Quaternion(transform.rotation.x, endRotation.y, transform.rotation.z, transform.rotation.w), //endRotation,
 
-            //startVector.
-            //Debug.Log("startVector")
-
-            /*float diffAngle = Vector3.Angle(startVector, endVector);
-            Debug.Log("DiffAngle: " + diffAngle);
-            if (diffAngle > threshold)
-            {
-                
-            }*/
-
-            //Debug.Log("Rotate (NacelleController). Start and end rotation = " + startRotation + " to " + endRotation);
-
             this.startRotation = startRotation;
             this.endRotation = endRotation;
 
             doRotate = true;
             progress = 0;
-        }
+        }*/
 
         public Quaternion GetRotation()
         {
@@ -77,21 +71,24 @@ namespace WindTurbineVR.Core
         // Update is called once per frame
         void Update()
         {
+            /*
             //if (doRotate)
             {
                 progress += Time.deltaTime;
 
-                /*Debug.Log("rotating. progress: " + progress);
-                Debug.Log("start: " + startRotation);
-                Debug.Log("current: " + transform.rotation);
-                Debug.Log("end: " + endRotation);*/
-                //Debug.Log(new Quaternion(transform.rotation.x, endRotation.y, transform.rotation.z, transform.rotation.w));
-                
                 transform.rotation = Quaternion.Lerp(
                     transform.rotation, //transform.rotation
                     vc.WindDirection,//endRotation,
                     progress * 0.0005f
                 );
+            }*/
+
+            Vector3 current = transform.rotation * Vector3.forward;
+            Vector3 objective = directionObjective * Vector3.forward;
+
+            if (Vector3.Angle(current, objective) > 5)
+            {
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, directionObjective, 0.01f);
             }
         }
     }
