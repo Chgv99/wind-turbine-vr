@@ -18,6 +18,7 @@ namespace WindTurbineVR.UI
         FrontPivot
     }
 
+    // TODO: Move to InfoController classes. Does not belong here
     public enum DisplayTrigger
     {
         Hover,
@@ -48,7 +49,7 @@ namespace WindTurbineVR.UI
         DisplayMode displayMode = DisplayMode.Static;
         DisplayTrigger displayTrigger = DisplayTrigger.Hover;
 
-        Info info;
+        Data.Info info;
 
         public List<TaskController> taskControllerList;
 
@@ -65,7 +66,7 @@ namespace WindTurbineVR.UI
         public ContentType ContentType { get => contentType; set => contentType = value; }
         public DisplayMode DisplayMode { get => displayMode; set => displayMode = value; }
         public DisplayTrigger DisplayTrigger { get => displayTrigger; set => displayTrigger = value; }
-        public Info Info { get => info; set => info = value; }
+        public Data.Info Info { get => info; set => info = value; }
         
 
         public GameObject AreaInfoInstance { get => areaInfoInstance; set => areaInfoInstance = value; }

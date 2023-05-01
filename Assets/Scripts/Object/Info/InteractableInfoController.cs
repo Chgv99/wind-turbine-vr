@@ -10,7 +10,7 @@ using WindTurbineVR.UI;
 using WindTurbineVR.Object;
 using System.Threading.Tasks;
 
-namespace WindTurbineVR.Object.Interactable
+namespace WindTurbineVR.Object.Info
 {
     /*
      * Add timer behaviour to hover exit?
@@ -19,11 +19,6 @@ namespace WindTurbineVR.Object.Interactable
 
     public class InteractableInfoController : InfoController
     {
-        [Space]
-        [SerializeField] protected DisplayTrigger displayTrigger;
-
-        //HoverEnterEvent _triggerEvent;
-
         // Start is called before the first frame update
         public void Start()
         {
@@ -43,7 +38,7 @@ namespace WindTurbineVR.Object.Interactable
                     break;
             }
 
-            ShowInfo();
+            CreateUI();
             Disable();
         }
 
@@ -73,70 +68,23 @@ namespace WindTurbineVR.Object.Interactable
 
             if (_uiInstance != null)
             {
-
+                _uiInstance = null;
             }
         }
 
-        private void ShowInfo(SelectEnterEventArgs arg0) => ShowInfo();
+        //private void CreateUI(SelectEnterEventArgs arg0) => CreateUI();
 
-        private void ShowInfo(HoverEnterEventArgs arg0) => ShowInfo();
+        //private void CreateUI(HoverEnterEventArgs arg0) => CreateUI();
 
-        protected void ShowInfo()
-        {
-            /*if (_uiInstance == null)
-            {
-                _uiInstance = Instantiate(UI);
-                Vector3 position = transform.position;
-                _uiInstance.transform.position = new Vector3(position.x, position.y + 0.5f, position.z);
-                _uiInstance.GetComponent<UIController>().ContentType = ContentType.ObjectInfo;
-                _uiInstance.GetComponent<UIController>().DisplayMode = displayMode;
-                _uiInstance.GetComponent<UIController>().DisplayTrigger = displayTrigger;
-            }*/
 
-            Vector3 position = transform.position;
-            ShowInfo(position.y + 0.5f);
-        }
-
-        protected override void ShowInfo(float height)
+        // Commented because behaviour was
+        // not different from parent class'
+        /*protected void CreateUI(float height)
         {
             Debug.Log("Show Info");
-            //Debug.Log(taskList.Length);
-            if (_uiInstance == null)
-            {
-                _uiInstance = Instantiate(UI);
-                Vector3 position = new Vector3();
-                Quaternion rotation = new Quaternion();
-                if (displayMode == DisplayMode.StaticAlternative || displayMode == DisplayMode.StaticAlternativeFixed)
-                {
-                    position = (alternativeUI != null) ? alternativeUI.position : position;
-                    rotation = (alternativeUI != null) ? alternativeUI.rotation : rotation;
-                }
-                else position = new Vector3(transform.position.x, height, transform.position.z);
+            if (_uiInstance != null) return;
 
-                _uiInstance.transform.position = position;
-                _uiInstance.transform.rotation = rotation;
-                UIController uic = _uiInstance.GetComponent<UIController>();
-                uic.ContentType = ContentType.ObjectInfo;
-                uic.DisplayMode = displayMode;
-                uic.DisplayTrigger = displayTrigger;
-                uic.Info = Info;
-                uic.taskControllerList = taskList;
-            }
-        }
-
-        /*
-        private void DisposeUI(HoverExitEventArgs arg0)
-        {
-            if (_uiInstance != null)
-            {
-                DisposeUI();
-            }
-        }
-
-        protected void DisposeUI()
-        {
-            Destroy(_uiInstance);
-        }
-        */
+            
+        }*/
     }
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 //using WindTurbineVR.Core.Scriptable;
 
-namespace WindTurbineVR.Core
+namespace WindTurbineVR.Data
 {
     public class Info : MonoBehaviour
     {

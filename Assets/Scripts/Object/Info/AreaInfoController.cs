@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using WindTurbineVR.Object.Interactable;
+//using WindTurbineVR.Object.Interactable;
 using WindTurbineVR.UI;
+using WindTurbineVR.Data;
 
-namespace WindTurbineVR.Object
+namespace WindTurbineVR.Object.Info
 {
     public class AreaInfoController : InfoController
     {
@@ -18,7 +19,7 @@ namespace WindTurbineVR.Object
         DisplayMode displayMode = DisplayMode.StaticPivot;
         DisplayTrigger displayTrigger = DisplayTrigger.Hover;*/
 
-        DisplayTrigger displayTrigger;
+        //DisplayTrigger displayTrigger;
 
         // Start is called before the first frame update
         void Start()
@@ -27,7 +28,7 @@ namespace WindTurbineVR.Object
             //UI = Resources.Load("UI") as GameObject;
             displayTrigger = DisplayTrigger.TriggerStay;
 
-            ShowInfo();
+            CreateUI();
             Disable();
         }
 
@@ -59,29 +60,12 @@ namespace WindTurbineVR.Object
             Disable();
         }
 
-        /*
-        private void Enable()
+        protected override void CreateUI(float height)
         {
-            base.Enable();
+            if (_uiInstance != null) return;
 
-
-        }*/
-
-        protected override void ShowInfo(float height)
-        {
-            if (_uiInstance == null)
-            {
-                _uiInstance = Instantiate(UI);
-                Vector3 position = transform.position;
-                _uiInstance.transform.position = new Vector3(position.x, height, position.z);
-                UIController uic = _uiInstance.GetComponent<UIController>();
-                uic.ContentType = ContentType.ObjectInfo;
-                uic.DisplayMode = displayMode;
-                uic.DisplayTrigger = displayTrigger;
-                uic.AreaInfoInstance = this.gameObject;
-                uic.Info = Info;
-                uic.taskControllerList = taskList;
-            }
+            base.CreateUI(height);
+            _uiInstance.GetComponent<UIController>().AreaInfoInstance = this.gameObject;
         }
     }
 }

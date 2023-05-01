@@ -2890,6 +2890,7 @@ MonoBehaviour:
       m_Calls: []
   displayMode: 1
   displayTrigger: 0
+  alternativeUI: {fileID: 0}
 --- !u!114 &806560619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3275,7 +3276,7 @@ PrefabInstance:
     - target: {fileID: 6692418116415658633, guid: fd28f23af44f73f4a95e33435872ad15,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 262.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6692418116415658633, guid: fd28f23af44f73f4a95e33435872ad15,
         type: 3}
@@ -3285,7 +3286,7 @@ PrefabInstance:
     - target: {fileID: 6692418116415658633, guid: fd28f23af44f73f4a95e33435872ad15,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 147.05
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6692418116415658633, guid: fd28f23af44f73f4a95e33435872ad15,
         type: 3}
@@ -6761,6 +6762,7 @@ MonoBehaviour:
       m_Calls: []
   displayMode: 0
   displayTrigger: 1
+  alternativeUI: {fileID: 0}
 --- !u!114 &2082655019
 MonoBehaviour:
   m_ObjectHideFlags: 0

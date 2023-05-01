@@ -20,9 +20,9 @@ namespace WindTurbineVR.UI
         List<TaskController> tcs;
         List<Toggle> toggles;
 
-        Info info;
+        Data.Info info;
 
-        internal Info Info { get => info; set => info = value; }
+        internal Data.Info Info { get => info; set => info = value; }
 
         // Start is called before the first frame update
         void Awake()

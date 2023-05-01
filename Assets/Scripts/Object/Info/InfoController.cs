@@ -9,10 +9,11 @@ using UnityEngine.XR.Interaction.Toolkit;
 using WindTurbineVR.UI;
 using WindTurbineVR.Core;
 using System.ComponentModel;
+using WindTurbineVR.Data;
 
 // Cambiar a otro namespace. UI probablemente.
 
-namespace WindTurbineVR.Object
+namespace WindTurbineVR.Object.Info
 {
     /* TODO:
      * 
@@ -24,17 +25,20 @@ namespace WindTurbineVR.Object
      * Merge Info class into InfoController?
      */
 
-    [RequireComponent(typeof(Info))]
+    [RequireComponent(typeof(Data.Info))]
     [RequireComponent(typeof(TaskManager))]
     public abstract class InfoController : XRSimpleInteractable
     {
         protected GameObject UI;
         protected GameObject _uiInstance;
 
-        Info info;
+        Data.Info info;
 
         [Space]
         [SerializeField] protected DisplayMode displayMode;
+
+        [Space]
+        [SerializeField] protected DisplayTrigger displayTrigger;
 
         [SerializeField] protected Transform alternativeUI;
 
@@ -44,13 +48,13 @@ namespace WindTurbineVR.Object
 
         //HoverEnterEvent _triggerEvent;
 
-        public Info Info { get => info; set => info = value; }
+        public Data.Info Info { get => info; set => info = value; }
 
         // Start is called before the first frame update
         public void Start()
         {
             UI = Resources.Load("UI/UI") as GameObject;
-            Info = GetComponent<Info>();
+            Info = GetComponent<Data.Info>();
 
             taskList = GetComponent<TaskManager>().Tasks;
             Debug.Log("taskList on infocontroller:" + taskList.Count);
@@ -92,13 +96,35 @@ namespace WindTurbineVR.Object
             }
         }
 
-        protected void ShowInfo()
+        protected void CreateUI()
         {
             Vector3 position = transform.position;
-            ShowInfo(position.y + 0.5f);
+            CreateUI(position.y + 0.5f);
         }
 
-        protected abstract void ShowInfo(float height);
+        protected virtual void CreateUI(float height)
+        {
+            _uiInstance = Instantiate(UI);
+
+            Vector3 position = new Vector3();
+            Quaternion rotation = new Quaternion();
+
+            if (displayMode == DisplayMode.StaticAlternative || displayMode == DisplayMode.StaticAlternativeFixed)
+            {
+                position = (alternativeUI != null) ? alternativeUI.position : position;
+                rotation = (alternativeUI != null) ? alternativeUI.rotation : rotation;
+            }
+            else position = new Vector3(transform.position.x, height, transform.position.z);
+
+            _uiInstance.transform.position = position;
+            _uiInstance.transform.rotation = rotation;
+
+            _uiInstance.GetComponent<UIController>().ContentType = ContentType.ObjectInfo;
+            _uiInstance.GetComponent<UIController>().DisplayMode = displayMode;
+            _uiInstance.GetComponent<UIController>().DisplayTrigger = displayTrigger;
+            _uiInstance.GetComponent<UIController>().Info = Info;
+            _uiInstance.GetComponent<UIController>().taskControllerList = taskList;
+        }
 
         protected void DisposeUI(HoverExitEventArgs arg0)
         {
