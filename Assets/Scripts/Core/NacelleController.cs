@@ -55,7 +55,7 @@ namespace WindTurbineVR.Core
                 
             }*/
 
-            Debug.Log("Rotate (NacelleController). Start and end rotation = " + startRotation + " to " + endRotation);
+            //Debug.Log("Rotate (NacelleController). Start and end rotation = " + startRotation + " to " + endRotation);
 
             this.startRotation = startRotation;
             this.endRotation = endRotation;
@@ -67,6 +67,11 @@ namespace WindTurbineVR.Core
         public Quaternion GetRotation()
         {
             return transform.rotation;
+        }
+
+        public void SetRotation(Quaternion rotation)
+        {
+            transform.rotation = rotation;
         }
 
         // Update is called once per frame
