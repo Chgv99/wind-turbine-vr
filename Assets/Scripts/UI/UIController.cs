@@ -102,7 +102,7 @@ namespace WindTurbineVR.UI
 
         void Awake()
         {
-            GetComponent<Canvas>().enabled = false;
+            //GetComponent<Canvas>().enabled = false;
         }
 
         void Start()
@@ -124,7 +124,7 @@ namespace WindTurbineVR.UI
             }
 
             SetContent();
-            GetComponent<Canvas>().enabled = true;
+            GetComponent<Canvas>().enabled = false;
         }
 
         // Update is called once per frame

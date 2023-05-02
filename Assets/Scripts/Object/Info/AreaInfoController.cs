@@ -29,7 +29,7 @@ namespace WindTurbineVR.Object.Info
             displayTrigger = DisplayTrigger.TriggerStay;
 
             CreateUI();
-            Disable();
+            //Disable();
         }
 
         // Update is called once per frame

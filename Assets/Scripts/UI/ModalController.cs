@@ -75,6 +75,7 @@ namespace WindTurbineVR.UI
 
             GameObject taskDisplay = Resources.Load("UI/Modal/Task") as GameObject;
             //for (int i = 0; i < tasks.Count; i++)
+            Transform taskListTransform = transform.Find("Tasks");
             foreach (TaskController tc in tcs)
             {
                 if (tc == null) continue;
@@ -83,7 +84,7 @@ namespace WindTurbineVR.UI
 
                 Task task = tc.Task;
                 Debug.Log("task: " + task.Description);
-                GameObject taskInstance = Instantiate(taskDisplay, transform.Find("Tasks"));
+                GameObject taskInstance = Instantiate(taskDisplay, taskListTransform);
                 
                 Transform toggleT = taskInstance.transform.Find("Toggle");
                 toggleT.Find("Label").GetComponent<TextMeshProUGUI>().text = task.Description;
@@ -93,6 +94,21 @@ namespace WindTurbineVR.UI
                 
                 toggles.Add(toggle);
             }
+            //taskListTransform.gameObject.SetActive(false);
+            StartCoroutine(DisableTaskList(taskListTransform.gameObject));
+            StartCoroutine(EnableTaskList(taskListTransform.gameObject));
+        }
+
+        IEnumerator DisableTaskList(GameObject taskList)
+        {
+            yield return new WaitForSecondsRealtime(1f);
+            taskList.gameObject.SetActive(false);
+        }
+
+        IEnumerator EnableTaskList(GameObject taskList)
+        {
+            yield return new WaitForSecondsRealtime(2f);
+            taskList.gameObject.SetActive(true);
         }
 
         public void SetContent(string title, string description)

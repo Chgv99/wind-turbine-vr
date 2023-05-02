@@ -3266,12 +3266,12 @@ PrefabInstance:
     - target: {fileID: 6692418116415658633, guid: fd28f23af44f73f4a95e33435872ad15,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6692418116415658633, guid: fd28f23af44f73f4a95e33435872ad15,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6692418116415658633, guid: fd28f23af44f73f4a95e33435872ad15,
         type: 3}
@@ -3291,7 +3291,7 @@ PrefabInstance:
     - target: {fileID: 6692418116415658633, guid: fd28f23af44f73f4a95e33435872ad15,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -46.21
       objectReference: {fileID: 0}
     - target: {fileID: 6692418116967518013, guid: fd28f23af44f73f4a95e33435872ad15,
         type: 3}
@@ -4326,7 +4326,7 @@ PrefabInstance:
     - target: {fileID: 5908749389890500727, guid: dc89fb3dc9f0df046b051dc339707216,
         type: 3}
       propertyPath: displayMode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6297184857526655305, guid: dc89fb3dc9f0df046b051dc339707216,
         type: 3}
@@ -7494,6 +7494,11 @@ PrefabInstance:
       propertyPath: tasks.Array.data[0]
       value: 
       objectReference: {fileID: 579787673}
+    - target: {fileID: 2427015805603780085, guid: dc89fb3dc9f0df046b051dc339707216,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4232590583958533312, guid: dc89fb3dc9f0df046b051dc339707216,
         type: 3}
       propertyPath: m_Size.x
@@ -7615,6 +7620,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2251088846158053234, guid: 4da1bc6ef7a1a6c4a9e17edcbabb81da,
+        type: 3}
+      propertyPath: audioController
+      value: 
+      objectReference: {fileID: 1472272166}
     - target: {fileID: 2251088846158053235, guid: 4da1bc6ef7a1a6c4a9e17edcbabb81da,
         type: 3}
       propertyPath: m_RootOrder
@@ -7675,8 +7685,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneController
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2251088846158053234, guid: 4da1bc6ef7a1a6c4a9e17edcbabb81da, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4da1bc6ef7a1a6c4a9e17edcbabb81da, type: 3}
 --- !u!1 &2569889238951780971
 GameObject:

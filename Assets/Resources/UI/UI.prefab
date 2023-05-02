@@ -134,6 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fc10306013aab54f812db7f6c7450eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneController: {fileID: 0}
+  taskControllerList: []
 --- !u!114 &8627655415018574608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,3 +148,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97a90f2dab79e854188cc83f220216aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tasks: []
