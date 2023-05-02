@@ -81,7 +81,8 @@ namespace WindTurbineVR.Object.Info
             Debug.Log("enable");
             if (_uiInstance != null)
             {
-                _uiInstance.SetActive(true);
+                //_uiInstance.SetActive(true);
+                _uiInstance.GetComponent<Canvas>().enabled = true;
             }
         }
 
@@ -92,7 +93,8 @@ namespace WindTurbineVR.Object.Info
             Debug.Log("disable");
             if (_uiInstance != null)
             {
-                _uiInstance.SetActive(false);
+                //_uiInstance.SetActive(false);
+                _uiInstance.GetComponent<Canvas>().enabled = false;
             }
         }
 
@@ -124,6 +126,8 @@ namespace WindTurbineVR.Object.Info
             _uiInstance.GetComponent<UIController>().DisplayTrigger = displayTrigger;
             _uiInstance.GetComponent<UIController>().Info = Info;
             _uiInstance.GetComponent<UIController>().taskControllerList = taskList;
+            //_uiInstance.GetComponent<UIController>().SetContent();
+            if (taskList.Count == 0) Debug.Log("task list is empty");
         }
 
         protected void DisposeUI(HoverExitEventArgs arg0)

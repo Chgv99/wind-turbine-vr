@@ -33,10 +33,17 @@ namespace WindTurbineVR.Core
         {
             Debug.Log("TurbineSceneController Start()");
             base.Start();
-            sceneHelper = new SceneHelper();
+            
+            // TODO: QUITAR IF ANTES DE RELEASE
+            if (SceneManager.GetActiveScene().buildIndex == 1 ||
+                SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                sceneHelper = new SceneHelper();
+                sceneHelper.LoadAsync();
+            }
+
             taskChecked = new UnityEvent();
             Debug.Log(taskChecked);
-            sceneHelper.LoadAsync();
 
             /*if (SceneManager.GetActiveScene().name == "Turbine")
                 if (!SceneManager.GetSceneByName("TurbineAerial").isLoaded)
