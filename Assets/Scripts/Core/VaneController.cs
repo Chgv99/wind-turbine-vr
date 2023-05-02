@@ -24,6 +24,7 @@ namespace WindTurbineVR.Core
         {
             windDirection = climate.WindDirection;
             transform.rotation = WindDirection;
+            transform.eulerAngles = transform.eulerAngles + new Vector3(0, 180, 0);
             //transform.rotation = Quaternion.LookRotation(transform.position, climate.WindDirection * Vector3.forward);
         }
     }
