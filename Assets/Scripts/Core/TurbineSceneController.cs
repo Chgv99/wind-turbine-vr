@@ -31,7 +31,7 @@ namespace WindTurbineVR.Core
         // Start is called before the first frame update
         public override void Start()
         {
-            Debug.Log("TurbineSceneController Start()");
+            //Debug.Log("TurbineSceneController Start()");
             base.Start();
             
             // TODO: QUITAR IF ANTES DE RELEASE
@@ -56,8 +56,10 @@ namespace WindTurbineVR.Core
             wind_direction = (td != null) ? td.WindDirection : 0;
             #endregion
 
+            //Debug.Log("wind speed = " + GameObject.Find("ClimateController").GetComponent<ClimateController>().WindSpeed);
+
             //if (SceneManager.GetActiveScene().name == "Turbine")
-                //StartCoroutine(SwitchSceneCo());
+            //StartCoroutine(SwitchSceneCo());
         }
 
         IEnumerator SwitchSceneCo()

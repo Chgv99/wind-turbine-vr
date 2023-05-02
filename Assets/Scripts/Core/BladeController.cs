@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace WindTurbineVR.Core
 {
@@ -9,7 +10,13 @@ namespace WindTurbineVR.Core
         ClimateController climate;
         RotorController rotor;
 
+        #region private
         float contribution = 0f;
+        float angleOn = -70;
+        float angleOff = 0;
+        float moveSpeed = 0.1f;
+        #endregion
+
 
         public float Contribution { get => contribution; set => contribution = value; }
 
@@ -83,6 +90,16 @@ namespace WindTurbineVR.Core
             
         }
 
+        public void OverrideTurnOn()
+        {
+            transform.localRotation = Quaternion.Euler(angleOn, 0, 0);
+        }
+
+        public void OverrideTurnOff()
+        {
+
+        }
+
         public void TurnOn() => CoroutineCheck(RotateOn());
 
         public void TurnOff() => CoroutineCheck(RotateOff());
@@ -95,33 +112,27 @@ namespace WindTurbineVR.Core
 
         IEnumerator RotateOn()
         {
-            float moveSpeed = 0.1f;
-            float angle = -70;
-
             // Stops rotation when the angles are near to the angle objective (-70 aka 290)
             // Initial angle is less than zero (approximately zero) at first, but then is quickly converted to a positive angle.
             // That's why we need the part after the OR operand. Positive check just in case.
             while (transform.localEulerAngles.x > 291.5f || (transform.localEulerAngles.x > -1 && transform.localEulerAngles.x < 1) )
             {
-                transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(angle, 0, 0), moveSpeed * Time.deltaTime);
+                transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(angleOn, 0, 0), moveSpeed * Time.deltaTime);
                 yield return null;
             }
-            transform.localRotation = Quaternion.Euler(angle, 0, 0);
+            transform.localRotation = Quaternion.Euler(angleOn, 0, 0);
             yield return null;
         }
 
         IEnumerator RotateOff()
         {
-            float moveSpeed = 0.1f;
-            float angle = 0;
-
             // Stops rotation when the angles are near to the angle objective (0)
             while (transform.localEulerAngles.x < -1.5f /*|| (transform.localEulerAngles.x > -1 && transform.localEulerAngles.x < 1)*/)
             {
-                transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(angle, 0, 0), moveSpeed * Time.deltaTime);
+                transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(angleOff, 0, 0), moveSpeed * Time.deltaTime);
                 yield return null;
             }
-            transform.localRotation = Quaternion.Euler(angle, 0, 0);
+            transform.localRotation = Quaternion.Euler(angleOff, 0, 0);
             yield return null;
         }
     }

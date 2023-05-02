@@ -53,6 +53,16 @@ namespace WindTurbineVR.Core
             //GetComponent<Rigidbody>().AddRelativeTorque(transform.forward * -Torque);
         }
 
+        public Quaternion GetRotation()
+        {
+            return GetComponent<Rigidbody>().rotation;
+        }
+
+        public void SetRotation(Quaternion rotation)
+        {
+            GetComponent<Rigidbody>().rotation = rotation;
+        }
+
         public void TurnOn()
         {
             foreach (BladeController blade in Blades) blade.TurnOn();

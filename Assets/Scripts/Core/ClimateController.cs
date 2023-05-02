@@ -16,7 +16,7 @@ namespace WindTurbineVR.Core
 
         private Vector3 wind;
         private Quaternion windDirection;
-        private float windSpeed = 1; // rango de 0 a 1 (de 0 a 100 km/h)
+        private float windSpeed = 0; // de 0 a 100 km/h
 
         /** Un aerogenerador opera con vientos de entre 10.8 a 90 km/h.
          * Nuestros vientos tendrán un rango mayor para demostrar los
@@ -24,7 +24,7 @@ namespace WindTurbineVR.Core
 
         public Vector3 Wind { get => wind; }
         public Quaternion WindDirection { get => windDirection; set => windDirection = value; }
-        public float WindSpeed { get => windSpeed; set => windSpeed = value * 100; } //devuelve de 0 a 100 km/h
+        public float WindSpeed { get => windSpeed; set => windSpeed = value; } //devuelve de 0 a 100 km/h
 
         // Start is called before the first frame update
         void Start()

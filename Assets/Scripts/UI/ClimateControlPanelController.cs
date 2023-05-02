@@ -21,12 +21,14 @@ namespace WindTurbineVR.UI
             if (climate == null) Error.LogException("ClimateController not found");
             if (windSlider == null) Error.LogException("windSlider not found");
             if (windSliderText == null) Error.LogException("windSliderText not found");
+
+            windSlider.value = climate.WindSpeed / 100;
         }
 
         // Update is called once per frame
         void Update()
         {
-            climate.WindSpeed = windSlider.value;
+            climate.WindSpeed = windSlider.value * 100;
             windSliderText.text = windSlider.value.ToString("F2") + " km/h";
         }
     }
