@@ -33,7 +33,7 @@ namespace WindTurbineVR.Character.Movement
 
         private void HandActivated(string _controllerName)
         {
-            Debug.Log("HandActivated");
+            Debug.Log(_controllerName + " HandActivated");
             if (_controllerName == "LeftHand Controller")
             {
                 _leftActive = true;
@@ -50,7 +50,7 @@ namespace WindTurbineVR.Character.Movement
 
         private void HandDeactivated(string _controllerName)
         {
-            Debug.Log("HandDeactivated");
+            Debug.Log(_controllerName + " HandDeactivated");
             if (_rightActive && _controllerName == "RightHand Controller")
             {
                 _rightActive = false;
