@@ -5,18 +5,19 @@ TagManager:
   serializedVersion: 2
   tags:
   - Climbable
+  - RopeJoint
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - No Render
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Environment
+  - RopeEnd
+  - RopeJoint
+  - HandInteractor
   - 
   - 
   - 
