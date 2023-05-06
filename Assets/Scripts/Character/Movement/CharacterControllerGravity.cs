@@ -7,7 +7,7 @@ namespace WindTurbineVR.Character.Movement
     public class CharacterControllerGravity : MonoBehaviour
     {
         private CharacterController _characterController;
-        private bool _climbing = false;
+        [SerializeField] private bool _climbing = false;
 
         // Start is called before the first frame update
         void Start()

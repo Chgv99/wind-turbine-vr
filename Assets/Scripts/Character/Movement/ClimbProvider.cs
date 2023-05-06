@@ -74,7 +74,7 @@ namespace WindTurbineVR.Character.Movement
         private void Climb()
         {
             Vector3 velocity = _leftActive ? velocityLeft.action.ReadValue<Vector3>() : velocityRight.action.ReadValue<Vector3>();
-
+            Debug.Log("Climbing. Velocity: " + velocity.ToString());
             characterController.Move(characterController.transform.rotation * -velocity * Time.fixedDeltaTime);
         }
     }
