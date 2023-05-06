@@ -3266,12 +3266,12 @@ PrefabInstance:
     - target: {fileID: 6692418116415658633, guid: fd28f23af44f73f4a95e33435872ad15,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6692418116415658633, guid: fd28f23af44f73f4a95e33435872ad15,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6692418116415658633, guid: fd28f23af44f73f4a95e33435872ad15,
         type: 3}
@@ -3291,7 +3291,7 @@ PrefabInstance:
     - target: {fileID: 6692418116415658633, guid: fd28f23af44f73f4a95e33435872ad15,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -46.21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6692418116967518013, guid: fd28f23af44f73f4a95e33435872ad15,
         type: 3}
@@ -3658,7 +3658,7 @@ MonoBehaviour:
   end: {fileID: 1711584020}
   color: {r: 0.38679248, g: 0.23171058, b: 0.23171058, a: 1}
   airDrag: 1
-  thickness: 0.1
+  thickness: 0.25
   jointDensity: 2.5
   densityUnit: 1
   showJoints: 0
