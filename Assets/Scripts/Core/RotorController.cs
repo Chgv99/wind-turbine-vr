@@ -38,6 +38,7 @@ namespace WindTurbineVR.Core
         // Update is called once per frame
         void FixedUpdate()
         {
+            Debug.Log("RotorController");
             velocity = 0;
             foreach (BladeController blade in Blades)
             {
@@ -47,7 +48,11 @@ namespace WindTurbineVR.Core
             Quaternion deltaRotation = Quaternion.Euler(
                 new Vector3(0, 0, -velocity) * Time.fixedDeltaTime);
 
-            GetComponent<Rigidbody>().MoveRotation(GetComponent<Rigidbody>().rotation * deltaRotation);
+            Vector3 rotation = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z * -velocity);
+
+            //GetComponent<Rigidbody>().MoveRotation(GetComponent<Rigidbody>().rotation * deltaRotation);
+            transform.Rotate(new Vector3(0, 0, 1) * -velocity * Time.fixedDeltaTime);
+
 
             // OLD BEHAVIOUR
             //GetComponent<Rigidbody>().AddRelativeTorque(transform.forward * -Torque);
@@ -55,12 +60,22 @@ namespace WindTurbineVR.Core
 
         public Quaternion GetRotation()
         {
-            return GetComponent<Rigidbody>().rotation;
+            return transform.rotation;
         }
 
         public void SetRotation(Quaternion rotation)
         {
-            GetComponent<Rigidbody>().rotation = rotation;
+            transform.rotation = rotation;
+        }
+
+        public void OverrideTurnOn()
+        {
+            foreach (BladeController blade in Blades) blade.OverrideTurnOn();
+        }
+
+        public void OverrideTurnOff()
+        {
+            foreach (BladeController blade in Blades) blade.OverrideTurnOff();
         }
 
         public void TurnOn()

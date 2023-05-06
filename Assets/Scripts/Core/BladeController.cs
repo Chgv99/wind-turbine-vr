@@ -75,9 +75,10 @@ namespace WindTurbineVR.Core
         void Update()
         {
             //Debug.Log("Climate Wind (Blade Controller) = " + climate.Wind);
-            float bwangle = Vector3.Angle(climate.WindDirection * -Vector3.forward, transform.up);
+            /*float bwangle = Vector3.Angle(climate.WindDirection * -Vector3.forward, transform.up);
             if (debug) DrawDebug(bwangle);
-            Contribution = 16.66f * bwangle.Remap(90, 20, 0, 1);//transform.localEulerAngles.x.Remap(360, 290, 0, 16.66f);
+            Contribution = 16.66f * bwangle.Remap(90, 20, 0, 1);*/
+            //transform.localEulerAngles.x.Remap(360, 290, 0, 16.66f);
 
             /*Debug.Log("blade angle: " + transform.localEulerAngles.x); //max (min) is 290
             Debug.Log("torque sent (1): " + transform.localEulerAngles.x.Remap(360, 290, 0, 1));
@@ -87,7 +88,9 @@ namespace WindTurbineVR.Core
 
         private void FixedUpdate()
         {
-            
+            float bwangle = Vector3.Angle(climate.WindDirection * -Vector3.forward, transform.up);
+            if (debug) DrawDebug(bwangle);
+            Contribution = 16.66f * bwangle.Remap(90, 20, 0, 1);
         }
 
         public void OverrideTurnOn()

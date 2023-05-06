@@ -69,23 +69,23 @@ namespace WindTurbineVR.Core
         }
 
         // Update is called once per frame
-        void Update()
+        /*void Update()
         {
-            /*
-            //if (doRotate)
-            {
-                progress += Time.deltaTime;
-
-                transform.rotation = Quaternion.Lerp(
-                    transform.rotation, //transform.rotation
-                    vc.WindDirection,//endRotation,
-                    progress * 0.0005f
-                );
-            }*/
-
+            Debug.Log("NacelleController");
             Vector3 current = transform.rotation * Vector3.forward;
             Vector3 objective = directionObjective * Vector3.forward;
 
+            if (Vector3.Angle(current, objective) > 5)
+            {
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, directionObjective, 0.01f);
+            }
+        }*/
+
+        void FixedUpdate()
+        {
+            Debug.Log("NacelleController");
+            Vector3 current = transform.rotation * Vector3.forward;
+            Vector3 objective = directionObjective * Vector3.forward;
             if (Vector3.Angle(current, objective) > 5)
             {
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, directionObjective, 0.01f);
