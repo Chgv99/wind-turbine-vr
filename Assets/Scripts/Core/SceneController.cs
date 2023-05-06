@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 using WindTurbineVR.Core.Audio;
 
@@ -53,6 +54,8 @@ namespace WindTurbineVR.Core
             if (camera == null) camera = xrOrigin.Find("CameraOffset/Main Camera");
 
             audioController.Play("Test");
+
+            Time.fixedDeltaTime = 1 / 60f;
         }
 
         public void ReturnToMenu() => PlayScene(0);

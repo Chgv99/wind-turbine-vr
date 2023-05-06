@@ -36,8 +36,9 @@ namespace WindTurbineVR.Core
         }
 
         // Update is called once per frame
-        void FixedUpdate()
+        void Update()
         {
+            Debug.Log("RotorController");
             velocity = 0;
             foreach (BladeController blade in Blades)
             {
@@ -61,6 +62,16 @@ namespace WindTurbineVR.Core
         public void SetRotation(Quaternion rotation)
         {
             GetComponent<Rigidbody>().rotation = rotation;
+        }
+
+        public void OverrideTurnOn()
+        {
+            foreach (BladeController blade in Blades) blade.OverrideTurnOn();
+        }
+
+        public void OverrideTurnOff()
+        {
+            foreach (BladeController blade in Blades) blade.OverrideTurnOff();
         }
 
         public void TurnOn()

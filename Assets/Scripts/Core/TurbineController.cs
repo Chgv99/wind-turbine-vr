@@ -45,6 +45,7 @@ namespace WindTurbineVR.Core
             //rc.SetRotation(turbineDataController.RotorRotation);
             nc.SetRotation(turbineDataController.NacelleRotation);
 
+            //SwitchOn();
             SwitchOn();
         }
 
@@ -62,6 +63,8 @@ namespace WindTurbineVR.Core
             //nc.Rotate(vc.WindDirection, vc);
             nc.DirectionObjective = vc.WindDirection;
         }
+
+        public void OverrideSwitchOn() => rc.OverrideTurnOn();
 
         public void SwitchOn() => SwitchStatusOn();
 

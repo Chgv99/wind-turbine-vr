@@ -71,6 +71,7 @@ namespace WindTurbineVR.Core
         // Update is called once per frame
         void Update()
         {
+            Debug.Log("NacelleController");
             /*
             //if (doRotate)
             {
