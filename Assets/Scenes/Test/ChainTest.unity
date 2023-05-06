@@ -374,7 +374,7 @@ PrefabInstance:
     - target: {fileID: 8965037279933032013, guid: 9e20bb0d22fd08446af8eda8f131af16,
         type: 3}
       propertyPath: thickness
-      value: 0.1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 8965037279933032013, guid: 9e20bb0d22fd08446af8eda8f131af16,
         type: 3}
@@ -2816,7 +2816,7 @@ PrefabInstance:
     - target: {fileID: 8965037279933032013, guid: 9e20bb0d22fd08446af8eda8f131af16,
         type: 3}
       propertyPath: thickness
-      value: 0.1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 8965037279933032013, guid: 9e20bb0d22fd08446af8eda8f131af16,
         type: 3}
