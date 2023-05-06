@@ -556,6 +556,17 @@
                     "action": "Velocity",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6cfc8d16-c7c3-4aea-97bd-ffe5bd73f114",
+                    "path": "<XRController>{LeftHand}/deviceVelocity",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Velocity",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -1060,6 +1071,17 @@
                     "name": "",
                     "id": "23e513dc-b968-442f-b23c-b474fc839c9a",
                     "path": "<OculusTouchController>{RightHand}/devicePose/velocity",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Velocity",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3b1fc2e4-3cdd-4329-b016-ff56e82b5950",
+                    "path": "<XRController>{RightHand}/deviceVelocity",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
