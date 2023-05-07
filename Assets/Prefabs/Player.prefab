@@ -627,7 +627,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2253912397562253267}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -675,7 +675,7 @@ GameObject:
   - component: {fileID: 2749227459238827848}
   - component: {fileID: 26469887775650580}
   - component: {fileID: 520763853619861531}
-  m_Layer: 2
+  m_Layer: 6
   m_Name: XR Origin
   m_TagString: Player
   m_Icon: {fileID: 0}
