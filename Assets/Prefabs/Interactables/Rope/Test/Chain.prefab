@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8481859167653716682}
   - component: {fileID: 7485238550904248338}
   - component: {fileID: 7833449738165705702}
-  - component: {fileID: 6275432430102503573}
-  m_Layer: 0
+  - component: {fileID: 6313334833294767641}
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,8 +115,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!59 &6275432430102503573
-HingeJoint:
+--- !u!144 &6313334833294767641
+CharacterJoint:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -124,27 +124,37 @@ HingeJoint:
   m_GameObject: {fileID: 4269824456883514009}
   m_ConnectedBody: {fileID: 0}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0.5, z: 0}
+  m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
-  m_UseSpring: 0
-  m_Spring:
+  m_ConnectedAnchor: {x: -2, y: 5, z: 0}
+  serializedVersion: 2
+  m_SwingAxis: {x: 0, y: 1, z: 0}
+  m_TwistLimitSpring:
     spring: 0
     damper: 0
-    targetPosition: 0
-  m_UseMotor: 0
-  m_Motor:
-    targetVelocity: 0
-    force: 0
-    freeSpin: 0
-  m_UseLimits: 0
-  m_Limits:
-    min: 0
-    max: 0
+  m_LowTwistLimit:
+    limit: -20
     bounciness: 0
-    bounceMinVelocity: 0.2
     contactDistance: 0
+  m_HighTwistLimit:
+    limit: 70
+    bounciness: 0
+    contactDistance: 0
+  m_SwingLimitSpring:
+    spring: 0
+    damper: 0
+  m_Swing1Limit:
+    limit: 40
+    bounciness: 0
+    contactDistance: 0
+  m_Swing2Limit:
+    limit: 40
+    bounciness: 0
+    contactDistance: 0
+  m_EnableProjection: 0
+  m_ProjectionDistance: 0.1
+  m_ProjectionAngle: 180
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -198,13 +208,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b142bac4448904cbaa7fb204cdcaaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lr: {fileID: 0}
+  joints: []
   jointPrefab: {fileID: 0}
   beginning: {fileID: 5466836683565260255}
   end: {fileID: 610320528888072229}
   color: {r: 0, g: 0, b: 0, a: 0}
+  airDrag: 1
   thickness: 0.01
   jointDensity: 1
   densityUnit: 1
+  showJoints: 0
 --- !u!120 &5466836683529428564
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -316,7 +330,7 @@ GameObject:
   - component: {fileID: 5466836683565260253}
   - component: {fileID: 5466836683565260250}
   - component: {fileID: 5466836683565260251}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

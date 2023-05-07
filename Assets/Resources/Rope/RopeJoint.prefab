@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 548498718018750605}
   - component: {fileID: 4105555040543049504}
   - component: {fileID: 5177181209571079479}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,9 +94,8 @@ GameObject:
   - component: {fileID: 7792976044517294258}
   - component: {fileID: 7792976044517294268}
   - component: {fileID: 3801552024929709241}
-  - component: {fileID: 7665200131414945927}
   - component: {fileID: 1860567756065028170}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RopeJoint
   m_TagString: RopeJoint
   m_Icon: {fileID: 0}
@@ -148,20 +147,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7665200131414945927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7792976044517294257}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39e6ac92636325948b1bbb5586ffa392, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  connectedAbove: {fileID: 0}
-  connectedBelow: {fileID: 0}
 --- !u!144 &1860567756065028170
 CharacterJoint:
   m_ObjectHideFlags: 0

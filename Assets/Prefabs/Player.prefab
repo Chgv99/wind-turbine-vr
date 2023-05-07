@@ -629,7 +629,7 @@ GameObject:
   - component: {fileID: 2253912397562253267}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 520763853619861531}
   m_Layer: 2
   m_Name: XR Origin
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -11,9 +11,9 @@ namespace WindTurbineVR.Object
     [RequireComponent(typeof(LineRenderer))]
     public class RopeController : MonoBehaviour
     {
-        LineRenderer lr;
+        [SerializeField] LineRenderer lr;
 
-        List<Transform> joints;
+        [SerializeField] List<Transform> joints;
 
         [SerializeField] GameObject jointPrefab;
 
@@ -32,6 +32,9 @@ namespace WindTurbineVR.Object
         [SerializeField] [Range(0.1f, 1f)] float thickness =        0.1f; // Limitado a 0.1 por limitaciones de Unity
         [SerializeField] [Range(0.5f, 5f)] float jointDensity =     1f;
         [SerializeField] [Range(0.1f, 1f)] float densityUnit =      1f;
+
+        [Space]
+        [SerializeField][Range(0.1f, 1f)] float visualFactor = 1f; //relation between rigidbody size and linewidth
 
         [Space]
         [SerializeField] bool showJoints = false;
@@ -114,8 +117,8 @@ namespace WindTurbineVR.Object
 
             lr.positionCount = joints.Count;
 
-            lr.startWidth = thickness;
-            lr.endWidth = thickness;
+            lr.startWidth = thickness * visualFactor;
+            lr.endWidth = thickness * visualFactor;
 
             lr.startColor = color;
             lr.endColor = color;
@@ -129,6 +132,7 @@ namespace WindTurbineVR.Object
             int i = 0;
             foreach (Transform joint in joints)
             {
+                Debug.Log("i: " + i + "; joint: " + joint + "; lr: " + lr);
                 lr.SetPosition(i, joint.position);
                 i++;
             }

@@ -7,6 +7,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1860567756065028170, guid: 53405f035bc38784f93d69c8d69f03e1,
+        type: 3}
+      propertyPath: m_Swing1Limit.limit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1860567756065028170, guid: 53405f035bc38784f93d69c8d69f03e1,
+        type: 3}
+      propertyPath: m_Swing2Limit.limit
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3008856997619001658, guid: 53405f035bc38784f93d69c8d69f03e1,
         type: 3}
       propertyPath: m_UseLimits
@@ -22,10 +32,25 @@ PrefabInstance:
       propertyPath: m_Limits.contactDistance
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7460794300659761771, guid: 53405f035bc38784f93d69c8d69f03e1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7792976044517294257, guid: 53405f035bc38784f93d69c8d69f03e1,
         type: 3}
       propertyPath: m_Name
       value: RopeJoint (Macro)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792976044517294257, guid: 53405f035bc38784f93d69c8d69f03e1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792976044517294257, guid: 53405f035bc38784f93d69c8d69f03e1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7792976044517294258, guid: 53405f035bc38784f93d69c8d69f03e1,
         type: 3}
@@ -87,5 +112,6 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 0.1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7665200131414945927, guid: 53405f035bc38784f93d69c8d69f03e1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 53405f035bc38784f93d69c8d69f03e1, type: 3}
