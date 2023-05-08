@@ -29,8 +29,8 @@ namespace WindTurbineVR.Object
         [SerializeField] float airDrag = 1f;
 
         [Space]
-        [SerializeField] [Range(0.1f, 1f)] float thickness =        0.1f; // Limitado a 0.1 por limitaciones de Unity
-        [SerializeField] [Range(0.5f, 5f)] float jointDensity =     1f;
+        [SerializeField] [Range(0.01f, 1f)] float thickness =        0.1f; // Limitado a 0.1 por limitaciones de Unity
+        [SerializeField] [Range(0.5f, 15f)] float jointDensity =     1f;
         [SerializeField] [Range(0.1f, 1f)] float densityUnit =      1f;
 
         [Space]
@@ -132,7 +132,7 @@ namespace WindTurbineVR.Object
             int i = 0;
             foreach (Transform joint in joints)
             {
-                Debug.Log("i: " + i + "; joint: " + joint + "; lr: " + lr);
+                //Debug.Log("i: " + i + "; joint: " + joint + "; lr: " + lr);
                 lr.SetPosition(i, joint.position);
                 i++;
             }
