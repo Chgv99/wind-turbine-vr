@@ -30763,6 +30763,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4257525907774097781, guid: 67adcb5f42590a346a7354d5702ed7ad,
         type: 3}
+      propertyPath: spacing
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257525907774097781, guid: 67adcb5f42590a346a7354d5702ed7ad,
+        type: 3}
       propertyPath: stepCount
       value: 189
       objectReference: {fileID: 0}
