@@ -3653,6 +3653,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b142bac4448904cbaa7fb204cdcaaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lr: {fileID: 0}
+  joints: []
   jointPrefab: {fileID: 0}
   beginning: {fileID: 1727256314}
   end: {fileID: 1711584020}
@@ -3661,6 +3663,7 @@ MonoBehaviour:
   thickness: 0.25
   jointDensity: 2.5
   densityUnit: 1
+  visualFactor: 1
   showJoints: 0
 --- !u!120 &1130104078
 LineRenderer:
@@ -7833,10 +7836,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6397956363446349728, guid: bb9927492287c5a428dac552c6b606b4,
+        type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 6575241570959728848, guid: bb9927492287c5a428dac552c6b606b4,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 2039
+      objectReference: {fileID: 0}
+    - target: {fileID: 8827948566143637298, guid: bb9927492287c5a428dac552c6b606b4,
+        type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 32
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb9927492287c5a428dac552c6b606b4, type: 3}
