@@ -83,7 +83,7 @@ namespace WindTurbineVR.Core
 
         void FixedUpdate()
         {
-            Debug.Log("NacelleController");
+            //Debug.Log("NacelleController");
             Vector3 current = transform.rotation * Vector3.forward;
             Vector3 objective = directionObjective * Vector3.forward;
             if (Vector3.Angle(current, objective) > 5)

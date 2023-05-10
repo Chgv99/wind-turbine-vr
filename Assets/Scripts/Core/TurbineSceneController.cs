@@ -23,10 +23,21 @@ namespace WindTurbineVR.Core
         [SerializeField][Range(0, 359)] float wind_direction = 0f;
 
         UnityEvent taskChecked;
+        UnityEvent ropeAttached;
+        UnityEvent harnessAttached;
+        UnityEvent harnessDetached;
+        UnityEvent lifelineHalt;
+        UnityEvent lifelineRelease;
 
         public float Wind_speed { get => wind_speed; }
         public float Wind_direction { get => wind_direction; set => wind_direction = value; }
         public UnityEvent TaskChecked { get => taskChecked; }
+
+        public UnityEvent RopeAttached { get => ropeAttached; }
+        public UnityEvent HarnessAttached { get => harnessAttached; set => harnessAttached = value; }
+        public UnityEvent HarnessDetached { get => harnessDetached; set => harnessDetached = value; }
+        public UnityEvent LifelineHalt { get => lifelineHalt; set => lifelineHalt = value; }
+        public UnityEvent LifelineRelease { get => lifelineRelease; set => lifelineRelease = value; }
 
         // Start is called before the first frame update
         public override void Start()
@@ -43,7 +54,12 @@ namespace WindTurbineVR.Core
             }
 
             taskChecked = new UnityEvent();
-            Debug.Log(taskChecked);
+            ropeAttached = new UnityEvent();
+            harnessAttached = new UnityEvent();
+            HarnessDetached = new UnityEvent();
+            lifelineHalt = new UnityEvent();
+            lifelineRelease = new UnityEvent();
+            //Debug.Log(taskChecked);
 
             /*if (SceneManager.GetActiveScene().name == "Turbine")
                 if (!SceneManager.GetSceneByName("TurbineAerial").isLoaded)

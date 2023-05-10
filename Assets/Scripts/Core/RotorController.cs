@@ -38,7 +38,7 @@ namespace WindTurbineVR.Core
         // Update is called once per frame
         void FixedUpdate()
         {
-            Debug.Log("RotorController");
+            //Debug.Log("RotorController");
             velocity = 0;
             foreach (BladeController blade in Blades)
             {
