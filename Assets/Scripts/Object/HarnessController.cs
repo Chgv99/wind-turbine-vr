@@ -10,6 +10,8 @@ namespace WindTurbineVR
     {
         TurbineSceneController sceneController;
 
+        [SerializeField] Transform mainCamera;
+
         UnityEvent harnessAttached;
         UnityEvent harnessDetached;
 
@@ -24,7 +26,8 @@ namespace WindTurbineVR
         // Update is called once per frame
         void Update()
         {
-        
+            transform.position = mainCamera.position + new Vector3(0, -0.5f, 0);
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, mainCamera.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
         }
 
         public void CallHarnessAttached()
