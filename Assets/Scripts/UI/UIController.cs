@@ -192,10 +192,9 @@ namespace WindTurbineVR.UI
             else _infoModalInstance.GetComponent<ModalController>().SetContent(Info.Title, Info.Description);
         }
 
-        public void Disable()
-        {
-            gameObject.SetActive(false);
-        }
+        public void Enable() => GetComponent<Canvas>().enabled = true;
+
+        public void Disable() => GetComponent<Canvas>().enabled = false;
 
         public void Dispose()
         {
