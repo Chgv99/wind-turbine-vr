@@ -27,7 +27,7 @@ namespace WindTurbineVR
         void Update()
         {
             transform.position = mainCamera.position + new Vector3(0, -0.5f, 0);
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, mainCamera.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, mainCamera.rotation.eulerAngles.y + 90, transform.rotation.eulerAngles.z);
         }
 
         public void CallHarnessAttached()
