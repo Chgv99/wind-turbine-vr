@@ -82,7 +82,8 @@ namespace WindTurbineVR.Object.Info
             if (_uiInstance != null)
             {
                 //_uiInstance.SetActive(true);
-                _uiInstance.GetComponent<Canvas>().enabled = true;
+                //_uiInstance.GetComponent<Canvas>().enabled = true;
+                _uiInstance.GetComponent<UIController>().Enable();
             }
         }
 
@@ -94,7 +95,8 @@ namespace WindTurbineVR.Object.Info
             if (_uiInstance != null)
             {
                 //_uiInstance.SetActive(false);
-                _uiInstance.GetComponent<Canvas>().enabled = false;
+                //_uiInstance.GetComponent<Canvas>().enabled = false;
+                _uiInstance.GetComponent<UIController>().Enable();
             }
         }
 

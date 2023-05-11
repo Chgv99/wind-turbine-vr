@@ -23,5 +23,14 @@ namespace WindTurbineVR
         }
 
         void PlayClickSound() => sceneController.PlaySound("Click");
+        
+        /* Por si el sonido funcionase mal con botones que desaparecen.
+        void PlayClickSound() => StartCoroutine(PlaySoundRoutine());
+
+        IEnumerator PlaySoundRoutine()
+        {
+            yield return null;
+            sceneController.PlaySound("Click");
+        }*/
     }
 }
