@@ -16052,7 +16052,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 33
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}
@@ -16116,8 +16116,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   displayMode: 4
-  alternativeUI: {fileID: 375768817}
   displayTrigger: 1
+  alternativeUI: {fileID: 375768817}
 --- !u!114 &5710441691134802879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16145,8 +16145,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useInfoCard: 0
   infoCard: {fileID: 0}
-  title: Big cylinder
-  description: Dunno what it do yet
+  title: Turbine part 1
+  description: Test description 1
 --- !u!114 &5710441691134802881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23743,7 +23743,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 33
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}
@@ -23807,8 +23807,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   displayMode: 4
-  alternativeUI: {fileID: 877074170}
   displayTrigger: 1
+  alternativeUI: {fileID: 877074170}
 --- !u!114 &8415529662682484228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23836,8 +23836,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useInfoCard: 0
   infoCard: {fileID: 0}
-  title: Rotation device
-  description: Seeds from Costco
+  title: Turbine part 2
+  description: Test description 2
 --- !u!114 &8415529662682484230
 MonoBehaviour:
   m_ObjectHideFlags: 0
