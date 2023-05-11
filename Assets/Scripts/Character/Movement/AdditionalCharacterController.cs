@@ -5,7 +5,12 @@ using WindTurbineVR.Core;
 
 namespace WindTurbineVR.Character.Movement
 {
-    public class CharacterControllerGravity : MonoBehaviour
+    /* TODO:
+     * Make this class implement CharacterController
+     * and fuse behaviours into one class? 
+     */
+
+    public class AdditionalCharacterController : MonoBehaviour
     {
         TurbineSceneController sceneController;
 
@@ -67,6 +72,8 @@ namespace WindTurbineVR.Character.Movement
             {
                 //rb.velocity = Vector3.zero;
             }
+
+            //if (_characterController.is)
         }
 
         private void HaltActive()
