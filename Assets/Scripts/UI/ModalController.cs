@@ -17,15 +17,15 @@ namespace WindTurbineVR.UI
 
         UIController uiCon;
 
-        List<TaskController> tcs;
-        List<Toggle> toggles;
+        //List<TaskController> tcs;
+        //List<Toggle> toggles;
 
         Data.Info info;
 
         internal Data.Info Info { get => info; set => info = value; }
 
         // Start is called before the first frame update
-        void Awake()
+        protected void Awake()
         {
             uiCon = transform.parent.GetComponent<UIController>();
             button = Resources.Load("Button") as GameObject;
@@ -54,18 +54,7 @@ namespace WindTurbineVR.UI
                 buttonInstance.GetComponent<Button>().onClick.RemoveListener(uiCon.Disable);
         }
 
-        public void UpdateTasks()
-        {
-            Debug.Log("UpdateTasks");
-            if (tcs.Count != toggles.Count) Error.LogException("Task list size is different from toggle list size.");
-
-            for (int i = 0; i < tcs.Count; i++)
-            {
-                if (tcs[i].Task.Completed) toggles[i].isOn = true;
-            }
-        }
-
-        public void SetContent(string title, string description, List<TaskController> tcs)
+        /*public void SetContent(string title, string description)
         {
             SetContent(title, description);
 
@@ -97,19 +86,7 @@ namespace WindTurbineVR.UI
             //taskListTransform.gameObject.SetActive(false);
             StartCoroutine(DisableTaskList(taskListTransform.gameObject));
             StartCoroutine(EnableTaskList(taskListTransform.gameObject));
-        }
-
-        IEnumerator DisableTaskList(GameObject taskList)
-        {
-            yield return new WaitForSecondsRealtime(1f);
-            taskList.gameObject.SetActive(false);
-        }
-
-        IEnumerator EnableTaskList(GameObject taskList)
-        {
-            yield return new WaitForSecondsRealtime(2f);
-            taskList.gameObject.SetActive(true);
-        }
+        }*/
 
         public void SetContent(string title, string description)
         {

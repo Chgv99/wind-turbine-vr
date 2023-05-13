@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 781630661673262137}
   - component: {fileID: 6549131284124938908}
   - component: {fileID: 6960627886175621283}
-  - component: {fileID: 4978416769988954419}
+  - component: {fileID: 3447934815818311843}
   m_Layer: 5
   m_Name: Modal
   m_TagString: Untagged
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &781630661673262141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2147483647
   m_RaycastTriggerInteraction: 1
---- !u!114 &4978416769988954419
+--- !u!114 &3447934815818311843
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 781630661673262138}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acfed11cba213a7468c4fb1698a6aad2, type: 3}
+  m_Script: {fileID: 11500000, guid: d947a1713de5af140a9b8fce4e8f445a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 0}

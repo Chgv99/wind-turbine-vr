@@ -21,6 +21,8 @@ namespace WindTurbineVR.Object.Info
 
         //DisplayTrigger displayTrigger;
 
+        //[SerializeField] bool guideMode = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -66,6 +68,12 @@ namespace WindTurbineVR.Object.Info
 
             base.CreateUI(height);
             _uiInstance.GetComponent<UIController>().AreaInfoInstance = this.gameObject;
+            /*if (guideMode)
+            {
+                Debug.Log("guide mode enabled");
+                _uiInstance.GetComponent<UIController>().ContentType = ContentType.Guide;
+                _uiInstance.GetComponent<UIController>().taskControllerList = taskList;
+            }*/
         }
     }
 }

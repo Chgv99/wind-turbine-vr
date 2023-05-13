@@ -7,6 +7,7 @@ namespace WindTurbineVR.Core
 {
     public class TaskController : MonoBehaviour
     {
+        TurbineSceneController sceneController;
         //TaskManager taskManager;
 
         [SerializeField] Task task;
@@ -21,6 +22,9 @@ namespace WindTurbineVR.Core
         // Start is called before the first frame update
         void Start()
         {
+            sceneController = GameObject.Find("SceneController").GetComponent<TurbineSceneController>();
+            if (sceneController == null) Error.LogException("SceneController not found");
+
             //taskManager = GameObject.Find("SceneController").GetComponent<TaskManager>();
             //taskManager.AddTask(this); //this component
             if (description == "")
@@ -29,7 +33,7 @@ namespace WindTurbineVR.Core
                 task = new Task();
             }
             task = new Task(description);
-            taskChecked = GameObject.Find("SceneController").GetComponent<TurbineSceneController>().TaskChecked;
+            taskChecked = sceneController.TaskChecked;
         }
 
         // Update is called once per frame

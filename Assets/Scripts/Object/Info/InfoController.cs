@@ -96,7 +96,7 @@ namespace WindTurbineVR.Object.Info
             {
                 //_uiInstance.SetActive(false);
                 //_uiInstance.GetComponent<Canvas>().enabled = false;
-                _uiInstance.GetComponent<UIController>().Enable();
+                _uiInstance.GetComponent<UIController>().Disable();
             }
         }
 
@@ -127,7 +127,7 @@ namespace WindTurbineVR.Object.Info
             _uiInstance.GetComponent<UIController>().DisplayMode = displayMode;
             _uiInstance.GetComponent<UIController>().DisplayTrigger = displayTrigger;
             _uiInstance.GetComponent<UIController>().Info = Info;
-            _uiInstance.GetComponent<UIController>().taskControllerList = taskList;
+            
             //_uiInstance.GetComponent<UIController>().SetContent();
             if (taskList.Count == 0) Debug.Log("task list is empty");
         }

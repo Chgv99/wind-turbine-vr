@@ -1,32 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7429594523382726460
+--- !u!1001 &7434278042684659022
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 215260632491287372, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 215260632491287372, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 215260632491287372, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 215260632491287372, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 781630661673262082, guid: 4fca81c1f413fce49967ef4e82b85488,
         type: 3}
       propertyPath: m_Pivot.x
@@ -65,7 +45,7 @@ PrefabInstance:
     - target: {fileID: 781630661673262082, guid: 4fca81c1f413fce49967ef4e82b85488,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 294.09998
+      value: 294.1
       objectReference: {fileID: 0}
     - target: {fileID: 781630661673262082, guid: 4fca81c1f413fce49967ef4e82b85488,
         type: 3}
@@ -135,7 +115,7 @@ PrefabInstance:
     - target: {fileID: 781630661673262138, guid: 4fca81c1f413fce49967ef4e82b85488,
         type: 3}
       propertyPath: m_Name
-      value: InfoModal
+      value: GuideModal
       objectReference: {fileID: 0}
     - target: {fileID: 781630661673262140, guid: 4fca81c1f413fce49967ef4e82b85488,
         type: 3}
@@ -167,21 +147,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 781630662526433602, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_Name
-      value: HeaderText
-      objectReference: {fileID: 0}
-    - target: {fileID: 781630663273105845, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 781630663273105845, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_VerticalFit
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 781630663273105846, guid: 4fca81c1f413fce49967ef4e82b85488,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -212,21 +177,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 781630663273105847, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_Name
-      value: ModalText
-      objectReference: {fileID: 0}
-    - target: {fileID: 2037419211520095633, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_text
-      value: This InfoModal displays an InfoObject's information
-      objectReference: {fileID: 0}
-    - target: {fileID: 2037419211520095633, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_enableWordWrapping
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2488811665070218461, guid: 4fca81c1f413fce49967ef4e82b85488,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -251,66 +201,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4428987926523084445, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4428987926523084445, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4428987926523084445, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4428987926523084445, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4428987926523084445, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4436940632021081991, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4436940632021081991, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4436940632021081991, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4436940632021081991, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4436940632021081991, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5120016551555062032, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6438304838094019420, guid: 4fca81c1f413fce49967ef4e82b85488,
-        type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fca81c1f413fce49967ef4e82b85488, type: 3}

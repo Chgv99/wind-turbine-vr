@@ -31,7 +31,8 @@ namespace WindTurbineVR.UI
         None = 0,
         SimpleSign,
         ObjectInfo,
-        Menu
+        Menu,
+        Guide
     }
 
     public class UIController : MonoBehaviour
@@ -41,6 +42,7 @@ namespace WindTurbineVR.UI
         //public TaskManager taskManager;
 
         GameObject infoModal;
+        GameObject guideModal;
         GameObject areaInfoInstance;
 
         [SerializeField] DirectionController dc;
@@ -48,6 +50,9 @@ namespace WindTurbineVR.UI
         ContentType contentType = ContentType.None;
         DisplayMode displayMode = DisplayMode.Static;
         DisplayTrigger displayTrigger = DisplayTrigger.Hover;
+
+        int guideOrdinal =  0;
+        int guideTotal =    0;
 
         Data.Info info;
 
@@ -63,15 +68,19 @@ namespace WindTurbineVR.UI
 
         bool immortal = false;
 
+        //bool guide = false;
+
         public ContentType ContentType { get => contentType; set => contentType = value; }
         public DisplayMode DisplayMode { get => displayMode; set => displayMode = value; }
         public DisplayTrigger DisplayTrigger { get => displayTrigger; set => displayTrigger = value; }
         public Data.Info Info { get => info; set => info = value; }
-        
+        //public bool Guide { get => guide; set => guide = value; }
 
         public GameObject AreaInfoInstance { get => areaInfoInstance; set => areaInfoInstance = value; }
+        public int GuideOrdinal { get => guideOrdinal; set => guideOrdinal = value; }
+        public int GuideTotal { get => guideTotal; set => guideTotal = value; }
 
-        GameObject _infoModalInstance;
+        GameObject _modalInstance;
 
         private class DirectionController
         {
@@ -111,11 +120,12 @@ namespace WindTurbineVR.UI
             Debug.Log("debug");
             Debug.Log(sceneController);
             Debug.Log(sceneController.TaskChecked);
-            sceneController.TaskChecked.AddListener(UpdateObjectInfo);
+            sceneController.TaskChecked.AddListener(UpdateObjectTasks);
 
             //taskManager = GameObject.Find("SceneController").GetComponent<TaskManager>();
             
             infoModal = Resources.Load("UI/Modal/InfoModal") as GameObject;
+            guideModal = Resources.Load("UI/Modal/GuideModal") as GameObject;
             dc = new DirectionController(sceneController, transform, DisplayMode);
             
             if (displayMode != DisplayMode.StaticFixed && displayMode != DisplayMode.StaticAlternativeFixed)
@@ -166,30 +176,54 @@ namespace WindTurbineVR.UI
                 case ContentType.ObjectInfo:
                     ShowObjectInfo();
                     break;
+                case ContentType.Guide:
+                    ShowGuide();
+                    break;
             }
         }
 
         // taskRemoved event listener
-        public void UpdateObjectInfo()
+        public void UpdateObjectTasks()
         {
             Debug.Log("UpdateObjectInfo");
-            _infoModalInstance.GetComponent<ModalController>().UpdateTasks();
+            GuideModalController controller = _modalInstance.GetComponent<GuideModalController>();
+            if (_modalInstance.GetComponent<GuideModalController>().UpdateTasks()) controller.InstantiateCloseButton();
             /*if (_infoModalInstance != null) Destroy(_infoModalInstance);
             ShowObjectInfo();*/
         }
 
+        private void ShowGuide()
+        {
+            _modalInstance = Instantiate(guideModal, transform);
+            GuideModalController controller = _modalInstance.GetComponent<GuideModalController>();
+
+            if (DisplayTrigger != DisplayTrigger.Hover) controller.InstantiateCloseButton(); // should only appear when tasks are done
+
+            Debug.Log("Info:");
+            Debug.Log(Info.Title);
+            Debug.Log(Info.Description);
+            Debug.Log(taskControllerList);
+
+            if (taskControllerList != null) controller.SetContent(Info.Title, Info.Description, taskControllerList);
+            else Error.LogExceptionNoBreak("Guide panel with no tasks");
+
+            controller.SetContent(Info.Title, Info.Description); //sacar un nivel?
+        }
+
         private void ShowObjectInfo()
         {
-            _infoModalInstance = Instantiate(infoModal, transform);
-            if (DisplayTrigger != DisplayTrigger.Hover) _infoModalInstance.GetComponent<ModalController>().InstantiateCloseButton();
+            _modalInstance = Instantiate(infoModal, transform);
+            InfoModalController controller = _modalInstance.GetComponent<InfoModalController>();
+            if (DisplayTrigger != DisplayTrigger.Hover) controller.InstantiateCloseButton();
             /*if (DisplayTrigger != DisplayTrigger.TriggerStay && AreaInfoInstance != null)
             {
                 infoModalInstance.GetComponent<ModalController>().InstantiateCloseButton(AreaInfoInstance);
             }*/
 
             //Debug.Log(taskControllerList.Count + "lista");
-            if (taskControllerList != null) _infoModalInstance.GetComponent<ModalController>().SetContent(Info.Title, Info.Description, taskControllerList);
-            else _infoModalInstance.GetComponent<ModalController>().SetContent(Info.Title, Info.Description);
+            //if (taskControllerList != null) _infoModalInstance.GetComponent<ModalController>().SetContent(Info.Title, Info.Description, taskControllerList);
+            //else
+            controller.SetContent(Info.Title, Info.Description); //sacar un nivel?
         }
 
         public void Enable() => GetComponent<Canvas>().enabled = true;
