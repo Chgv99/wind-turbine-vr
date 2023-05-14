@@ -19,7 +19,7 @@ namespace WindTurbineVR.Guide
             {
                 Transform child = transform.GetChild(i);
                 Debug.Log(child.gameObject.name);
-                if (child.gameObject.name != "GuideWaypoint") continue;
+                //if (child.gameObject.name != "GuideWaypoint") continue;
                 lr.SetPosition(index++, child.position);
             }
         }
