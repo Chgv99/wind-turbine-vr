@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using WindTurbineVR.Core;
 //using WindTurbineVR.Object;
 
@@ -43,6 +44,8 @@ namespace WindTurbineVR.UI
 
         GameObject infoModal;
         GameObject guideModal;
+
+        GameObject _modalInstance;
         GameObject areaInfoInstance;
 
         [SerializeField] DirectionController dc;
@@ -67,6 +70,8 @@ namespace WindTurbineVR.UI
 
         bool immortal = false;
 
+        UnityEvent completed;
+
         //bool guide = false;
 
         public ContentType ContentType { get => contentType; set => contentType = value; }
@@ -77,8 +82,8 @@ namespace WindTurbineVR.UI
 
         public GameObject AreaInfoInstance { get => areaInfoInstance; set => areaInfoInstance = value; }
         public Vector2 GuideOrdinal { get => guideOrdinal; set => guideOrdinal = value; }
-
-        GameObject _modalInstance;
+        public UnityEvent Completed { get => completed; set => completed = value; }
+        public GameObject ModalInstance { get => _modalInstance; set => _modalInstance = value; }
 
         private class DirectionController
         {
@@ -110,6 +115,7 @@ namespace WindTurbineVR.UI
         void Awake()
         {
             //GetComponent<Canvas>().enabled = false;
+            Completed = new UnityEvent();
         }
 
         void Start()
@@ -180,20 +186,26 @@ namespace WindTurbineVR.UI
             }
         }
 
+        public void TasksCompleted(GuideModalController controller)
+        {
+            controller.InstantiateCloseButton();
+            Completed?.Invoke();
+        }
+
         // taskRemoved event listener
         public void UpdateObjectTasks()
         {
             Debug.Log("UpdateObjectInfo");
-            GuideModalController controller = _modalInstance.GetComponent<GuideModalController>();
-            if (_modalInstance.GetComponent<GuideModalController>().UpdateTasks()) controller.InstantiateCloseButton();
+            GuideModalController controller = ModalInstance.GetComponent<GuideModalController>();
+            if (ModalInstance.GetComponent<GuideModalController>().UpdateTasks()) TasksCompleted(controller);
             /*if (_infoModalInstance != null) Destroy(_infoModalInstance);
             ShowObjectInfo();*/
         }
 
         private void ShowGuide()
         {
-            _modalInstance = Instantiate(guideModal, transform);
-            GuideModalController controller = _modalInstance.GetComponent<GuideModalController>();
+            ModalInstance = Instantiate(guideModal, transform);
+            GuideModalController controller = ModalInstance.GetComponent<GuideModalController>();
 
             if (DisplayTrigger != DisplayTrigger.Hover) controller.InstantiateCloseButton(); // should only appear when tasks are done
 
@@ -212,8 +224,8 @@ namespace WindTurbineVR.UI
 
         private void ShowObjectInfo()
         {
-            _modalInstance = Instantiate(infoModal, transform);
-            InfoModalController controller = _modalInstance.GetComponent<InfoModalController>();
+            ModalInstance = Instantiate(infoModal, transform);
+            InfoModalController controller = ModalInstance.GetComponent<InfoModalController>();
             if (DisplayTrigger != DisplayTrigger.Hover) controller.InstantiateCloseButton();
             /*if (DisplayTrigger != DisplayTrigger.TriggerStay && AreaInfoInstance != null)
             {

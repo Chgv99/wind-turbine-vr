@@ -30,7 +30,7 @@ namespace WindTurbineVR.Object.Info
     public abstract class InfoController : XRSimpleInteractable
     {
         protected GameObject UI;
-        protected GameObject _uiInstance;
+        private GameObject uiInstance;
 
         Data.Info info;
 
@@ -49,6 +49,7 @@ namespace WindTurbineVR.Object.Info
         //HoverEnterEvent _triggerEvent;
 
         public Data.Info Info { get => info; set => info = value; }
+        public GameObject UiInstance { get => uiInstance; set => uiInstance = value; }
 
         // Start is called before the first frame update
         public void Start()
@@ -76,27 +77,27 @@ namespace WindTurbineVR.Object.Info
 
         protected void Enable(HoverEnterEventArgs arg0) => Enable();
 
-        protected void Enable()
+        public void Enable()
         {
             Debug.Log("enable");
-            if (_uiInstance != null)
+            if (UiInstance != null)
             {
                 //_uiInstance.SetActive(true);
                 //_uiInstance.GetComponent<Canvas>().enabled = true;
-                _uiInstance.GetComponent<UIController>().Enable();
+                UiInstance.GetComponent<UIController>().Enable();
             }
         }
 
         protected void Disable(HoverExitEventArgs arg0) => Disable();
 
-        protected void Disable()
+        public void Disable()
         {
             Debug.Log("disable");
-            if (_uiInstance != null)
+            if (UiInstance != null)
             {
                 //_uiInstance.SetActive(false);
                 //_uiInstance.GetComponent<Canvas>().enabled = false;
-                _uiInstance.GetComponent<UIController>().Disable();
+                UiInstance.GetComponent<UIController>().Disable();
             }
         }
 
@@ -108,7 +109,7 @@ namespace WindTurbineVR.Object.Info
 
         protected virtual void CreateUI(float height)
         {
-            _uiInstance = Instantiate(UI);
+            UiInstance = Instantiate(UI);
 
             Vector3 position = new Vector3();
             Quaternion rotation = transform.rotation;
@@ -120,13 +121,13 @@ namespace WindTurbineVR.Object.Info
             }
             else position = new Vector3(transform.position.x, height, transform.position.z);
 
-            _uiInstance.transform.position = position;
-            _uiInstance.transform.rotation = rotation;
+            UiInstance.transform.position = position;
+            UiInstance.transform.rotation = rotation;
 
-            _uiInstance.GetComponent<UIController>().ContentType = ContentType.ObjectInfo;
-            _uiInstance.GetComponent<UIController>().DisplayMode = displayMode;
-            _uiInstance.GetComponent<UIController>().DisplayTrigger = displayTrigger;
-            _uiInstance.GetComponent<UIController>().Info = Info;
+            UiInstance.GetComponent<UIController>().ContentType = ContentType.ObjectInfo;
+            UiInstance.GetComponent<UIController>().DisplayMode = displayMode;
+            UiInstance.GetComponent<UIController>().DisplayTrigger = displayTrigger;
+            UiInstance.GetComponent<UIController>().Info = Info;
             
             //_uiInstance.GetComponent<UIController>().SetContent();
             if (taskList.Count == 0) Debug.Log("task list is empty");
@@ -134,7 +135,7 @@ namespace WindTurbineVR.Object.Info
 
         protected void DisposeUI(HoverExitEventArgs arg0)
         {
-            if (_uiInstance != null)
+            if (UiInstance != null)
             {
                 DisposeUI();
             }
@@ -142,14 +143,14 @@ namespace WindTurbineVR.Object.Info
 
         protected void DisposeUI()
         {
-            Destroy(_uiInstance);
+            Destroy(UiInstance);
         }
 
         protected override void OnDestroy()
         {
             base.OnDestroy();
 
-            if (_uiInstance != null)
+            if (UiInstance != null)
             {
 
             }

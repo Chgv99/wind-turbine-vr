@@ -10,8 +10,8 @@ namespace WindTurbineVR.UI
 {
     public class GuideModalController : ModalController
     {
-        List<TaskController> tcs;
-        List<Toggle> toggles;
+        [SerializeField] List<TaskController> tcs;
+        [SerializeField] List<Toggle> toggles;
 
         // Start is called before the first frame update
         void Awake()
@@ -25,6 +25,16 @@ namespace WindTurbineVR.UI
 
         }
 
+        public bool TasksCompleted()
+        {
+            for (int i = 0; i < tcs.Count; i++)
+            {
+                if (tcs[i].Task.Completed) toggles[i].isOn = true;
+                else return false;
+            }
+            return true;
+        }
+
         public bool UpdateTasks()
         {
             Debug.Log("UpdateTasks");
@@ -33,10 +43,9 @@ namespace WindTurbineVR.UI
             for (int i = 0; i < tcs.Count; i++)
             {
                 if (tcs[i].Task.Completed) toggles[i].isOn = true;
-                else return false;
             }
 
-            return true;
+            return TasksCompleted();
         }
 
         public void SetContent(Vector2 ordinal, string title, string description, List<TaskController> tcs)

@@ -66,9 +66,9 @@ namespace WindTurbineVR.Object.Info
                     break;
             }
 
-            if (_uiInstance != null)
+            if (UiInstance != null)
             {
-                _uiInstance = null;
+                UiInstance = null;
             }
         }
 

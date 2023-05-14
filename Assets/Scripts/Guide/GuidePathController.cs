@@ -6,7 +6,7 @@ namespace WindTurbineVR.Guide
 {
     public class GuidePathController : MonoBehaviour
     {
-        LineRenderer lr;
+        [SerializeField] LineRenderer lr;
 
         // Start is called before the first frame update
         void Start()
@@ -23,6 +23,10 @@ namespace WindTurbineVR.Guide
                 lr.SetPosition(index++, child.position);
             }
         }
+
+        public void Enable() => lr.enabled = true;
+
+        public void Disable() => lr.enabled = false;
 
         // Update is called once per frame
         void Update()

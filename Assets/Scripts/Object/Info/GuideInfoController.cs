@@ -10,7 +10,9 @@ namespace WindTurbineVR.Object.Info
     {
         SceneController sceneController;
 
-        //[SerializeField] int ordinal;
+        Vector3 guideOrdinal;
+
+        public Vector3 GuideOrdinal { get => guideOrdinal; set => guideOrdinal = value; }
 
         // Start is called before the first frame update
         void Start()
@@ -27,25 +29,31 @@ namespace WindTurbineVR.Object.Info
             CreateUI();
         }
 
+        /*bool TasksCompleted()
+        {
+            GuideModalController guideModal = _uiInstance.GetComponent<UIController>().ModalInstance.GetComponent<GuideModalController>();
+            return guideModal.TasksCompleted();
+        }*/
+
         void Show()
         {
-            if (_uiInstance == null) return;
+            if (UiInstance == null) return;
 
             Enable();
             float height = sceneController.xrOrigin.Find("CameraOffset/Main Camera").position.y;
-            _uiInstance.transform.position = new Vector3(transform.position.x, height, transform.position.z);
+            UiInstance.transform.position = new Vector3(transform.position.x, height, transform.position.z);
         }
 
         protected override void CreateUI(float height)
         {
-            if (_uiInstance != null) return;
+            if (UiInstance != null) return;
 
             base.CreateUI(height);
             //_uiInstance.GetComponent<UIController>().AreaInfoInstance = this.gameObject;
-            _uiInstance.GetComponent<UIController>().ContentType = ContentType.Guide;
-            _uiInstance.GetComponent<UIController>().taskControllerList = taskList;
-            _uiInstance.GetComponent<UIController>().GuideOrdinal = 
-                new Vector2(transform.parent.GetSiblingIndex() + 1, transform.parent.parent.childCount);
+            UiInstance.GetComponent<UIController>().ContentType = ContentType.Guide;
+            UiInstance.GetComponent<UIController>().taskControllerList = taskList;
+            //_uiInstance.GetComponent<UIController>().GuideOrdinal = 
+                //new Vector2(transform.parent.GetSiblingIndex() + 1, transform.parent.parent.childCount);
         }
 
         // Update is called once per frame
