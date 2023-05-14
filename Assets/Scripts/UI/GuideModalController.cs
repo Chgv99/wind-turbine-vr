@@ -1,3 +1,4 @@
+using Codice.Client.BaseCommands.Merge;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -38,9 +39,10 @@ namespace WindTurbineVR.UI
             return true;
         }
 
-        public void SetContent(string title, string description, List<TaskController> tcs)
+        public void SetContent(Vector2 ordinal, string title, string description, List<TaskController> tcs)
         {
             base.SetContent(title, description);
+            transform.Find("OrdinalText").GetComponent<TextMeshProUGUI>().text = ordinal.x + "/" + ordinal.y;
             //SetContent(title, description);
 
             this.tcs = tcs;

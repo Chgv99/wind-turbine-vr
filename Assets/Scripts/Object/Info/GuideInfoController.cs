@@ -10,6 +10,8 @@ namespace WindTurbineVR.Object.Info
     {
         SceneController sceneController;
 
+        //[SerializeField] int ordinal;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -21,7 +23,7 @@ namespace WindTurbineVR.Object.Info
             /**TODO:
              * GUIDES should only show up when
              * previous one is completed and closed.*/
-
+            //ordinal = transform.parent.GetSiblingIndex() + 1;
             CreateUI();
         }
 
@@ -42,6 +44,8 @@ namespace WindTurbineVR.Object.Info
             //_uiInstance.GetComponent<UIController>().AreaInfoInstance = this.gameObject;
             _uiInstance.GetComponent<UIController>().ContentType = ContentType.Guide;
             _uiInstance.GetComponent<UIController>().taskControllerList = taskList;
+            _uiInstance.GetComponent<UIController>().GuideOrdinal = 
+                new Vector2(transform.parent.GetSiblingIndex() + 1, transform.parent.parent.childCount);
         }
 
         // Update is called once per frame

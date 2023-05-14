@@ -51,8 +51,7 @@ namespace WindTurbineVR.UI
         DisplayMode displayMode = DisplayMode.Static;
         DisplayTrigger displayTrigger = DisplayTrigger.Hover;
 
-        int guideOrdinal =  0;
-        int guideTotal =    0;
+        Vector2 guideOrdinal = new Vector2();
 
         Data.Info info;
 
@@ -77,8 +76,7 @@ namespace WindTurbineVR.UI
         //public bool Guide { get => guide; set => guide = value; }
 
         public GameObject AreaInfoInstance { get => areaInfoInstance; set => areaInfoInstance = value; }
-        public int GuideOrdinal { get => guideOrdinal; set => guideOrdinal = value; }
-        public int GuideTotal { get => guideTotal; set => guideTotal = value; }
+        public Vector2 GuideOrdinal { get => guideOrdinal; set => guideOrdinal = value; }
 
         GameObject _modalInstance;
 
@@ -200,11 +198,13 @@ namespace WindTurbineVR.UI
             if (DisplayTrigger != DisplayTrigger.Hover) controller.InstantiateCloseButton(); // should only appear when tasks are done
 
             Debug.Log("Info:");
+            Debug.Log(controller);
+            Debug.Log(GuideOrdinal);
             Debug.Log(Info.Title);
             Debug.Log(Info.Description);
             Debug.Log(taskControllerList);
 
-            if (taskControllerList != null) controller.SetContent(Info.Title, Info.Description, taskControllerList);
+            if (taskControllerList != null) controller.SetContent(GuideOrdinal, Info.Title, Info.Description, taskControllerList);
             else Error.LogExceptionNoBreak("Guide panel with no tasks");
 
             controller.SetContent(Info.Title, Info.Description); //sacar un nivel?
