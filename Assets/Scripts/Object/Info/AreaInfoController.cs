@@ -67,7 +67,7 @@ namespace WindTurbineVR.Object.Info
             if (UiInstance != null) return;
 
             base.CreateUI(height);
-            UiInstance.GetComponent<UIController>().AreaInfoInstance = this.gameObject;
+            /////////////////UiInstance.GetComponent<UIController>().AreaInfoInstance = this.gameObject;
             /*if (guideMode)
             {
                 Debug.Log("guide mode enabled");

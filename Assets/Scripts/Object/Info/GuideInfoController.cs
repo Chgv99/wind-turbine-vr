@@ -6,6 +6,7 @@ using WindTurbineVR.UI;
 
 namespace WindTurbineVR.Object.Info
 {
+    [RequireComponent(typeof(TaskManager))]
     public class GuideInfoController : InfoController
     {
         SceneController sceneController;
@@ -14,6 +15,9 @@ namespace WindTurbineVR.Object.Info
 
         public Vector3 GuideOrdinal { get => guideOrdinal; set => guideOrdinal = value; }
 
+        [Space]
+        protected List<TaskController> taskList;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -21,6 +25,8 @@ namespace WindTurbineVR.Object.Info
 
             sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
             if (sceneController == null) Error.LogException("SceneController is null");
+
+            taskList = GetComponent<TaskManager>().Tasks;
 
             /**TODO:
              * GUIDES should only show up when
@@ -49,11 +55,11 @@ namespace WindTurbineVR.Object.Info
             if (UiInstance != null) return;
 
             base.CreateUI(height);
-            //_uiInstance.GetComponent<UIController>().AreaInfoInstance = this.gameObject;
+
+            if (taskList.Count == 0) Debug.Log("task list is empty");
+
             UiInstance.GetComponent<UIController>().ContentType = ContentType.Guide;
             UiInstance.GetComponent<UIController>().taskControllerList = taskList;
-            //_uiInstance.GetComponent<UIController>().GuideOrdinal = 
-                //new Vector2(transform.parent.GetSiblingIndex() + 1, transform.parent.parent.childCount);
         }
 
         // Update is called once per frame

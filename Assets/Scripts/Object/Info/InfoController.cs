@@ -26,10 +26,10 @@ namespace WindTurbineVR.Object.Info
      */
 
     [RequireComponent(typeof(Data.Info))]
-    [RequireComponent(typeof(TaskManager))]
     public abstract class InfoController : XRSimpleInteractable
     {
-        protected GameObject UI;
+        protected GameObject prefabUI;
+
         private GameObject uiInstance;
 
         Data.Info info;
@@ -42,9 +42,6 @@ namespace WindTurbineVR.Object.Info
 
         [SerializeField] protected Transform alternativeUI;
 
-        [Space]
-        //[SerializeField] string[] tasks;
-        protected List<TaskController> taskList;
 
         //HoverEnterEvent _triggerEvent;
 
@@ -54,26 +51,11 @@ namespace WindTurbineVR.Object.Info
         // Start is called before the first frame update
         public void Start()
         {
-            UI = Resources.Load("UI/UI") as GameObject;
+            // Base UI
+            prefabUI = Resources.Load("UI/UI") as GameObject;
+
             Info = GetComponent<Data.Info>();
-
-            taskList = GetComponent<TaskManager>().Tasks;
-            Debug.Log("taskList on infocontroller:" + taskList.Count);
-            //GenerateTasks();
         }
-
-        /*private void GenerateTasks()
-        {
-            if (tasks.Length <= 0) return;
-
-            taskList = new Task[tasks.Length];
-
-            for (int i = 0; i < tasks.Length; i++)
-            {
-                taskList[i] = new Task(tasks[i]);
-                Debug.Log(taskList[i]);
-            }
-        }*/
 
         protected void Enable(HoverEnterEventArgs arg0) => Enable();
 
@@ -109,7 +91,7 @@ namespace WindTurbineVR.Object.Info
 
         protected virtual void CreateUI(float height)
         {
-            UiInstance = Instantiate(UI);
+            UiInstance = Instantiate(prefabUI);
 
             Vector3 position = new Vector3();
             Quaternion rotation = transform.rotation;
@@ -130,7 +112,6 @@ namespace WindTurbineVR.Object.Info
             UiInstance.GetComponent<UIController>().Info = Info;
             
             //_uiInstance.GetComponent<UIController>().SetContent();
-            if (taskList.Count == 0) Debug.Log("task list is empty");
         }
 
         protected void DisposeUI(HoverExitEventArgs arg0)
