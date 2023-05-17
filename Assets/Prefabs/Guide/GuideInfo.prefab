@@ -213,6 +213,7 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+  prefabUI: {fileID: 45014994085117083, guid: e475d67043a71484cabfecd139f29b63, type: 3}
   displayMode: 2
   displayTrigger: 0
   alternativeUI: {fileID: 0}

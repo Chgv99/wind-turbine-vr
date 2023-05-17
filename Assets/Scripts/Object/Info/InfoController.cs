@@ -28,7 +28,7 @@ namespace WindTurbineVR.Object.Info
     [RequireComponent(typeof(Data.Info))]
     public abstract class InfoController : XRSimpleInteractable
     {
-        protected GameObject prefabUI;
+        [SerializeField] protected GameObject prefabUI;
 
         private GameObject uiInstance;
 
@@ -52,8 +52,8 @@ namespace WindTurbineVR.Object.Info
         public void Start()
         {
             // Base UI
-            prefabUI = Resources.Load("UI/UI") as GameObject;
-
+            //prefabUI = Resources.Load("UI/UI") as GameObject;
+            if (prefabUI == null) Error.LogException("PrefabUI is null");
             Info = GetComponent<Data.Info>();
         }
 

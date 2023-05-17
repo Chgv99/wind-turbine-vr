@@ -42,6 +42,7 @@ namespace WindTurbineVR.UI
         public TurbineSceneController sceneController;
 
         [SerializeField] protected GameObject modalPrefab;
+        protected GameObject modal;
         ModalController modalController;
 
         //public TaskManager taskManager;
@@ -127,6 +128,8 @@ namespace WindTurbineVR.UI
             Debug.Log("debug");
             Debug.Log(sceneController);
             Debug.Log(sceneController.TaskChecked);
+
+            modal = transform.Find("Modal").gameObject;
             ///////////sceneController.TaskChecked.AddListener(UpdateObjectTasks);
 
             //taskManager = GameObject.Find("SceneController").GetComponent<TaskManager>();

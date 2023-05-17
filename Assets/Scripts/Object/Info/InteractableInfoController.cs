@@ -24,6 +24,8 @@ namespace WindTurbineVR.Object.Info
         {
             base.Start();
 
+            prefabUI = Resources.Load("UI/InteractableUI") as GameObject;
+
             switch (displayTrigger)
             {
                 case DisplayTrigger.Hover:
