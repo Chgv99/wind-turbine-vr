@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using WindTurbineVR.Data;
 
-namespace WindTurbineVR.Core
+namespace WindTurbineVR.Object.Info
 {
     /** Probablemente en desuso **/
 
@@ -24,6 +25,16 @@ namespace WindTurbineVR.Core
         void Update()
         {
         
+        }
+
+        public List<Task> GetTasks()
+        {
+            List<Task> taskData = new List<Task>();
+            foreach (TaskController taskController in tasks)
+            {
+                taskData.Add(taskController.Task);
+            }
+            return taskData;
         }
 
         public void AddTask(TaskController tc) => Tasks.Add(tc);

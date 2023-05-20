@@ -13,10 +13,9 @@ namespace WindTurbineVR.Object.Info
 
         Vector3 guideOrdinal;
 
-        public Vector3 GuideOrdinal { get => guideOrdinal; set => guideOrdinal = value; }
+        public Vector2 GuideOrdinal { get => guideOrdinal; set => guideOrdinal = value; }
 
-        [Space]
-        protected List<TaskController> taskList;
+        protected TaskManager taskManager;
 
         // Start is called before the first frame update
         void Start()
@@ -26,7 +25,8 @@ namespace WindTurbineVR.Object.Info
             sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
             if (sceneController == null) Error.LogException("SceneController is null");
 
-            taskList = GetComponent<TaskManager>().Tasks;
+            taskManager = GetComponent<TaskManager>();
+            //taskList = GetComponent<TaskManager>().Tasks;
 
             /**TODO:
              * GUIDES should only show up when
@@ -43,24 +43,29 @@ namespace WindTurbineVR.Object.Info
 
         void Show()
         {
-            if (UiInstance == null) return;
+            if (UIInstance == null) return;
 
             Enable();
             float height = sceneController.xrOrigin.Find("CameraOffset/Main Camera").position.y;
-            UiInstance.transform.position = new Vector3(transform.position.x, height, transform.position.z);
+            UIInstance.transform.position = new Vector3(transform.position.x, height, transform.position.z);
         }
 
         protected override void CreateUI(float height)
         {
-            if (UiInstance != null) return;
+            if (UIInstance != null) return;
 
             base.CreateUI(height);
 
-            if (taskList.Count == 0) Debug.Log("task list is empty");
-
-            UiInstance.GetComponent<UIController>().ContentType = ContentType.Guide;
-            UiInstance.GetComponent<UIController>().taskControllerList = taskList;
+            //if (taskList.Count == 0) Debug.Log("task list is empty");
+            Debug.Log(GuideOrdinal.x + ", " + GuideOrdinal.y);
+            Debug.Log(Info.Title + ", " + Info.Description);
+            Debug.Log("taskmanager: " + taskManager);
+            UIInstance.GetComponent<GuideUIController>().UpdateContent(GuideOrdinal, Info, taskManager.GetTasks());
+            //UiInstance.GetComponent<UIController>().ContentType = ContentType.Guide;
+            //UiInstance.GetComponent<UIController>().taskControllerList = taskList;
         }
+
+        public void UpdateOrdinal(Vector2 ordinal) => UIInstance.GetComponent<GuideUIController>().UpdateOrdinal(ordinal);
 
         // Update is called once per frame
         void Update()

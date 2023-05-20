@@ -10,7 +10,7 @@ namespace WindTurbineVR.UI
 {
     public class GuideModalController : ModalController
     {
-        [SerializeField] List<TaskController> tcs;
+        //[SerializeField] List<TaskController> tcs;
         [SerializeField] List<Toggle> toggles;
 
         // Start is called before the first frame update
@@ -25,6 +25,7 @@ namespace WindTurbineVR.UI
 
         }
 
+        /*
         public bool TasksCompleted()
         {
             for (int i = 0; i < tcs.Count; i++)
@@ -46,8 +47,9 @@ namespace WindTurbineVR.UI
             }
 
             return TasksCompleted();
-        }
+        }*/
 
+        /*
         public void SetContent(Vector2 ordinal, string title, string description, List<TaskController> tcs)
         {
             base.SetContent(title, description);
@@ -83,7 +85,8 @@ namespace WindTurbineVR.UI
             StartCoroutine(DisableTaskList(taskListTransform.gameObject));
             StartCoroutine(EnableTaskList(taskListTransform.gameObject));
         }
-
+        */
+        /*
         IEnumerator DisableTaskList(GameObject taskList)
         {
             yield return new WaitForSecondsRealtime(1f);
@@ -95,5 +98,6 @@ namespace WindTurbineVR.UI
             yield return new WaitForSecondsRealtime(2f);
             taskList.gameObject.SetActive(true);
         }
+        */
     }
 }

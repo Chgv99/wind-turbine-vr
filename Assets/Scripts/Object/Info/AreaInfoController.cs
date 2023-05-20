@@ -45,12 +45,12 @@ namespace WindTurbineVR.Object.Info
             //Debug.Log("collider: " + other.gameObject.name);
             if (other.gameObject.name != "XR Origin") return;
 
-            if (UiInstance == null) return;
+            if (UIInstance == null) return;
 
             //ShowInfo(other.transform.Find("CameraOffset/Main Camera").position.y);
             Enable();
             float height = other.transform.Find("CameraOffset/Main Camera").position.y;
-            UiInstance.transform.position = new Vector3(transform.position.x, height, transform.position.z);
+            UIInstance.transform.position = new Vector3(transform.position.x, height, transform.position.z);
         }
 
         private void OnTriggerExit(Collider other)
@@ -64,7 +64,7 @@ namespace WindTurbineVR.Object.Info
 
         protected override void CreateUI(float height)
         {
-            if (UiInstance != null) return;
+            if (UIInstance != null) return;
 
             base.CreateUI(height);
             /////////////////UiInstance.GetComponent<UIController>().AreaInfoInstance = this.gameObject;

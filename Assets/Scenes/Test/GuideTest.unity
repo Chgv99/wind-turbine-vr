@@ -3769,6 +3769,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: GuideInfo
       objectReference: {fileID: 0}
+    - target: {fileID: 3861920568742419880, guid: 55b925e853cf83a40972ff7c60c463da,
+        type: 3}
+      propertyPath: title
+      value: Test
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861920568742419880, guid: 55b925e853cf83a40972ff7c60c463da,
+        type: 3}
+      propertyPath: description
+      value: 20/05/2023 16:00
+      objectReference: {fileID: 0}
     - target: {fileID: 4177984987451386998, guid: 55b925e853cf83a40972ff7c60c463da,
         type: 3}
       propertyPath: m_Enabled

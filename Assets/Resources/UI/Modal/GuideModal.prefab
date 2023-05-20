@@ -507,7 +507,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 0}
   buttonInstance: {fileID: 0}
-  tcs: []
   toggles: []
 --- !u!1 &3274796677864185820
 GameObject:

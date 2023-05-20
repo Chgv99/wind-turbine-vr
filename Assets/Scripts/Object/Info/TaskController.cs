@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using WindTurbineVR.Data;
+using WindTurbineVR.Core;
 
-namespace WindTurbineVR.Core
+namespace WindTurbineVR.Object.Info
 {
     public class TaskController : MonoBehaviour
     {

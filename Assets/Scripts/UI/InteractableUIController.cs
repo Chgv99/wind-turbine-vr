@@ -18,10 +18,9 @@ namespace WindTurbineVR.UI
 
         }
 
-        /*protected override void Show()
+        protected override void Show()
         {
-            base.Show();
-
-        }*/
+            //base.Show();
+        }
     }
 }

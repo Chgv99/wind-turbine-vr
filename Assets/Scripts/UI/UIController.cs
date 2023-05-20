@@ -37,13 +37,12 @@ namespace WindTurbineVR.UI
         Guide
     }
 
-    public class UIController : MonoBehaviour
+    public abstract class UIController : MonoBehaviour
     {
         public TurbineSceneController sceneController;
 
-        [SerializeField] protected GameObject modalPrefab;
-        protected GameObject modal;
-        ModalController modalController;
+        //[SerializeField] protected GameObject modalPrefab;
+        protected Transform modal;
 
         //public TaskManager taskManager;
 
@@ -62,7 +61,7 @@ namespace WindTurbineVR.UI
 
         Data.Info info;
 
-        public List<TaskController> taskControllerList;
+//        public List<TaskController> taskControllerList;
 
         /** TODO
          * Perpetuar cambios en la lista de tasks:
@@ -122,30 +121,20 @@ namespace WindTurbineVR.UI
             Completed = new UnityEvent();
         }
 
-        void Start()
+        protected void Start()
         {
             sceneController = GameObject.Find("SceneController").GetComponent<TurbineSceneController>();
-            Debug.Log("debug");
-            Debug.Log(sceneController);
-            Debug.Log(sceneController.TaskChecked);
-
-            modal = transform.Find("Modal").gameObject;
-            ///////////sceneController.TaskChecked.AddListener(UpdateObjectTasks);
-
-            //taskManager = GameObject.Find("SceneController").GetComponent<TaskManager>();
-
-            //modalController = transform.Find("Modal").GetComponent<ModalController>();
-            //infoModal = Resources.Load("UI/Modal/InfoModal") as GameObject;
-            //guideModal = Resources.Load("UI/Modal/GuideModal") as GameObject;
+            modal = transform.Find("Modal");
             dc = new DirectionController(sceneController, transform, DisplayMode);
-            
+
+            GetComponent<Canvas>().worldCamera = sceneController.Camera.GetComponent<Camera>();
+            ///////////sceneController.TaskChecked.AddListener(UpdateObjectTasks);            
             if (displayMode != DisplayMode.StaticFixed && displayMode != DisplayMode.StaticAlternativeFixed)
             {
                 dc.SetDirection();
             }
 
-            SetContent();
-            GetComponent<Canvas>().enabled = false;
+            //GetComponent<Canvas>().enabled = false;
         }
 
         // Update is called once per frame
@@ -176,7 +165,8 @@ namespace WindTurbineVR.UI
             }
         }
 
-        public void SetContent()
+        // Old behaviour. Now it is delegated to child classes.
+        /*public void SetContent()
         {
             if (contentType == ContentType.None) return;
 
@@ -191,21 +181,19 @@ namespace WindTurbineVR.UI
                     ///////////ShowGuide();
                     break;
             }
-        }
+        }*/
 
-        public void TasksCompleted(GuideModalController controller)
-        {
-            controller.InstantiateCloseButton();
-            Completed?.Invoke();
-        }
+        protected abstract void Show();
 
-        protected virtual void Show()
+        // Old behaviour
+        /*protected virtual void Show()
         {
+
             modalController = Instantiate(modalPrefab, transform).GetComponent<ModalController>();
             if (DisplayTrigger != DisplayTrigger.Hover) modalController.InstantiateCloseButton();
 
             modalController.SetContent(Info.Title, Info.Description); //sacar un nivel?
-        }
+        }*/
 
         /*
         private void ShowGuide()

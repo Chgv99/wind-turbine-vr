@@ -2,25 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace WindTurbineVR.UI
+namespace WindTurbineVR
 {
-    public class AreaUIController : UIController
+    public class GuideView : MonoBehaviour
     {
         // Start is called before the first frame update
         void Start()
         {
-
+        
         }
 
         // Update is called once per frame
         void Update()
         {
-
-        }
-
-        protected override void Show()
-        {
-            //base.Show();
+        
         }
     }
 }
