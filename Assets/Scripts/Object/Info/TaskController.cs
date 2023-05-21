@@ -14,12 +14,14 @@ namespace WindTurbineVR.Object.Info
 
         [SerializeField] Task task;
 
+        private UnityEvent taskChecked;
+
         [SerializeField] string description;
 
         public Task Task { get => task; }
         public string Description { get => description; }
-
-        private UnityEvent taskChecked;
+        
+        public UnityEvent TaskChecked { get => taskChecked; set => taskChecked = value; }
 
         // Start is called before the first frame update
         void Start()
@@ -35,7 +37,7 @@ namespace WindTurbineVR.Object.Info
                 task = new Task();
             }
             task = new Task(description);
-            taskChecked = sceneController.TaskChecked;
+            //TaskChecked = new UnityEvent();//sceneController.TaskChecked;
         }
 
         // Update is called once per frame
@@ -49,12 +51,12 @@ namespace WindTurbineVR.Object.Info
         {
             Debug.Log("action listener");
             Debug.Log("null event? ");
-            Debug.Log(taskChecked == null);
-            Debug.Log(taskChecked);
+            Debug.Log(TaskChecked == null);
+            Debug.Log(TaskChecked);
             // Check task
             task.Check();
             // Then call event for ui to update,
-            taskChecked?.Invoke();
+            TaskChecked?.Invoke();
 
             //Destroy(this);
         }

@@ -2,6 +2,7 @@ using PlasticGui.WorkspaceWindow.BranchExplorer;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Plastic.Newtonsoft.Json.Bson;
 using UnityEngine;
 using UnityEngine.UI;
 using WindTurbineVR.Core;
@@ -30,9 +31,9 @@ namespace WindTurbineVR.UI
 
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
-            base.Start();
+            base.Awake();
             taskPrefab = Resources.Load("UI/Modal/Task") as GameObject;
             if (taskPrefab == null) Debug.Log("taskprefab nul");
             //guideModalController = modal.GetComponent<GuideModalController>();
@@ -71,8 +72,6 @@ namespace WindTurbineVR.UI
             //GuideModalController controller = ModalInstance.GetComponent<GuideModalController>();
             if (guideModalController.UpdateTasks()) TasksCompleted(guideModalController);
         }*/
-
-        public void UpdateOrdinal(Vector2 ordinal) => ordinalText.text = ordinal.x + "/" + ordinal.y;
 
         public void UpdateContent(Vector2 ordinal, Info info, List<Task> tasks)
         {
@@ -114,8 +113,24 @@ namespace WindTurbineVR.UI
                 toggles.Add(toggle);
             }
             
-            //StartCoroutine(DisableTaskList(taskListTransform.gameObject));
-            //StartCoroutine(EnableTaskList(taskListTransform.gameObject));
+            StartCoroutine(DisableTaskList(taskListTransform.gameObject));
+            StartCoroutine(EnableTaskList(taskListTransform.gameObject));
+        }
+
+        public void UpdateOrdinal(Vector2 ordinal) => ordinalText.text = ordinal.x + "/" + ordinal.y;
+
+        public void UpdateTasks(List<Task> tasks)
+        {
+            for (int i = 0; i < tasks.Count; i++)
+            {
+                toggles[i].isOn = tasks[i].Completed;
+            }
+            /*
+            toggles task.Completed
+            for (int i = 0; i < tcs.Count; i++)
+            {
+                if (tcs[i].Task.Completed) toggles[i].isOn = true;
+            }*/
         }
 
         public void TasksCompleted(GuideModalController controller)

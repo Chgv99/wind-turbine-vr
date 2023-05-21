@@ -26,6 +26,7 @@ namespace WindTurbineVR.Object.Info
             if (sceneController == null) Error.LogException("SceneController is null");
 
             taskManager = GetComponent<TaskManager>();
+            taskManager.TaskChecked.AddListener(UpdateTasks);
             //taskList = GetComponent<TaskManager>().Tasks;
 
             /**TODO:
@@ -57,6 +58,7 @@ namespace WindTurbineVR.Object.Info
             base.CreateUI(height);
 
             //if (taskList.Count == 0) Debug.Log("task list is empty");
+            Debug.Log("UIInstance: " + UIInstance);
             Debug.Log(GuideOrdinal.x + ", " + GuideOrdinal.y);
             Debug.Log(Info.Title + ", " + Info.Description);
             Debug.Log("taskmanager: " + taskManager);
@@ -66,6 +68,8 @@ namespace WindTurbineVR.Object.Info
         }
 
         public void UpdateOrdinal(Vector2 ordinal) => UIInstance.GetComponent<GuideUIController>().UpdateOrdinal(ordinal);
+
+        public void UpdateTasks() => UIInstance.GetComponent<GuideUIController>().UpdateTasks(taskManager.GetTasks());
 
         // Update is called once per frame
         void Update()

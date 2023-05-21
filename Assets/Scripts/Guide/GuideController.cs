@@ -53,15 +53,14 @@ namespace WindTurbineVR.Guide
             }
 
             //Set ordinals
+            int guideInfoControllerI = 0;
             for (int i = 0; i < transform.childCount; i++)
             {
                 Transform child = transform.GetChild(i);
                 GuideInfoController guideInfoController = child.GetComponent<GuideInfoController>();
-                int guideInfoControllerI = 0;
                 if (guideInfoController != null)
                 {
-                    guideInfoControllerI++;
-                    guideInfoController.UpdateOrdinal(new Vector2(guideInfoControllerI, totalCount));
+                    guideInfoController.UpdateOrdinal(new Vector2(++guideInfoControllerI, totalCount));
                 }
             }
 

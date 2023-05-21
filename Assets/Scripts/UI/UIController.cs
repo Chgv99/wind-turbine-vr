@@ -115,17 +115,14 @@ namespace WindTurbineVR.UI
             }
         }
 
-        void Awake()
+        protected void Awake()
         {
             //GetComponent<Canvas>().enabled = false;
-            Completed = new UnityEvent();
-        }
-
-        protected void Start()
-        {
             sceneController = GameObject.Find("SceneController").GetComponent<TurbineSceneController>();
             modal = transform.Find("Modal");
             dc = new DirectionController(sceneController, transform, DisplayMode);
+
+            Completed = new UnityEvent();
 
             GetComponent<Canvas>().worldCamera = sceneController.Camera.GetComponent<Camera>();
             ///////////sceneController.TaskChecked.AddListener(UpdateObjectTasks);            
@@ -135,6 +132,11 @@ namespace WindTurbineVR.UI
             }
 
             //GetComponent<Canvas>().enabled = false;
+        }
+
+        protected void Start()
+        {
+            
         }
 
         // Update is called once per frame

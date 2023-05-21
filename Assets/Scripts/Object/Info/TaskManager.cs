@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using WindTurbineVR.Data;
 
 namespace WindTurbineVR.Object.Info
@@ -11,14 +12,26 @@ namespace WindTurbineVR.Object.Info
     {
         [SerializeField] private List<TaskController> tasks;
 
-        public List<TaskController> Tasks { get => tasks; }
+        private UnityEvent taskChecked;
 
-        //Dictionary<string, Task> tasks = new Dictionary<string, Task
+        public List<TaskController> Tasks { get => tasks; }
+        public UnityEvent TaskChecked { get => taskChecked; set => taskChecked = value; }
+
+        /** TODO: MAKE THIS CLASS INTERFERE
+         * IN EVENT COMMUNICATION BETWEEN
+         * INFOCONTROLLER AND TASKCONTROLLER
+         * IN ORDER TO APPLY A COMPLETED LIST
+         * BEHAVIOUR */
 
         // Start is called before the first frame update
         void Start()
         {
-            
+            taskChecked = new UnityEvent();
+
+            foreach (TaskController task in Tasks)
+            {
+                task.TaskChecked = TaskChecked;
+            }
         }
 
         // Update is called once per frame
@@ -37,7 +50,13 @@ namespace WindTurbineVR.Object.Info
             return taskData;
         }
 
-        public void AddTask(TaskController tc) => Tasks.Add(tc);
+        public void AddTask(TaskController tc) => AddAndSetTask(tc);
+
+        private void AddAndSetTask(TaskController tc)
+        {
+            Tasks.Add(tc);
+            tc.TaskChecked = TaskChecked;
+        }
 
         public void RemoveTask(TaskController tc) => Tasks.Remove(tc);
 
