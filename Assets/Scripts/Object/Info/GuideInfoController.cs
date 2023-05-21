@@ -63,6 +63,7 @@ namespace WindTurbineVR.Object.Info
             Debug.Log(Info.Title + ", " + Info.Description);
             Debug.Log("taskmanager: " + taskManager);
             UIInstance.GetComponent<GuideUIController>().UpdateContent(GuideOrdinal, Info, taskManager.GetTasks());
+            UIInstance.GetComponent<GuideUIController>().UpdateContent(GuideOrdinal, Info, taskManager.GetTasks());
             //UiInstance.GetComponent<UIController>().ContentType = ContentType.Guide;
             //UiInstance.GetComponent<UIController>().taskControllerList = taskList;
         }

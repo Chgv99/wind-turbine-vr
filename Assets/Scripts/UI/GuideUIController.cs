@@ -38,6 +38,7 @@ namespace WindTurbineVR.UI
             if (taskPrefab == null) Debug.Log("taskprefab nul");
             //guideModalController = modal.GetComponent<GuideModalController>();
             taskListTransform = modal.Find("Tasks");
+            toggles = new List<Toggle>();
 
             ordinalText = modal.Find("OrdinalText").GetComponent<TextMeshProUGUI>();
             headerText = modal.Find("HeaderText").GetComponent<TextMeshProUGUI>();
@@ -92,7 +93,18 @@ namespace WindTurbineVR.UI
 
             //this.tcs = tcs;
 
-            toggles = new List<Toggle>();
+            Canvas.ForceUpdateCanvases();
+
+            taskListTransform.gameObject.gameObject.SetActive(false);
+
+            //for (int i = 0; i < toggles.Count; i++)
+            //foreach (Toggle toggle in toggles)
+            while (toggles.Count > 0)
+            {
+                //Debug.Log("Destroying toggle i = " + i + ": " + toggles[i]);
+                Destroy(toggles[0].gameObject);
+                toggles.Remove(toggles[0]);
+            }
 
             foreach (Task task in tasks)
             {
@@ -112,17 +124,21 @@ namespace WindTurbineVR.UI
 
                 toggles.Add(toggle);
             }
-            
-            StartCoroutine(DisableTaskList(taskListTransform.gameObject));
-            StartCoroutine(EnableTaskList(taskListTransform.gameObject));
+
+            taskListTransform.gameObject.gameObject.SetActive(true);
+
+            Canvas.ForceUpdateCanvases();
+            //StartCoroutine(DisableTaskList(taskListTransform.gameObject));
+            //StartCoroutine(EnableTaskList(taskListTransform.gameObject));
         }
 
         public void UpdateOrdinal(Vector2 ordinal) => ordinalText.text = ordinal.x + "/" + ordinal.y;
 
         public void UpdateTasks(List<Task> tasks)
         {
-            for (int i = 0; i < tasks.Count; i++)
+            for (int i = 0; i < toggles.Count; i++)
             {
+                Debug.Log("checking " + i);
                 toggles[i].isOn = tasks[i].Completed;
             }
             /*
@@ -141,7 +157,7 @@ namespace WindTurbineVR.UI
 
         IEnumerator DisableTaskList(GameObject taskList)
         {
-            yield return new WaitForSecondsRealtime(1f);
+            yield return new WaitForSecondsRealtime(.1f);
             taskList.gameObject.SetActive(false);
         }
 
