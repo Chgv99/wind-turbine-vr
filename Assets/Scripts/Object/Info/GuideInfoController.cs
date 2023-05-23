@@ -62,15 +62,15 @@ namespace WindTurbineVR.Object.Info
             Debug.Log(GuideOrdinal.x + ", " + GuideOrdinal.y);
             Debug.Log(Info.Title + ", " + Info.Description);
             Debug.Log("taskmanager: " + taskManager);
-            UIInstance.GetComponent<GuideUIController>().UpdateContent(GuideOrdinal, Info, taskManager.GetTasks());
-            UIInstance.GetComponent<GuideUIController>().UpdateContent(GuideOrdinal, Info, taskManager.GetTasks());
+            UIInstance.GetComponent<GuideInfoView>().UpdateContent(GuideOrdinal, Info, taskManager.GetTasks());
+            UIInstance.GetComponent<GuideInfoView>().UpdateContent(GuideOrdinal, Info, taskManager.GetTasks());
             //UiInstance.GetComponent<UIController>().ContentType = ContentType.Guide;
             //UiInstance.GetComponent<UIController>().taskControllerList = taskList;
         }
 
-        public void UpdateOrdinal(Vector2 ordinal) => UIInstance.GetComponent<GuideUIController>().UpdateOrdinal(ordinal);
+        public void UpdateOrdinal(Vector2 ordinal) => UIInstance.GetComponent<GuideInfoView>().UpdateOrdinal(ordinal);
 
-        public void UpdateTasks() => UIInstance.GetComponent<GuideUIController>().UpdateTasks(taskManager.GetTasks());
+        public void UpdateTasks() => UIInstance.GetComponent<GuideInfoView>().UpdateTasks(taskManager.GetTasks());
 
         // Update is called once per frame
         void Update()

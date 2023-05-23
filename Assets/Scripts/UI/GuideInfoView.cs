@@ -15,9 +15,9 @@ namespace WindTurbineVR.UI
      *  CHANGE CLASS NAME TO GUIDEVIEW
      *  (AND FOLLOW CONVENTION IN OTHER UICONTROLLERS) */
 
-    public class GuideUIController : UIController
+    public class GuideInfoView : UIController
     {
-        GuideModalController guideModalController;
+        //GuideModalController guideModalController;
 
         GameObject taskPrefab;
 
@@ -58,9 +58,10 @@ namespace WindTurbineVR.UI
 
         }
 
+        /** TODO: INSTANCIAR BOTÓN O MENSAJE */
         protected override void Show()
         {
-            if (DisplayTrigger != DisplayTrigger.Hover) guideModalController.InstantiateCloseButton();
+            //if (DisplayTrigger != DisplayTrigger.Hover) guideModalController.InstantiateCloseButton();
             //UpdateContent();
         }
         //public List<TaskController> taskControllerList;
@@ -76,7 +77,7 @@ namespace WindTurbineVR.UI
 
         public void UpdateContent(Vector2 ordinal, Info info, List<Task> tasks)
         {
-            if (DisplayTrigger != DisplayTrigger.Hover) guideModalController.InstantiateCloseButton();
+            //if (DisplayTrigger != DisplayTrigger.Hover) guideModalController.InstantiateCloseButton();
 
             //if (taskControllerList != null) SetContent(GuideOrdinal, Info.Title, Info.Description, taskControllerList);
             //else Error.LogExceptionNoBreak("Guide panel with no tasks");
@@ -149,11 +150,11 @@ namespace WindTurbineVR.UI
             }*/
         }
 
-        public void TasksCompleted(GuideModalController controller)
+        /*public void TasksCompleted(GuideModalController controller)
         {
             controller.InstantiateCloseButton();
             Completed?.Invoke();
-        }
+        }*/
 
         IEnumerator DisableTaskList(GameObject taskList)
         {
