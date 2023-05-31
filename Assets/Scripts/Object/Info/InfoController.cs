@@ -66,7 +66,7 @@ namespace WindTurbineVR.Object.Info
             {
                 //_uiInstance.SetActive(true);
                 //_uiInstance.GetComponent<Canvas>().enabled = true;
-                UIInstance.GetComponent<UIController>().Enable();
+                UIInstance.GetComponent<InfoView>().Enable();
             }
         }
 
@@ -79,7 +79,7 @@ namespace WindTurbineVR.Object.Info
             {
                 //_uiInstance.SetActive(false);
                 //_uiInstance.GetComponent<Canvas>().enabled = false;
-                UIInstance.GetComponent<UIController>().Disable();
+                UIInstance.GetComponent<InfoView>().Disable();
             }
         }
 
@@ -106,10 +106,10 @@ namespace WindTurbineVR.Object.Info
             UIInstance.transform.position = position;
             UIInstance.transform.rotation = rotation;
 
-            UIInstance.GetComponent<UIController>().ContentType = ContentType.ObjectInfo;
-            UIInstance.GetComponent<UIController>().DisplayMode = displayMode;
-            UIInstance.GetComponent<UIController>().DisplayTrigger = displayTrigger;
-            UIInstance.GetComponent<UIController>().Info = Info;
+            UIInstance.GetComponent<InfoView>().ContentType = ContentType.ObjectInfo;
+            UIInstance.GetComponent<InfoView>().DisplayMode = displayMode;
+            UIInstance.GetComponent<InfoView>().DisplayTrigger = displayTrigger;
+            UIInstance.GetComponent<InfoView>().Info = Info;
             
             //_uiInstance.GetComponent<UIController>().SetContent();
         }

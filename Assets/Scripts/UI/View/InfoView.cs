@@ -37,7 +37,7 @@ namespace WindTurbineVR.UI
         Guide
     }
 
-    public abstract class UIController : MonoBehaviour
+    public abstract class InfoView : MonoBehaviour
     {
         public TurbineSceneController sceneController;
 

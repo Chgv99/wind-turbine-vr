@@ -15,7 +15,7 @@ namespace WindTurbineVR.UI
      *  CHANGE CLASS NAME TO GUIDEVIEW
      *  (AND FOLLOW CONVENTION IN OTHER UICONTROLLERS) */
 
-    public class GuideInfoView : UIController
+    public class GuideInfoView : InfoView
     {
         //GuideModalController guideModalController;
 

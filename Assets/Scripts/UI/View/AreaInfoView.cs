@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace WindTurbineVR.UI
 {
-    public class AreaInfoView : UIController
+    public class AreaInfoView : InfoView
     {
         // Start is called before the first frame update
         void Start()
