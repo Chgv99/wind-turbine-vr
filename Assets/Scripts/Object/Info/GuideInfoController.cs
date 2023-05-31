@@ -27,6 +27,7 @@ namespace WindTurbineVR.Object.Info
 
             taskManager = GetComponent<TaskManager>();
             taskManager.TaskChecked.AddListener(UpdateTasks);
+            taskManager.ListCompleted.AddListener(CompleteList);
             //taskList = GetComponent<TaskManager>().Tasks;
 
             /**TODO:
@@ -71,6 +72,8 @@ namespace WindTurbineVR.Object.Info
         public void UpdateOrdinal(Vector2 ordinal) => UIInstance.GetComponent<GuideInfoView>().UpdateOrdinal(ordinal);
 
         public void UpdateTasks() => UIInstance.GetComponent<GuideInfoView>().UpdateTasks(taskManager.GetTasks());
+
+        private void CompleteList() => UIInstance.GetComponent<GuideInfoView>().CompleteList();
 
         // Update is called once per frame
         void Update()

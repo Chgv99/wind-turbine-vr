@@ -13,9 +13,11 @@ namespace WindTurbineVR.Object.Info
         [SerializeField] private List<TaskController> tasks;
 
         private UnityEvent taskChecked;
+        private UnityEvent listCompleted;
 
         public List<TaskController> Tasks { get => tasks; }
         public UnityEvent TaskChecked { get => taskChecked; set => taskChecked = value; }
+        public UnityEvent ListCompleted { get => listCompleted; set => listCompleted = value; }
 
         /** TODO: MAKE THIS CLASS INTERFERE
          * IN EVENT COMMUNICATION BETWEEN
@@ -27,17 +29,39 @@ namespace WindTurbineVR.Object.Info
         void Start()
         {
             taskChecked = new UnityEvent();
+            listCompleted = new UnityEvent();
 
             foreach (TaskController task in Tasks)
             {
                 task.TaskChecked = TaskChecked;
             }
+
+            taskChecked.AddListener(CheckListCompleted);
+        }
+
+        void OnDestroy()
+        {
+            taskChecked.RemoveListener(CheckListCompleted);
         }
 
         // Update is called once per frame
         void Update()
         {
         
+        }
+
+        public void CheckListCompleted()
+        {
+            bool completed = true;
+            //If list is completed raise listCompleted event
+            foreach (TaskController taskController in tasks)
+            {
+                if (taskController.Task.Completed) continue;
+                completed = taskController.Task.Completed; //false
+                break;
+            }
+
+            if (completed) listCompleted?.Invoke();
         }
 
         public List<Task> GetTasks()

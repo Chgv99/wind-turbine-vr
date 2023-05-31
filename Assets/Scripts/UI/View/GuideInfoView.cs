@@ -24,6 +24,8 @@ namespace WindTurbineVR.UI
         List<Toggle> toggles;
         Transform taskListTransform;
 
+        Transform completedText;
+
         [SerializeField] TextMeshProUGUI ordinalText;
         [SerializeField] TextMeshProUGUI headerText;
         [SerializeField] TextMeshProUGUI modalText; //change name to description ??
@@ -38,6 +40,8 @@ namespace WindTurbineVR.UI
             if (taskPrefab == null) Debug.Log("taskprefab nul");
             //guideModalController = modal.GetComponent<GuideModalController>();
             taskListTransform = modal.Find("Tasks");
+            completedText = modal.Find("CompletedText");
+
             toggles = new List<Toggle>();
 
             ordinalText = modal.Find("OrdinalText").GetComponent<TextMeshProUGUI>();
@@ -148,6 +152,15 @@ namespace WindTurbineVR.UI
             {
                 if (tcs[i].Task.Completed) toggles[i].isOn = true;
             }*/
+        }
+
+        public void CompleteList()
+        {
+            //Instantiate congratulations text or something
+            Debug.Log("List is completed. Congrats.");
+            taskListTransform.gameObject.SetActive(false);
+            modalText.gameObject.SetActive(false);
+            completedText.gameObject.SetActive(true);
         }
 
         /*public void TasksCompleted(GuideModalController controller)
