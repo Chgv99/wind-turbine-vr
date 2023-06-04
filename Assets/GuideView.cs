@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace WindTurbineVR.UI
+namespace WindTurbineVR
 {
-    public class InfoModalController : ModalController
+    public class GuideView : MonoBehaviour
     {
         // Start is called before the first frame update
-        void Awake()
+        void Start()
         {
-            base.Awake();
+        
         }
 
         // Update is called once per frame
         void Update()
         {
-
+        
         }
     }
 }

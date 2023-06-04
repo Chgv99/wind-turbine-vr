@@ -24,6 +24,8 @@ namespace WindTurbineVR.Object.Info
         {
             base.Start();
 
+            prefabUI = Resources.Load("UI/InteractableUI") as GameObject;
+
             switch (displayTrigger)
             {
                 case DisplayTrigger.Hover:
@@ -66,9 +68,9 @@ namespace WindTurbineVR.Object.Info
                     break;
             }
 
-            if (UiInstance != null)
+            if (UIInstance != null)
             {
-                UiInstance = null;
+                UIInstance = null;
             }
         }
 

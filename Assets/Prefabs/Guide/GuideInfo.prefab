@@ -52,7 +52,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927177505834483570}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -213,6 +213,7 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+  prefabUI: {fileID: 45014994085117083, guid: e475d67043a71484cabfecd139f29b63, type: 3}
   displayMode: 2
   displayTrigger: 0
   alternativeUI: {fileID: 0}

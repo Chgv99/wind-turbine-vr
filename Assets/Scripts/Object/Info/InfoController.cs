@@ -13,7 +13,7 @@ using WindTurbineVR.Data;
 
 // Cambiar a otro namespace. UI probablemente.
 
-namespace WindTurbineVR.Object.Info
+namespace WindTurbineVR.Object
 {
     /* TODO:
      * 
@@ -26,10 +26,10 @@ namespace WindTurbineVR.Object.Info
      */
 
     [RequireComponent(typeof(Data.Info))]
-    [RequireComponent(typeof(TaskManager))]
     public abstract class InfoController : XRSimpleInteractable
     {
-        protected GameObject UI;
+        [SerializeField] protected GameObject prefabUI;
+
         private GameObject uiInstance;
 
         Data.Info info;
@@ -42,49 +42,31 @@ namespace WindTurbineVR.Object.Info
 
         [SerializeField] protected Transform alternativeUI;
 
-        [Space]
-        //[SerializeField] string[] tasks;
-        protected List<TaskController> taskList;
 
         //HoverEnterEvent _triggerEvent;
 
         public Data.Info Info { get => info; set => info = value; }
-        public GameObject UiInstance { get => uiInstance; set => uiInstance = value; }
+        public GameObject UIInstance { get => uiInstance; set => uiInstance = value; }
 
         // Start is called before the first frame update
         public void Start()
         {
-            UI = Resources.Load("UI/UI") as GameObject;
+            // Base UI
+            //prefabUI = Resources.Load("UI/UI") as GameObject;
+            if (prefabUI == null) Error.LogException("PrefabUI is null");
             Info = GetComponent<Data.Info>();
-
-            taskList = GetComponent<TaskManager>().Tasks;
-            Debug.Log("taskList on infocontroller:" + taskList.Count);
-            //GenerateTasks();
         }
-
-        /*private void GenerateTasks()
-        {
-            if (tasks.Length <= 0) return;
-
-            taskList = new Task[tasks.Length];
-
-            for (int i = 0; i < tasks.Length; i++)
-            {
-                taskList[i] = new Task(tasks[i]);
-                Debug.Log(taskList[i]);
-            }
-        }*/
 
         protected void Enable(HoverEnterEventArgs arg0) => Enable();
 
         public void Enable()
         {
             Debug.Log("enable");
-            if (UiInstance != null)
+            if (UIInstance != null)
             {
                 //_uiInstance.SetActive(true);
                 //_uiInstance.GetComponent<Canvas>().enabled = true;
-                UiInstance.GetComponent<UIController>().Enable();
+                UIInstance.GetComponent<InfoView>().Enable();
             }
         }
 
@@ -93,11 +75,11 @@ namespace WindTurbineVR.Object.Info
         public void Disable()
         {
             Debug.Log("disable");
-            if (UiInstance != null)
+            if (UIInstance != null)
             {
                 //_uiInstance.SetActive(false);
                 //_uiInstance.GetComponent<Canvas>().enabled = false;
-                UiInstance.GetComponent<UIController>().Disable();
+                UIInstance.GetComponent<InfoView>().Disable();
             }
         }
 
@@ -109,7 +91,7 @@ namespace WindTurbineVR.Object.Info
 
         protected virtual void CreateUI(float height)
         {
-            UiInstance = Instantiate(UI);
+            UIInstance = Instantiate(prefabUI);
 
             Vector3 position = new Vector3();
             Quaternion rotation = transform.rotation;
@@ -121,21 +103,20 @@ namespace WindTurbineVR.Object.Info
             }
             else position = new Vector3(transform.position.x, height, transform.position.z);
 
-            UiInstance.transform.position = position;
-            UiInstance.transform.rotation = rotation;
+            UIInstance.transform.position = position;
+            UIInstance.transform.rotation = rotation;
 
-            UiInstance.GetComponent<UIController>().ContentType = ContentType.ObjectInfo;
-            UiInstance.GetComponent<UIController>().DisplayMode = displayMode;
-            UiInstance.GetComponent<UIController>().DisplayTrigger = displayTrigger;
-            UiInstance.GetComponent<UIController>().Info = Info;
+            UIInstance.GetComponent<InfoView>().ContentType = ContentType.ObjectInfo;
+            UIInstance.GetComponent<InfoView>().DisplayMode = displayMode;
+            UIInstance.GetComponent<InfoView>().DisplayTrigger = displayTrigger;
+            UIInstance.GetComponent<InfoView>().Info = Info;
             
             //_uiInstance.GetComponent<UIController>().SetContent();
-            if (taskList.Count == 0) Debug.Log("task list is empty");
         }
 
         protected void DisposeUI(HoverExitEventArgs arg0)
         {
-            if (UiInstance != null)
+            if (UIInstance != null)
             {
                 DisposeUI();
             }
@@ -143,14 +124,14 @@ namespace WindTurbineVR.Object.Info
 
         protected void DisposeUI()
         {
-            Destroy(UiInstance);
+            Destroy(UIInstance);
         }
 
         protected override void OnDestroy()
         {
             base.OnDestroy();
 
-            if (UiInstance != null)
+            if (UIInstance != null)
             {
 
             }
