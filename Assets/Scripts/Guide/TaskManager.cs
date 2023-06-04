@@ -19,12 +19,6 @@ namespace WindTurbineVR.Guide
         public UnityEvent TaskChecked { get => taskChecked; set => taskChecked = value; }
         public UnityEvent ListCompleted { get => listCompleted; set => listCompleted = value; }
 
-        /** TODO: MAKE THIS CLASS INTERFERE
-         * IN EVENT COMMUNICATION BETWEEN
-         * INFOCONTROLLER AND TASKCONTROLLER
-         * IN ORDER TO APPLY A COMPLETED LIST
-         * BEHAVIOUR */
-
         // Start is called before the first frame update
         void Start()
         {

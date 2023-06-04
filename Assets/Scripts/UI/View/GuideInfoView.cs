@@ -10,11 +10,6 @@ using WindTurbineVR.Data;
 
 namespace WindTurbineVR.UI
 {
-
-    /** TODO:
-     *  CHANGE CLASS NAME TO GUIDEVIEW
-     *  (AND FOLLOW CONVENTION IN OTHER UICONTROLLERS) */
-
     public class GuideInfoView : InfoView
     {
         //GuideModalController guideModalController;
@@ -25,6 +20,8 @@ namespace WindTurbineVR.UI
         Transform taskListTransform;
 
         Transform completedText;
+
+        GameObject closeButton;
 
         [SerializeField] TextMeshProUGUI ordinalText;
         [SerializeField] TextMeshProUGUI headerText;
@@ -41,6 +38,8 @@ namespace WindTurbineVR.UI
             //guideModalController = modal.GetComponent<GuideModalController>();
             taskListTransform = modal.Find("Tasks");
             completedText = modal.Find("CompletedText");
+
+            closeButton = modal.Find("CloseButton").gameObject;
 
             toggles = new List<Toggle>();
 
@@ -161,7 +160,10 @@ namespace WindTurbineVR.UI
             taskListTransform.gameObject.SetActive(false);
             modalText.gameObject.SetActive(false);
             completedText.gameObject.SetActive(true);
+            ShowCloseButton();
         }
+
+        void ShowCloseButton() => closeButton.SetActive(true);
 
         /*public void TasksCompleted(GuideModalController controller)
         {
