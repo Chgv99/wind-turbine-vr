@@ -65,7 +65,7 @@ namespace WindTurbineVR.Core
 
         public void SetRotation(Quaternion rotation)
         {
-            transform.rotation = rotation;
+            //transform.rotation = rotation;
         }
 
         // Update is called once per frame
@@ -88,7 +88,7 @@ namespace WindTurbineVR.Core
             Vector3 objective = directionObjective * Vector3.forward;
             if (Vector3.Angle(current, objective) > 5)
             {
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, directionObjective, 0.01f);
+                //transform.rotation = Quaternion.RotateTowards(transform.rotation, directionObjective, 0.01f);
             }
         }
     }

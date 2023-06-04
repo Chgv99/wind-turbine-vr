@@ -30,6 +30,7 @@ namespace WindTurbineVR.Core
 
                 Blades.Add(child.GetChild(0).GetComponent<BladeController>());
             }
+
             //climateController = GameObject.Find("ClimateController");
             //if (climateController == null) Error.LogException("ClimateController not found");
             //Debug.Log("rotor " + transform.forward);
@@ -51,11 +52,13 @@ namespace WindTurbineVR.Core
             Vector3 rotation = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z * -velocity);
 
             //GetComponent<Rigidbody>().MoveRotation(GetComponent<Rigidbody>().rotation * deltaRotation);
-            transform.Rotate(new Vector3(0, 0, 1) * -velocity * Time.fixedDeltaTime);
+            //transform.Rotate(new Vector3(0, 0, 1) * -velocity * Time.fixedDeltaTime);
 
-
+            //transform.localRotation = Quaternion.Euler(new Vector3(0, 0, transform.localRotation.z));
             // OLD BEHAVIOUR
-            //GetComponent<Rigidbody>().AddRelativeTorque(transform.forward * -Torque);
+            GetComponent<Rigidbody>().AddRelativeTorque(transform.forward * -velocity * 0.005f);
+            transform.localEulerAngles = new Vector3(0, 0, transform.localEulerAngles.z);
+
         }
 
         public Quaternion GetRotation()
