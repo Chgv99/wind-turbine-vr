@@ -21,6 +21,8 @@ namespace WindTurbineVR.Object.Info
 
         //DisplayTrigger displayTrigger;
 
+        //[SerializeField] bool guideMode = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -43,12 +45,12 @@ namespace WindTurbineVR.Object.Info
             //Debug.Log("collider: " + other.gameObject.name);
             if (other.gameObject.name != "XR Origin") return;
 
-            if (_uiInstance == null) return;
+            if (UIInstance == null) return;
 
             //ShowInfo(other.transform.Find("CameraOffset/Main Camera").position.y);
             Enable();
             float height = other.transform.Find("CameraOffset/Main Camera").position.y;
-            _uiInstance.transform.position = new Vector3(transform.position.x, height, transform.position.z);
+            UIInstance.transform.position = new Vector3(transform.position.x, height, transform.position.z);
         }
 
         private void OnTriggerExit(Collider other)
@@ -62,10 +64,16 @@ namespace WindTurbineVR.Object.Info
 
         protected override void CreateUI(float height)
         {
-            if (_uiInstance != null) return;
+            if (UIInstance != null) return;
 
             base.CreateUI(height);
-            _uiInstance.GetComponent<UIController>().AreaInfoInstance = this.gameObject;
+            /////////////////UiInstance.GetComponent<UIController>().AreaInfoInstance = this.gameObject;
+            /*if (guideMode)
+            {
+                Debug.Log("guide mode enabled");
+                _uiInstance.GetComponent<UIController>().ContentType = ContentType.Guide;
+                _uiInstance.GetComponent<UIController>().taskControllerList = taskList;
+            }*/
         }
     }
 }
