@@ -10,11 +10,6 @@ using WindTurbineVR.Data;
 
 namespace WindTurbineVR.UI
 {
-
-    /** TODO:
-     *  CHANGE CLASS NAME TO GUIDEVIEW
-     *  (AND FOLLOW CONVENTION IN OTHER UICONTROLLERS) */
-
     public class GuideInfoView : InfoView
     {
         //GuideModalController guideModalController;
