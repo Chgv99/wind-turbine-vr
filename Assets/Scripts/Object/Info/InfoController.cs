@@ -13,7 +13,7 @@ using WindTurbineVR.Data;
 
 // Cambiar a otro namespace. UI probablemente.
 
-namespace WindTurbineVR.Object.Info
+namespace WindTurbineVR.Object
 {
     /* TODO:
      * 

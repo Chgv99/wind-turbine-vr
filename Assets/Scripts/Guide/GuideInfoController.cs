@@ -2,14 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using WindTurbineVR.Core;
+using WindTurbineVR.Object;
 using WindTurbineVR.UI;
 
-namespace WindTurbineVR.Object.Info
+namespace WindTurbineVR.Guide
 {
     [RequireComponent(typeof(TaskManager))]
-    public class GuideInfoController : InfoController
+    public class GuideInfoController : InfoController //?
     {
         SceneController sceneController;
+
+        /** TODO:
+         *  Call a method in guideController
+         *  that shows next guide line */
+        //GuideController guideController;
 
         Vector3 guideOrdinal;
 
@@ -73,7 +79,11 @@ namespace WindTurbineVR.Object.Info
 
         public void UpdateTasks() => UIInstance.GetComponent<GuideInfoView>().UpdateTasks(taskManager.GetTasks());
 
-        private void CompleteList() => UIInstance.GetComponent<GuideInfoView>().CompleteList();
+        private void CompleteList()
+        {
+            UIInstance.GetComponent<GuideInfoView>().CompleteList();
+
+        }
 
         // Update is called once per frame
         void Update()
