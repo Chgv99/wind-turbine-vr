@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using WindTurbineVR.Data;
 
-namespace WindTurbineVR.Object.Info
+namespace WindTurbineVR.Guide
 {
     /** Probablemente en desuso **/
 

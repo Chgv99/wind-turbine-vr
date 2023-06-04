@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using WindTurbineVR.Data;
 using WindTurbineVR.Core;
 
-namespace WindTurbineVR.Object.Info
+namespace WindTurbineVR.Guide
 {
     public class TaskController : MonoBehaviour
     {
