@@ -39,6 +39,7 @@ namespace WindTurbineVR.Guide
                     Debug.Log(guideInfoController.UIInstance.GetComponent<InfoView>());
                     Debug.Log(guideInfoController.UIInstance.GetComponent<InfoView>().Completed);
                     guideInfoController.UIInstance.GetComponent<InfoView>().Completed.AddListener(NextGuide);
+                    guideInfoController.Disable();
                     totalCount++;
                 }
 
@@ -77,7 +78,7 @@ namespace WindTurbineVR.Guide
         void DisableLastGuide()
         {
             if (guideInfoControllers.Count <= 0) return;
-            guideInfoControllers[0].Disable();
+            //guideInfoControllers[0].Disable();
             guideInfoControllers[0].UIInstance.GetComponent<InfoView>().Completed.RemoveListener(NextGuide);
             guideInfoControllers.RemoveAt(0);
         }
@@ -90,7 +91,7 @@ namespace WindTurbineVR.Guide
             guidePathControllers.RemoveAt(0);
         }
 
-        void NextGuide()
+        public void NextGuide()
         {
             Debug.Log("NextGuide");
 

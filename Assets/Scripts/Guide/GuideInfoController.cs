@@ -15,7 +15,7 @@ namespace WindTurbineVR.Guide
         /** TODO:
          *  Call a method in guideController
          *  that shows next guide line */
-        //GuideController guideController;
+        GuideController guideController;
 
         Vector3 guideOrdinal;
 
@@ -30,6 +30,8 @@ namespace WindTurbineVR.Guide
 
             sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
             if (sceneController == null) Error.LogException("SceneController is null");
+
+            guideController = transform.parent.GetComponent<GuideController>();
 
             taskManager = GetComponent<TaskManager>();
             taskManager.TaskChecked.AddListener(UpdateTasks);
@@ -82,7 +84,7 @@ namespace WindTurbineVR.Guide
         private void CompleteList()
         {
             UIInstance.GetComponent<GuideInfoView>().CompleteList();
-
+            guideController.NextGuide();
         }
 
         // Update is called once per frame
