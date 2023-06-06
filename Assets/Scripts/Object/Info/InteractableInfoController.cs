@@ -22,9 +22,10 @@ namespace WindTurbineVR.Object.Info
         // Start is called before the first frame update
         public void Start()
         {
+            prefabUI = Resources.Load("UI/InteractableUI") as GameObject;
             base.Start();
 
-            prefabUI = Resources.Load("UI/InteractableUI") as GameObject;
+            
 
             switch (displayTrigger)
             {

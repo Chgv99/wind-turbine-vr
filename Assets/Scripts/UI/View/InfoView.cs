@@ -124,6 +124,7 @@ namespace WindTurbineVR.UI
 
             Completed = new UnityEvent();
 
+            Debug.Log("camera obj: " + sceneController.Camera);
             GetComponent<Canvas>().worldCamera = sceneController.Camera.GetComponent<Camera>();
             ///////////sceneController.TaskChecked.AddListener(UpdateObjectTasks);            
             if (displayMode != DisplayMode.StaticFixed && displayMode != DisplayMode.StaticAlternativeFixed)
