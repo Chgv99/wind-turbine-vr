@@ -9,7 +9,8 @@ namespace WindTurbineVR.UI
         // Start is called before the first frame update
         void Start()
         {
-            
+            if (DisplayTrigger == DisplayTrigger.Hover) GetComponent<Canvas>().enabled = false;
+            //Show();
         }
 
         // Update is called once per frame

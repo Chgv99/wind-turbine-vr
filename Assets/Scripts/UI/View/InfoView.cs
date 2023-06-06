@@ -22,6 +22,7 @@ namespace WindTurbineVR.UI
     // TODO: Move to InfoController classes. Does not belong here
     public enum DisplayTrigger
     {
+        None,
         Hover,
         Selection,
         TriggerStay

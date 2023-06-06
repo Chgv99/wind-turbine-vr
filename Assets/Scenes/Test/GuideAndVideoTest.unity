@@ -4138,7 +4138,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   prefabUI: {fileID: 0}
-  displayMode: 0
+  displayMode: 2
   displayTrigger: 0
   alternativeUI: {fileID: 0}
 --- !u!114 &1825299116
