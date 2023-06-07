@@ -567,8 +567,9 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+  prefabUI: {fileID: 0}
   displayMode: 0
-  displayTrigger: 1
+  displayTrigger: 2
   alternativeUI: {fileID: 0}
 --- !u!114 &145756346
 MonoBehaviour:
@@ -3149,8 +3150,9 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+  prefabUI: {fileID: 0}
   displayMode: 1
-  displayTrigger: 0
+  displayTrigger: 1
   alternativeUI: {fileID: 0}
 --- !u!114 &806560619
 MonoBehaviour:
@@ -7034,8 +7036,9 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+  prefabUI: {fileID: 0}
   displayMode: 0
-  displayTrigger: 1
+  displayTrigger: 2
   alternativeUI: {fileID: 0}
 --- !u!114 &2082655019
 MonoBehaviour:

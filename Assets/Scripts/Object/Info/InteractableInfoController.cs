@@ -75,6 +75,15 @@ namespace WindTurbineVR.Object.Info
             }
         }
 
+        protected override void CreateUI(float height)
+        {
+            if (UIInstance != null) return;
+
+            base.CreateUI(height);
+
+            UIInstance.GetComponent<InteractableInfoView>().UpdateContent(Info.Title, Info.Description, "test");
+        }
+
         //private void CreateUI(SelectEnterEventArgs arg0) => CreateUI();
 
         //private void CreateUI(HoverEnterEventArgs arg0) => CreateUI();

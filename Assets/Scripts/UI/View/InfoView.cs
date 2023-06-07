@@ -103,7 +103,7 @@ namespace WindTurbineVR.UI
             {
                 this.UI = transform;
                 this.DisplayMode = displayMode;
-
+                Debug.Log("DirectionController constructor");
                 camera = sceneController.Camera;
             }
 
@@ -111,7 +111,7 @@ namespace WindTurbineVR.UI
             {
                 //Debug.Log("DisplayMode: " + DisplayMode);
 
-                //Debug.Log("Setting direction to " + (UI.position - camera.position));
+                Debug.Log("Setting direction to " + (UI.position - camera.position));
                 UI.rotation = Quaternion.LookRotation(UI.position - camera.position);
             }
         }

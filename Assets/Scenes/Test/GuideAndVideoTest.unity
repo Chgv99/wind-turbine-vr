@@ -4069,12 +4069,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 1558719525}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 1825299117}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 32
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}
@@ -4139,7 +4140,7 @@ MonoBehaviour:
       m_Calls: []
   prefabUI: {fileID: 0}
   displayMode: 2
-  displayTrigger: 0
+  displayTrigger: 1
   alternativeUI: {fileID: 0}
 --- !u!114 &1825299116
 MonoBehaviour:

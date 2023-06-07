@@ -32,7 +32,7 @@ namespace WindTurbineVR.UI
         // Start is called before the first frame update
         void Awake()
         {
-            base.Awake();
+            base.Awake(); //unnecessary?
             taskPrefab = Resources.Load("UI/Modal/Task") as GameObject;
             if (taskPrefab == null) Debug.Log("taskprefab nul");
             //guideModalController = modal.GetComponent<GuideModalController>();
@@ -52,7 +52,7 @@ namespace WindTurbineVR.UI
 
             color = new Color(255,187,0);
 
-            Show();
+            //Show();
         }
 
         // Update is called once per frame
