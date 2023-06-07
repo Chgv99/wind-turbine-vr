@@ -5,7 +5,7 @@ using UnityEngine.Video;
 
 public class VideoLoader : MonoBehaviour
 {
-    public VideoPlayer videoPlayer;
+    VideoPlayer videoPlayer;
 
     [SerializeField] string url = "";
 
