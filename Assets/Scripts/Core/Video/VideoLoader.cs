@@ -7,6 +7,7 @@ public class VideoLoader : MonoBehaviour
 {
     VideoPlayer videoPlayer;
 
+    [SerializeField] float ratio = 16 / 9f;
     [SerializeField] string url = "";
 
     public string Url { get => url; set => url = value; }
@@ -20,5 +21,8 @@ public class VideoLoader : MonoBehaviour
         videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
         videoPlayer.EnableAudioTrack(0, true);
         videoPlayer.Prepare();
+        
+        RectTransform rt = GetComponent<Canvas>().GetComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(rt.rect.width, rt.rect.width / ratio);
     }
 }
