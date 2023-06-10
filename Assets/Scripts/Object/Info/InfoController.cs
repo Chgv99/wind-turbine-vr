@@ -57,6 +57,11 @@ namespace WindTurbineVR.Object
             Info = GetComponent<Data.Info>();
         }
 
+        protected bool IsActive()
+        {
+            return UIInstance.GetComponent<InfoView>().IsActive();
+        }
+
         protected void Enable(HoverEnterEventArgs arg0) => Enable();
 
         public void Enable()

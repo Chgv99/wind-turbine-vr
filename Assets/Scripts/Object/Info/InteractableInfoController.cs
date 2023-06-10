@@ -25,7 +25,7 @@ namespace WindTurbineVR.Object.Info
             prefabUI = Resources.Load("UI/InteractableUI") as GameObject;
             base.Start();
 
-            
+            //enabled = gameObject.activeSelf;
 
             switch (displayTrigger)
             {
@@ -37,7 +37,7 @@ namespace WindTurbineVR.Object.Info
                     break;
                 case DisplayTrigger.Selection:
                     //selectEntered.AddListener(ShowInfo);
-                    selectEntered.AddListener(SelectEnable);
+                    selectEntered.AddListener(SwitchActiveState);
                     break;
             }
 
@@ -49,9 +49,14 @@ namespace WindTurbineVR.Object.Info
 
         protected void HoverDisable(HoverExitEventArgs arg0) => Disable();
 
-        protected void SelectEnable(SelectEnterEventArgs arg0) => Enable();
+        protected void SwitchActiveState(SelectEnterEventArgs arg0)
+        {
+            if (UIInstance.GetComponent<InteractableInfoView>().IsActive()) Disable();
+            else Enable();
+        }
+        //protected void SelectEnable(SelectEnterEventArgs arg0) => Enable();
 
-        protected void SelectDisable(SelectExitEventArgs arg0) => Disable();
+        //protected void SelectDisable(SelectExitEventArgs arg0) => Disable();
 
         protected override void OnDestroy()
         {
@@ -65,7 +70,7 @@ namespace WindTurbineVR.Object.Info
                     hoverExited.RemoveListener(Disable);
                     break;
                 case DisplayTrigger.Selection:
-                    selectEntered.RemoveListener(SelectEnable);
+                    selectEntered.RemoveListener(SwitchActiveState);
                     break;
             }
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -228,6 +229,11 @@ namespace WindTurbineVR.UI
             
             controller.SetContent(Info.Title, Info.Description); //sacar un nivel?
         }*/
+
+        public bool IsActive()
+        {
+            return GetComponent<Canvas>().isActiveAndEnabled;
+        }
 
         public void Enable() => GetComponent<Canvas>().enabled = true;
 
