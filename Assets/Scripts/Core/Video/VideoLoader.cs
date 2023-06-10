@@ -22,10 +22,15 @@ public class VideoLoader : MonoBehaviour
         videoPlayer.url = url;
         videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
         videoPlayer.EnableAudioTrack(0, true);
+        videoPlayer.playOnAwake = false;
         videoPlayer.Prepare();
 
         rt = GetComponent<Canvas>().GetComponent<RectTransform>();
     }
+
+    void OnEnable() => videoPlayer.Play();
+
+    void OnDisable() => videoPlayer.Stop();
 
     void Update()
     {
