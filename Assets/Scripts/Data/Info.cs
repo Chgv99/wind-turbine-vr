@@ -11,6 +11,7 @@ namespace WindTurbineVR.Data
 
         [SerializeField] string title;
         [SerializeField] string description;
+        [SerializeField] string url;
 
         public string Title 
         { 
@@ -28,6 +29,15 @@ namespace WindTurbineVR.Data
                 return useInfoCard ? infoCard.description : description;
             } 
             set => description = value; 
+        }
+
+        public string Video
+        {
+            get
+            {
+                return useInfoCard ? infoCard.url : url;
+            }
+            set => url = value;
         }
     }
 }

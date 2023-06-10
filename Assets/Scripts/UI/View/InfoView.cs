@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -22,6 +23,7 @@ namespace WindTurbineVR.UI
     // TODO: Move to InfoController classes. Does not belong here
     public enum DisplayTrigger
     {
+        None,
         Hover,
         Selection,
         TriggerStay
@@ -102,7 +104,7 @@ namespace WindTurbineVR.UI
             {
                 this.UI = transform;
                 this.DisplayMode = displayMode;
-
+                Debug.Log("DirectionController constructor");
                 camera = sceneController.Camera;
             }
 
@@ -110,7 +112,7 @@ namespace WindTurbineVR.UI
             {
                 //Debug.Log("DisplayMode: " + DisplayMode);
 
-                //Debug.Log("Setting direction to " + (UI.position - camera.position));
+                Debug.Log("Setting direction to " + (UI.position - camera.position));
                 UI.rotation = Quaternion.LookRotation(UI.position - camera.position);
             }
         }
@@ -124,6 +126,7 @@ namespace WindTurbineVR.UI
 
             Completed = new UnityEvent();
 
+            Debug.Log("camera obj: " + sceneController.Camera);
             GetComponent<Canvas>().worldCamera = sceneController.Camera.GetComponent<Camera>();
             ///////////sceneController.TaskChecked.AddListener(UpdateObjectTasks);            
             if (displayMode != DisplayMode.StaticFixed && displayMode != DisplayMode.StaticAlternativeFixed)
@@ -226,6 +229,11 @@ namespace WindTurbineVR.UI
             
             controller.SetContent(Info.Title, Info.Description); //sacar un nivel?
         }*/
+
+        public bool IsActive()
+        {
+            return GetComponent<Canvas>().isActiveAndEnabled;
+        }
 
         public void Enable() => GetComponent<Canvas>().enabled = true;
 

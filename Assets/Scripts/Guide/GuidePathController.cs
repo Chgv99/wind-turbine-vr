@@ -14,6 +14,8 @@ namespace WindTurbineVR.Guide
             lr = GetComponent<LineRenderer>();
             lr.positionCount = transform.childCount;
 
+            GameObject cylinder = Resources.Load("WaypointCylinder") as GameObject;
+
             int index = 0;
             for (int i = 0; i < transform.childCount; i++)
             {
@@ -21,6 +23,9 @@ namespace WindTurbineVR.Guide
                 Debug.Log(child.gameObject.name);
                 //if (child.gameObject.name != "GuideWaypoint") continue;
                 lr.SetPosition(index++, child.position);
+
+                if (i == 0) Instantiate(cylinder, Vector3.zero, Quaternion.identity, child);
+                if (i == transform.childCount - 1) Instantiate(cylinder, child);
             }
         }
 

@@ -30,7 +30,7 @@ namespace WindTurbineVR.Object
     {
         [SerializeField] protected GameObject prefabUI;
 
-        private GameObject uiInstance;
+        [SerializeField] private GameObject uiInstance;
 
         Data.Info info;
 
@@ -55,6 +55,11 @@ namespace WindTurbineVR.Object
             //prefabUI = Resources.Load("UI/UI") as GameObject;
             if (prefabUI == null) Error.LogException("PrefabUI is null");
             Info = GetComponent<Data.Info>();
+        }
+
+        protected bool IsActive()
+        {
+            return UIInstance.GetComponent<InfoView>().IsActive();
         }
 
         protected void Enable(HoverEnterEventArgs arg0) => Enable();
@@ -91,6 +96,7 @@ namespace WindTurbineVR.Object
 
         protected virtual void CreateUI(float height)
         {
+            Debug.Log("prefabUI: " + prefabUI);
             UIInstance = Instantiate(prefabUI);
 
             Vector3 position = new Vector3();

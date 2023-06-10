@@ -32,27 +32,27 @@ namespace WindTurbineVR.UI
         // Start is called before the first frame update
         void Awake()
         {
-            base.Awake();
+            base.Awake(); //unnecessary?
             taskPrefab = Resources.Load("UI/Modal/Task") as GameObject;
             if (taskPrefab == null) Debug.Log("taskprefab nul");
             //guideModalController = modal.GetComponent<GuideModalController>();
-            taskListTransform = modal.Find("Tasks");
-            completedText = modal.Find("CompletedText");
+            taskListTransform = transform.Find("Tasks");
+            completedText = transform.Find("CompletedText");
 
-            closeButton = modal.Find("CloseButton").gameObject;
+            closeButton = transform.Find("CloseButton").gameObject;
 
             toggles = new List<Toggle>();
 
-            ordinalText = modal.Find("OrdinalText").GetComponent<TextMeshProUGUI>();
-            headerText = modal.Find("HeaderText").GetComponent<TextMeshProUGUI>();
-            modalText = modal.Find("ModalText").GetComponent<TextMeshProUGUI>();
+            ordinalText = transform.Find("OrdinalText").GetComponent<TextMeshProUGUI>();
+            headerText = transform.Find("HeaderText").GetComponent<TextMeshProUGUI>();
+            modalText = transform.Find("ModalText").GetComponent<TextMeshProUGUI>();
             //tasks
 
             //sceneController.TaskChecked.AddListener(UpdateObjectTasks);
 
             color = new Color(255,187,0);
 
-            Show();
+            //Show();
         }
 
         // Update is called once per frame

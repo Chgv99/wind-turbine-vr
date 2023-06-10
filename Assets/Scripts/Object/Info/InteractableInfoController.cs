@@ -22,9 +22,10 @@ namespace WindTurbineVR.Object.Info
         // Start is called before the first frame update
         public void Start()
         {
+            prefabUI = Resources.Load("UI/InteractableUI") as GameObject;
             base.Start();
 
-            prefabUI = Resources.Load("UI/InteractableUI") as GameObject;
+            //enabled = gameObject.activeSelf;
 
             switch (displayTrigger)
             {
@@ -36,7 +37,7 @@ namespace WindTurbineVR.Object.Info
                     break;
                 case DisplayTrigger.Selection:
                     //selectEntered.AddListener(ShowInfo);
-                    selectEntered.AddListener(SelectEnable);
+                    selectEntered.AddListener(SwitchActiveState);
                     break;
             }
 
@@ -48,9 +49,14 @@ namespace WindTurbineVR.Object.Info
 
         protected void HoverDisable(HoverExitEventArgs arg0) => Disable();
 
-        protected void SelectEnable(SelectEnterEventArgs arg0) => Enable();
+        protected void SwitchActiveState(SelectEnterEventArgs arg0)
+        {
+            if (UIInstance.GetComponent<InteractableInfoView>().IsActive()) Disable();
+            else Enable();
+        }
+        //protected void SelectEnable(SelectEnterEventArgs arg0) => Enable();
 
-        protected void SelectDisable(SelectExitEventArgs arg0) => Disable();
+        //protected void SelectDisable(SelectExitEventArgs arg0) => Disable();
 
         protected override void OnDestroy()
         {
@@ -64,7 +70,7 @@ namespace WindTurbineVR.Object.Info
                     hoverExited.RemoveListener(Disable);
                     break;
                 case DisplayTrigger.Selection:
-                    selectEntered.RemoveListener(SelectEnable);
+                    selectEntered.RemoveListener(SwitchActiveState);
                     break;
             }
 
@@ -72,6 +78,18 @@ namespace WindTurbineVR.Object.Info
             {
                 UIInstance = null;
             }
+        }
+
+        protected override void CreateUI(float height)
+        {
+            if (UIInstance != null) return;
+
+            base.CreateUI(height);
+
+            //UIInstance.GetComponent<InteractableInfoView>().UpdateContent(Info.Title, Info.Description, "test");
+            UIInstance.GetComponent<InteractableInfoView>().SetTitle(Info.Title);
+            UIInstance.GetComponent<InteractableInfoView>().SetBody(Info.Description);
+            UIInstance.GetComponent<InteractableInfoView>().SetUrl(Info.Video);
         }
 
         //private void CreateUI(SelectEnterEventArgs arg0) => CreateUI();
