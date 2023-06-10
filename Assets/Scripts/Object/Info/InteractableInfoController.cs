@@ -81,7 +81,10 @@ namespace WindTurbineVR.Object.Info
 
             base.CreateUI(height);
 
-            UIInstance.GetComponent<InteractableInfoView>().UpdateContent(Info.Title, Info.Description, "test");
+            //UIInstance.GetComponent<InteractableInfoView>().UpdateContent(Info.Title, Info.Description, "test");
+            UIInstance.GetComponent<InteractableInfoView>().SetTitle(Info.Title);
+            UIInstance.GetComponent<InteractableInfoView>().SetBody(Info.Description);
+            UIInstance.GetComponent<InteractableInfoView>().SetUrl(Info.Video);
         }
 
         //private void CreateUI(SelectEnterEventArgs arg0) => CreateUI();

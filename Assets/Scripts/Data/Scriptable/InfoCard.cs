@@ -7,5 +7,6 @@ namespace WindTurbineVR.Data.Scriptable
     {
         public string title;
         public string description;
+        public string url;
     }
 }

@@ -30,7 +30,7 @@ namespace WindTurbineVR.Object
     {
         [SerializeField] protected GameObject prefabUI;
 
-        private GameObject uiInstance;
+        [SerializeField] private GameObject uiInstance;
 
         Data.Info info;
 
@@ -91,6 +91,7 @@ namespace WindTurbineVR.Object
 
         protected virtual void CreateUI(float height)
         {
+            Debug.Log("prefabUI: " + prefabUI);
             UIInstance = Instantiate(prefabUI);
 
             Vector3 position = new Vector3();

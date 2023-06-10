@@ -7,18 +7,33 @@ namespace WindTurbineVR.UI
 {
     public class InteractableInfoView : InfoView
     {
-        [SerializeField] TextMeshProUGUI titleText;
-        [SerializeField] TextMeshProUGUI bodyText;
+        [SerializeField] GameObject main;
+        [SerializeField] GameObject title;
+        [SerializeField] GameObject body;
 
-        [SerializeField] GameObject video;
+        [SerializeField] string url = string.Empty;
+
+        GameObject videoButton;
+        GameObject videoObject; //show on button click
+
+        public void SetTitle (string text)  { this.title.GetComponent<TextMeshProUGUI>().text = text; }
+        public void SetBody(string text) { this.body.GetComponent<TextMeshProUGUI>().text = text; }
+        public void SetUrl(string url)
+        {
+            this.url = url;
+            if (url != "") videoButton.SetActive(true);
+        }
+        public string Url { get => url; set => url = value; }
 
         void Awake()
         {
             base.Awake(); //unnecessary?
 
-            titleText = transform.Find("TitleText").GetComponent<TextMeshProUGUI>();
-            bodyText = transform.Find("BodyText").GetComponent<TextMeshProUGUI>();
-            video = transform.Find("Video").gameObject;
+            main = transform.Find("Main").gameObject;
+            title = main.transform.Find("TitleText").gameObject;
+            body = main.transform.Find("BodyText").gameObject;
+            videoButton = main.transform.Find("VideoButton").gameObject;
+            videoObject = transform.Find("Video").gameObject;
         }
 
         // Start is called before the first frame update
@@ -28,15 +43,27 @@ namespace WindTurbineVR.UI
             //Show();
         }
 
+        public void ShowVideo()
+        {
+            main.SetActive(false);
+            videoObject.SetActive(true);
+        }
+
+        public void HideVideo()
+        {
+            main.SetActive(true);
+            videoObject.SetActive(false);
+        }
+
         protected override void Show()
         {
             //base.Show();
         }
 
-        public void UpdateContent(string title, string body, string videoUrl)
+        /*public void UpdateContent(string title, string body, string videoUrl)
         {
-            titleText.text = title;
-            bodyText.text = body;
-        }
+            this.Title.text = title;
+            this.Body.text = body;
+        }*/
     }
 }

@@ -13471,7 +13471,6 @@ GameObject:
   - component: {fileID: 1244211996471272050}
   - component: {fileID: 5710441691134802880}
   - component: {fileID: 5710441691134802879}
-  - component: {fileID: 5710441691134802882}
   - component: {fileID: 5710441691134802878}
   - component: {fileID: 5710441691134802881}
   m_Layer: 0
@@ -16116,6 +16115,7 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+  prefabUI: {fileID: 0}
   displayMode: 4
   displayTrigger: 1
   alternativeUI: {fileID: 375768817}
@@ -16147,7 +16147,8 @@ MonoBehaviour:
   useInfoCard: 0
   infoCard: {fileID: 0}
   title: Turbine part 1
-  description: Test description 1
+  description: Test description 1 10/06/2023
+  url: https://dl.dropbox.com/s/dcs00rjqx2u0zpl/Grand%20Theft%20Auto%20V%202019.01.16%20-%2022.35.51.02.mp4?dl=1
 --- !u!114 &5710441691134802881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16164,22 +16165,6 @@ MonoBehaviour:
   m_TintOnHover: 1
   m_TintOnSelection: 1
   m_TintRenderers: []
---- !u!114 &5710441691134802882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4658779354027306457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b56fce5b1a4f5eb48a5e49fd088aebc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useInfoCard: 0
-  infoCard: {fileID: 0}
-  title: 
-  description: 
 --- !u!1 &5711795918408471681
 GameObject:
   m_ObjectHideFlags: 0
@@ -23823,6 +23808,7 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+  prefabUI: {fileID: 0}
   displayMode: 4
   displayTrigger: 1
   alternativeUI: {fileID: 877074170}
@@ -23855,6 +23841,7 @@ MonoBehaviour:
   infoCard: {fileID: 0}
   title: Turbine part 2
   description: Test description 2
+  url: 
 --- !u!114 &8415529662682484230
 MonoBehaviour:
   m_ObjectHideFlags: 0
