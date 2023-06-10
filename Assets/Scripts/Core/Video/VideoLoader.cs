@@ -12,6 +12,8 @@ public class VideoLoader : MonoBehaviour
 
     public string Url { get => url; set => url = value; }
 
+    RectTransform rt;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +23,12 @@ public class VideoLoader : MonoBehaviour
         videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
         videoPlayer.EnableAudioTrack(0, true);
         videoPlayer.Prepare();
-        
-        RectTransform rt = GetComponent<Canvas>().GetComponent<RectTransform>();
+
+        rt = GetComponent<Canvas>().GetComponent<RectTransform>();
+    }
+
+    void Update()
+    {
         rt.sizeDelta = new Vector2(rt.rect.width, rt.rect.width / ratio);
     }
 }
