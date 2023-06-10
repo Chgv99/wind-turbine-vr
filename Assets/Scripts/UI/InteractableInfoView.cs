@@ -30,7 +30,7 @@ namespace WindTurbineVR.UI
             base.Awake(); //unnecessary?
 
             main = transform.Find("Main").gameObject;
-            title = main.transform.Find("TitleText").gameObject;
+            title = transform.Find("TitleText").gameObject;
             body = main.transform.Find("BodyText").gameObject;
             videoButton = main.transform.Find("VideoButton").gameObject;
             videoObject = transform.Find("Video").gameObject;
