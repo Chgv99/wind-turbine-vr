@@ -47,7 +47,7 @@ namespace WindTurbineVR.UI
         {
             main.SetActive(false);
             videoObject.SetActive(true);
-            videoObject.transform.Find("Video").GetComponent<VideoLoader>().SetUrl(url);
+            videoObject.transform.Find("Video").GetComponent<VideoLoader>().Play(url);
         }
 
         public void HideVideo()

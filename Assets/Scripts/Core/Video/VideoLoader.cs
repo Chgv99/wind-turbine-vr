@@ -27,13 +27,14 @@ public class VideoLoader : MonoBehaviour
         rt = GetComponent<Canvas>().GetComponent<RectTransform>();
     }
 
-    public void SetUrl(string url)
+    public void Play(string url)
     {
         videoPlayer.url = url;
         videoPlayer.Prepare();
+        videoPlayer.Play();
     }
 
-    void OnEnable() => videoPlayer.Play();
+    //void OnEnable() => videoPlayer.Play();
 
     //void On??() => videoPlayer.Pause(); //Issue #25: Consider this option when closing modal
 
