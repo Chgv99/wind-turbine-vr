@@ -11,5 +11,7 @@ How to use it:
 - Merge the changes from the branch you want to test
 - Test!
 
-```Note: Keyboard and mouse controls can be seen and edited by opening the XR Device Simulator input actions object located in:```
-Assets/Samples/XR Interaction Toolkit/2.2.0/XR Device Simulator`
+```
+Note: Keyboard and mouse controls can be seen and edited by opening the XR Device Simulator input actions object located in:
+Assets/Samples/XR Interaction Toolkit/2.2.0/XR Device Simulator
+```
