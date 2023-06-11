@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Text.RegularExpressions;
+using UnityEngine;
 //using WindTurbineVR.Core.Scriptable;
 
 namespace WindTurbineVR.Data
@@ -35,9 +36,18 @@ namespace WindTurbineVR.Data
         {
             get
             {
-                return useInfoCard ? infoCard.url : url;
+                string str = useInfoCard ? infoCard.url : url;
+                return ConvertString(str);
             }
             set => url = value;
         }
+
+        string ConvertString(string input)
+        {
+            return Regex.Replace(input, "\"//([w]{3})\"gm", "dl"); ;
+        }
+
+        // https://dl.dropbox.com/s/dcs00rjqx2u0zpl/Grand%20Theft%20Auto%20V%202019.01.16%20-%2022.35.51.02.mp4?dl=1
+        // https://www.dropbox.com/s/anc896dcraq0qnm/SnapSave.io-%C2%BFC%C3%B3mo%20funciona%20un%20aerogenerador_%20%20_%20Sostenibilidad%20-%20ACCIONA%28720p%29.mp4?dl=0 
     }
 }

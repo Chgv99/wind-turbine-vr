@@ -8,9 +8,9 @@ public class VideoLoader : MonoBehaviour
     VideoPlayer videoPlayer;
 
     [SerializeField] float ratio = 16 / 9f;
-    [SerializeField] string url = "";
+    //[SerializeField] string url = "";
 
-    public string Url { get => url; set => url = value; }
+    //public string Url { get => url; set => url = value; }
 
     RectTransform rt;
 
@@ -19,16 +19,23 @@ public class VideoLoader : MonoBehaviour
     {
         videoPlayer = GetComponent<VideoPlayer>();
 
-        videoPlayer.url = url;
+        //videoPlayer.url = url;
         videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
         videoPlayer.EnableAudioTrack(0, true);
         videoPlayer.playOnAwake = false;
-        videoPlayer.Prepare();
 
         rt = GetComponent<Canvas>().GetComponent<RectTransform>();
     }
 
+    public void SetUrl(string url)
+    {
+        videoPlayer.url = url;
+        videoPlayer.Prepare();
+    }
+
     void OnEnable() => videoPlayer.Play();
+
+    //void On??() => videoPlayer.Pause(); //Issue #25: Consider this option when closing modal
 
     void OnDisable() => videoPlayer.Stop();
 
