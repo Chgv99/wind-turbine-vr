@@ -15,7 +15,7 @@ public class VideoLoader : MonoBehaviour
     RectTransform rt;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         videoPlayer = GetComponent<VideoPlayer>();
 
