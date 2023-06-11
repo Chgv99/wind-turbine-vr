@@ -44,7 +44,8 @@ namespace WindTurbineVR.Data
 
         string ConvertString(string input)
         {
-            return Regex.Replace(input, "\"//([w]{3})\"gm", "dl"); ;
+            string newStr = Regex.Replace(input, "//[w]{3}", "//dl");
+            return Regex.Replace(newStr, "\\?dl=0", "\\?dl=1");
         }
 
         // https://dl.dropbox.com/s/dcs00rjqx2u0zpl/Grand%20Theft%20Auto%20V%202019.01.16%20-%2022.35.51.02.mp4?dl=1
