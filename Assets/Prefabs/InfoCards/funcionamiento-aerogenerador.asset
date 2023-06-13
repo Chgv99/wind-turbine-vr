@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d47127905a0aea44b034da6d733f88d, type: 3}
+  m_Name: funcionamiento-aerogenerador
+  m_EditorClassIdentifier: 
+  title: Funcionamiento de un aerogenerador
+  description: "Un aerogenerador transforma la energ\xEDa cin\xE9tica del viento
+    en energ\xEDa el\xE9ctrica. En el proceso, participan diversos componentes mec\xE1nicos,
+    que dotan al aerogenerador de la capacidad de adaptarse al entorno para proporcionar
+    la mayor cantidad de energ\xEDa."
+  url: 'https://www.dropbox.com/s/anc896dcraq0qnm/SnapSave.io-%C2%BFC%C3%B3mo%20funciona%20un%20aerogenerador_%20%20_%20Sostenibilidad%20-%20ACCIONA%28720p%29.mp4?dl=0 '
