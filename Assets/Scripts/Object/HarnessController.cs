@@ -26,8 +26,8 @@ namespace WindTurbineVR
         // Update is called once per frame
         void Update()
         {
-            transform.position = mainCamera.position + new Vector3(0, -0.5f, 0);
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, mainCamera.rotation.eulerAngles.y + 90, transform.rotation.eulerAngles.z);
+            transform.parent.position = mainCamera.position + new Vector3(0, -0.3f, -0.15f);
+            transform.parent.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, mainCamera.rotation.eulerAngles.y + 90, transform.rotation.eulerAngles.z);
         }
 
         public void CallHarnessAttached()
