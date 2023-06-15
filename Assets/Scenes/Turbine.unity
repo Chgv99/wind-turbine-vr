@@ -42959,7 +42959,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345214585}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 1.311, y: 0, z: 0.146}
+  m_LocalPosition: {x: 1.111, y: -0, z: 0.146}
   m_LocalScale: {x: 0.5298336, y: 0.25910002, z: 0.25910002}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56143,7 +56143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815452745}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -1.219, y: -0, z: 0.146}
+  m_LocalPosition: {x: -1.108, y: -0, z: 0.146}
   m_LocalScale: {x: 0.5298336, y: 0.25910002, z: 0.25910002}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -64752,6 +64752,7 @@ GameObject:
   - component: {fileID: 2108418392}
   - component: {fileID: 2108418394}
   - component: {fileID: 2108418393}
+  - component: {fileID: 2108418395}
   m_Layer: 0
   m_Name: Suelo  1
   m_TagString: Untagged
@@ -64823,6 +64824,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108418391}
+  m_Mesh: {fileID: 6423608000483574130, guid: e2aa5eeb2a6b98841bb24dca2028d99c, type: 3}
+--- !u!64 &2108418395
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108418391}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 6423608000483574130, guid: e2aa5eeb2a6b98841bb24dca2028d99c, type: 3}
 --- !u!1 &2108689648
 GameObject:
