@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1927177505834483570
+--- !u!1 &1159881096573121929
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,71 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7428996835623550141}
-  - component: {fileID: 3861920568742419880}
-  - component: {fileID: 8951104718013795451}
-  - component: {fileID: 7132668304404655545}
+  - component: {fileID: 785426801210227434}
   m_Layer: 0
-  m_Name: GuideInfo
+  m_Name: Destination
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7428996835623550141
+--- !u!4 &785426801210227434
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1927177505834483570}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
-  m_LocalScale: {x: 1.75, y: 1.5, z: 1.75}
+  m_GameObject: {fileID: 1159881096573121929}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+  m_Father: {fileID: 29177091142896051}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9061247471213234812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 29177091142896051}
+  - component: {fileID: 5973740552487430310}
+  - component: {fileID: 1965266512012409205}
+  - component: {fileID: 7898311722587093341}
+  m_Layer: 0
+  m_Name: TeleportInfo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &29177091142896051
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9061247471213234812}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0.911}
+  m_LocalScale: {x: 1.75, y: 1, z: 1.75}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 785426801210227434}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3861920568742419880
+--- !u!114 &5973740552487430310
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1927177505834483570}
+  m_GameObject: {fileID: 9061247471213234812}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b56fce5b1a4f5eb48a5e49fd088aebc7, type: 3}
@@ -48,16 +80,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useInfoCard: 0
   infoCard: {fileID: 0}
-  title: E
-  description: ej
+  title: Teleport
+  description: Do you want to teleport to [insert place]?
   url: 
---- !u!114 &8951104718013795451
+--- !u!114 &1965266512012409205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1927177505834483570}
+  m_GameObject: {fileID: 9061247471213234812}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97a90f2dab79e854188cc83f220216aa, type: 3}
@@ -66,16 +98,16 @@ MonoBehaviour:
   tasks:
   - {fileID: 0}
   - {fileID: 0}
---- !u!114 &7132668304404655545
+--- !u!114 &7898311722587093341
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1927177505834483570}
+  m_GameObject: {fileID: 9061247471213234812}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b31a5acf1db8cd458ce625b61b0cc86, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b13410d98245ca449a1b58d5347140b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -147,8 +179,8 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  prefabUI: {fileID: 45014994085117083, guid: e475d67043a71484cabfecd139f29b63, type: 3}
+  prefabUI: {fileID: 9061247471213234812}
   uiInstance: {fileID: 0}
-  displayMode: 2
+  displayMode: 0
   displayTrigger: 0
   alternativeUI: {fileID: 0}

@@ -30,7 +30,7 @@ public class VideoLoader : MonoBehaviour
     public void Play(string url)
     {
         videoPlayer.url = url;
-        videoPlayer.Prepare();
+        videoPlayer.Prepare(); //TODO: Move prepare and play into awake?
         videoPlayer.Play();
     }
 

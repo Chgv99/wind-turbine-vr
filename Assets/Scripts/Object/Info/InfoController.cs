@@ -28,6 +28,8 @@ namespace WindTurbineVR.Object
     [RequireComponent(typeof(Data.Info))]
     public abstract class InfoController : XRSimpleInteractable
     {
+        //SceneController sceneController;
+
         [SerializeField] protected GameObject prefabUI;
 
         [SerializeField] private GameObject uiInstance;
@@ -51,6 +53,7 @@ namespace WindTurbineVR.Object
         // Start is called before the first frame update
         public void Start()
         {
+            //sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
             // Base UI
             //prefabUI = Resources.Load("UI/UI") as GameObject;
             if (prefabUI == null) Error.LogException("PrefabUI is null");
@@ -112,6 +115,7 @@ namespace WindTurbineVR.Object
             UIInstance.transform.position = position;
             UIInstance.transform.rotation = rotation;
 
+            Debug.Log("Instance: " + UIInstance);
             UIInstance.GetComponent<InfoView>().ContentType = ContentType.ObjectInfo;
             UIInstance.GetComponent<InfoView>().DisplayMode = displayMode;
             UIInstance.GetComponent<InfoView>().DisplayTrigger = displayTrigger;

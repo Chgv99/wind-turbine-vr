@@ -41,7 +41,7 @@ namespace WindTurbineVR.UI
 
     public abstract class InfoView : MonoBehaviour
     {
-        public TurbineSceneController sceneController;
+        public SceneController sceneController;
 
         //[SerializeField] protected GameObject modalPrefab;
         protected Transform modal;
@@ -120,7 +120,10 @@ namespace WindTurbineVR.UI
         protected void Awake()
         {
             //GetComponent<Canvas>().enabled = false;
-            sceneController = GameObject.Find("SceneController").GetComponent<TurbineSceneController>();
+            //SceneController sc = GameObject.Find("SceneController").GetComponent<SceneController>();
+            //TurbineSceneController tsc = GameObject.Find("SceneController").GetComponent<TurbineSceneController>();
+            sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
+
             modal = transform.Find("Modal");
             dc = new DirectionController(sceneController, transform, DisplayMode);
 
