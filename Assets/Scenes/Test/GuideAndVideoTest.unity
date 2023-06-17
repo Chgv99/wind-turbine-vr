@@ -526,6 +526,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 16.57
       objectReference: {fileID: 0}
+    - target: {fileID: 5973740552487430310, guid: cafe09831c748e549afb4c804bee7278,
+        type: 3}
+      propertyPath: title
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5973740552487430310, guid: cafe09831c748e549afb4c804bee7278,
+        type: 3}
+      propertyPath: description
+      value: Do you want to go to
+      objectReference: {fileID: 0}
     - target: {fileID: 7898311722587093341, guid: cafe09831c748e549afb4c804bee7278,
         type: 3}
       propertyPath: prefabUI

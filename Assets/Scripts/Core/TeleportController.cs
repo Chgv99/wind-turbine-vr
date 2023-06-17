@@ -8,7 +8,7 @@ namespace WindTurbineVR.Core
     {
         SceneController sceneController;
 
-        Transform destination;
+        public Transform destination;
 
         void Awake()
         {

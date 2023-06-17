@@ -7,7 +7,6 @@ using WindTurbineVR.Core;
 
 namespace WindTurbineVR.UI
 {
-    [RequireComponent(typeof(TeleportController))]
     public class TeleportInfoView : InfoView
     {
         TeleportController teleportController;
@@ -20,12 +19,13 @@ namespace WindTurbineVR.UI
 
         public void SetTitle(string text) { this.title.GetComponent<TextMeshProUGUI>().text = text; }
         public void SetBody(string text) { this.body.GetComponent<TextMeshProUGUI>().text = text; }
+        public TeleportController TeleportController { set => teleportController = value; }
 
         void Awake()
         {
             base.Awake(); //unnecessary?
 
-            teleportController = GetComponent<TeleportController>();
+            //teleportController = GetComponent<TeleportController>();
 
             main = transform.Find("Main").gameObject;
             title = transform.Find("TitleText").gameObject;

@@ -7,14 +7,19 @@ using WindTurbineVR.UI;
 
 namespace WindTurbineVR.Object.Info
 {
+    [RequireComponent(typeof(TeleportController))]
     public class TeleportInfoController : InfoController //?
     {
         SceneController sceneController;
+
+        TeleportController teleportController;
 
         // Start is called before the first frame update
         void Start()
         {
             base.Start();
+            
+            teleportController = GetComponent<TeleportController>();
 
             sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
             if (sceneController == null) Error.LogException("SceneController is null");
@@ -37,9 +42,10 @@ namespace WindTurbineVR.Object.Info
 
             base.CreateUI(height);
 
-            UIInstance.GetComponent<TeleportInfoView>().SetTitle(Info.Title);
-            UIInstance.GetComponent<TeleportInfoView>().SetBody(Info.Description);
+            UIInstance.GetComponent<TeleportInfoView>().SetTitle(teleportController.destination.gameObject.name);
+            UIInstance.GetComponent<TeleportInfoView>().SetBody(Info.Description + " " + teleportController.destination.gameObject.name + "?");
             //UIInstance.GetComponent<TeleportInfoView>().UpdateContent(GuideOrdinal, Info, taskManager.GetTasks());
+            UIInstance.GetComponent<TeleportInfoView>().TeleportController = teleportController;
         }
 
         // Update is called once per frame
