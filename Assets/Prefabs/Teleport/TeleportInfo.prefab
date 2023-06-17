@@ -41,7 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 29177091142896051}
   - component: {fileID: 5973740552487430310}
-  - component: {fileID: 1965266512012409205}
   - component: {fileID: 7898311722587093341}
   m_Layer: 0
   m_Name: TeleportInfo
@@ -83,21 +82,6 @@ MonoBehaviour:
   title: Teleport
   description: Do you want to teleport to [insert place]?
   url: 
---- !u!114 &1965266512012409205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9061247471213234812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97a90f2dab79e854188cc83f220216aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tasks:
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &7898311722587093341
 MonoBehaviour:
   m_ObjectHideFlags: 0

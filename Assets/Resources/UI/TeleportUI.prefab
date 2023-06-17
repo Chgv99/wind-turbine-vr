@@ -692,16 +692,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 8329400226227711022}
+      objectReference: {fileID: 3322796677044240253}
     - target: {fileID: 5740023278989168509, guid: 866ad03fed134a244a387aada1143a3e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowVideo
+      value: Teleport
       objectReference: {fileID: 0}
     - target: {fileID: 5740023278989168509, guid: 866ad03fed134a244a387aada1143a3e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: WindTurbineVR.UI.InteractableInfoView, UI
+      value: WindTurbineVR.UI.TeleportInfoView, UI
       objectReference: {fileID: 0}
     - target: {fileID: 5740023278989168509, guid: 866ad03fed134a244a387aada1143a3e,
         type: 3}
@@ -821,7 +821,7 @@ PrefabInstance:
     - target: {fileID: 5740023278989168511, guid: 866ad03fed134a244a387aada1143a3e,
         type: 3}
       propertyPath: m_Name
-      value: VideoButton
+      value: TeleportButton
       objectReference: {fileID: 0}
     - target: {fileID: 5740023278989168511, guid: 866ad03fed134a244a387aada1143a3e,
         type: 3}
@@ -1120,6 +1120,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 1
+--- !u!114 &3322796677044240253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726282013491749160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 490485a2e693f5f42948283c47761c07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneController: {fileID: 0}
+  main: {fileID: 0}
+  title: {fileID: 0}
+  body: {fileID: 0}
 --- !u!114 &5330614493920452514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1150,23 +1166,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 8
---- !u!114 &8329400226227711022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1726282013491749160}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f156e6dd63b7c064198acb7bc8d63aec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneController: {fileID: 0}
-  main: {fileID: 0}
-  title: {fileID: 0}
-  body: {fileID: 0}
-  url: 
 --- !u!114 &7127744140461191143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1179,22 +1178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c50d88cc79fbab243b815102d07c74a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3322796677044240253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1726282013491749160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 490485a2e693f5f42948283c47761c07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneController: {fileID: 0}
-  main: {fileID: 0}
-  title: {fileID: 0}
-  body: {fileID: 0}
 --- !u!224 &1726282013491749164 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2077088683349477332, guid: ac99518c8c9e9cc418c9850d0754aa1c,
@@ -1222,7 +1205,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 8329400226227711022}
+      objectReference: {fileID: 0}
     - target: {fileID: 5740023278989168509, guid: 866ad03fed134a244a387aada1143a3e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
