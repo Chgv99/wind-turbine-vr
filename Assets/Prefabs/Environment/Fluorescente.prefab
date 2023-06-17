@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 7457343760231128576}
   - component: {fileID: 5618208056254614226}
   - component: {fileID: 7082624882604357337}
-  - component: {fileID: 6840718766394032556}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -167,19 +166,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6840718766394032556
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 544306495131986850}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &921666484318656939
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,6 +175,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4220308626886684271}
+  - component: {fileID: 5088988122711689336}
+  - component: {fileID: 3209513544275774736}
   m_Layer: 0
   m_Name: Fluorescente
   m_TagString: Untagged
@@ -216,6 +204,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5088988122711689336
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921666484318656939}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.31558806, z: 0.41997647}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3209513544275774736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921666484318656939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 991cdb98285a3fb448b53db54b0ee4e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light: {fileID: 1511507798291587160}
 --- !u!1 &2290282876564011999
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +308,7 @@ GameObject:
   - component: {fileID: 1511507798291587160}
   - component: {fileID: 4322915428110890255}
   m_Layer: 0
-  m_Name: Point Light (5)
+  m_Name: LightSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -327,8 +341,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.75
-  m_Range: 6
+  m_Intensity: 1.5
+  m_Range: 5.5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -408,7 +422,6 @@ GameObject:
   - component: {fileID: 2233166724864291231}
   - component: {fileID: 4605211808341959649}
   - component: {fileID: 1103134505469712451}
-  - component: {fileID: 653730951512922430}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -481,20 +494,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &653730951512922430
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6481015709699611626}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &6618980894746193375
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,7 +588,6 @@ GameObject:
   - component: {fileID: 575742461107308436}
   - component: {fileID: 1249853684894894038}
   - component: {fileID: 97733389662738968}
-  - component: {fileID: 6231662278245815293}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -662,19 +660,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6231662278245815293
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7081881250703849729}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9084983178135783513
 GameObject:
   m_ObjectHideFlags: 0

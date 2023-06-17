@@ -65,7 +65,7 @@ namespace WindTurbineVR.Character.Movement
 
             if (!_characterController.isGrounded && !_climbing && !_lifelineHalt)
             {
-                Debug.Log("applying gravity");
+                //Debug.Log("applying gravity");
                 _characterController.SimpleMove(new Vector3());
             }
             if (_lifelineHalt)
