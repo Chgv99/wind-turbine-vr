@@ -164,9 +164,12 @@ namespace WindTurbineVR.UI
             modalText.gameObject.SetActive(false);
             completedText.gameObject.SetActive(true);
             ShowCloseButton();
+            HideContinueButton();
         }
 
         public void ShowContinueButton() => continueButton.SetActive(true);
+
+        public void HideContinueButton() => continueButton.SetActive(false);
 
         public void Continue() => CompleteList();
 
