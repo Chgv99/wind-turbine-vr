@@ -14,7 +14,8 @@ namespace WindTurbineVR.Core
         {
             sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
 
-            destination = transform.Find("Destination");
+            //destination = transform.Find("Destination");
+            if (destination == null) Error.LogException("Teleport destination is null");
         }
 
         public void Teleport() => sceneController.TeleportPlayer(destination.position);
