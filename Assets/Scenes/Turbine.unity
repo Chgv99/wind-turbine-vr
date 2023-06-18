@@ -4396,15 +4396,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: "g\xF3ndola"
       objectReference: {fileID: 0}
+    - target: {fileID: 5671227627095931415, guid: cafe09831c748e549afb4c804bee7278,
+        type: 3}
+      propertyPath: destination
+      value: 
+      objectReference: {fileID: 1816780051}
     - target: {fileID: 5973740552487430310, guid: cafe09831c748e549afb4c804bee7278,
         type: 3}
       propertyPath: title
-      value: "G\xF3ndola"
+      value: "Viaje r\xE1pido"
       objectReference: {fileID: 0}
     - target: {fileID: 5973740552487430310, guid: cafe09831c748e549afb4c804bee7278,
         type: 3}
       propertyPath: description
-      value: "\xBFQuieres subir directamente a la "
+      value: "\xBFQuieres subir directamente a la"
       objectReference: {fileID: 0}
     - target: {fileID: 9061247471213234812, guid: cafe09831c748e549afb4c804bee7278,
         type: 3}
@@ -57930,6 +57935,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1816187142}
   m_Mesh: {fileID: -7222998522842909846, guid: 794e9166a46f87b4d9aa09fe69c55ac7, type: 3}
+--- !u!4 &1816780051 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 785426801210227434, guid: cafe09831c748e549afb4c804bee7278,
+    type: 3}
+  m_PrefabInstance: {fileID: 153036164}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1821866609
 GameObject:
   m_ObjectHideFlags: 0
