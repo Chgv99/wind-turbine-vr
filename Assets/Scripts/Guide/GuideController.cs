@@ -1,11 +1,9 @@
-using Codice.Client.BaseCommands.Merge;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using WindTurbineVR.Object.Info;
 using WindTurbineVR.UI;
-using static PlasticGui.LaunchDiffParameters;
 
 namespace WindTurbineVR.Guide
 {
