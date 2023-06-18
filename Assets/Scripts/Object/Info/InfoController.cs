@@ -116,6 +116,7 @@ namespace WindTurbineVR.Object
             UIInstance.transform.rotation = rotation;
 
             Debug.Log("Instance: " + UIInstance);
+            Debug.Log("InfoView" + UIInstance.GetComponent<InfoView>());
             UIInstance.GetComponent<InfoView>().ContentType = ContentType.ObjectInfo;
             UIInstance.GetComponent<InfoView>().DisplayMode = displayMode;
             UIInstance.GetComponent<InfoView>().DisplayTrigger = displayTrigger;
