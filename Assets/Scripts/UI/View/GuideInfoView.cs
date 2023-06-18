@@ -21,6 +21,7 @@ namespace WindTurbineVR.UI
 
         Transform completedText;
 
+        GameObject continueButton;
         GameObject closeButton;
 
         [SerializeField] TextMeshProUGUI ordinalText;
@@ -39,6 +40,7 @@ namespace WindTurbineVR.UI
             taskListTransform = transform.Find("Tasks");
             completedText = transform.Find("CompletedText");
 
+            continueButton = transform.Find("ContinueButton").gameObject;
             closeButton = transform.Find("CloseButton").gameObject;
 
             toggles = new List<Toggle>();
@@ -67,6 +69,7 @@ namespace WindTurbineVR.UI
             //if (DisplayTrigger != DisplayTrigger.Hover) guideModalController.InstantiateCloseButton();
             //UpdateContent();
         }
+
         //public List<TaskController> taskControllerList;
 
         // taskRemoved event listener
@@ -162,6 +165,10 @@ namespace WindTurbineVR.UI
             completedText.gameObject.SetActive(true);
             ShowCloseButton();
         }
+
+        public void ShowContinueButton() => continueButton.SetActive(true);
+
+        public void Continue() => CompleteList();
 
         void ShowCloseButton() => closeButton.SetActive(true);
 

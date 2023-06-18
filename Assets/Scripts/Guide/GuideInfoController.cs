@@ -23,6 +23,8 @@ namespace WindTurbineVR.Guide
 
         protected TaskManager taskManager;
 
+        bool noTasks = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -34,8 +36,14 @@ namespace WindTurbineVR.Guide
             guideController = transform.parent.GetComponent<GuideController>();
 
             taskManager = GetComponent<TaskManager>();
-            taskManager.TaskChecked.AddListener(UpdateTasks);
-            taskManager.ListCompleted.AddListener(CompleteList);
+            if (taskManager == null) noTasks = true;
+
+            if (!noTasks)
+            {
+                taskManager.TaskChecked.AddListener(UpdateTasks);
+                taskManager.ListCompleted.AddListener(CompleteList);
+            }
+            
             //taskList = GetComponent<TaskManager>().Tasks;
 
             /**TODO:
@@ -75,6 +83,11 @@ namespace WindTurbineVR.Guide
             UIInstance.GetComponent<GuideInfoView>().UpdateContent(GuideOrdinal, Info, taskManager.GetTasks());
             //UiInstance.GetComponent<UIController>().ContentType = ContentType.Guide;
             //UiInstance.GetComponent<UIController>().taskControllerList = taskList;
+            if (noTasks)
+            {
+                UIInstance.GetComponent<GuideInfoView>().ShowContinueButton();
+                //CompleteList();
+            }
         }
 
         public void UpdateOrdinal(Vector2 ordinal) => UIInstance.GetComponent<GuideInfoView>().UpdateOrdinal(ordinal);
