@@ -10,7 +10,7 @@ namespace WindTurbineVR.Object.Info
     [RequireComponent(typeof(TeleportController))]
     public class TeleportInfoController : InfoController //?
     {
-        SceneController sceneController;
+        //SceneController sceneController;
 
         TeleportController teleportController;
 
@@ -21,10 +21,10 @@ namespace WindTurbineVR.Object.Info
             
             teleportController = GetComponent<TeleportController>();
 
-            sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
+            //sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
             if (sceneController == null) Error.LogException("SceneController is null");
 
-            CreateUI();
+            CreateUITrack();
         }
 
         void Show()

@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useInfoCard: 0
   infoCard: {fileID: 0}
-  title: E
+  title: "Gu\xEDa"
   description: ej
   url: 
 --- !u!114 &8951104718013795451

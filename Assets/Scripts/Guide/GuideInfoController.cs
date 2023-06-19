@@ -10,8 +10,6 @@ namespace WindTurbineVR.Guide
     [RequireComponent(typeof(TaskManager))]
     public class GuideInfoController : InfoController //?
     {
-        SceneController sceneController;
-
         /** TODO:
          *  Call a method in guideController
          *  that shows next guide line */
@@ -30,9 +28,6 @@ namespace WindTurbineVR.Guide
         {
             base.Start();
 
-            sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
-            if (sceneController == null) Error.LogException("SceneController is null");
-
             guideController = transform.parent.GetComponent<GuideController>();
 
             taskManager = GetComponent<TaskManager>();
@@ -50,7 +45,7 @@ namespace WindTurbineVR.Guide
              * GUIDES should only show up when
              * previous one is completed and closed.*/
             //ordinal = transform.parent.GetSiblingIndex() + 1;
-            CreateUI();
+            CreateUITrack();
         }
 
         /*bool TasksCompleted()

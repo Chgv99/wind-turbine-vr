@@ -92,7 +92,7 @@ namespace WindTurbineVR.UI
             //public void SetContent(Vector2 ordinal, string title, string description, List<Task> tasks)
             //{
             Debug.Log("modalText object: " + modalText);
-            //headerText.text = info.Title != "" ? info.Title : gameObject.name + " title";
+            headerText.text = info.Title != "" ? info.Title : gameObject.name + " title";
             modalText.text = info.Description != "" ? info.Description : gameObject.name + " description";
 
             UpdateOrdinal(ordinal);
@@ -139,7 +139,11 @@ namespace WindTurbineVR.UI
             //StartCoroutine(EnableTaskList(taskListTransform.gameObject));
         }
 
-        public void UpdateOrdinal(Vector2 ordinal) => ordinalText.text = ordinal.x + "/" + ordinal.y;
+        public void UpdateOrdinal(Vector2 ordinal) 
+        { 
+            ordinalText.text = ordinal.x + "/" + ordinal.y;
+            headerText.text += " " + ordinalText.text;
+        }
 
         public void UpdateTasks(List<Task> tasks)
         {

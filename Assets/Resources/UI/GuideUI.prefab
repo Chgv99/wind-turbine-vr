@@ -1671,7 +1671,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2391233449493167151
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1690,7 +1690,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 60, y: 0}
+  m_SizeDelta: {x: 60, y: 17.65}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &5104954854485653237
 CanvasRenderer:
@@ -2086,17 +2086,17 @@ PrefabInstance:
     - target: {fileID: 2077088683349477332, guid: ac99518c8c9e9cc418c9850d0754aa1c,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.005
+      value: 0.0035
       objectReference: {fileID: 0}
     - target: {fileID: 2077088683349477332, guid: ac99518c8c9e9cc418c9850d0754aa1c,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.005
+      value: 0.0035
       objectReference: {fileID: 0}
     - target: {fileID: 2077088683349477332, guid: ac99518c8c9e9cc418c9850d0754aa1c,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.005
+      value: 0.0035
       objectReference: {fileID: 0}
     - target: {fileID: 2077088683349477332, guid: ac99518c8c9e9cc418c9850d0754aa1c,
         type: 3}

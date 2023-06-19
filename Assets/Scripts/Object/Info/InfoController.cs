@@ -28,7 +28,12 @@ namespace WindTurbineVR.Object
     [RequireComponent(typeof(Data.Info))]
     public abstract class InfoController : XRSimpleInteractable
     {
-        //SceneController sceneController;
+        #region PARAMS
+        protected float playerHeightMargin = 0f; // % less from player height for panel height from the "ground"
+        #endregion
+
+
+        protected SceneController sceneController;
 
         [SerializeField] protected GameObject prefabUI;
 
@@ -44,16 +49,14 @@ namespace WindTurbineVR.Object
 
         [SerializeField] protected Transform alternativeUI;
 
-
-        //HoverEnterEvent _triggerEvent;
-
         public Data.Info Info { get => info; set => info = value; }
         public GameObject UIInstance { get => uiInstance; set => uiInstance = value; }
 
         // Start is called before the first frame update
         public void Start()
         {
-            //sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
+            sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
+            if (sceneController == null) Error.LogException("SceneController is null");
             // Base UI
             //prefabUI = Resources.Load("UI/UI") as GameObject;
             if (prefabUI == null) Error.LogException("PrefabUI is null");
@@ -91,10 +94,20 @@ namespace WindTurbineVR.Object
             }
         }
 
-        protected void CreateUI()
+        protected void CreateUITrack() => CreateUI(true);
+
+        protected void CreateUI() => CreateUI(false);
+
+        protected void CreateUI(bool trackHeight)
         {
-            Vector3 position = transform.position;
-            CreateUI(position.y + 0.5f);
+            float height = 0;
+            if (trackHeight)
+            {
+                height = sceneController.xrOrigin.Find("CameraOffset").localPosition.y;
+                height -= height * playerHeightMargin;
+            }
+            //Vector3 position = transform.position;
+            CreateUI(height);
         }
 
         protected virtual void CreateUI(float height)
@@ -110,7 +123,7 @@ namespace WindTurbineVR.Object
                 position = (alternativeUI != null) ? alternativeUI.position : position;
                 rotation = (alternativeUI != null) ? alternativeUI.rotation : rotation;
             }
-            else position = new Vector3(transform.position.x, height, transform.position.z);
+            else position = new Vector3(transform.position.x, transform.position.y + height, transform.position.z);
 
             UIInstance.transform.position = position;
             UIInstance.transform.rotation = rotation;
