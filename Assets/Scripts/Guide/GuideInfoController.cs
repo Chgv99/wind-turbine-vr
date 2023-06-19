@@ -59,14 +59,14 @@ namespace WindTurbineVR.Guide
             return guideModal.TasksCompleted();
         }*/
 
-        void Show()
+        /*void Show()
         {
             if (UIInstance == null) return;
 
             Enable();
             float height = sceneController.xrOrigin.Find("CameraOffset/Main Camera").position.y;
             UIInstance.transform.position = new Vector3(transform.position.x, height, transform.position.z);
-        }
+        }*/
 
         protected override void CreateUI(float height)
         {
