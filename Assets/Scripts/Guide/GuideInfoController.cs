@@ -74,6 +74,7 @@ namespace WindTurbineVR.Guide
             Debug.Log(GuideOrdinal.x + ", " + GuideOrdinal.y);
             Debug.Log(Info.Title + ", " + Info.Description);
             Debug.Log("taskmanager: " + taskManager);
+            UIInstance.GetComponent<GuideInfoView>().ContinueButtonPressed.AddListener(CompleteList);
             UIInstance.GetComponent<GuideInfoView>().UpdateContent(GuideOrdinal, Info, taskManager.GetTasks());
             UIInstance.GetComponent<GuideInfoView>().UpdateContent(GuideOrdinal, Info, taskManager.GetTasks());
             //UiInstance.GetComponent<UIController>().ContentType = ContentType.Guide;
@@ -91,6 +92,7 @@ namespace WindTurbineVR.Guide
 
         private void CompleteList()
         {
+            Debug.Log("CompleteList()");
             UIInstance.GetComponent<GuideInfoView>().CompleteList();
             guideController.NextGuide();
         }
@@ -99,6 +101,12 @@ namespace WindTurbineVR.Guide
         void Update()
         {
 
+        }
+
+        private void OnDestroy()
+        {
+            if (UIInstance == null) return;
+            UIInstance.GetComponent<GuideInfoView>().ContinueButtonPressed.RemoveListener(CompleteList);
         }
     }
 

@@ -5,6 +5,7 @@ using TMPro;
 //using Unity.Plastic.Newtonsoft.Json.Bson;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using WindTurbineVR.Core;
 using WindTurbineVR.Data;
 
@@ -29,6 +30,11 @@ namespace WindTurbineVR.UI
         [SerializeField] TextMeshProUGUI modalText; //change name to description ??
         //tasks
 
+        UnityEvent continueButtonPressed;
+
+        Info info;
+
+        public UnityEvent ContinueButtonPressed { get => continueButtonPressed; set => continueButtonPressed = value; }
 
         // Start is called before the first frame update
         void Awake()
@@ -49,7 +55,7 @@ namespace WindTurbineVR.UI
             headerText = transform.Find("HeaderText").GetComponent<TextMeshProUGUI>();
             modalText = transform.Find("ModalText").GetComponent<TextMeshProUGUI>();
             //tasks
-
+            continueButtonPressed = new UnityEvent();
             //sceneController.TaskChecked.AddListener(UpdateObjectTasks);
 
             color = new Color(255,187,0);
@@ -91,6 +97,8 @@ namespace WindTurbineVR.UI
 
             //public void SetContent(Vector2 ordinal, string title, string description, List<Task> tasks)
             //{
+            this.info = info;
+
             Debug.Log("modalText object: " + modalText);
             headerText.text = info.Title != "" ? info.Title : gameObject.name + " title";
             modalText.text = info.Description != "" ? info.Description : gameObject.name + " description";
@@ -142,7 +150,7 @@ namespace WindTurbineVR.UI
         public void UpdateOrdinal(Vector2 ordinal) 
         { 
             ordinalText.text = ordinal.x + "/" + ordinal.y;
-            headerText.text += " " + ordinalText.text;
+            headerText.text = info.Title + " " + ordinalText.text;
         }
 
         public void UpdateTasks(List<Task> tasks)
@@ -175,7 +183,7 @@ namespace WindTurbineVR.UI
 
         public void HideContinueButton() => continueButton.SetActive(false);
 
-        public void Continue() => CompleteList();
+        public void Continue() => continueButtonPressed?.Invoke();
 
         void ShowCloseButton() => closeButton.SetActive(true);
 

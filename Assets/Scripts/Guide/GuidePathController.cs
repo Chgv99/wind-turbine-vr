@@ -9,7 +9,7 @@ namespace WindTurbineVR.Guide
         [SerializeField] LineRenderer lr;
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             lr = GetComponent<LineRenderer>();
             lr.positionCount = transform.childCount;
