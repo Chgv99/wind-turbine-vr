@@ -20,7 +20,7 @@ namespace WindTurbineVR.Guide
         public UnityEvent ListCompleted { get => listCompleted; set => listCompleted = value; }
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             taskChecked = new UnityEvent();
             listCompleted = new UnityEvent();

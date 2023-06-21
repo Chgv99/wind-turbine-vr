@@ -117,7 +117,7 @@ namespace WindTurbineVR.UI
             }
         }
 
-        protected void Awake()
+        protected virtual void Awake()
         {
             //GetComponent<Canvas>().enabled = false;
             //SceneController sc = GameObject.Find("SceneController").GetComponent<SceneController>();

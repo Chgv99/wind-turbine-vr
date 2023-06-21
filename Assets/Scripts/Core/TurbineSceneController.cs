@@ -40,18 +40,18 @@ namespace WindTurbineVR.Core
         public UnityEvent LifelineRelease { get => lifelineRelease; set => lifelineRelease = value; }
 
         // Start is called before the first frame update
-        public override void Start()
+        public override void Awake()
         {
             //Debug.Log("TurbineSceneController Start()");
-            base.Start();
+            base.Awake();
             
             // TODO: QUITAR IF ANTES DE RELEASE
-            if (SceneManager.GetActiveScene().buildIndex == 1 ||
+            /*if (SceneManager.GetActiveScene().buildIndex == 1 ||
                 SceneManager.GetActiveScene().buildIndex == 2)
             {
                 sceneHelper = new SceneHelper();
                 sceneHelper.LoadAsync();
-            }
+            }*/
 
             taskChecked = new UnityEvent();
             ropeAttached = new UnityEvent();

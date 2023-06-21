@@ -44,7 +44,7 @@ namespace WindTurbineVR.Core
         }
 
         // Start is called before the first frame update
-        public virtual void Start()
+        public virtual void Awake()
         {
             Debug.Log("SceneController Start()");
             Exception nullExc = new Exception("Variable not set to an instance of an object.");

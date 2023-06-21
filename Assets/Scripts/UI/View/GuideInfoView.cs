@@ -37,7 +37,7 @@ namespace WindTurbineVR.UI
         public UnityEvent ContinueButtonPressed { get => continueButtonPressed; set => continueButtonPressed = value; }
 
         // Start is called before the first frame update
-        void Awake()
+        protected override void Awake()
         {
             base.Awake(); //unnecessary?
             taskPrefab = Resources.Load("UI/Modal/Task") as GameObject;
