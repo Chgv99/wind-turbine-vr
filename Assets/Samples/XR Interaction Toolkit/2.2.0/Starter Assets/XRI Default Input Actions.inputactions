@@ -1548,9 +1548,27 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SwitchWrist",
+                    "name": "LeftSwitchWrist",
                     "type": "Button",
                     "id": "a344d0e6-e488-4239-b962-323d07a3be90",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RightSwitchWrist",
+                    "type": "Button",
+                    "id": "22069cfb-512a-4c69-bfe1-be482272f860",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Run",
+                    "type": "Button",
+                    "id": "46b7d11c-fd1e-4cab-bf99-95f2b3891bde",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -1576,18 +1594,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SwitchWrist",
+                    "action": "LeftSwitchWrist",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "34e56cf2-1ed1-4daa-9c39-604db969176d",
-                    "path": "<XRController>{LeftHand}/triggerPressed",
+                    "id": "b8d541b4-bff2-4584-ac71-17437a3aadbc",
+                    "path": "<XRController>{RightHand}/secondaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SwitchWrist",
+                    "action": "RightSwitchWrist",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b16f5d2a-e098-4733-b8ec-a97f162d6d33",
+                    "path": "<XRController>{LeftHand}/primaryTouch",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

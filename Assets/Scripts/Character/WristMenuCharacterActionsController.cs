@@ -1,28 +1,39 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using WindTurbineVR.UI;
 
 namespace WindTurbineVR.Character
 {
     public class WristMenuCharacterActionsController : MonoBehaviour
     {
-        public InputActionReference switchMenuActionReference = null;
+        public InputActionReference leftSwitchWristMenuActionReference = null;
 
-        public UnityEvent buttonPressed;
+        public InputActionReference rightSwitchWristMenuActionReference = null;
+
+        [Space]
+        [SerializeField] WristMenuController leftWristMenu;
+        [SerializeField] WristMenuController rightWristMenu;
+
+
+        bool leftHanded = false;
+        //[Space]
+        //public UnityEvent buttonPressed;
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
-            /* ISSUE: Refactor Assembly Definitions
-            if (switchMenuActionReference == null)
-                Core.Error.LogException("InputAction reference is null.");
-            */
-            switchMenuActionReference.action.started += CallButtonPressedEvent;
+            int tempInt = PlayerPrefs.HasKey("LEFTHANDED") ? PlayerPrefs.GetInt("LEFTHANDED") : 0;
+            leftHanded = tempInt == 1 ? true : false;
+            
+            if (leftHanded) leftSwitchWristMenuActionReference.action.started += CallButtonPressedEvent;
+            else rightSwitchWristMenuActionReference.action.started += CallButtonPressedEvent;
         }
 
         private void OnDestroy()
         {
-            switchMenuActionReference.action.started -= CallButtonPressedEvent;
+            if (leftHanded) leftSwitchWristMenuActionReference.action.started -= CallButtonPressedEvent;
+            else rightSwitchWristMenuActionReference.action.started -= CallButtonPressedEvent;
         }
 
         // Update is called once per frame
@@ -31,10 +42,12 @@ namespace WindTurbineVR.Character
 
         }
 
-        void CallButtonPressedEvent(InputAction.CallbackContext ctx)
+        void CallButtonPressedEvent(InputAction.CallbackContext ctx) => ButtonPressed(); //buttonPressed?.Invoke();
+
+        void ButtonPressed()
         {
-            Debug.Log("CallSwitchToAerialEvent");
-            buttonPressed?.Invoke();
+            if (leftHanded) leftWristMenu.SwitchActive();
+            else rightWristMenu.SwitchActive();
         }
     }
 }

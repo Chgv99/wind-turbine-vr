@@ -4584,6 +4584,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2506673621632599138, guid: c348712bda248c246b8c49b3db54643f,
         type: 3}
+    - target: {fileID: 26469887775650580, guid: bb9927492287c5a428dac552c6b606b4,
+        type: 3}
+      propertyPath: leftSwitchWristMenuActionReference
+      value: 
+      objectReference: {fileID: 2506673621632599138, guid: c348712bda248c246b8c49b3db54643f,
+        type: 3}
+    - target: {fileID: 26469887775650580, guid: bb9927492287c5a428dac552c6b606b4,
+        type: 3}
+      propertyPath: rightSwitchWristMenuActionReference
+      value: 
+      objectReference: {fileID: 1859981139603281124, guid: c348712bda248c246b8c49b3db54643f,
+        type: 3}
     - target: {fileID: 520763853619861531, guid: bb9927492287c5a428dac552c6b606b4,
         type: 3}
       propertyPath: switchToAerial.m_PersistentCalls.m_Calls.Array.data[0].m_Target
