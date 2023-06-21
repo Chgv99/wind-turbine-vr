@@ -988,7 +988,7 @@ GameObject:
   - component: {fileID: 2692454966460966474}
   - component: {fileID: 8098540243069100779}
   m_Layer: 0
-  m_Name: Cube.2
+  m_Name: "G\xF3ndola"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1007,7 +1007,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4300065345418601649}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2692454966460966474
 MeshFilter:
@@ -4589,7 +4589,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 69e2fd65723a3e74bb13bdd5ef6cc2c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4901,7 +4901,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 69e2fd65723a3e74bb13bdd5ef6cc2c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5711,7 +5711,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 69e2fd65723a3e74bb13bdd5ef6cc2c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6758,7 +6758,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 69e2fd65723a3e74bb13bdd5ef6cc2c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14054,7 +14054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7933841692289180640
 Transform:
   m_ObjectHideFlags: 0
@@ -14068,7 +14068,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4300065345418601649}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &842155125283395043
 MeshFilter:
@@ -14982,7 +14982,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8180485144999368604
 Transform:
   m_ObjectHideFlags: 0
@@ -15014,7 +15014,7 @@ Transform:
   - {fileID: 1855429829311258231}
   - {fileID: 7224181400499496997}
   m_Father: {fileID: 4300065345418601649}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5846329259632402166
 GameObject:
@@ -15281,7 +15281,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 69e2fd65723a3e74bb13bdd5ef6cc2c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20319,7 +20319,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7395786549183318112}
-  m_LocalRotation: {x: -9.543607e-17, y: -2.7755576e-17, z: -7.6743435e-17, w: 1}
+  m_LocalRotation: {x: -9.688538e-17, y: -2.8177077e-17, z: -7.790888e-17, w: 1}
   m_LocalPosition: {x: 0.0061869537, y: 4.053616, z: 0.15603757}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -21222,7 +21222,7 @@ GameObject:
   - component: {fileID: 5495655580645977990}
   - component: {fileID: 4711330933076349351}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: MediaTorre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21251,7 +21251,7 @@ Transform:
   - {fileID: 3294261143776294003}
   - {fileID: 295542379225590353}
   m_Father: {fileID: 4300065345418601649}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5495655580645977990
 MeshFilter:
@@ -22871,7 +22871,7 @@ GameObject:
   - component: {fileID: 7271236483486288487}
   - component: {fileID: 5909076144358010353}
   m_Layer: 0
-  m_Name: Cylinder.2
+  m_Name: Torre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22890,7 +22890,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4300065345418601649}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7271236483486288487
 MeshFilter:
@@ -22971,11 +22971,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4223591236805176560}
+  - {fileID: 3889041806825987603}
   - {fileID: 8180485144999368604}
   - {fileID: 7933841692289180640}
-  - {fileID: 3889041806825987603}
   - {fileID: 1383126895068828390}
-  - {fileID: 4223591236805176560}
   - {fileID: 3986015958385911601}
   - {fileID: 6519207901414424855}
   - {fileID: 523524009481996464}
@@ -23755,7 +23755,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 69e2fd65723a3e74bb13bdd5ef6cc2c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24335,7 +24335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3986015958385911601
 Transform:
   m_ObjectHideFlags: 0
@@ -24497,7 +24497,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 69e2fd65723a3e74bb13bdd5ef6cc2c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24585,7 +24585,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 69e2fd65723a3e74bb13bdd5ef6cc2c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24873,7 +24873,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6519207901414424855
 Transform:
   m_ObjectHideFlags: 0
