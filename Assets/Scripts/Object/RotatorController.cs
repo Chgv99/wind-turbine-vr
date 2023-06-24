@@ -39,10 +39,12 @@ public class RotatorController : XRBaseInteractable
     {
         // Convert that direction to an angle, then rotation
         float totalAngle = FindHandleAngle();
+        Debug.Log("current angle: " + currentAngle);
+        Debug.Log("total angle: " + totalAngle);
 
         // Apply difference in angle to wheel
         float angleDifference = currentAngle - totalAngle;
-        handleTransform.Rotate(transform.forward, -angleDifference, Space.Self);
+        handleTransform.Rotate(transform.up, angleDifference, Space.Self);
 
         // Store angle for next process
         currentAngle = totalAngle;
@@ -56,17 +58,33 @@ public class RotatorController : XRBaseInteractable
         // Combine directions of current interactors
         foreach (IXRSelectInteractor interactor in interactorsSelecting)
         {
-            Vector2 direction = FindLocalPoint(interactor.transform.position);
-            totalAngle += ConvertToAngle(direction) * FindRotationSensitivity();
-        }
+            Debug.DrawRay(transform.position, transform.forward, Color.green, 1);
 
+            //Debug.Log("interactor world coords: " + interactor.transform.position.ToString());
+            Vector3 localDirection = FindLocalPoint(interactor.transform.position);
+            Debug.DrawRay(transform.position, localDirection, Color.yellow, 1);
+            //Debug.Log("interactor local coords: " + localDirection.ToString());
+            Vector3 flatDirection = new Vector3(interactor.transform.position.x, 0, interactor.transform.position.z);
+            Debug.DrawRay(transform.position, flatDirection, Color.cyan, 1);
+            //Debug.Log("interactor world flat coords: " + flatPosition.ToString());
+            //Vector2 flatDirection = 
+            totalAngle += ConvertToAngle(flatDirection) * FindRotationSensitivity();
+        }
+        Debug.Log("total angle: " + totalAngle);
         return totalAngle;
     }
 
     private Vector2 FindLocalPoint(Vector3 position)
     {
         // Convert the hand positions to local, so we can find the angle easier
-        return transform.InverseTransformPoint(position).normalized;
+        //return transform.InverseTransformPoint(position).normalized;
+        return position - transform.position;
+    }
+
+    private float ConvertToAngle(Vector3 direction)
+    {
+        // Use a consistent forward direction to find the angle
+        return Vector3.Angle(transform.forward, direction);
     }
 
     private float ConvertToAngle(Vector2 direction)
