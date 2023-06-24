@@ -1,150 +1,83 @@
-using PlasticGui.WorkspaceWindow.Items.LockRules;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class RotatorController : MonoBehaviour
+public class RotatorController : XRBaseInteractable
 {
-    [SerializeField] Transform linkedDial;
-    [SerializeField] private int snapRotationAmount = 25;
-    [SerializeField] private float angleTolerance;
-    [SerializeField] private GameObject RighthandModel;
-    [SerializeField] private GameObject LefthandModel;
-    [SerializeField] bool shouldUseDummyHands;
+    [SerializeField] private Transform handleTransform;
 
-    private XRBaseInteractor interactor;
-    private float startAngle;
-    private bool requiresStartAngle = true;
-    private bool shouldGetHandRotation = false;
+    public UnityEvent<float> OnHandleRotated;
 
-    private XRGrabInteractable grabInteractor => GetComponent<XRGrabInteractable>();
+    private float currentAngle = 0.0f;
 
-    private void OnEnable()
+    protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
-        grabInteractor.selectEntered.AddListener(GrabbedBy);
-        grabInteractor.selectExited.AddListener(GrabEnd);
+        Debug.Log("SELECTED");
+        base.OnSelectEntered(args);
+        currentAngle = FindHandleAngle();
     }
 
-    private void OnDisable()
+    protected override void OnSelectExited(SelectExitEventArgs args)
     {
-        grabInteractor.selectEntered.RemoveListener(GrabbedBy);
-        grabInteractor.selectExited.RemoveListener(GrabEnd);
+        Debug.Log("UNSELECTED");
+        base.OnSelectExited(args);
+        currentAngle = FindHandleAngle();
     }
 
-    private void GrabEnd(SelectExitEventArgs arg0)
+    public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
     {
-        shouldGetHandRotation = false;
-        requiresStartAngle = true;
-        HandModelVisibility(false);
-    }
+        base.ProcessInteractable(updatePhase);
 
-    private void GrabbedBy(SelectEnterEventArgs arg0)
-    {
-        interactor = GetComponent<XRGrabInteractable>().selectingInteractor;
-        interactor.GetComponent<XRDirectInteractor>().hideControllerOnSelect = true;
-
-        shouldGetHandRotation = true;
-        startAngle = 0f;
-
-        HandModelVisibility(true);
-    }
-
-    private void HandModelVisibility(bool visibilityState)
-    {
-        if (!shouldUseDummyHands) return;
-
-        if (interactor.CompareTag("RightHand")) RighthandModel.SetActive(visibilityState);
-        else LefthandModel.SetActive(visibilityState);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (shouldGetHandRotation)
+        if (updatePhase == XRInteractionUpdateOrder.UpdatePhase.Dynamic)
         {
-            var rotationAngle = GetInteractorRotation();
-            GetRotationDistance(rotationAngle);
+            if (isSelected)
+                RotateHandle();
         }
     }
 
-    public float GetInteractorRotation() => interactor.GetComponent<Transform>().eulerAngles.z;
-
-    private void GetRotationDistance(float currentAngle)
+    private void RotateHandle()
     {
-        if (!requiresStartAngle)
-        {
-            var angleDifference = Mathf.Abs(startAngle - currentAngle);
+        // Convert that direction to an angle, then rotation
+        float totalAngle = FindHandleAngle();
 
-            if (angleDifference > angleTolerance)
-            {
-                if (angleDifference > 270f)
-                {
-                    float angleCheck;
+        // Apply difference in angle to wheel
+        float angleDifference = currentAngle - totalAngle;
+        handleTransform.Rotate(transform.forward, -angleDifference, Space.Self);
 
-                    if (startAngle < currentAngle)
-                    {
-                        angleCheck = CheckAngle(currentAngle, startAngle);
-
-                        if (angleCheck < angleTolerance) return;
-                        else
-                        {
-                            RotateDialClockwise();
-                            startAngle = currentAngle;
-                        }
-                    }
-                    else if (startAngle < angleTolerance)
-                    {
-                        angleCheck = CheckAngle(currentAngle, startAngle);
-
-                        if (angleCheck < angleTolerance) return;
-                        else
-                        {
-                            RotateDialAntiClockwise();
-                            startAngle = currentAngle;
-                        }
-                    }
-                }
-                else
-                {
-                    if (startAngle < currentAngle)
-                    {
-                        RotateDialAntiClockwise();
-                        startAngle = currentAngle;
-                    }
-                    else if (startAngle > currentAngle)
-                    {
-                        RotateDialClockwise();
-                        startAngle = currentAngle;
-                    }
-                }
-            }
-        }
-        else
-        {
-            requiresStartAngle = false;
-            startAngle = currentAngle;
-        }
+        // Store angle for next process
+        currentAngle = totalAngle;
+        OnHandleRotated?.Invoke(angleDifference);
     }
 
-    private float CheckAngle(float x, float y) => (360f - x) + y;
-
-    private void RotateDialClockwise() => RotateDial(1);
-
-    private void RotateDialAntiClockwise() => RotateDial(-1);
-
-    private void RotateDial(int factor)
+    private float FindHandleAngle()
     {
-        Vector3 angles = linkedDial.localEulerAngles;
-        linkedDial.localEulerAngles = new Vector3(angles.x, angles.y, angles.z + snapRotationAmount * factor);
+        float totalAngle = 0;
 
-        if (TryGetComponent<IDial>(out IDial dial))
-            dial.DialChanged(linkedDial.localEulerAngles.z);
+        // Combine directions of current interactors
+        foreach (IXRSelectInteractor interactor in interactorsSelecting)
+        {
+            Vector2 direction = FindLocalPoint(interactor.transform.position);
+            totalAngle += ConvertToAngle(direction) * FindRotationSensitivity();
+        }
+
+        return totalAngle;
+    }
+
+    private Vector2 FindLocalPoint(Vector3 position)
+    {
+        // Convert the hand positions to local, so we can find the angle easier
+        return transform.InverseTransformPoint(position).normalized;
+    }
+
+    private float ConvertToAngle(Vector2 direction)
+    {
+        // Use a consistent up direction to find the angle
+        return Vector2.SignedAngle(Vector2.up, direction);
+    }
+
+    private float FindRotationSensitivity()
+    {
+        // Use a smaller rotation sensitivity with two hands
+        return 1.0f / interactorsSelecting.Count;
     }
 }
