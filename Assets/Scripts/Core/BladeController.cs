@@ -27,7 +27,7 @@ namespace WindTurbineVR.Core
         // Start is called before the first frame update
         void Start()
         {
-            climate = GameObject.Find("ClimateController").GetComponent<ClimateController>();
+            climate = GameObject.Find("Climate").GetComponent<ClimateController>();
             rotor = transform.parent.parent.GetComponent<RotorController>();
 
             if (rotor == null) Error.LogException("RotorController not found");

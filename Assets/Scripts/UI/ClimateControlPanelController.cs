@@ -17,7 +17,7 @@ namespace WindTurbineVR.UI
         // Start is called before the first frame update
         void Start()
         {
-            climate = GameObject.Find("ClimateController").GetComponent<ClimateController>();
+            climate = GameObject.Find("Climate").GetComponent<ClimateController>();
             if (climate == null) Error.LogException("ClimateController not found");
             if (windSlider == null) Error.LogException("windSlider not found");
             if (windSliderText == null) Error.LogException("windSliderText not found");

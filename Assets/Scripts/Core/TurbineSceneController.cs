@@ -74,7 +74,7 @@ namespace WindTurbineVR.Core
             wind_direction = (td != null) ? td.WindDirection : 0;
             #endregion
 
-            //Debug.Log("wind speed = " + GameObject.Find("ClimateController").GetComponent<ClimateController>().WindSpeed);
+            //Debug.Log("wind speed = " + GameObject.Find("Climate").GetComponent<ClimateController>().WindSpeed);
 
             //if (SceneManager.GetActiveScene().name == "Turbine")
             //StartCoroutine(SwitchSceneCo());
