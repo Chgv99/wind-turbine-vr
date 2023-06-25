@@ -8927,7 +8927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &457742388
 Transform:
   m_ObjectHideFlags: 0
@@ -8946,7 +8946,7 @@ Transform:
   - {fileID: 1087898290}
   - {fileID: 1222978034}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &457742389
 MonoBehaviour:
@@ -33078,7 +33078,7 @@ Transform:
   - {fileID: 1130762120}
   - {fileID: 2074266067}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1708633020
 MonoBehaviour:
@@ -42285,7 +42285,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2108689654
 MonoBehaviour:
@@ -42823,6 +42823,7 @@ MonoBehaviour:
   xrOrigin: {fileID: 243572956}
   wind_speed: 0
   wind_direction: 0
+  climaticControl: {fileID: 457742387}
 --- !u!114 &2251088845868656684
 MonoBehaviour:
   m_ObjectHideFlags: 0

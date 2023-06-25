@@ -7,12 +7,12 @@ namespace WindTurbineVR.UI
 {
     public class WristMenuController : MonoBehaviour
     {
-        SceneController sceneController;
+        TurbineSceneController sceneController;
 
         // Start is called before the first frame update
         void Start()
         {
-            sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
+            sceneController = GameObject.Find("SceneController").GetComponent<TurbineSceneController>();
         }
 
         // Update is called once per frame
@@ -22,6 +22,12 @@ namespace WindTurbineVR.UI
         }
 
         #region Button Actions
+
+        public void ClimaticControlMenu()
+        {
+            sceneController.SwitchClimaticControlMenu();
+        }
+
         // try to name the same as the button
         public void MainMenu() => sceneController.ReturnToMenu();
         #endregion

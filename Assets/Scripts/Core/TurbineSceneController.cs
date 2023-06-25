@@ -22,6 +22,8 @@ namespace WindTurbineVR.Core
          * Taking North as 0/360º. **/
         [SerializeField][Range(0, 359)] float wind_direction = 0f;
 
+        [SerializeField] GameObject climaticControl;
+
         UnityEvent taskChecked;
         UnityEvent ropeAttached;
         UnityEvent harnessAttached;
@@ -88,6 +90,13 @@ namespace WindTurbineVR.Core
         void Update()
         {
         
+        }
+
+        public void SwitchClimaticControlMenu()
+        {
+            if (climaticControl == null) climaticControl = GameObject.Find("ClimaticControl");
+
+            climaticControl.SetActive(!climaticControl.activeSelf);
         }
 
         public void SwitchScene()
