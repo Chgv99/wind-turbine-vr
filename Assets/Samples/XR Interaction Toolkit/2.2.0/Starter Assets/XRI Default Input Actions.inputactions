@@ -1612,7 +1612,7 @@
                 {
                     "name": "",
                     "id": "b16f5d2a-e098-4733-b8ec-a97f162d6d33",
-                    "path": "<XRController>{LeftHand}/primaryTouch",
+                    "path": "<XRController>{RightHand}/primaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

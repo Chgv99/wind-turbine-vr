@@ -4744,6 +4744,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 520763853619861531, guid: bb9927492287c5a428dac552c6b606b4,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 520763853619861531, guid: bb9927492287c5a428dac552c6b606b4,
+        type: 3}
       propertyPath: switchToAerial.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2251088845868656683}
@@ -4755,7 +4760,7 @@ PrefabInstance:
     - target: {fileID: 955004622372256572, guid: bb9927492287c5a428dac552c6b606b4,
         type: 3}
       propertyPath: m_MoveSpeed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 955004622372256572, guid: bb9927492287c5a428dac552c6b606b4,
         type: 3}
@@ -11451,6 +11456,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 585425156}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &586258979 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5541844049754061194, guid: bb9927492287c5a428dac552c6b606b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 243572955}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &586258993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586258979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e2cd6f22d77f745a26c11176d2a9f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchRunActionReference: {fileID: 0}
+  runFactor: 2
+  walkSpeed: 1
 --- !u!1 &586927774
 GameObject:
   m_ObjectHideFlags: 0
