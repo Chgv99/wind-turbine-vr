@@ -91,6 +91,7 @@ namespace WindTurbineVR.Core
             float bwangle = Vector3.Angle(climate.WindDirection * -Vector3.forward, transform.up);
             if (debug) DrawDebug(bwangle);
             Contribution = 16.66f * bwangle.Remap(90, 20, 0, 1);
+            Debug.Log(gameObject.name + " contribution: " + Contribution);
         }
 
         public void OverrideTurnOn()
