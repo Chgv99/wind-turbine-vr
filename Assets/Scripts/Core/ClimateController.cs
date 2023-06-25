@@ -16,7 +16,7 @@ namespace WindTurbineVR.Core
 
         private Vector3 wind;
         private Quaternion windDirection;
-        private float windSpeed = 0; // de 0 a 100 km/h
+        [SerializeField] [Range(0,100)] private float windSpeed = 0; // de 0 a 100 km/h
 
         /** Un aerogenerador opera con vientos de entre 10.8 a 90 km/h.
          * Nuestros vientos tendrán un rango mayor para demostrar los
@@ -47,8 +47,10 @@ namespace WindTurbineVR.Core
             //Debug.Log("--------------------");
             //Debug.Log("WindTransform eulerAngles = " + windTransform.eulerAngles);
             WindDirection = windTransform.rotation; // * Vector3.forward;
-            Debug.DrawRay(windTransform.position, WindDirection * Vector3.forward * 10, Color.yellow);
             wind = WindDirection * Vector3.forward * WindSpeed;
+            Debug.Log("wind: " + wind);
+            Debug.DrawRay(windTransform.position, wind, Color.yellow);
+            
             //Debug.Log("Climate Wind (Climate Controller) = " + wind);
         }
     }

@@ -12,6 +12,8 @@ namespace WindTurbineVR.Core
 
         public List<BladeController> Blades { get => blades; set => blades = value; }
 
+        [SerializeField] Rigidbody rotorParent;
+
         void Start()
         {
             int count = transform.childCount;
@@ -37,6 +39,7 @@ namespace WindTurbineVR.Core
 
             Vector3 rotation = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z * -velocity);
             Debug.Log("velocity on rotor: " + velocity);
+            Debug.DrawRay(transform.position, -transform.forward * 10, Color.yellow, 1);
             GetComponent<Rigidbody>().AddRelativeTorque(transform.forward * -velocity * 0.005f);
             //transform.localEulerAngles = new Vector3(0, 0, transform.localEulerAngles.z);   // evita rotación en otros ejes debido a inercias
         }
