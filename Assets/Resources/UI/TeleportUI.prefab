@@ -909,7 +909,7 @@ PrefabInstance:
     - target: {fileID: 2077088683349477330, guid: ac99518c8c9e9cc418c9850d0754aa1c,
         type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2077088683349477332, guid: ac99518c8c9e9cc418c9850d0754aa1c,
         type: 3}
@@ -1131,6 +1131,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneController: {fileID: 0}
+  normalColor: {r: 0, g: 0, b: 0, a: 0}
+  highlightedColor: {r: 0, g: 0, b: 0, a: 0}
+  pressedColor: {r: 0, g: 0, b: 0, a: 0}
   main: {fileID: 0}
   title: {fileID: 0}
   body: {fileID: 0}

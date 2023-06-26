@@ -23,6 +23,8 @@ namespace WindTurbineVR.Guide
 
         bool noTasks = false;
 
+        [SerializeField] protected Color color;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -77,6 +79,9 @@ namespace WindTurbineVR.Guide
             UIInstance.GetComponent<GuideInfoView>().ContinueButtonPressed.AddListener(CompleteList);
             UIInstance.GetComponent<GuideInfoView>().UpdateContent(GuideOrdinal, Info, taskManager.GetTasks());
             UIInstance.GetComponent<GuideInfoView>().UpdateContent(GuideOrdinal, Info, taskManager.GetTasks());
+            //UIInstance.GetComponent<GuideInfoView>().Color = color;
+            UIInstance.GetComponent<GuideInfoView>().UpdateColor(color);
+            //UIInstance.GetComponent<GuideInfoView>().DisableCloseButton();
             //UiInstance.GetComponent<UIController>().ContentType = ContentType.Guide;
             //UiInstance.GetComponent<UIController>().taskControllerList = taskList;
             if (noTasks)

@@ -8,6 +8,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using WindTurbineVR.Core;
 using WindTurbineVR.Data;
+using static log4net.Appender.ColoredConsoleAppender;
 
 namespace WindTurbineVR.UI
 {
@@ -58,7 +59,7 @@ namespace WindTurbineVR.UI
             continueButtonPressed = new UnityEvent();
             //sceneController.TaskChecked.AddListener(UpdateObjectTasks);
 
-            color = new Color(255,187,0);
+            //Color = new Color(255, 187, 0);
 
             //Show();
         }
@@ -167,6 +168,27 @@ namespace WindTurbineVR.UI
                 if (tcs[i].Task.Completed) toggles[i].isOn = true;
             }*/
         }
+
+        public void UpdateColor(Color color)
+        {
+            SetButtonColor(closeButton.GetComponent<Button>(), color);
+            SetButtonColor(continueButton.GetComponent<Button>(), color);
+        }
+
+        void SetButtonColor(Button button, Color color)
+        {
+            NormalColor = color;
+            HighlightedColor = new Color(color.r + 0.1f, color.g + 0.1f, color.b + 0.1f);
+            PressedColor = new Color(color.r - 0.1f, color.g - 0.1f, color.b - 0.1f);
+
+            var colors = button.colors;
+            colors.normalColor = NormalColor;
+            colors.highlightedColor = HighlightedColor;
+            colors.pressedColor = PressedColor;
+            button.colors = colors;
+        }
+
+        //public void DisableCloseButton() => closeButton.SetActive(false);
 
         public void CompleteList()
         {

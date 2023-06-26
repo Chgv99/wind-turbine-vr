@@ -1162,8 +1162,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 175, y: 0}
+  m_SizeDelta: {x: 318, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4844572733066647482
 MonoBehaviour:
@@ -2274,6 +2274,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneController: {fileID: 0}
+  normalColor: {r: 0, g: 0, b: 0, a: 0}
+  highlightedColor: {r: 0, g: 0, b: 0, a: 0}
+  pressedColor: {r: 0, g: 0, b: 0, a: 0}
   ordinalText: {fileID: 0}
   headerText: {fileID: 0}
   modalText: {fileID: 0}
@@ -2526,7 +2529,7 @@ PrefabInstance:
     - target: {fileID: 5740023278989168510, guid: 866ad03fed134a244a387aada1143a3e,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 518
+      value: 318
       objectReference: {fileID: 0}
     - target: {fileID: 5740023278989168510, guid: 866ad03fed134a244a387aada1143a3e,
         type: 3}
@@ -2571,12 +2574,12 @@ PrefabInstance:
     - target: {fileID: 5740023278989168510, guid: 866ad03fed134a244a387aada1143a3e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 275
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 5740023278989168510, guid: 866ad03fed134a244a387aada1143a3e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -121.95
+      value: -179.95
       objectReference: {fileID: 0}
     - target: {fileID: 5740023278989168510, guid: 866ad03fed134a244a387aada1143a3e,
         type: 3}

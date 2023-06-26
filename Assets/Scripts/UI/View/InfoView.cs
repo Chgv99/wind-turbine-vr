@@ -59,7 +59,9 @@ namespace WindTurbineVR.UI
 
         Vector2 guideOrdinal = new Vector2();
 
-        protected Color color = Color.white;
+        [SerializeField] private Color normalColor;
+        [SerializeField] private Color highlightedColor;
+        [SerializeField] private Color pressedColor;
 
         Data.Info info;
 
@@ -88,6 +90,10 @@ namespace WindTurbineVR.UI
         //public GameObject AreaInfoInstance { get => areaInfoInstance; set => areaInfoInstance = value; }
         public Vector2 GuideOrdinal { get => guideOrdinal; set => guideOrdinal = value; }
         public UnityEvent Completed { get => completed; set => completed = value; }
+        public Color NormalColor { get => normalColor; set => normalColor = value; }
+        public Color HighlightedColor { get => highlightedColor; set => highlightedColor = value; }
+        public Color PressedColor { get => pressedColor; set => pressedColor = value; }
+
         //public GameObject ModalInstance { get => _modalInstance; set => _modalInstance = value; }
 
         private class DirectionController

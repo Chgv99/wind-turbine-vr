@@ -152,3 +152,4 @@ MonoBehaviour:
   displayMode: 2
   displayTrigger: 0
   alternativeUI: {fileID: 0}
+  color: {r: 1, g: 0.54509807, b: 0, a: 1}

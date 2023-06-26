@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6336396203526203372}
   - component: {fileID: 9101457848825115579}
   - component: {fileID: 3600283454921017468}
-  - component: {fileID: 1232111149224590319}
   m_Layer: 0
   m_Name: WaypointCylinder
   m_TagString: Untagged
@@ -62,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 77bcc7d9929623c4398186a6160cacc3, type: 2}
+  - {fileID: 2100000, guid: 3a6e2943fe5653743b743c08e0f6d879, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,17 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1232111149224590319
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1200811730419715822}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.50000036
-  m_Height: 2.000001
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: -0.0000000223516, z: -0.0000015199189}
