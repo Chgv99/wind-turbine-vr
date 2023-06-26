@@ -53,5 +53,7 @@ namespace WindTurbineVR.Core
             
             //Debug.Log("Climate Wind (Climate Controller) = " + wind);
         }
+
+        public void SetWind(Quaternion rotation) => windTransform.rotation = rotation;
     }
 }
