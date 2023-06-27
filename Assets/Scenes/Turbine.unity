@@ -14760,7 +14760,7 @@ MonoBehaviour:
   displayMode: 2
   displayTrigger: 1
   alternativeUI: {fileID: 0}
-  color: {r: 0.1254902, g: 0.5882353, b: 0.9529412, a: 1}
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &706006686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21094,6 +21094,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3861920568742419880, guid: 55b925e853cf83a40972ff7c60c463da,
+        type: 3}
+      propertyPath: infoCard
+      value: 
+      objectReference: {fileID: 11400000, guid: f64797cd27a65d04f800155596b41be0,
+        type: 2}
     - target: {fileID: 3861920568742419880, guid: 55b925e853cf83a40972ff7c60c463da,
         type: 3}
       propertyPath: description

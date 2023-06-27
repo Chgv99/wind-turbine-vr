@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using WindTurbineVR.Core;
+using WindTurbineVR.Data;
 //using WindTurbineVR.Object;
 
 namespace WindTurbineVR.UI
@@ -153,6 +154,7 @@ namespace WindTurbineVR.UI
 
             prevButton.GetComponent<Button>().onClick.AddListener(PreviousPage);
             nextButton.GetComponent<Button>().onClick.AddListener(NextPage);
+
             //buttons = new List<GameObject>();
             //buttons.Add(transform.Find("NextPrevButtons").Find("PreviousButton").gameObject);
             //buttons.Add(transform.Find("NextPrevButtons").Find("NextButton").gameObject);
@@ -222,6 +224,12 @@ namespace WindTurbineVR.UI
 
         protected abstract void Show();
 
+        protected void UpdateContent(Info info)
+        {
+            Info = info;
+
+            if (Info.Description.Length > 1) nextPrev.SetActive(true);
+        }
 
         public bool IsActive()
         {
@@ -238,13 +246,17 @@ namespace WindTurbineVR.UI
             Destroy(gameObject);
         }
 
+        protected abstract void NextPage();
+
         protected int GoToNextPage()
         {
             if ((page + 1) < Info.Description.Length) return ++page;
             else return -1;
         }
 
-        protected int PreviousPage()
+        protected abstract void PreviousPage();
+
+        protected int GoToPreviousPage()
         {
             if ((page - 1) >= 0) return --page;
             else return -1;

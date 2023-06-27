@@ -94,11 +94,6 @@ namespace WindTurbineVR.Object.Info
             //UIInstance.GetComponent<InteractableInfoView>().UpdateColor(color);
         }
 
-        protected void NextPage()
-        {
-
-        }
-
 
         //private void CreateUI(SelectEnterEventArgs arg0) => CreateUI();
 

@@ -66,6 +66,11 @@ namespace WindTurbineVR.UI
             //base.Show();
         }
 
+        protected override void NextPage()
+        {
+            SetBody(Info.Description[GoToNextPage()]);
+        }
+
         protected override void EndPagination()
         {
             throw new System.NotImplementedException();
@@ -76,6 +81,11 @@ namespace WindTurbineVR.UI
             base.UpdateColor(color);
             SetButtonColor(videoButton.GetComponent<Button>(), color);
             SetButtonColor(closeVideoButton.GetComponent<Button>(), color);
+        }
+
+        protected override void PreviousPage()
+        {
+            throw new System.NotImplementedException();
         }
 
         /*public void UpdateContent(string title, string body, string videoUrl)

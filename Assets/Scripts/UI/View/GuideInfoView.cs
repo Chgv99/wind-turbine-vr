@@ -33,7 +33,7 @@ namespace WindTurbineVR.UI
 
         UnityEvent continueButtonPressed;
 
-        Info info;
+        //Info info;
 
         public UnityEvent ContinueButtonPressed { get => continueButtonPressed; set => continueButtonPressed = value; }
 
@@ -98,7 +98,7 @@ namespace WindTurbineVR.UI
 
             //public void SetContent(Vector2 ordinal, string title, string description, List<Task> tasks)
             //{
-            this.info = info;
+            base.UpdateContent(info);
 
             Debug.Log("modalText object: " + modalText);
             headerText.text = info.Title != "" ? info.Title : gameObject.name + " title";
@@ -152,7 +152,7 @@ namespace WindTurbineVR.UI
         public void UpdateOrdinal(Vector2 ordinal) 
         { 
             ordinalText.text = ordinal.x + "/" + ordinal.y;
-            headerText.text = info.Title + " " + ordinalText.text;
+            headerText.text = Info.Title + " " + ordinalText.text;
         }
 
         public void UpdateTasks(List<Task> tasks)
@@ -230,6 +230,16 @@ namespace WindTurbineVR.UI
         }
 
         protected override void EndPagination()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override void NextPage()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override void PreviousPage()
         {
             throw new System.NotImplementedException();
         }

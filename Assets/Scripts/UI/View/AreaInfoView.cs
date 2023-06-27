@@ -27,5 +27,15 @@ namespace WindTurbineVR.UI
         {
             throw new System.NotImplementedException();
         }
+
+        protected override void NextPage()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override void PreviousPage()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
