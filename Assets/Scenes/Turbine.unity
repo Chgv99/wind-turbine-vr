@@ -14446,6 +14446,7 @@ GameObject:
   - component: {fileID: 706006681}
   - component: {fileID: 706006680}
   - component: {fileID: 706006679}
+  - component: {fileID: 706006686}
   - component: {fileID: 706006685}
   m_Layer: 0
   m_Name: Cube
@@ -14461,7 +14462,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706006678}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
@@ -14666,7 +14667,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706006678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.77, y: 0.377, z: -16.432}
+  m_LocalPosition: {x: 0.824, y: 0.159, z: -16.432}
   m_LocalScale: {x: 0.071923, y: 0.071923, z: 0.071923}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14682,9 +14683,101 @@ MonoBehaviour:
   m_GameObject: {fileID: 706006678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d985a51200529af43ad490a90bab5012, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a9c2cea8d4812a49833e05955311f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 243572958}
+  m_Colliders: []
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 33
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_CustomReticle: {fileID: 0}
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
+  prefabUI: {fileID: 0}
+  uiInstance: {fileID: 0}
+  displayMode: 2
+  displayTrigger: 1
+  alternativeUI: {fileID: 0}
+  color: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &706006686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706006678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56fce5b1a4f5eb48a5e49fd088aebc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useInfoCard: 0
+  infoCard: {fileID: 11400000, guid: 26918b549a92f7643aed8b8bf699bd93, type: 2}
+  title: 
+  description: []
+  url: 
 --- !u!1 &712076011
 GameObject:
   m_ObjectHideFlags: 0
@@ -21001,6 +21094,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3861920568742419880, guid: 55b925e853cf83a40972ff7c60c463da,
+        type: 3}
+      propertyPath: infoCard
+      value: 
+      objectReference: {fileID: 11400000, guid: f64797cd27a65d04f800155596b41be0,
+        type: 2}
     - target: {fileID: 3861920568742419880, guid: 55b925e853cf83a40972ff7c60c463da,
         type: 3}
       propertyPath: description
@@ -34685,6 +34784,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: GuideInfo
       objectReference: {fileID: 0}
+    - target: {fileID: 3861920568742419880, guid: 55b925e853cf83a40972ff7c60c463da,
+        type: 3}
+      propertyPath: infoCard
+      value: 
+      objectReference: {fileID: 11400000, guid: f64797cd27a65d04f800155596b41be0,
+        type: 2}
     - target: {fileID: 3861920568742419880, guid: 55b925e853cf83a40972ff7c60c463da,
         type: 3}
       propertyPath: description

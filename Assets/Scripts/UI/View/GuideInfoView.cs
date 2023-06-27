@@ -15,7 +15,6 @@ namespace WindTurbineVR.UI
     public class GuideInfoView : InfoView
     {
         //GuideModalController guideModalController;
-
         GameObject taskPrefab;
 
         List<Toggle> toggles;
@@ -26,6 +25,7 @@ namespace WindTurbineVR.UI
         GameObject continueButton;
         GameObject closeButton;
 
+        [Space]
         [SerializeField] TextMeshProUGUI ordinalText;
         [SerializeField] TextMeshProUGUI headerText;
         [SerializeField] TextMeshProUGUI modalText; //change name to description ??
@@ -33,7 +33,7 @@ namespace WindTurbineVR.UI
 
         UnityEvent continueButtonPressed;
 
-        Info info;
+        //Info info;
 
         public UnityEvent ContinueButtonPressed { get => continueButtonPressed; set => continueButtonPressed = value; }
 
@@ -98,11 +98,12 @@ namespace WindTurbineVR.UI
 
             //public void SetContent(Vector2 ordinal, string title, string description, List<Task> tasks)
             //{
-            this.info = info;
+            base.UpdateContent(info);
 
             Debug.Log("modalText object: " + modalText);
             headerText.text = info.Title != "" ? info.Title : gameObject.name + " title";
-            modalText.text = info.Description != "" ? info.Description : gameObject.name + " description";
+            Debug.Log("description length: " + info.Description.Length);
+            modalText.text = info.Description.Length > 0 ? info.Description[0] : gameObject.name + " description";
 
             UpdateOrdinal(ordinal);
             //SetContent(title, description);
@@ -151,7 +152,7 @@ namespace WindTurbineVR.UI
         public void UpdateOrdinal(Vector2 ordinal) 
         { 
             ordinalText.text = ordinal.x + "/" + ordinal.y;
-            headerText.text = info.Title + " " + ordinalText.text;
+            headerText.text = Info.Title + " " + ordinalText.text;
         }
 
         public void UpdateTasks(List<Task> tasks)
@@ -169,13 +170,14 @@ namespace WindTurbineVR.UI
             }*/
         }
 
-        public void UpdateColor(Color color)
+        public override void UpdateColor(Color color)
         {
+            base.UpdateColor(color);
             SetButtonColor(closeButton.GetComponent<Button>(), color);
             SetButtonColor(continueButton.GetComponent<Button>(), color);
         }
 
-        void SetButtonColor(Button button, Color color)
+        /*void SetButtonColor(Button button, Color color)
         {
             NormalColor = color;
             HighlightedColor = new Color(color.r + 0.1f, color.g + 0.1f, color.b + 0.1f);
@@ -186,7 +188,7 @@ namespace WindTurbineVR.UI
             colors.highlightedColor = HighlightedColor;
             colors.pressedColor = PressedColor;
             button.colors = colors;
-        }
+        }*/
 
         //public void DisableCloseButton() => closeButton.SetActive(false);
 
@@ -225,6 +227,21 @@ namespace WindTurbineVR.UI
         {
             yield return new WaitForSecondsRealtime(2f);
             taskList.gameObject.SetActive(true);
+        }
+
+        protected override void EndPagination()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override void NextPage()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override void PreviousPage()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

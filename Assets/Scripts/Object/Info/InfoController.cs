@@ -49,6 +49,8 @@ namespace WindTurbineVR.Object
 
         [SerializeField] protected Transform alternativeUI;
 
+        [SerializeField] protected Color color;
+
         public Data.Info Info { get => info; set => info = value; }
         public GameObject UIInstance { get => uiInstance; set => uiInstance = value; }
 

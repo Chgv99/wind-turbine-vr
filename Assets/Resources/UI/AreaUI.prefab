@@ -132,6 +132,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AreaUI
       objectReference: {fileID: 0}
+    - target: {fileID: 2077088683349477330, guid: ac99518c8c9e9cc418c9850d0754aa1c,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2077088683349477332, guid: ac99518c8c9e9cc418c9850d0754aa1c,
         type: 3}
       propertyPath: m_Pivot.x
@@ -175,7 +180,7 @@ PrefabInstance:
     - target: {fileID: 2077088683349477332, guid: ac99518c8c9e9cc418c9850d0754aa1c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 200
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2077088683349477332, guid: ac99518c8c9e9cc418c9850d0754aa1c,
         type: 3}
@@ -288,6 +293,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneController: {fileID: 0}
-  modalPrefab: {fileID: 2809192884041055747, guid: 202885e0fdfbfde49a7432c65d569deb,
-    type: 3}
-  taskControllerList: []
+  normalColor: {r: 0, g: 0, b: 0, a: 0}
+  highlightedColor: {r: 0, g: 0, b: 0, a: 0}
+  pressedColor: {r: 0, g: 0, b: 0, a: 0}
