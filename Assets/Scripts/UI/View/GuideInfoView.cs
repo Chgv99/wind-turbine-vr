@@ -102,7 +102,7 @@ namespace WindTurbineVR.UI
 
             Debug.Log("modalText object: " + modalText);
             headerText.text = info.Title != "" ? info.Title : gameObject.name + " title";
-            modalText.text = info.Description != "" ? info.Description : gameObject.name + " description";
+            modalText.text = info.Description != new string[] { } ? info.Description[0] : gameObject.name + " description";
 
             UpdateOrdinal(ordinal);
             //SetContent(title, description);

@@ -9,6 +9,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 using WindTurbineVR.UI;
 using WindTurbineVR.Object;
 using System.Threading.Tasks;
+using WindTurbineVR.Data;
 
 namespace WindTurbineVR.Object.Info
 {
@@ -88,7 +89,7 @@ namespace WindTurbineVR.Object.Info
 
             //UIInstance.GetComponent<InteractableInfoView>().UpdateContent(Info.Title, Info.Description, "test");
             UIInstance.GetComponent<InteractableInfoView>().SetTitle(Info.Title);
-            UIInstance.GetComponent<InteractableInfoView>().SetBody(Info.Description);
+            UIInstance.GetComponent<InteractableInfoView>().SetBody(Info.Description != new string[] { } ? Info.Description[0] : gameObject.name + " description");
             UIInstance.GetComponent<InteractableInfoView>().SetUrl(Info.Video);
         }
 

@@ -11,23 +11,23 @@ namespace WindTurbineVR.Data
         [SerializeField] Scriptable.InfoCard infoCard;
 
         [SerializeField] string title;
-        [SerializeField] string description;
+        [SerializeField] string[] description;
         [SerializeField] string url;
 
         public string Title 
         { 
             get
             {
-                return useInfoCard ? infoCard.title : title;
+                return infoCard != null ? infoCard.title : title;
             }
             set => title = value; 
         }
 
-        public string Description 
+        public string[] Description 
         { 
             get 
             {
-                return useInfoCard ? infoCard.description : description;
+                return infoCard != null ? infoCard.description : description;
             } 
             set => description = value; 
         }
@@ -36,7 +36,7 @@ namespace WindTurbineVR.Data
         {
             get
             {
-                string str = useInfoCard ? infoCard.url : url;
+                string str = infoCard != null ? infoCard.url : url;
                 return ConvertString(str);
             }
             set => url = value;

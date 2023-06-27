@@ -10,7 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d47127905a0aea44b034da6d733f88d, type: 3}
-  m_Name: HoverInfoCube
+  m_Name: TestInfoCard
   m_EditorClassIdentifier: 
-  title: Select Info Cube
-  description: Hover this cube to obtain useful information.
+  title: TestInfoCard
+  description:
+  - This is a test info card. This will contain some dummy text to test the pagination
+    of an info panel.
+  - How was it?
+  - Good?
+  url: 

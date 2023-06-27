@@ -6,7 +6,7 @@ namespace WindTurbineVR.Data.Scriptable
     public class InfoCard : ScriptableObject
     {
         public string title;
-        public string description;
+        public string[] description;
         public string url;
     }
 }
