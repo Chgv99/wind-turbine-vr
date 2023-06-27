@@ -909,7 +909,7 @@ PrefabInstance:
     - target: {fileID: 2077088683349477330, guid: ac99518c8c9e9cc418c9850d0754aa1c,
         type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2077088683349477332, guid: ac99518c8c9e9cc418c9850d0754aa1c,
         type: 3}
@@ -1065,6 +1065,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: InteractableUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6315820090137114869, guid: ac99518c8c9e9cc418c9850d0754aa1c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8457080005048805758, guid: ac99518c8c9e9cc418c9850d0754aa1c, type: 3}

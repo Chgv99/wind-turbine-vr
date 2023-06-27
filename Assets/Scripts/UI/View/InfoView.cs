@@ -250,7 +250,15 @@ namespace WindTurbineVR.UI
 
         protected int GoToNextPage()
         {
-            if ((page + 1) < Info.Description.Length) return ++page;
+            if ((page + 1) < Info.Description.Length)
+            {
+                if (page + 1 == Info.Description.Length - 1)
+                {
+                    nextButton.GetComponent<Button>().interactable = false;
+                    prevButton.GetComponent<Button>().interactable = true;
+                }
+                return ++page;
+            }
             else return -1;
         }
 
@@ -258,7 +266,15 @@ namespace WindTurbineVR.UI
 
         protected int GoToPreviousPage()
         {
-            if ((page - 1) >= 0) return --page;
+            if ((page - 1) >= 0)
+            {
+                if ((page - 1) == 0)
+                {
+                    nextButton.GetComponent<Button>().interactable = true;
+                    prevButton.GetComponent<Button>().interactable = false;
+                }
+                return --page;
+            }
             else return -1;
         }
 
