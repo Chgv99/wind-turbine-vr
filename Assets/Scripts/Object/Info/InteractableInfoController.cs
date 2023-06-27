@@ -91,7 +91,14 @@ namespace WindTurbineVR.Object.Info
             UIInstance.GetComponent<InteractableInfoView>().SetTitle(Info.Title);
             UIInstance.GetComponent<InteractableInfoView>().SetBody(Info.Description != new string[] { } ? Info.Description[0] : gameObject.name + " description");
             UIInstance.GetComponent<InteractableInfoView>().SetUrl(Info.Video);
+            //UIInstance.GetComponent<InteractableInfoView>().UpdateColor(color);
         }
+
+        protected void NextPage()
+        {
+
+        }
+
 
         //private void CreateUI(SelectEnterEventArgs arg0) => CreateUI();
 

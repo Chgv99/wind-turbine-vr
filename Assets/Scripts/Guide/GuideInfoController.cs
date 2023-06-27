@@ -23,8 +23,6 @@ namespace WindTurbineVR.Guide
 
         bool noTasks = false;
 
-        [SerializeField] protected Color color;
-
         // Start is called before the first frame update
         void Start()
         {

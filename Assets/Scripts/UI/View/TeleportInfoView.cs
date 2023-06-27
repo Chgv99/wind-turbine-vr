@@ -46,6 +46,11 @@ namespace WindTurbineVR.UI
             //base.Show();
         }
 
+        protected override void EndPagination()
+        {
+            throw new System.NotImplementedException();
+        }
+
         /*public void UpdateContent(string title, string body, string videoUrl)
         {
             this.Title.text = title;

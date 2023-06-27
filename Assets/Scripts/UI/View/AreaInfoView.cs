@@ -22,5 +22,10 @@ namespace WindTurbineVR.UI
         {
             //base.Show();
         }
+
+        protected override void EndPagination()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

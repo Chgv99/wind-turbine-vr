@@ -14692,7 +14692,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 33
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}
@@ -14757,9 +14757,10 @@ MonoBehaviour:
       m_Calls: []
   prefabUI: {fileID: 0}
   uiInstance: {fileID: 0}
-  displayMode: 0
-  displayTrigger: 0
+  displayMode: 2
+  displayTrigger: 1
   alternativeUI: {fileID: 0}
+  color: {r: 0.1254902, g: 0.5882353, b: 0.9529412, a: 1}
 --- !u!114 &706006686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34777,6 +34778,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: GuideInfo
       objectReference: {fileID: 0}
+    - target: {fileID: 3861920568742419880, guid: 55b925e853cf83a40972ff7c60c463da,
+        type: 3}
+      propertyPath: infoCard
+      value: 
+      objectReference: {fileID: 11400000, guid: f64797cd27a65d04f800155596b41be0,
+        type: 2}
     - target: {fileID: 3861920568742419880, guid: 55b925e853cf83a40972ff7c60c463da,
         type: 3}
       propertyPath: description

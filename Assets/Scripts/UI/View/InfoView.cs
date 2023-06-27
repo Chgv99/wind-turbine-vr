@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 using WindTurbineVR.Core;
 //using WindTurbineVR.Object;
@@ -43,13 +44,7 @@ namespace WindTurbineVR.UI
     {
         public SceneController sceneController;
 
-        //[SerializeField] protected GameObject modalPrefab;
         protected Transform modal;
-
-        //public TaskManager taskManager;
-
-        //GameObject infoModal;
-        //GameObject guideModal;
 
         [SerializeField] DirectionController dc;
 
@@ -58,10 +53,18 @@ namespace WindTurbineVR.UI
         DisplayTrigger displayTrigger = DisplayTrigger.Hover;
 
         Vector2 guideOrdinal = new Vector2();
-
+        
+        [Space]
         [SerializeField] private Color normalColor;
         [SerializeField] private Color highlightedColor;
         [SerializeField] private Color pressedColor;
+
+        //[Space]
+        //[SerializeField] protected List<GameObject> buttons;
+
+        GameObject nextPrev;
+        GameObject prevButton;
+        GameObject nextButton;
 
         Data.Info info;
 
@@ -79,13 +82,12 @@ namespace WindTurbineVR.UI
 
         UnityEvent completed;
 
-        //bool guide = false;
-
         public ContentType ContentType { get => contentType; set => contentType = value; }
         public DisplayMode DisplayMode { get => displayMode; set => displayMode = value; }
         public DisplayTrigger DisplayTrigger { get => displayTrigger; set => displayTrigger = value; }
         public Data.Info Info { get => info; set => info = value; }
-        //public bool Guide { get => guide; set => guide = value; }
+
+        protected int page = 0;
 
         //public GameObject AreaInfoInstance { get => areaInfoInstance; set => areaInfoInstance = value; }
         public Vector2 GuideOrdinal { get => guideOrdinal; set => guideOrdinal = value; }
@@ -145,7 +147,23 @@ namespace WindTurbineVR.UI
                 dc.SetDirection();
             }
 
+            nextPrev = transform.Find("NextPrevButtons").gameObject;
+            prevButton = nextPrev.transform.Find("PreviousButton").gameObject;
+            nextButton = nextPrev.transform.Find("NextButton").gameObject;
+
+            prevButton.GetComponent<Button>().onClick.AddListener(PreviousPage);
+            nextButton.GetComponent<Button>().onClick.AddListener(NextPage);
+            //buttons = new List<GameObject>();
+            //buttons.Add(transform.Find("NextPrevButtons").Find("PreviousButton").gameObject);
+            //buttons.Add(transform.Find("NextPrevButtons").Find("NextButton").gameObject);
+
             //GetComponent<Canvas>().enabled = false;
+        }
+
+        void OnDestroy()
+        {
+            prevButton.GetComponent<Button>().onClick.RemoveListener(PreviousPage);
+            nextButton.GetComponent<Button>().onClick.RemoveListener(NextPage);
         }
 
         protected void Start()
@@ -181,65 +199,29 @@ namespace WindTurbineVR.UI
             }
         }
 
-        // Old behaviour. Now it is delegated to child classes.
-        /*public void SetContent()
+        public virtual void UpdateColor(Color color)
         {
-            if (contentType == ContentType.None) return;
+            Debug.Log("prev: " + prevButton);
+            SetButtonColor(prevButton.GetComponent<Button>(), color);
+            SetButtonColor(nextButton.GetComponent<Button>(), color);
+            //nextPrev.SetActive(false);
+        }
 
-            initializated = true;
+        protected void SetButtonColor(Button button, Color color)
+        {
+            NormalColor = color;
+            HighlightedColor = new Color(color.r + 0.1f, color.g + 0.1f, color.b + 0.1f);
+            PressedColor = new Color(color.r - 0.1f, color.g - 0.1f, color.b - 0.1f);
 
-            switch (contentType)
-            {
-                case ContentType.ObjectInfo:
-                    ///////////ShowObjectInfo();
-                    break;
-                case ContentType.Guide:
-                    ///////////ShowGuide();
-                    break;
-            }
-        }*/
+            var colors = button.colors;
+            colors.normalColor = NormalColor;
+            colors.highlightedColor = HighlightedColor;
+            colors.pressedColor = PressedColor;
+            button.colors = colors;
+        }
 
         protected abstract void Show();
 
-        // Old behaviour
-        /*protected virtual void Show()
-        {
-
-            modalController = Instantiate(modalPrefab, transform).GetComponent<ModalController>();
-            if (DisplayTrigger != DisplayTrigger.Hover) modalController.InstantiateCloseButton();
-
-            modalController.SetContent(Info.Title, Info.Description); //sacar un nivel?
-        }*/
-
-        /*
-        private void ShowGuide()
-        {
-            ModalInstance = Instantiate(guideModal, transform);
-            GuideModalController controller = ModalInstance.GetComponent<GuideModalController>();
-
-            if (DisplayTrigger != DisplayTrigger.Hover) controller.InstantiateCloseButton(); // should only appear when tasks are done
-
-            Debug.Log("Info:");
-            Debug.Log(controller);
-            Debug.Log(GuideOrdinal);
-            Debug.Log(Info.Title);
-            Debug.Log(Info.Description);
-            Debug.Log(taskControllerList);
-
-            if (taskControllerList != null) controller.SetContent(GuideOrdinal, Info.Title, Info.Description, taskControllerList);
-            else Error.LogExceptionNoBreak("Guide panel with no tasks");
-
-            controller.SetContent(Info.Title, Info.Description); //sacar un nivel?
-        }
-
-        private void ShowObjectInfo()
-        {
-            ModalInstance = Instantiate(infoModal, transform);
-            InfoModalController controller = ModalInstance.GetComponent<InfoModalController>();
-            if (DisplayTrigger != DisplayTrigger.Hover) controller.InstantiateCloseButton();
-            
-            controller.SetContent(Info.Title, Info.Description); //sacar un nivel?
-        }*/
 
         public bool IsActive()
         {
@@ -255,5 +237,19 @@ namespace WindTurbineVR.UI
             ///////////if (AreaInfoInstance != null) Destroy(AreaInfoInstance);
             Destroy(gameObject);
         }
+
+        protected int GoToNextPage()
+        {
+            if ((page + 1) < Info.Description.Length) return ++page;
+            else return -1;
+        }
+
+        protected int PreviousPage()
+        {
+            if ((page - 1) >= 0) return --page;
+            else return -1;
+        }
+
+        protected abstract void EndPagination();
     }
 }

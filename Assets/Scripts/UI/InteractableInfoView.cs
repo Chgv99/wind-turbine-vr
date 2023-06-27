@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace WindTurbineVR.UI
 {
     public class InteractableInfoView : InfoView
     {
-        [SerializeField] GameObject main;
+        GameObject main;
+
+        [Space]
         [SerializeField] GameObject title;
         [SerializeField] GameObject body;
+        string url = string.Empty;
 
-        [SerializeField] string url = string.Empty;
+        [SerializeField] GameObject videoButton;
+        [SerializeField] GameObject closeVideoButton;
 
-        GameObject videoButton;
         GameObject videoObject; //show on button click
 
         public void SetTitle (string text)  { this.title.GetComponent<TextMeshProUGUI>().text = text; }
@@ -32,7 +36,8 @@ namespace WindTurbineVR.UI
             main = transform.Find("Main").gameObject;
             title = transform.Find("TitleText").gameObject;
             body = main.transform.Find("BodyText").gameObject;
-            videoButton = main.transform.Find("VideoButton").gameObject;
+            //videoButton = main.transform.Find("VideoButton").gameObject;
+            //closeVideoButton = main.transform.Find("VideoButton").gameObject;
             videoObject = transform.Find("Video").gameObject;
         }
 
@@ -59,6 +64,18 @@ namespace WindTurbineVR.UI
         protected override void Show()
         {
             //base.Show();
+        }
+
+        protected override void EndPagination()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void UpdateColor(Color color)
+        {
+            base.UpdateColor(color);
+            SetButtonColor(videoButton.GetComponent<Button>(), color);
+            SetButtonColor(closeVideoButton.GetComponent<Button>(), color);
         }
 
         /*public void UpdateContent(string title, string body, string videoUrl)
