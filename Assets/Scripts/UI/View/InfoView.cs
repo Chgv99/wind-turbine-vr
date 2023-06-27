@@ -227,7 +227,6 @@ namespace WindTurbineVR.UI
         protected void UpdateContent(Info info)
         {
             Info = info;
-
             if (Info.Description.Length > 1) nextPrev.SetActive(true);
         }
 
@@ -250,13 +249,11 @@ namespace WindTurbineVR.UI
 
         protected int GoToNextPage()
         {
+            prevButton.GetComponent<Button>().interactable = true;
+            if (page + 1 == Info.Description.Length - 1) nextButton.GetComponent<Button>().interactable = false;
+
             if ((page + 1) < Info.Description.Length)
             {
-                if (page + 1 == Info.Description.Length - 1)
-                {
-                    nextButton.GetComponent<Button>().interactable = false;
-                    prevButton.GetComponent<Button>().interactable = true;
-                }
                 return ++page;
             }
             else return -1;
@@ -266,13 +263,11 @@ namespace WindTurbineVR.UI
 
         protected int GoToPreviousPage()
         {
+            nextButton.GetComponent<Button>().interactable = true;
+            if ((page - 1) == 0) prevButton.GetComponent<Button>().interactable = false;
+
             if ((page - 1) >= 0)
             {
-                if ((page - 1) == 0)
-                {
-                    nextButton.GetComponent<Button>().interactable = true;
-                    prevButton.GetComponent<Button>().interactable = false;
-                }
                 return --page;
             }
             else return -1;

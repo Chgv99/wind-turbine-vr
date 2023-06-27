@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using WindTurbineVR.Data;
 
 namespace WindTurbineVR.UI
 {
@@ -79,6 +80,11 @@ namespace WindTurbineVR.UI
         protected override void EndPagination()
         {
             throw new System.NotImplementedException();
+        }
+
+        public void UpdateContent(Info info)
+        {
+            base.UpdateContent(info);
         }
 
         public override void UpdateColor(Color color)

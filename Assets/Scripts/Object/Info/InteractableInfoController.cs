@@ -87,10 +87,16 @@ namespace WindTurbineVR.Object.Info
 
             base.CreateUI(height);
 
+            /** TODO: METER TODO EN UPDATECONTENT
+             * PARA UNIFICARLO CON EL COMPORTAMIENTO
+             * DE GUIDEINFOVIEW*/
+
+
             //UIInstance.GetComponent<InteractableInfoView>().UpdateContent(Info.Title, Info.Description, "test");
             UIInstance.GetComponent<InteractableInfoView>().SetTitle(Info.Title);
             UIInstance.GetComponent<InteractableInfoView>().SetBody(Info.Description != new string[] { } ? Info.Description[0] : gameObject.name + " description");
             UIInstance.GetComponent<InteractableInfoView>().SetUrl(Info.Video);
+            UIInstance.GetComponent<InteractableInfoView>().UpdateContent(Info);
             //UIInstance.GetComponent<InteractableInfoView>().UpdateColor(color);
         }
 
