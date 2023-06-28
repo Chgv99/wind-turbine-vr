@@ -283,6 +283,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enganche
       objectReference: {fileID: 0}
+    - target: {fileID: 2020891775768204892, guid: d04c67c122d3a5549a5dd18942b7dd0d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473251702464026968, guid: d04c67c122d3a5549a5dd18942b7dd0d,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473251702464026968, guid: d04c67c122d3a5549a5dd18942b7dd0d,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211742846404019327, guid: d04c67c122d3a5549a5dd18942b7dd0d,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4186560955149008109, guid: d04c67c122d3a5549a5dd18942b7dd0d,
         type: 3}
       propertyPath: m_RootOrder
@@ -352,6 +372,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540063763112522079, guid: d04c67c122d3a5549a5dd18942b7dd0d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601998113021419346, guid: d04c67c122d3a5549a5dd18942b7dd0d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601827256129283495, guid: d04c67c122d3a5549a5dd18942b7dd0d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d04c67c122d3a5549a5dd18942b7dd0d, type: 3}
