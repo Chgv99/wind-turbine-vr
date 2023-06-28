@@ -201,7 +201,17 @@ namespace WindTurbineVR.UI
             completedText.gameObject.SetActive(true);
             ShowCloseButton();
             HideContinueButton();
+            HideNextPrev();
         }
+
+        public void SetContinueButtonState(bool noTasks)
+        {
+            if (!noTasks || Info.Description.Length > 1) return;
+
+            ShowContinueButton();
+        }
+
+        public void SetBody(string text) { this.modalText.GetComponent<TextMeshProUGUI>().text = text; }
 
         public void ShowContinueButton() => continueButton.SetActive(true);
 
@@ -231,17 +241,17 @@ namespace WindTurbineVR.UI
 
         protected override void EndPagination()
         {
-            ShowCloseButton();
+            ShowContinueButton();
         }
 
         protected override void NextPage()
         {
-            throw new System.NotImplementedException();
+            SetBody(Info.Description[GoToNextPage()]);
         }
 
         protected override void PreviousPage()
         {
-            throw new System.NotImplementedException();
+            SetBody(Info.Description[GoToPreviousPage()]);
         }
     }
 }

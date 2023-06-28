@@ -14,15 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: "Gu\xEDa"
   description:
-  - "Bienvenido al modo gu\xEDa. Esto es un panel informativo. Habr\xE1 m\xE1s como
-    este a lo largo de la sesi\xF3n. Por favor, siga las instrucciones."
+  - "\xA1Bienvenido al modo gu\xEDa de Wind Turbine VR! "
   - "Este modo le ense\xF1ar\xE1 a seguir los procedimientos de seguridad para entrar
     a un aerogenerador y desplazarse por \xE9l. "
-  - "Se le indicar\xE1 lo que hacer, y se le mostrar\xE1 una serie de listas de acciones
-    que debe seguir para continuar. "
-  - "En el proceso se familiarizar\xE1 con los controles, tanto los de movimiento
-    como los de interacci\xF3n. "
+  - "Para ello, se le mostrar\xE1n paneles naranjas como este, que le indicar\xE1n
+    lo que hacer, y que a veces mostrar\xE1n una serie de listas de acciones que
+    debe seguir para continuar. "
+  - "Adem\xE1s de los paneles naranjas, se le mostrar\xE1n paneles azules cuando
+    interact\xFAe con los distintos elementos del aerogenerador, que le mostrar\xE1n
+    informaci\xF3n acerca de los mismos. "
+  - "La informaci\xF3n de los paneles azules tambi\xE9n es accesible desde el modo
+    libre. "
+  - "A lo largo de la sesi\xF3n, se ir\xE1 familiarizando tanto con los controles
+    de movimiento como con los de interacci\xF3n. "
   - 'Una vez finalice este modo, se le recomienda que visite el modo libre, para
     vivir la experiencia a su manera. '
-  - 'Bien, vamos a comenzar. Por favor, siga las instrucciones. '
+  - "Cuando est\xE9 preparado, pulse continuar."
   url: 

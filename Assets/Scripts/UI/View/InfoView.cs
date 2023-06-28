@@ -209,6 +209,10 @@ namespace WindTurbineVR.UI
             //nextPrev.SetActive(false);
         }
 
+        protected void ShowNextPrev() => nextPrev.SetActive(true);
+
+        protected void HideNextPrev() => nextPrev.SetActive(false);
+
         protected void SetButtonColor(Button button, Color color)
         {
             NormalColor = color;

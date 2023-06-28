@@ -82,11 +82,7 @@ namespace WindTurbineVR.Guide
             //UIInstance.GetComponent<GuideInfoView>().DisableCloseButton();
             //UiInstance.GetComponent<UIController>().ContentType = ContentType.Guide;
             //UiInstance.GetComponent<UIController>().taskControllerList = taskList;
-            if (noTasks)
-            {
-                UIInstance.GetComponent<GuideInfoView>().ShowContinueButton();
-                //CompleteList();
-            }
+            UIInstance.GetComponent<GuideInfoView>().SetContinueButtonState(noTasks);
         }
 
         public void UpdateOrdinal(Vector2 ordinal) => UIInstance.GetComponent<GuideInfoView>().UpdateOrdinal(ordinal);
