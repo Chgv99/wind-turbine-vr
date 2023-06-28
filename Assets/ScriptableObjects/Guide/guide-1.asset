@@ -16,4 +16,13 @@ MonoBehaviour:
   description:
   - "Bienvenido al modo gu\xEDa. Esto es un panel informativo. Habr\xE1 m\xE1s como
     este a lo largo de la sesi\xF3n. Por favor, siga las instrucciones."
+  - "Este modo le ense\xF1ar\xE1 a seguir los procedimientos de seguridad para entrar
+    a un aerogenerador y desplazarse por \xE9l. "
+  - "Se le indicar\xE1 lo que hacer, y se le mostrar\xE1 una serie de listas de acciones
+    que debe seguir para continuar. "
+  - "En el proceso se familiarizar\xE1 con los controles, tanto los de movimiento
+    como los de interacci\xF3n. "
+  - 'Una vez finalice este modo, se le recomienda que visite el modo libre, para
+    vivir la experiencia a su manera. '
+  - 'Bien, vamos a comenzar. Por favor, siga las instrucciones. '
   url: 

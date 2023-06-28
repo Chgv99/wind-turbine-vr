@@ -231,7 +231,7 @@ namespace WindTurbineVR.UI
 
         protected override void EndPagination()
         {
-            throw new System.NotImplementedException();
+            ShowCloseButton();
         }
 
         protected override void NextPage()

@@ -250,7 +250,11 @@ namespace WindTurbineVR.UI
         protected int GoToNextPage()
         {
             prevButton.GetComponent<Button>().interactable = true;
-            if (page + 1 == Info.Description.Length - 1) nextButton.GetComponent<Button>().interactable = false;
+            if (page + 1 == Info.Description.Length - 1)
+            {
+                nextButton.GetComponent<Button>().interactable = false;
+                EndPagination();
+            }
 
             if ((page + 1) < Info.Description.Length)
             {
