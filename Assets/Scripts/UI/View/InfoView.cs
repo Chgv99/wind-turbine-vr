@@ -121,7 +121,7 @@ namespace WindTurbineVR.UI
             {
                 //Debug.Log("DisplayMode: " + DisplayMode);
 
-                Debug.Log("Setting direction to " + (UI.position - camera.position));
+                //Debug.Log("Setting direction to " + (UI.position - camera.position));
                 UI.rotation = Quaternion.LookRotation(UI.position - camera.position);
             }
         }
@@ -138,9 +138,9 @@ namespace WindTurbineVR.UI
 
             Completed = new UnityEvent();
 
-            Debug.Log("sceneController: " + sceneController);
+            /**Debug.Log("sceneController: " + sceneController);
             Debug.Log("camera obj: " + sceneController.Camera);
-            Debug.Log("canvas: " + GetComponent<Canvas>());
+            Debug.Log("canvas: " + GetComponent<Canvas>());*/
             GetComponent<Canvas>().worldCamera = sceneController.Camera.GetComponent<Camera>();
             ///////////sceneController.TaskChecked.AddListener(UpdateObjectTasks);            
             if (displayMode != DisplayMode.StaticFixed && displayMode != DisplayMode.StaticAlternativeFixed)

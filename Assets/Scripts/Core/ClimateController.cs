@@ -48,7 +48,7 @@ namespace WindTurbineVR.Core
             //Debug.Log("WindTransform eulerAngles = " + windTransform.eulerAngles);
             WindDirection = windTransform.rotation; // * Vector3.forward;
             wind = WindDirection * Vector3.forward * WindSpeed;
-            Debug.Log("wind: " + wind);
+            //Debug.Log("wind: " + wind);
             Debug.DrawRay(windTransform.position, wind, Color.yellow);
             
             //Debug.Log("Climate Wind (Climate Controller) = " + wind);
