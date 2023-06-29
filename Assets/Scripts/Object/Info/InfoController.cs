@@ -39,6 +39,8 @@ namespace WindTurbineVR.Object
 
         [SerializeField] private GameObject uiInstance;
 
+        [SerializeField] Transform parent;
+
         Data.Info info;
 
         [Space]
@@ -115,7 +117,7 @@ namespace WindTurbineVR.Object
         protected virtual void CreateUI(float height)
         {
             Debug.Log("prefabUI: " + prefabUI);
-            UIInstance = Instantiate(prefabUI);
+            UIInstance = Instantiate(prefabUI, parent);
 
             Vector3 position = new Vector3();
             Quaternion rotation = transform.rotation;

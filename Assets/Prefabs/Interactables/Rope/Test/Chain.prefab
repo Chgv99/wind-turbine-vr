@@ -79,7 +79,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 89415b8ea16aef84c8841b1ed01cfada, type: 2}
+  - {fileID: 2100000, guid: b52d3aa4516869e4bae7a546bf982b75, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -283,6 +283,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enganche
       objectReference: {fileID: 0}
+    - target: {fileID: 814970166356116716, guid: d04c67c122d3a5549a5dd18942b7dd0d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0259718303a0a4849a45de0acfe88513, type: 2}
     - target: {fileID: 2020891775768204892, guid: d04c67c122d3a5549a5dd18942b7dd0d,
         type: 3}
       propertyPath: m_Layer

@@ -8,7 +8,6 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using WindTurbineVR.Core;
 using WindTurbineVR.Data;
-using static log4net.Appender.ColoredConsoleAppender;
 
 namespace WindTurbineVR.UI
 {

@@ -43,7 +43,7 @@ namespace WindTurbineVR.Object.Info
             base.CreateUI(height);
 
             UIInstance.GetComponent<TeleportInfoView>().SetTitle(Info.Title); //teleportController.destination.gameObject.name
-            UIInstance.GetComponent<TeleportInfoView>().SetBody(Info.Description[0] + " " + teleportController.destination.gameObject.name + "?");
+            UIInstance.GetComponent<TeleportInfoView>().SetBody(Info.Description[0]);
             //UIInstance.GetComponent<TeleportInfoView>().UpdateContent(GuideOrdinal, Info, taskManager.GetTasks());
             UIInstance.GetComponent<TeleportInfoView>().TeleportController = teleportController;
         }
