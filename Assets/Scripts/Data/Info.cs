@@ -27,8 +27,8 @@ namespace WindTurbineVR.Data
         { 
             get 
             {
-                string[] arr =  infoCard != null ? infoCard.description : description;
-                return arr == new string[] { } ? new string[1] { "empty" } : arr;
+                return infoCard != null ? infoCard.description : description;
+                //return arr == new string[] { } ? new string[1] { "empty" } : arr;
             } 
             set => description = value; 
         }

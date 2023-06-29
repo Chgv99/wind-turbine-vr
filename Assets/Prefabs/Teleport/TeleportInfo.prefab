@@ -49,7 +49,8 @@ MonoBehaviour:
   useInfoCard: 0
   infoCard: {fileID: 0}
   title: Teleport
-  description: Do you want to teleport to [insert place]?
+  description:
+  - "\xBFQuiere ir directamente a"
   url: 
 --- !u!114 &7898311722587093341
 MonoBehaviour:
@@ -138,6 +139,7 @@ MonoBehaviour:
   displayMode: 0
   displayTrigger: 0
   alternativeUI: {fileID: 0}
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &5671227627095931415
 MonoBehaviour:
   m_ObjectHideFlags: 0

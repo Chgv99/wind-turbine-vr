@@ -72,6 +72,7 @@ namespace WindTurbineVR.Core
 
         public void TeleportPlayer(Vector3 destination)
         {
+            Debug.Log("teleporting player");
             xrOrigin.position = destination;
         }
 
