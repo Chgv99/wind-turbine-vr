@@ -24,7 +24,7 @@ namespace WindTurbineVR.Guide
         bool noTasks = false;
 
         // Start is called before the first frame update
-        void Start()
+        public override void Start()
         {
             base.Start();
 
@@ -76,7 +76,7 @@ namespace WindTurbineVR.Guide
             Debug.Log("taskmanager: " + taskManager);
             UIInstance.GetComponent<GuideInfoView>().ContinueButtonPressed.AddListener(CompleteList);
             UIInstance.GetComponent<GuideInfoView>().UpdateContent(GuideOrdinal, Info, taskManager.GetTasks());
-            UIInstance.GetComponent<GuideInfoView>().UpdateContent(GuideOrdinal, Info, taskManager.GetTasks());
+            //UIInstance.GetComponent<GuideInfoView>().UpdateContent(GuideOrdinal, Info, taskManager.GetTasks());
             //UIInstance.GetComponent<GuideInfoView>().Color = color;
             UIInstance.GetComponent<GuideInfoView>().UpdateColor(color);
             //UIInstance.GetComponent<GuideInfoView>().DisableCloseButton();

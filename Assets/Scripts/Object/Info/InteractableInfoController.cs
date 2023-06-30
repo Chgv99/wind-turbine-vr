@@ -18,13 +18,19 @@ namespace WindTurbineVR.Object.Info
      * 
      */
 
+    [RequireComponent(typeof(XRTintInteractableVisual))]
     public class InteractableInfoController : InfoController
     {
+        XRTintInteractableVisual tintController;
+
         // Start is called before the first frame update
-        public void Start()
+        public override void Start()
         {
             prefabUI = Resources.Load("UI/InteractableUI") as GameObject;
             base.Start();
+
+            tintController = GetComponent<XRTintInteractableVisual>();
+            SetRenderers(transform);
 
             //enabled = gameObject.activeSelf;
 
@@ -44,6 +50,23 @@ namespace WindTurbineVR.Object.Info
 
             CreateUI();
             Disable();
+        }
+
+        void SetRenderers(Transform transform)
+        {
+            //if (tintController.tintRenderers.Count > 0) return;
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                Transform child = transform.GetChild(i);
+                if (child.childCount > 0) SetRenderers(child);
+
+                MeshRenderer mr = child.GetComponent<MeshRenderer>();
+                if (mr != null)
+                {
+                    if (child.gameObject.GetComponent<MeshCollider>() == null) child.gameObject.AddComponent<MeshCollider>();
+                    tintController.tintRenderers.Add(mr);
+                }
+            }
         }
 
         protected void HoverEnable(HoverEnterEventArgs arg0) => Enable();
@@ -91,11 +114,13 @@ namespace WindTurbineVR.Object.Info
              * PARA UNIFICARLO CON EL COMPORTAMIENTO
              * DE GUIDEINFOVIEW*/
 
-
             //UIInstance.GetComponent<InteractableInfoView>().UpdateContent(Info.Title, Info.Description, "test");
             UIInstance.GetComponent<InteractableInfoView>().SetTitle(Info.Title);
-            UIInstance.GetComponent<InteractableInfoView>().SetBody(Info.Description != new string[] { } ? Info.Description[0] : gameObject.name + " description");
-            UIInstance.GetComponent<InteractableInfoView>().SetUrl(Info.Video);
+            UIInstance.GetComponent<InteractableInfoView>().SetBody(Info.Description.Length > 0 ? Info.Description[0] : gameObject.name + " description");
+            UIInstance.GetComponent<InteractableInfoView>().SetPicture(Info.Pictures.Length > 0 ? Info.Pictures[0] : null);
+            UIInstance.GetComponent<InteractableInfoView>().SetVideo(Info.Video);
+
+            Debug.Log("CreateUI UpdateContent call");
             UIInstance.GetComponent<InteractableInfoView>().UpdateContent(Info);
             //UIInstance.GetComponent<InteractableInfoView>().UpdateColor(color);
         }

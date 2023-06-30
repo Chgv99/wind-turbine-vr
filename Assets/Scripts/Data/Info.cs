@@ -1,5 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using UnityEngine;
+using UnityEngine.UI;
 //using WindTurbineVR.Core.Scriptable;
 
 namespace WindTurbineVR.Data
@@ -12,7 +13,8 @@ namespace WindTurbineVR.Data
 
         [SerializeField] string title;
         [SerializeField] string[] description;
-        [SerializeField] string url;
+        [SerializeField] Sprite[] pictures;
+        [SerializeField] string video;
 
         public string Title 
         { 
@@ -33,14 +35,23 @@ namespace WindTurbineVR.Data
             set => description = value; 
         }
 
+        public Sprite[] Pictures
+        {
+            get
+            {
+                return infoCard != null ? infoCard.pictures : pictures;
+            }
+            set => pictures = value;
+        }
+
         public string Video
         {
             get
             {
-                string str = infoCard != null ? infoCard.url : url;
+                string str = infoCard != null ? infoCard.video : video;
                 return ConvertString(str);
             }
-            set => url = value;
+            set => video = value;
         }
 
         string ConvertString(string input)

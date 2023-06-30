@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace WindTurbineVR.Data.Scriptable
 {
@@ -7,6 +8,7 @@ namespace WindTurbineVR.Data.Scriptable
     {
         public string title;
         public string[] description;
-        public string url;
+        public Sprite[] pictures;
+        public string video;
     }
 }

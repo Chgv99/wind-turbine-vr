@@ -15474,7 +15474,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706006678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.824, y: 0.159, z: -16.432}
+  m_LocalPosition: {x: 0.116, y: 0.899, z: -38.312}
   m_LocalScale: {x: 0.071923, y: 0.071923, z: 0.071923}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15585,7 +15585,8 @@ MonoBehaviour:
   infoCard: {fileID: 11400000, guid: 26918b549a92f7643aed8b8bf699bd93, type: 2}
   title: 
   description: []
-  url: 
+  pictures: []
+  video: 
 --- !u!1 &712076011
 GameObject:
   m_ObjectHideFlags: 0

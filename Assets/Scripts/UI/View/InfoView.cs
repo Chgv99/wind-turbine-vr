@@ -203,7 +203,7 @@ namespace WindTurbineVR.UI
 
         public virtual void UpdateColor(Color color)
         {
-            Debug.Log("prev: " + prevButton);
+            //Debug.Log("prev: " + prevButton);
             SetButtonColor(prevButton.GetComponent<Button>(), color);
             SetButtonColor(nextButton.GetComponent<Button>(), color);
             //nextPrev.SetActive(false);
@@ -228,7 +228,7 @@ namespace WindTurbineVR.UI
 
         protected abstract void Show();
 
-        protected void UpdateContent(Info info)
+        public virtual void UpdateContent(Info info)
         {
             Info = info;
             if (Info.Description.Length > 1) nextPrev.SetActive(true);

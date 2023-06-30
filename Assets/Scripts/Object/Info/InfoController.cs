@@ -57,7 +57,7 @@ namespace WindTurbineVR.Object
         public GameObject UIInstance { get => uiInstance; set => uiInstance = value; }
 
         // Start is called before the first frame update
-        public void Start()
+        public virtual void Start()
         {
             sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
             if (sceneController == null) Error.LogException("SceneController is null");
@@ -76,7 +76,7 @@ namespace WindTurbineVR.Object
 
         public void Enable()
         {
-            Debug.Log("enable");
+            //Debug.Log("enable");
             if (UIInstance != null)
             {
                 //_uiInstance.SetActive(true);
@@ -89,7 +89,7 @@ namespace WindTurbineVR.Object
 
         public void Disable()
         {
-            Debug.Log("disable");
+            //Debug.Log("disable");
             if (UIInstance != null)
             {
                 //_uiInstance.SetActive(false);
