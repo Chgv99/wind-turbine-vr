@@ -30,7 +30,7 @@ namespace WindTurbineVR.UI
         public void SetBody(string text) => body.GetComponent<TextMeshProUGUI>().text = text;
         public void SetPicture(Sprite image)
         {
-            picturesObject.GetComponent<Image>().sprite = image;
+            picturesObject.transform.Find("Image").GetComponent<Image>().sprite = image;
         }
         public void SetVideo(string url)
         {
@@ -47,7 +47,7 @@ namespace WindTurbineVR.UI
             title = transform.Find("TitleText").gameObject;
             body = main.transform.Find("BodyText").gameObject;
             
-            picturesObject = transform.Find("Pictures/Image").gameObject;
+            picturesObject = transform.Find("Pictures").gameObject;
             picturesButton = main.transform.Find("PicturesButton").gameObject;
             picturesButton.GetComponent<Button>().onClick.AddListener(ShowPictures);
 

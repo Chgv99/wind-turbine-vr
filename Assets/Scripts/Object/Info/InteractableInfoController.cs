@@ -30,7 +30,7 @@ namespace WindTurbineVR.Object.Info
             base.Start();
 
             tintController = GetComponent<XRTintInteractableVisual>();
-            SetRenderers(transform);
+            SetRenderersAndColliders(transform);
 
             //enabled = gameObject.activeSelf;
 
@@ -52,18 +52,20 @@ namespace WindTurbineVR.Object.Info
             Disable();
         }
 
-        void SetRenderers(Transform transform)
+        void SetRenderersAndColliders(Transform transform)
         {
             //if (tintController.tintRenderers.Count > 0) return;
             for (int i = 0; i < transform.childCount; i++)
             {
                 Transform child = transform.GetChild(i);
-                if (child.childCount > 0) SetRenderers(child);
+                if (child.childCount > 0) SetRenderersAndColliders(child);
 
                 MeshRenderer mr = child.GetComponent<MeshRenderer>();
                 if (mr != null)
                 {
-                    if (child.gameObject.GetComponent<MeshCollider>() == null) child.gameObject.AddComponent<MeshCollider>();
+                    MeshCollider meshCollider = child.gameObject.GetComponent<MeshCollider>();
+                    if (meshCollider == null) meshCollider = child.gameObject.AddComponent<MeshCollider>();
+                    colliders.Add(meshCollider);
                     tintController.tintRenderers.Add(mr);
                 }
             }
