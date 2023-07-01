@@ -23,6 +23,7 @@ namespace WindTurbineVR.Core
         void Update()
         {
             windDirection = climate.WindDirection;
+            Debug.Log("windDirection from vane: " + windDirection.ToString());
             transform.rotation = WindDirection;
             transform.eulerAngles = transform.eulerAngles + new Vector3(0, 180, 0);
             //transform.rotation = Quaternion.LookRotation(transform.position, climate.WindDirection * Vector3.forward);

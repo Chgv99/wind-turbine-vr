@@ -61,7 +61,7 @@ namespace WindTurbineVR.Core
             //compare with current wind rotation
             //do rotation
             //nc.Rotate(vc.WindDirection, vc);
-            //Debug.Log("vane winddirection seen from turbinecontroller: " + vc.WindDirection);
+            Debug.Log("vane winddirection seen from turbinecontroller: " + vc.WindDirection);
             nc.DirectionObjective = vc.WindDirection;
         }
 

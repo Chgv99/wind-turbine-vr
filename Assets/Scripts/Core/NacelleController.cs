@@ -14,7 +14,9 @@ namespace WindTurbineVR.Core
 
         [SerializeField] Transform littleCog;
 
-        [SerializeField] [Range(0, -0.1f)] float littleSpeed = -0.08f;
+        [SerializeField] [Range(0,3)] float rotationSpeed = 1f;
+
+        float littleSpeed = -0.0515f;
 
         #region Internal rotational values
         float threshold = 90f;
@@ -46,12 +48,12 @@ namespace WindTurbineVR.Core
             //Debug.Log("objective: " + objective.ToString());
             if (Vector3.Angle(current, objective) > 5)
             {
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, directionObjective, 0.01f);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, directionObjective, 0.01f * rotationSpeed);
                 Vector3 forwardA = transform.rotation * Vector3.forward;
                 Vector3 forwardB = directionObjective * Vector3.forward;
                 float angle = Vector3.SignedAngle(forwardA, forwardB, Vector3.up);
                 //float angle = Quaternion.Angle(transform.rotation, directionObjective); 
-                littleCog.Rotate(new Vector3(0, 1, 0), ((angle < 0) ? 1 : -1) * littleSpeed);
+                littleCog.Rotate(new Vector3(0, 1, 0), ((angle < 0) ? 1 : -1) * littleSpeed * rotationSpeed);
             }
         }
     }

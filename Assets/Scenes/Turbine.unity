@@ -2135,7 +2135,7 @@ GameObject:
   - component: {fileID: 96432897}
   - component: {fileID: 96432896}
   m_Layer: 0
-  m_Name: LittleCog
+  m_Name: "EngranajePeque\xF1o"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2148,13 +2148,17 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96432894}
-  m_LocalRotation: {x: -6.4936073e-10, y: -0.087155744, z: 0.000000007422229, w: 0.9961947}
-  m_LocalPosition: {x: -0.670453, y: 25.25263, z: -1.6151621}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.0000000146077745, y: 0.04638569, z: -0.0000000039052344,
+    w: 0.99892366}
+  m_LocalPosition: {x: 0, y: -0.4128685, z: 0}
+  m_LocalScale: {x: 1.13, y: 1, z: 1.13}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 636147518}
-  m_RootOrder: 1
+  m_Children:
+  - {fileID: 636147518}
+  - {fileID: 1994587577}
+  - {fileID: 2138971463}
+  m_Father: {fileID: 1530500262}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &96432896
 MeshRenderer:
@@ -14828,16 +14832,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636147517}
-  m_LocalRotation: {x: 0.000000015196928, y: 0.13327111, z: -0.000000010061585, w: 0.9910797}
-  m_LocalPosition: {x: 1.2128348, y: -25.665499, z: 1.5601653}
-  m_LocalScale: {x: 1.13, y: 1, z: 1.13}
+  m_LocalRotation: {x: 6.493605e-10, y: 0.08715575, z: -0.0000000074222273, w: 0.9961947}
+  m_LocalPosition: {x: 0.9407372, y: -25.25263, z: 1.4742014}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1994587577}
-  - {fileID: 96432895}
-  - {fileID: 2138971463}
-  m_Father: {fileID: 1530500262}
-  m_RootOrder: 8
+  m_Children: []
+  m_Father: {fileID: 96432895}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &636147519
 MeshRenderer:
@@ -28665,7 +28666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rc: {fileID: 284611395}
   nc: {fileID: 2096842290}
-  vc: {fileID: 4821487982066892793}
+  vc: {fileID: 8608045785862733815}
 --- !u!4 &1186795625
 Transform:
   m_ObjectHideFlags: 0
@@ -36137,7 +36138,7 @@ Transform:
   - {fileID: 206409308}
   - {fileID: 1528775864}
   - {fileID: 1118347146}
-  - {fileID: 636147518}
+  - {fileID: 96432895}
   - {fileID: 1514418344}
   - {fileID: 517284229}
   - {fileID: 512014236}
@@ -48547,13 +48548,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994587576}
-  m_LocalRotation: {x: -6.4936073e-10, y: -0.087155744, z: 0.000000007422229, w: 0.9961947}
-  m_LocalPosition: {x: -0.670453, y: 25.252617, z: -1.6151621}
+  m_LocalRotation: {x: -0, y: 0.0000000074505797, z: 3.053113e-15, w: 1}
+  m_LocalPosition: {x: 0, y: -0.00001335144, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 636147518}
-  m_RootOrder: 0
+  m_Father: {fileID: 96432895}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1994587578
 MeshRenderer:
@@ -51306,8 +51307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44670c236cc1feb46835f524f58abc20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  littleCog: {fileID: 1019013022}
-  littleSpeed: -0.0515
+  littleCog: {fileID: 96432895}
+  rotationSpeed: 1
 --- !u!54 &2096842292
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -52219,12 +52220,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138971462}
-  m_LocalRotation: {x: -6.4936073e-10, y: -0.087155744, z: 0.000000007422229, w: 0.9961947}
-  m_LocalPosition: {x: -0.670453, y: 25.252617, z: -1.6151621}
+  m_LocalRotation: {x: -0, y: 0.0000000074505797, z: 3.053113e-15, w: 1}
+  m_LocalPosition: {x: 0, y: -0.00001335144, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 636147518}
+  m_Father: {fileID: 96432895}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2139421279
