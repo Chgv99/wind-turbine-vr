@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d47127905a0aea44b034da6d733f88d, type: 3}
+  m_Name: freno
+  m_EditorClassIdentifier: 
+  title: "Freno Hidr\xE1ulico"
+  description:
+  - "El freno hidr\xE1ulico se encarga de detener el movimiento del rotor de forma
+    secundaria."
+  - Esto significa que no es el principal mecanismo de frenado, sino que asiste al
+    frenado mediante el uso de las palas.
+  pictures:
+  - {fileID: 21300000, guid: 8c6354061e0a1024492c6b73d3e030b2, type: 3}
+  video: 
