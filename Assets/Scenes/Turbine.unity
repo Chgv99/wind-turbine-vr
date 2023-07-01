@@ -15018,51 +15018,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684309956}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &685308012
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 685308013}
-  - component: {fileID: 685308014}
-  m_Layer: 0
-  m_Name: Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &685308013
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 685308012}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8151477495169053000}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &685308014
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 685308012}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &685910145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31746,6 +31701,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1438945865}
   m_Mesh: {fileID: 1325754650459367400, guid: 794e9166a46f87b4d9aa09fe69c55ac7, type: 3}
+--- !u!1 &1444896072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1444896073}
+  - component: {fileID: 1444896074}
+  m_Layer: 0
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1444896073
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444896072}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8151477495169053000}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1444896074
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444896072}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.65
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1447317842
 GameObject:
   m_ObjectHideFlags: 0
@@ -47261,7 +47261,6 @@ GameObject:
   - component: {fileID: 8151477495169053000}
   - component: {fileID: 2555532002496790051}
   - component: {fileID: 7948679400584306664}
-  - component: {fileID: 8608045785862733814}
   - component: {fileID: 8608045785862733815}
   - component: {fileID: 8608045785862733818}
   - component: {fileID: 8608045785862733817}
@@ -48420,7 +48419,7 @@ Transform:
   - {fileID: 6066501879046289531}
   - {fileID: 711082173725973471}
   - {fileID: 2240930575038648713}
-  - {fileID: 685308013}
+  - {fileID: 1444896073}
   m_Father: {fileID: 2096842289}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -48438,20 +48437,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &8608045785862733814
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681232486845241063}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!114 &8608045785862733815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48476,7 +48461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a9c2cea8d4812a49833e05955311f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 243572958}
+  m_InteractionManager: {fileID: 558437059}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -48549,7 +48534,7 @@ MonoBehaviour:
   uiInstance: {fileID: 0}
   parent: {fileID: 0}
   displayMode: 2
-  displayTrigger: 0
+  displayTrigger: 1
   alternativeUI: {fileID: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8608045785862733817
