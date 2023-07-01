@@ -18,11 +18,8 @@ namespace WindTurbineVR.Object.Info
      * 
      */
 
-    [RequireComponent(typeof(XRTintInteractableVisual))]
     public class InteractableInfoController : InfoController
     {
-        XRTintInteractableVisual tintController;
-
         // Start is called before the first frame update
         public override void Start()
         {
@@ -52,32 +49,13 @@ namespace WindTurbineVR.Object.Info
             Disable();
         }
 
-        void SetRenderersAndColliders(Transform transform)
-        {
-            //if (tintController.tintRenderers.Count > 0) return;
-            for (int i = 0; i < transform.childCount; i++)
-            {
-                Transform child = transform.GetChild(i);
-                if (child.childCount > 0) SetRenderersAndColliders(child);
-
-                MeshRenderer mr = child.GetComponent<MeshRenderer>();
-                if (mr != null)
-                {
-                    MeshCollider meshCollider = child.gameObject.GetComponent<MeshCollider>();
-                    if (meshCollider == null) meshCollider = child.gameObject.AddComponent<MeshCollider>();
-                    colliders.Add(meshCollider);
-                    tintController.tintRenderers.Add(mr);
-                }
-            }
-        }
-
         protected void HoverEnable(HoverEnterEventArgs arg0) => Enable();
 
         protected void HoverDisable(HoverExitEventArgs arg0) => Disable();
 
         protected void SwitchActiveState(SelectEnterEventArgs arg0)
         {
-            if (UIInstance.GetComponent<InteractableInfoView>().IsActive()) Disable();
+            if (UIInstance.GetComponent<InfoView>().IsActive()) Disable();
             else Enable();
         }
         //protected void SelectEnable(SelectEnterEventArgs arg0) => Enable();

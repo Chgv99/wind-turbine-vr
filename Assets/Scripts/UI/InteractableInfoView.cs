@@ -55,6 +55,13 @@ namespace WindTurbineVR.UI
             videoButton = main.transform.Find("VideoButton").gameObject;
             videoButton.GetComponent<Button>().onClick.AddListener(ShowVideo);
             //closeVideoButton = main.transform.Find("VideoButton").gameObject;
+
+            nextPrev = main.transform.Find("NextPrevButtons").gameObject;
+            prevButton = nextPrev.transform.Find("PreviousButton").gameObject;
+            nextButton = nextPrev.transform.Find("NextButton").gameObject;
+
+            prevButton.GetComponent<Button>().onClick.AddListener(PreviousPage);
+            nextButton.GetComponent<Button>().onClick.AddListener(NextPage);
         }
 
         // Start is called before the first frame update

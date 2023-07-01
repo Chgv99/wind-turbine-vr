@@ -63,9 +63,9 @@ namespace WindTurbineVR.UI
         //[Space]
         //[SerializeField] protected List<GameObject> buttons;
 
-        GameObject nextPrev;
-        GameObject prevButton;
-        GameObject nextButton;
+        protected GameObject nextPrev;
+        protected GameObject prevButton;
+        protected GameObject nextButton;
 
         Data.Info info;
 
@@ -148,12 +148,15 @@ namespace WindTurbineVR.UI
                 dc.SetDirection();
             }
 
-            nextPrev = transform.Find("NextPrevButtons").gameObject;
-            prevButton = nextPrev.transform.Find("PreviousButton").gameObject;
-            nextButton = nextPrev.transform.Find("NextButton").gameObject;
+            try
+            {
+                nextPrev = transform.Find("NextPrevButtons").gameObject;
+                prevButton = nextPrev.transform.Find("PreviousButton").gameObject;
+                nextButton = nextPrev.transform.Find("NextButton").gameObject;
 
-            prevButton.GetComponent<Button>().onClick.AddListener(PreviousPage);
-            nextButton.GetComponent<Button>().onClick.AddListener(NextPage);
+                prevButton.GetComponent<Button>().onClick.AddListener(PreviousPage);
+                nextButton.GetComponent<Button>().onClick.AddListener(NextPage);
+            } catch (Exception ex) { Error.LogExceptionNoBreak(ex.Message); }
 
             //buttons = new List<GameObject>();
             //buttons.Add(transform.Find("NextPrevButtons").Find("PreviousButton").gameObject);

@@ -24,7 +24,7 @@ namespace WindTurbineVR.Object
      * Add timer behaviour to hover exit?
      * Merge Info class into InfoController?
      */
-
+    [RequireComponent(typeof(XRTintInteractableVisual))]
     [RequireComponent(typeof(Data.Info))]
     public abstract class InfoController : XRSimpleInteractable
     {
@@ -49,6 +49,8 @@ namespace WindTurbineVR.Object
         [Space]
         [SerializeField] protected DisplayTrigger displayTrigger;
 
+        protected XRTintInteractableVisual tintController;
+
         [SerializeField] protected Transform alternativeUI;
 
         [SerializeField] protected Color color;
@@ -65,6 +67,25 @@ namespace WindTurbineVR.Object
             //prefabUI = Resources.Load("UI/UI") as GameObject;
             if (prefabUI == null) Error.LogException("PrefabUI is null");
             Info = GetComponent<Data.Info>();
+        }
+
+        protected void SetRenderersAndColliders(Transform transform)
+        {
+            //if (tintController.tintRenderers.Count > 0) return;
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                Transform child = transform.GetChild(i);
+                if (child.childCount > 0) SetRenderersAndColliders(child);
+
+                MeshRenderer mr = child.GetComponent<MeshRenderer>();
+                if (mr != null)
+                {
+                    Collider collider = child.gameObject.GetComponent<Collider>();
+                    //if (meshCollider == null) meshCollider = child.gameObject.AddComponent<MeshCollider>();
+                    colliders.Add(collider);
+                    tintController.tintRenderers.Add(mr);
+                }
+            }
         }
 
         protected bool IsActive()
@@ -117,7 +138,9 @@ namespace WindTurbineVR.Object
         protected virtual void CreateUI(float height)
         {
             Debug.Log("prefabUI: " + prefabUI);
-            UIInstance = Instantiate(prefabUI, parent);
+            UIInstance = Instantiate(prefabUI);
+
+            if (parent != null) StartCoroutine(SetParent());
 
             Vector3 position = new Vector3();
             Quaternion rotation = transform.rotation;
@@ -140,6 +163,12 @@ namespace WindTurbineVR.Object
             UIInstance.GetComponent<InfoView>().Info = Info;
             
             //_uiInstance.GetComponent<UIController>().SetContent();
+        }
+
+        IEnumerator SetParent()
+        {
+            yield return new WaitForSeconds(0.1f);
+            UIInstance.transform.parent = parent;
         }
 
         protected void DisposeUI(HoverExitEventArgs arg0)

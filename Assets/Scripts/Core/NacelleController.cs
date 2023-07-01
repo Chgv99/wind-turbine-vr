@@ -43,6 +43,7 @@ namespace WindTurbineVR.Core
             //Debug.Log("NacelleController");
             Vector3 current = transform.rotation * Vector3.forward;
             Vector3 objective = directionObjective * Vector3.forward;
+            Debug.Log("objective: " + objective.ToString());
             if (Vector3.Angle(current, objective) > 5)
             {
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, directionObjective, 0.01f);

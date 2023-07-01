@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 using WindTurbineVR.Core;
 using WindTurbineVR.Object;
 using WindTurbineVR.UI;
@@ -25,6 +26,25 @@ namespace WindTurbineVR.Object.Info
             if (sceneController == null) Error.LogException("SceneController is null");
 
             CreateUITrack();
+
+            switch (displayTrigger)
+            {
+                case DisplayTrigger.None:
+                    Enable();
+                    break;
+                case DisplayTrigger.Hover:
+                    //hoverEntered.AddListener(ShowInfo);
+                    //hoverExited.AddListener(DisposeUI);
+                    hoverEntered.AddListener(HoverEnable);
+                    hoverExited.AddListener(HoverDisable);
+                    Disable();
+                    break;
+                case DisplayTrigger.Selection:
+                    //selectEntered.AddListener(ShowInfo);
+                    selectEntered.AddListener(SwitchActiveState);
+                    Disable();
+                    break;
+            }
         }
 
         void Show()
@@ -34,6 +54,16 @@ namespace WindTurbineVR.Object.Info
             Enable();
             float height = sceneController.xrOrigin.Find("CameraOffset/Main Camera").position.y;
             UIInstance.transform.position = new Vector3(transform.position.x, height, transform.position.z);
+        }
+
+        protected void HoverEnable(HoverEnterEventArgs arg0) => Enable();
+
+        protected void HoverDisable(HoverExitEventArgs arg0) => Disable();
+
+        protected void SwitchActiveState(SelectEnterEventArgs arg0)
+        {
+            if (UIInstance.GetComponent<InfoView>().IsActive()) Disable();
+            else Enable();
         }
 
         protected override void CreateUI(float height)
