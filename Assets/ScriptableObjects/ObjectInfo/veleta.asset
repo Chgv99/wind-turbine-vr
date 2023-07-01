@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d47127905a0aea44b034da6d733f88d, type: 3}
+  m_Name: veleta
+  m_EditorClassIdentifier: 
+  title: Veleta
+  description:
+  - "Dispositivo que capta la direcci\xF3n del viento. Esta direcci\xF3n es le\xEDda
+    por el ordenador de control varias veces por minuto, activando el sistema de
+    orientaci\xF3n."
+  pictures:
+  - {fileID: 21300000, guid: 3ad1ec8c949f225439fb037021a0e340, type: 3}
+  video: 
