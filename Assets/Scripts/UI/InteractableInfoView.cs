@@ -104,12 +104,16 @@ namespace WindTurbineVR.UI
 
         protected override void NextPage()
         {
-            SetBody(Info.Description[GoToNextPage()]);
+            int next = GoToNextPage();
+            Debug.Log("next page: " + next);
+            SetBody(Info.Description[next]);
         }
 
         protected override void PreviousPage()
         {
-            SetBody(Info.Description[GoToPreviousPage()]);
+            int previous = GoToPreviousPage();
+            Debug.Log("previous page: " + previous);
+            SetBody(Info.Description[previous]);
         }
 
         protected override void EndPagination()
