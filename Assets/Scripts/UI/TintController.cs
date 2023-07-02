@@ -24,7 +24,12 @@ namespace WindTurbineVR.UI
             for (int i = 0; i < transform.childCount; i++)
             {
                 Transform child = transform.GetChild(i);
-                child.gameObject.layer = layer;
+
+                // Checks if SEETHROUGH is enabled before changing the layer to "Highlight".
+                // which causes a seethrough behaviour.
+                //if (layer == 0 || PlayerPrefs.HasKey("SEETHROUGH")) 
+                    child.gameObject.layer = layer;
+
                 if (child.childCount > 0) SetLayer(layer, child);
             }
         }

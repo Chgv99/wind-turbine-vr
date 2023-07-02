@@ -78,13 +78,11 @@ namespace WindTurbineVR.Object
                 if (child.childCount > 0) SetRenderersAndColliders(child);
 
                 MeshRenderer mr = child.GetComponent<MeshRenderer>();
-                if (mr != null)
-                {
-                    Collider collider = child.gameObject.GetComponent<Collider>();
-                    //if (meshCollider == null) meshCollider = child.gameObject.AddComponent<MeshCollider>();
-                    colliders.Add(collider);
-                    tintController.tintRenderers.Add(mr);
-                }
+                if (mr != null) tintController.tintRenderers.Add(mr);
+
+                Collider collider = child.gameObject.GetComponent<Collider>();
+                if (collider != null) colliders.Add(collider);
+                //if (meshCollider == null) meshCollider = child.gameObject.AddComponent<MeshCollider>();
             }
         }
 
