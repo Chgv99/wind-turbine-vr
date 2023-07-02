@@ -23,12 +23,19 @@ namespace WindTurbineVR.Core
         void Update()
         {
             windSpeed = climate.WindSpeed;
+            Debug.Log("windSpeed from anemometer: " + windSpeed);
 
             /** stablish a maximum rotation speed
              *  then map windspeed to the range
              *  from zero to the maximum rotation speed */
 
-            GetComponent<Rigidbody>().AddTorque(Vector3.up * windSpeed);
+            
+        }
+
+        void FixedUpdate()
+        {
+            transform.Rotate(transform.up * -1, windSpeed * 60 * Time.deltaTime);
+            //GetComponent<Rigidbody>().AddTorque(transform.up * windSpeed * 100);
         }
     }
 }
