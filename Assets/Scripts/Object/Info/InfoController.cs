@@ -143,9 +143,12 @@ namespace WindTurbineVR.Object
             Vector3 position = new Vector3();
             Quaternion rotation = transform.rotation;
 
-            if (displayMode == DisplayMode.StaticAlternative || displayMode == DisplayMode.StaticAlternativeFixed)
+            if (displayMode == DisplayMode.StaticAlternative || 
+                displayMode == DisplayMode.StaticAlternativeFixed ||
+                displayMode == DisplayMode.StaticAlternativePivot)
             {
                 position = (alternativeUI != null) ? alternativeUI.position : position;
+                position = new Vector3(position.x, position.y + height, position.z);
                 rotation = (alternativeUI != null) ? alternativeUI.rotation : rotation;
             }
             else position = new Vector3(transform.position.x, transform.position.y + height, transform.position.z);
@@ -166,7 +169,7 @@ namespace WindTurbineVR.Object
         IEnumerator SetParent()
         {
             yield return new WaitForSeconds(0.1f);
-            UIInstance.transform.parent = transform;
+            UIInstance.transform.parent = parent;
         }
 
         protected void DisposeUI(HoverExitEventArgs arg0)

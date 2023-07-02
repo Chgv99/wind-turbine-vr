@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d47127905a0aea44b034da6d733f88d, type: 3}
-  m_Name: multiplicadora
+  m_Name: disco-de-freno
   m_EditorClassIdentifier: 
-  title: Multiplicadora
+  title: Disco de freno
   description:
-  - La multiplicadora eleva las revoluciones del rotor por encima de las 100 veces
-    mediante un sistema de engranajes.
-  - "Estas revoluciones son transmitidas al generador el\xE9ctrico mediante el eje
-    r\xE1pido, que gira entorno a las 15000 revoluciones por minuto."
+  - "Va unido al eje r\xE1pido y es la superficie de fricci\xF3n del freno hidr\xE1ulico
+    del aerogenerador. "
   pictures:
-  - {fileID: 21300000, guid: 6f4eadcd392af0a4899cb79e918c1f15, type: 3}
+  - {fileID: 21300000, guid: 8c6354061e0a1024492c6b73d3e030b2, type: 3}
   video: 
