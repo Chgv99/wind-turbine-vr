@@ -26,8 +26,10 @@ namespace WindTurbineVR.Object.Info
             prefabUI = Resources.Load("UI/InteractableUI") as GameObject;
             base.Start();
 
-            tintController = GetComponent<XRTintInteractableVisual>();
+            tintController = GetComponent<TintController>();
             SetRenderersAndColliders(transform);
+
+            //tintController.TintOn();
 
             //enabled = gameObject.activeSelf;
 

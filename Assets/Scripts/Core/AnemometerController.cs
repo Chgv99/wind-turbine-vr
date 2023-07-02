@@ -28,6 +28,7 @@ namespace WindTurbineVR.Core
              *  then map windspeed to the range
              *  from zero to the maximum rotation speed */
 
+            GetComponent<Rigidbody>().AddTorque(Vector3.up * windSpeed);
         }
     }
 }

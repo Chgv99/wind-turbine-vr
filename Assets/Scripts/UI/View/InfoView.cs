@@ -19,6 +19,7 @@ namespace WindTurbineVR.UI
         StaticPivot,
         StaticAlternative,
         StaticAlternativeFixed, //won't look for the player on awake
+        StaticAlternativePivot,
         FrontPivot
     }
 
@@ -200,6 +201,9 @@ namespace WindTurbineVR.UI
                 case DisplayMode.StaticAlternative:
                     break;
                 case DisplayMode.StaticAlternativeFixed:
+                    break;
+                case DisplayMode.StaticAlternativePivot:
+                    dc.SetDirection();
                     break;
             }
         }

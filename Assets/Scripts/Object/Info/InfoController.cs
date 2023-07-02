@@ -24,7 +24,7 @@ namespace WindTurbineVR.Object
      * Add timer behaviour to hover exit?
      * Merge Info class into InfoController?
      */
-    [RequireComponent(typeof(XRTintInteractableVisual))]
+    [RequireComponent(typeof(TintController))]
     [RequireComponent(typeof(Data.Info))]
     public abstract class InfoController : XRSimpleInteractable
     {
@@ -49,7 +49,7 @@ namespace WindTurbineVR.Object
         [Space]
         [SerializeField] protected DisplayTrigger displayTrigger;
 
-        protected XRTintInteractableVisual tintController;
+        protected TintController tintController;
 
         [SerializeField] protected Transform alternativeUI;
 
@@ -140,7 +140,7 @@ namespace WindTurbineVR.Object
             Debug.Log("prefabUI: " + prefabUI);
             UIInstance = Instantiate(prefabUI);
 
-            if (parent != null) StartCoroutine(SetParent());
+            StartCoroutine(SetParent());
 
             Vector3 position = new Vector3();
             Quaternion rotation = transform.rotation;
@@ -168,7 +168,7 @@ namespace WindTurbineVR.Object
         IEnumerator SetParent()
         {
             yield return new WaitForSeconds(0.1f);
-            UIInstance.transform.parent = parent;
+            UIInstance.transform.parent = transform;
         }
 
         protected void DisposeUI(HoverExitEventArgs arg0)
