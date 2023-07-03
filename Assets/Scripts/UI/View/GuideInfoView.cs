@@ -131,8 +131,12 @@ namespace WindTurbineVR.UI
                 //Task task = task.Task;
                 //Debug.Log("task: " + task.Description);
                 GameObject taskInstance = Instantiate(taskPrefab, taskListTransform);
-
+                Debug.Log("GuideInfoView " + taskInstance.transform.Find("Toggle"));
+                Debug.Log(gameObject.name);
                 Transform toggleT = taskInstance.transform.Find("Toggle");
+                Debug.Log("toggleT: " + toggleT);
+                Debug.Log("task: " + task);
+                Debug.Log("task description inside GuideInfoView.UpdateContent(): " + task.Description);
                 toggleT.Find("Label").GetComponent<TextMeshProUGUI>().text = task.Description;
 
                 Toggle toggle = toggleT.GetComponent<Toggle>();
@@ -172,6 +176,8 @@ namespace WindTurbineVR.UI
         public override void UpdateColor(Color color)
         {
             base.UpdateColor(color);
+            Debug.Log("UpdateColor" + gameObject.name);
+            Debug.Log("Color: " + color.ToString());
             SetButtonColor(closeButton.GetComponent<Button>(), color);
             SetButtonColor(continueButton.GetComponent<Button>(), color);
         }

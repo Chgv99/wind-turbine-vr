@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Events;
 using WindTurbineVR.Data;
+using WindTurbineVR.Core;
 
 namespace WindTurbineVR.Guide
 {
@@ -60,11 +62,14 @@ namespace WindTurbineVR.Guide
 
         public List<Task> GetTasks()
         {
+            Debug.Log("GetTasks()");
             List<Task> taskData = new List<Task>();
             foreach (TaskController taskController in tasks)
             {
+                Debug.Log("taskController: " + taskController.gameObject.name);
                 taskData.Add(taskController.Task);
             }
+            Debug.Log("taskData cero: " + taskData[0]);
             return taskData;
         }
 

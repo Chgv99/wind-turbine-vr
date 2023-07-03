@@ -24,7 +24,7 @@ namespace WindTurbineVR.Guide
         public UnityEvent TaskChecked { get => taskChecked; set => taskChecked = value; }
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             sceneController = GameObject.Find("SceneController").GetComponent<TurbineSceneController>();
             if (sceneController == null) Error.LogException("SceneController not found");

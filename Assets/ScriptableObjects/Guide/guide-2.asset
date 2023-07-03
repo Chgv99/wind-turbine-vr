@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d47127905a0aea44b034da6d733f88d, type: 3}
-  m_Name: funcionamiento-aerogenerador
+  m_Name: guide-2
   m_EditorClassIdentifier: 
-  title: "\xBFQu\xE9 es y c\xF3mo funciona un aerogenerador?"
-  description: []
+  title: "Gu\xEDa"
+  description:
+  - 'Antes de entrar al aerogenerador, es indispensable hacer uso de los accesorios
+    de seguridad. '
   pictures: []
   video: 

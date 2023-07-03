@@ -48,7 +48,7 @@ namespace WindTurbineVR.Object.Info
             }
 
             CreateUI();
-            Disable();
+            if (displayTrigger != DisplayTrigger.None) Disable();
         }
 
         protected void HoverEnable(HoverEnterEventArgs arg0) => Enable();

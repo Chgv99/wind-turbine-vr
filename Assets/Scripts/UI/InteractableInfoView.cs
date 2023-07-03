@@ -67,7 +67,9 @@ namespace WindTurbineVR.UI
         // Start is called before the first frame update
         void Start()
         {
-            if (DisplayTrigger == DisplayTrigger.Hover) GetComponent<Canvas>().enabled = false;
+            /*if (DisplayTrigger == DisplayTrigger.Hover ||
+                DisplayTrigger == DisplayTrigger.Selection) GetComponent<Canvas>().enabled = false;
+            else GetComponent<Canvas>().enabled = false;*/
             //Show();
         }
 

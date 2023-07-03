@@ -70,10 +70,6 @@ namespace WindTurbineVR.Guide
             base.CreateUI(height);
 
             //if (taskList.Count == 0) Debug.Log("task list is empty");
-            Debug.Log("UIInstance: " + UIInstance);
-            Debug.Log(GuideOrdinal.x + ", " + GuideOrdinal.y);
-            Debug.Log(Info.Title + ", " + Info.Description);
-            Debug.Log("taskmanager: " + taskManager);
             UIInstance.GetComponent<GuideInfoView>().ContinueButtonPressed.AddListener(CompleteList);
             UIInstance.GetComponent<GuideInfoView>().UpdateContent(GuideOrdinal, Info, taskManager.GetTasks());
             //UIInstance.GetComponent<GuideInfoView>().UpdateContent(GuideOrdinal, Info, taskManager.GetTasks());

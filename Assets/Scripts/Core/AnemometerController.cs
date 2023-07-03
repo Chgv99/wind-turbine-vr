@@ -23,7 +23,7 @@ namespace WindTurbineVR.Core
         void Update()
         {
             windSpeed = climate.WindSpeed;
-            Debug.Log("windSpeed from anemometer: " + windSpeed);
+            //Debug.Log("windSpeed from anemometer: " + windSpeed);
 
             /** stablish a maximum rotation speed
              *  then map windspeed to the range

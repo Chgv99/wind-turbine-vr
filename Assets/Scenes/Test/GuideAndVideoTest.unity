@@ -1468,6 +1468,7 @@ MonoBehaviour:
   xrOrigin: {fileID: 57702005}
   wind_speed: 0
   wind_direction: 0
+  climaticControl: {fileID: 0}
 --- !u!1 &698245550
 GameObject:
   m_ObjectHideFlags: 0
@@ -4479,6 +4480,7 @@ GameObject:
   - component: {fileID: 1825299117}
   - component: {fileID: 1825299116}
   - component: {fileID: 1825299115}
+  - component: {fileID: 1825299121}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -4570,9 +4572,11 @@ MonoBehaviour:
       m_Calls: []
   prefabUI: {fileID: 0}
   uiInstance: {fileID: 0}
+  parent: {fileID: 0}
   displayMode: 2
   displayTrigger: 1
   alternativeUI: {fileID: 0}
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1825299116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4588,8 +4592,9 @@ MonoBehaviour:
   useInfoCard: 0
   infoCard: {fileID: 0}
   title: Ej
-  description: There
-  url: https://www.dropbox.com/s/anc896dcraq0qnm/SnapSave.io-%C2%BFC%C3%B3mo%20funciona%20un%20aerogenerador_%20%20_%20Sostenibilidad%20-%20ACCIONA%28720p%29.mp4?dl=0
+  description: []
+  pictures: []
+  video: 
 --- !u!65 &1825299117
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4668,6 +4673,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1825299121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825299114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb4ff3afde2cbab42b535639ce191ff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TintColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  m_TintOnHover: 1
+  m_TintOnSelection: 1
+  m_TintRenderers: []
 --- !u!1001 &1831348265
 PrefabInstance:
   m_ObjectHideFlags: 0
