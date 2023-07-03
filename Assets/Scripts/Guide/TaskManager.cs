@@ -62,14 +62,11 @@ namespace WindTurbineVR.Guide
 
         public List<Task> GetTasks()
         {
-            Debug.Log("GetTasks()");
             List<Task> taskData = new List<Task>();
             foreach (TaskController taskController in tasks)
             {
-                Debug.Log("taskController: " + taskController.gameObject.name);
                 taskData.Add(taskController.Task);
             }
-            Debug.Log("taskData cero: " + taskData[0]);
             return taskData;
         }
 

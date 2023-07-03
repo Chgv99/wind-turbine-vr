@@ -117,6 +117,14 @@ namespace WindTurbineVR.Object
             }
         }
 
+        protected void RefreshUI()
+        {
+            if (UIInstance != null)
+            {
+                UIInstance.GetComponent<InfoView>().RefreshFitter();
+            }
+        }
+
         protected void CreateUITrack() => CreateUI(true);
 
         protected void CreateUI() => CreateUI(false);

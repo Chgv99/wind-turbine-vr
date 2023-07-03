@@ -246,9 +246,18 @@ namespace WindTurbineVR.UI
             return GetComponent<Canvas>().isActiveAndEnabled;
         }
 
-        public void Enable() => GetComponent<Canvas>().enabled = true;
+        public void Enable()
+        {
+            if (GetComponent<Canvas>() != null) GetComponent<Canvas>().enabled = true;
+            //if (GetComponent<ContentSizeFitter>() != null) GetComponent<ContentSizeFitter>().enabled = true;
+            RefreshFitter();
+        }
 
-        public void Disable() => GetComponent<Canvas>().enabled = false;
+        public void Disable()
+        {
+            if (GetComponent<Canvas>() != null) GetComponent<Canvas>().enabled = false;
+            //if (GetComponent<ContentSizeFitter>() != null) GetComponent<ContentSizeFitter>().enabled = false;
+        }
 
         public void Dispose()
         {
@@ -256,7 +265,26 @@ namespace WindTurbineVR.UI
             Destroy(gameObject);
         }
 
-        protected abstract void NextPage();
+        public void RefreshFitter()
+        {
+            if (GetComponent<ContentSizeFitter>() != null)
+            {
+                GetComponent<ContentSizeFitter>().enabled = false;
+                StartCoroutine(EnableContentSizeFitter());
+            }
+            
+        }
+
+        IEnumerator EnableContentSizeFitter()
+        {
+            yield return new WaitForSecondsRealtime(0.1f);
+            GetComponent<ContentSizeFitter>().enabled = true;
+        }
+
+        protected virtual void NextPage()
+        {
+            RefreshFitter();
+        }
 
         protected int GoToNextPage()
         {

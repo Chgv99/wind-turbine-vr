@@ -109,6 +109,7 @@ namespace WindTurbineVR.UI
             int next = GoToNextPage();
             Debug.Log("next page: " + next);
             SetBody(Info.Description[next]);
+            base.NextPage();
         }
 
         protected override void PreviousPage()

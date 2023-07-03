@@ -555,7 +555,7 @@ PrefabInstance:
     - target: {fileID: 9061247471213234812, guid: cafe09831c748e549afb4c804bee7278,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cafe09831c748e549afb4c804bee7278, type: 3}
@@ -1914,6 +1914,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AudioController
+      objectReference: {fileID: 0}
+    - target: {fileID: 8005800094911903879, guid: 6e41c34188bbe4348a80f5dc4ee42366,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e41c34188bbe4348a80f5dc4ee42366, type: 3}
