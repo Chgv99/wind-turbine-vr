@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using WindTurbineVR.Core;
 using WindTurbineVR.Data;
 
 namespace WindTurbineVR.UI
@@ -21,10 +23,15 @@ namespace WindTurbineVR.UI
 
         GameObject picturesObject; //show on button click
 
+        protected GameObject prevPicButton;
+        protected GameObject nextPicButton;
+
         [SerializeField] GameObject videoButton;
         [SerializeField] GameObject closeVideoButton;
 
         GameObject videoObject; //show on button click
+
+        int picture = 0;
 
         public void SetTitle (string text) => title.GetComponent<TextMeshProUGUI>().text = text;
         public void SetBody(string text) => body.GetComponent<TextMeshProUGUI>().text = text;
@@ -46,10 +53,18 @@ namespace WindTurbineVR.UI
             main = transform.Find("Main").gameObject;
             title = transform.Find("TitleText").gameObject;
             body = main.transform.Find("BodyText").gameObject;
-            
+
+            #region Pictures
             picturesObject = transform.Find("Pictures").gameObject;
             picturesButton = main.transform.Find("PicturesButton").gameObject;
             picturesButton.GetComponent<Button>().onClick.AddListener(ShowPictures);
+
+            prevPicButton = picturesObject.transform.Find("NextPrevButtons/PreviousButton").gameObject;
+            nextPicButton = picturesObject.transform.Find("NextPrevButtons/NextButton").gameObject;
+
+            prevPicButton.GetComponent<Button>().onClick.AddListener(PreviousPicture);
+            nextPicButton.GetComponent<Button>().onClick.AddListener(NextPicture);
+            #endregion
 
             videoObject = transform.Find("Video").gameObject;
             videoButton = main.transform.Find("VideoButton").gameObject;
@@ -135,6 +150,54 @@ namespace WindTurbineVR.UI
         protected override void EndPagination()
         {
             throw new System.NotImplementedException();
+        }
+
+        protected void NextPicture()
+        {
+            int next = GoToNextPicture();
+            Debug.Log("next page: " + next);
+            SetPicture(Info.Pictures[next]);
+            RefreshFitter();
+        }
+
+        protected int GoToNextPicture()
+        {
+            prevPicButton.GetComponent<Button>().interactable = true;
+            if (picture + 1 >= Info.Pictures.Length - 1)
+            {
+                nextPicButton.GetComponent<Button>().interactable = false;
+                try
+                {
+                    EndPagination();
+                }
+                catch (Exception ex) { Error.LogExceptionNoBreak(ex.Message); }
+            }
+
+            if ((picture + 1) < Info.Pictures.Length)
+            {
+                return ++picture;
+            }
+            else return -1;
+        }
+
+        protected void PreviousPicture()
+        {
+            int prev = GoToPreviousPicture();
+            Debug.Log("next page: " + prev);
+            SetPicture(Info.Pictures[prev]);
+            RefreshFitter();
+        }
+
+        protected int GoToPreviousPicture()
+        {
+            nextPicButton.GetComponent<Button>().interactable = true;
+            if ((picture - 1) <= 0) prevPicButton.GetComponent<Button>().interactable = false;
+
+            if ((picture - 1) >= 0)
+            {
+                return --picture;
+            }
+            else return -1;
         }
 
         public override void UpdateContent(Info info)

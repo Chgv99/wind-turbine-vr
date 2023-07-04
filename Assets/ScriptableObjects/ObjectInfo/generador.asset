@@ -17,6 +17,6 @@ MonoBehaviour:
   - "Es el dispositivo encargado de convertir la energ\xEDa mec\xE1nica rotacional
     en energ\xEDa el\xE9ctrica."
   pictures:
-  - {fileID: 21300000, guid: cc49c9d9326091a40815b19526d10a15, type: 3}
   - {fileID: 21300000, guid: 33caf8b8a012fbb4eacec5b761e13594, type: 3}
+  - {fileID: 21300000, guid: cc49c9d9326091a40815b19526d10a15, type: 3}
   video: 
