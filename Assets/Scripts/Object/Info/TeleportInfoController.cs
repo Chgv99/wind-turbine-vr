@@ -44,6 +44,9 @@ namespace WindTurbineVR.Object.Info
                     selectEntered.AddListener(SwitchActiveState);
                     Disable();
                     break;
+                case DisplayTrigger.TriggerStay:
+                    Disable();
+                    break;
             }
         }
 

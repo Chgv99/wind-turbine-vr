@@ -143,6 +143,7 @@ namespace WindTurbineVR.UI
             Debug.Log("camera obj: " + sceneController.Camera);
             Debug.Log("canvas: " + GetComponent<Canvas>());*/
             GetComponent<Canvas>().worldCamera = sceneController.Camera.GetComponent<Camera>();
+
             ///////////sceneController.TaskChecked.AddListener(UpdateObjectTasks);            
             if (displayMode != DisplayMode.StaticFixed && displayMode != DisplayMode.StaticAlternativeFixed)
             {
