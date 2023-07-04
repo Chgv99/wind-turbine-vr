@@ -37,5 +37,10 @@ namespace WindTurbineVR.UI
         {
             throw new System.NotImplementedException();
         }
+
+        protected override void ResetPagination()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

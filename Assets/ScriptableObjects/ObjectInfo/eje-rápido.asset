@@ -16,6 +16,5 @@ MonoBehaviour:
   description:
   - "El eje r\xE1pido conecta la multiplicadora con el generador el\xE9ctrico, transmitiendo
     la rotaci\xF3n tras haber sido convertida."
-  pictures:
-  - {fileID: 0}
+  pictures: []
   video: 

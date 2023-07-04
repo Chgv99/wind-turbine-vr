@@ -110,6 +110,12 @@ namespace WindTurbineVR.UI
             //base.Show();
         }
 
+        protected override void ResetPagination()
+        {
+            if (Info != null) SetBody(Info.Description[ResetPage()]);
+            PreviousPage();
+        }
+
         protected override void NextPage()
         {
             int next = GoToNextPage();
@@ -123,6 +129,7 @@ namespace WindTurbineVR.UI
             int previous = GoToPreviousPage();
             Debug.Log("previous page: " + previous);
             SetBody(Info.Description[previous]);
+            base.NextPage();
         }
 
         protected override void EndPagination()

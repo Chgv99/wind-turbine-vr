@@ -8,6 +8,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using WindTurbineVR.Core;
 using WindTurbineVR.Data;
+using static System.Net.Mime.MediaTypeNames;
 //using WindTurbineVR.Object;
 
 namespace WindTurbineVR.UI
@@ -257,6 +258,9 @@ namespace WindTurbineVR.UI
         public virtual void Disable()
         {
             if (GetComponent<Canvas>() != null) GetComponent<Canvas>().enabled = false;
+            /** TODO: FIX AND IMPLEMENT¿*/
+            //ResetPagination();
+            
             //if (GetComponent<ContentSizeFitter>() != null) GetComponent<ContentSizeFitter>().enabled = false;
         }
 
@@ -282,6 +286,14 @@ namespace WindTurbineVR.UI
             GetComponent<ContentSizeFitter>().enabled = true;
         }
 
+        protected abstract void ResetPagination();
+
+        protected int ResetPage()
+        {
+            page = 0;
+            return page;
+        }
+
         protected virtual void NextPage()
         {
             RefreshFitter();
@@ -291,7 +303,7 @@ namespace WindTurbineVR.UI
         {
             Debug.Log("Go To Next Page: " + page + ", " + Info.Description.Length);
             prevButton.GetComponent<Button>().interactable = true;
-            if (page + 1 == Info.Description.Length - 1)
+            if (page + 1 >= Info.Description.Length - 1)
             {
                 nextButton.GetComponent<Button>().interactable = false;
                 try
@@ -307,13 +319,16 @@ namespace WindTurbineVR.UI
             else return -1;
         }
 
-        protected abstract void PreviousPage();
+        protected virtual void PreviousPage()
+        {
+            RefreshFitter();
+        }
 
         protected int GoToPreviousPage()
         {
             Debug.Log("Go To Previous Page: " + page + ", " + Info.Description.Length);
             nextButton.GetComponent<Button>().interactable = true;
-            if ((page - 1) == 0) prevButton.GetComponent<Button>().interactable = false;
+            if ((page - 1) <= 0) prevButton.GetComponent<Button>().interactable = false;
 
             if ((page - 1) >= 0)
             {

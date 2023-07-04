@@ -254,6 +254,12 @@ namespace WindTurbineVR.UI
             ShowContinueButton();
         }
 
+        protected override void ResetPagination()
+        {
+            if (Info != null) SetBody(Info.Description[ResetPage()]);
+            PreviousPage();
+        }
+
         protected override void NextPage()
         {
             SetBody(Info.Description[GoToNextPage()]);

@@ -37,6 +37,8 @@ namespace WindTurbineVR.Object
 
         [SerializeField] protected GameObject prefabUI;
 
+        [SerializeField] protected int size = 1;
+
         [SerializeField] private GameObject uiInstance;
 
         [SerializeField] Transform parent;
@@ -67,6 +69,8 @@ namespace WindTurbineVR.Object
             //prefabUI = Resources.Load("UI/UI") as GameObject;
             if (prefabUI == null) Error.LogException("PrefabUI is null");
             Info = GetComponent<Data.Info>();
+
+            if (size == 0) size = 1;
         }
 
         protected void SetRenderersAndColliders(Transform transform)
@@ -181,6 +185,7 @@ namespace WindTurbineVR.Object
 
             UIInstance.transform.position = position;
             UIInstance.transform.rotation = rotation;
+            UIInstance.transform.localScale = UIInstance.transform.localScale * size;
 
             Debug.Log("Instance: " + UIInstance);
             Debug.Log("InfoView" + UIInstance.GetComponent<InfoView>());
