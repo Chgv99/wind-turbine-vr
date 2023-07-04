@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d47127905a0aea44b034da6d733f88d, type: 3}
+  m_Name: aerogenerador
+  m_EditorClassIdentifier: 
+  title: "\xBFQu\xE9 es y c\xF3mo funciona un aerogenerador?"
+  description:
+  - "Un aerogenerador es un dispositivo que convierte la energ\xEDa cin\xE9tica del
+    viento en energ\xEDa el\xE9ctrica que podemos utilizar. "
+  - "Esto lo consigue mediante el uso de componentes como las aspas, el rotor, una
+    multiplicadora y un generador el\xE9ctrico. "
+  - "Existen diferentes tipos de aerogeneradores seg\xFAn su forma, su potencia,
+    su generador, etc\u2026 "
+  - 'En nuestro caso, estamos ante un HAWT (Horizontal Axis Wind Turbine), up-wind
+    (que recibe el viento de frente) situado en tierra firme. '
+  pictures: []
+  video: 'https://www.dropbox.com/s/anc896dcraq0qnm/SnapSave.io-%C2%BFC%C3%B3mo%20funciona%20un%20aerogenerador_%20%20_%20Sostenibilidad%20-%20ACCIONA%28720p%29.mp4?dl=0 '
