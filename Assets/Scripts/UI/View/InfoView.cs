@@ -254,7 +254,7 @@ namespace WindTurbineVR.UI
             RefreshFitter();
         }
 
-        public void Disable()
+        public virtual void Disable()
         {
             if (GetComponent<Canvas>() != null) GetComponent<Canvas>().enabled = false;
             //if (GetComponent<ContentSizeFitter>() != null) GetComponent<ContentSizeFitter>().enabled = false;

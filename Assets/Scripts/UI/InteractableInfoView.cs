@@ -99,6 +99,12 @@ namespace WindTurbineVR.UI
             videoObject.SetActive(false);
         }
 
+        public override void Disable()
+        {
+            base.Disable();
+            HideVideo();
+        }
+
         protected override void Show()
         {
             //base.Show();

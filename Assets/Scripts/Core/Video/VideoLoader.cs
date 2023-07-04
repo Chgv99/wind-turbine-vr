@@ -43,5 +43,10 @@ public class VideoLoader : MonoBehaviour
     void Update()
     {
         rt.sizeDelta = new Vector2(rt.rect.width, rt.rect.width / ratio);
+
+        if (!gameObject.activeInHierarchy)
+        {
+            videoPlayer.Stop();
+        }
     }
 }
