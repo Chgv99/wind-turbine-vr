@@ -125,6 +125,24 @@ namespace WindTurbineVR.Object
             }
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if (displayTrigger != DisplayTrigger.TriggerStay) return;
+            if (other.gameObject.name != "XR Origin") return;
+
+            Enable();
+            //float height = other.transform.Find("CameraOffset/Main Camera").position.y;
+            //UIInstance.transform.position = new Vector3(transform.position.x, height, transform.position.z);
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (displayTrigger != DisplayTrigger.TriggerStay) return;
+            if (other.gameObject.name != "XR Origin") return;
+
+            Disable();
+        }
+
         protected void CreateUITrack() => CreateUI(true);
 
         protected void CreateUI() => CreateUI(false);

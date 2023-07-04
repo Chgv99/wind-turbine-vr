@@ -39,7 +39,11 @@ namespace WindTurbineVR.UI
             //Show();
         }
 
-        public void Teleport() => teleportController.Teleport();
+        public void Teleport()
+        {
+            Disable();
+            teleportController.Teleport();
+        }
 
         protected override void Show()
         {
