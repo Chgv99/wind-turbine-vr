@@ -9,6 +9,7 @@ using UnityEngine.Events;
 using WindTurbineVR.Core;
 using WindTurbineVR.Data;
 using static System.Net.Mime.MediaTypeNames;
+using System.Runtime.CompilerServices;
 //using WindTurbineVR.Object;
 
 namespace WindTurbineVR.UI
@@ -45,7 +46,7 @@ namespace WindTurbineVR.UI
 
     public abstract class InfoView : MonoBehaviour
     {
-        public SceneController sceneController;
+        public TurbineSceneController sceneController;
 
         protected Transform modal;
 
@@ -84,6 +85,8 @@ namespace WindTurbineVR.UI
         bool immortal = false;
 
         UnityEvent completed;
+
+        protected UnityEvent playerTeleported;
 
         public ContentType ContentType { get => contentType; set => contentType = value; }
         public DisplayMode DisplayMode { get => displayMode; set => displayMode = value; }
@@ -133,12 +136,16 @@ namespace WindTurbineVR.UI
             //GetComponent<Canvas>().enabled = false;
             //SceneController sc = GameObject.Find("SceneController").GetComponent<SceneController>();
             //TurbineSceneController tsc = GameObject.Find("SceneController").GetComponent<TurbineSceneController>();
-            sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
+            sceneController = GameObject.Find("SceneController").GetComponent<TurbineSceneController>();
 
             modal = transform.Find("Modal");
             dc = new DirectionController(sceneController, transform, DisplayMode);
 
             Completed = new UnityEvent();
+
+            playerTeleported = sceneController.PlayerTeleported;
+
+            SetTeleportedAction();
 
             /**Debug.Log("sceneController: " + sceneController);
             Debug.Log("camera obj: " + sceneController.Camera);
@@ -172,6 +179,8 @@ namespace WindTurbineVR.UI
         {
             prevButton.GetComponent<Button>().onClick.RemoveListener(PreviousPage);
             nextButton.GetComponent<Button>().onClick.RemoveListener(NextPage);
+
+            playerTeleported.RemoveListener(Disable);
         }
 
         protected void Start()
@@ -217,6 +226,8 @@ namespace WindTurbineVR.UI
             SetButtonColor(nextButton.GetComponent<Button>(), color);
             //nextPrev.SetActive(false);
         }
+
+        protected abstract void SetTeleportedAction();
 
         protected void ShowNextPrev() => nextPrev.SetActive(true);
 

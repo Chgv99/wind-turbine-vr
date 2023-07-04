@@ -270,5 +270,10 @@ namespace WindTurbineVR.UI
         {
             SetBody(Info.Description[GoToPreviousPage()]);
         }
+
+        protected override void SetTeleportedAction()
+        {
+            
+        }
     }
 }

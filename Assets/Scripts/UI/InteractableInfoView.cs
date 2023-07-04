@@ -88,6 +88,11 @@ namespace WindTurbineVR.UI
             //Show();
         }
 
+        protected override void SetTeleportedAction()
+        {
+            playerTeleported.AddListener(Disable);
+        }
+
         public void ShowPictures()
         {
             main.SetActive(false);

@@ -42,5 +42,10 @@ namespace WindTurbineVR.UI
         {
             throw new System.NotImplementedException();
         }
+
+        protected override void SetTeleportedAction()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

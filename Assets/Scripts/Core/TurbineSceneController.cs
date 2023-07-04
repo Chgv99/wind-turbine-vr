@@ -30,6 +30,7 @@ namespace WindTurbineVR.Core
         UnityEvent harnessDetached;
         UnityEvent lifelineHalt;
         UnityEvent lifelineRelease;
+        UnityEvent playerTeleported;
 
         public float Wind_speed { get => wind_speed; }
         public float Wind_direction { get => wind_direction; set => wind_direction = value; }
@@ -40,6 +41,7 @@ namespace WindTurbineVR.Core
         public UnityEvent HarnessDetached { get => harnessDetached; set => harnessDetached = value; }
         public UnityEvent LifelineHalt { get => lifelineHalt; set => lifelineHalt = value; }
         public UnityEvent LifelineRelease { get => lifelineRelease; set => lifelineRelease = value; }
+        public UnityEvent PlayerTeleported { get => playerTeleported; set => playerTeleported = value; }
 
         // Start is called before the first frame update
         public override void Awake()
@@ -61,6 +63,7 @@ namespace WindTurbineVR.Core
             HarnessDetached = new UnityEvent();
             lifelineHalt = new UnityEvent();
             lifelineRelease = new UnityEvent();
+            playerTeleported = new UnityEvent();
             //Debug.Log(taskChecked);
 
             /*if (SceneManager.GetActiveScene().name == "Turbine")

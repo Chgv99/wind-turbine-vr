@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using WindTurbineVR.Core;
 
@@ -25,6 +26,7 @@ namespace WindTurbineVR.UI
         {
             base.Awake(); //unnecessary?
 
+            playerTeleported = sceneController.PlayerTeleported;
             //teleportController = GetComponent<TeleportController>();
 
             main = transform.Find("Main").gameObject;
@@ -41,8 +43,14 @@ namespace WindTurbineVR.UI
 
         public void Teleport()
         {
-            Disable();
+            //Disable();
+            playerTeleported?.Invoke();
             teleportController.Teleport();
+        }
+
+        protected override void SetTeleportedAction()
+        {
+            playerTeleported.AddListener(Disable);
         }
 
         protected override void Show()
