@@ -16679,14 +16679,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652640144}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0.135, z: 0.08}
+  m_LocalRotation: {x: -0.54931456, y: 0, z: 0, w: 0.8356157}
+  m_LocalPosition: {x: -0, y: 0.115, z: -0.1}
   m_LocalScale: {x: 0.46083, y: 0.46083, z: 0.46083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1775207938}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -66.64, y: 0, z: 0}
 --- !u!114 &652640146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16734,6 +16734,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: WindTurbineVR.Guide.TaskController, Guide
         m_MethodName: ActionListener
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1939233217}
+        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -27697,7 +27709,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1084876006}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d44abbcf434a8d41a7ddaffdfd921f8, type: 3}
   m_Name: 
@@ -37257,6 +37269,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1425028384}
   m_Mesh: {fileID: 5755438076697665490, guid: 794e9166a46f87b4d9aa09fe69c55ac7, type: 3}
+--- !u!114 &1426476073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084876008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d44abbcf434a8d41a7ddaffdfd921f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  harness: {fileID: 1084876005}
+  attached: 0
+  harnessAttached: 0
 --- !u!1 &1426851606
 GameObject:
   m_ObjectHideFlags: 0
@@ -48706,7 +48733,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
