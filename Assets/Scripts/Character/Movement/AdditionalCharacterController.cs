@@ -72,10 +72,10 @@ namespace WindTurbineVR.Character.Movement
                 transform.position.z + capsuleCollider.center.z);
             float rayLength = (capsuleCollider.height / 3);
             Debug.DrawRay(rayOrigin, Vector3.down * rayLength, Color.red);
-            Debug.DrawRay(rayOrigin, Quaternion.Euler(45, 0, 0) * Vector3.down * rayLength, Color.green);
-            Debug.DrawRay(rayOrigin, Quaternion.Euler(-45, 0, 0) * Vector3.down * rayLength, Color.blue);
-            Debug.DrawRay(rayOrigin, Quaternion.Euler(0, 0, 45) * Vector3.down * rayLength, Color.yellow);
-            Debug.DrawRay(rayOrigin, Quaternion.Euler(0, 0, -45) * Vector3.down * rayLength, Color.white);
+            Debug.DrawRay(rayOrigin, Quaternion.Euler(45, 0, 0) * Vector3.down * rayLength * 1.25f, Color.green);
+            Debug.DrawRay(rayOrigin, Quaternion.Euler(-45, 0, 0) * Vector3.down * rayLength * 1.25f, Color.blue);
+            Debug.DrawRay(rayOrigin, Quaternion.Euler(0, 0, 45) * Vector3.down * rayLength * 1.25f, Color.yellow);
+            Debug.DrawRay(rayOrigin, Quaternion.Euler(0, 0, -45) * Vector3.down * rayLength * 1.25f, Color.white);
             RaycastHit hit;
             /*if (Physics.Raycast(rayOrigin, Vector3.down, out hit, rayLength, LayerMask.GetMask("Default", "Environment")))
             {
@@ -83,10 +83,10 @@ namespace WindTurbineVR.Character.Movement
                 Debug.Log("Did Hit");
             }*/
             return (Physics.Raycast(rayOrigin, Vector3.down, out hit, rayLength, LayerMask.GetMask("Default", "Environment")) ||
-                Physics.Raycast(rayOrigin, Quaternion.Euler(45, 0, 0) * Vector3.down, out hit, rayLength, LayerMask.GetMask("Default", "Environment")) ||
-                Physics.Raycast(rayOrigin, Quaternion.Euler(-45, 0, 0) * Vector3.down, out hit, rayLength, LayerMask.GetMask("Default", "Environment")) ||
-                Physics.Raycast(rayOrigin, Quaternion.Euler(0, 0, 45) * Vector3.down, out hit, rayLength, LayerMask.GetMask("Default", "Environment")) ||
-                Physics.Raycast(rayOrigin, Quaternion.Euler(0, 0, -45) * Vector3.down, out hit, rayLength, LayerMask.GetMask("Default", "Environment")));
+                Physics.Raycast(rayOrigin, Quaternion.Euler(45, 0, 0) * Vector3.down, out hit, rayLength * 1.25f, LayerMask.GetMask("Default", "Environment")) ||
+                Physics.Raycast(rayOrigin, Quaternion.Euler(-45, 0, 0) * Vector3.down, out hit, rayLength * 1.25f, LayerMask.GetMask("Default", "Environment")) ||
+                Physics.Raycast(rayOrigin, Quaternion.Euler(0, 0, 45) * Vector3.down, out hit, rayLength * 1.25f, LayerMask.GetMask("Default", "Environment")) ||
+                Physics.Raycast(rayOrigin, Quaternion.Euler(0, 0, -45) * Vector3.down, out hit, rayLength * 1.25f, LayerMask.GetMask("Default", "Environment")));
         }
 
         public void EnableGravity() => SetGravity(true);
@@ -120,10 +120,10 @@ namespace WindTurbineVR.Character.Movement
                 EnableControl();
             }
 
-            /*if (_lifelineHalt)
+            if (_lifelineHalt)
             {
-                //rb.velocity = Vector3.zero;
-            }*/
+                GetComponent<Rigidbody>().velocity = Vector3.zero;
+            }
 
             if (IsGrounded() && !_climbing) Debug.Log("Grounded");
 
