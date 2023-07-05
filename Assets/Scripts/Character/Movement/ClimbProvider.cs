@@ -12,7 +12,8 @@ namespace WindTurbineVR.Character.Movement
         public static event Action ClimbActive;
         public static event Action ClimbInActive;
 
-        public CharacterController characterController;
+        //public CharacterController characterController;
+        public AdditionalCharacterController characterController;
         public InputActionProperty velocityRight;
         public InputActionProperty velocityLeft;
 
@@ -75,7 +76,7 @@ namespace WindTurbineVR.Character.Movement
         {
             Vector3 velocity = _leftActive ? velocityLeft.action.ReadValue<Vector3>() : velocityRight.action.ReadValue<Vector3>();
 
-            characterController.Move(characterController.transform.rotation * -velocity * Time.fixedDeltaTime);
+            characterController.Move(characterController.mainCamera.rotation * -velocity * Time.fixedDeltaTime);
         }
     }
 }
