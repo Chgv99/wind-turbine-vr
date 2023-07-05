@@ -82,11 +82,13 @@ namespace WindTurbineVR.Character.Movement
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 Debug.Log("Did Hit");
             }*/
-            return (Physics.Raycast(rayOrigin, Vector3.down, out hit, rayLength, LayerMask.GetMask("Default", "Environment")) ||
-                Physics.Raycast(rayOrigin, Quaternion.Euler(45, 0, 0) * Vector3.down, out hit, rayLength * 1.25f, LayerMask.GetMask("Default", "Environment")) ||
-                Physics.Raycast(rayOrigin, Quaternion.Euler(-45, 0, 0) * Vector3.down, out hit, rayLength * 1.25f, LayerMask.GetMask("Default", "Environment")) ||
-                Physics.Raycast(rayOrigin, Quaternion.Euler(0, 0, 45) * Vector3.down, out hit, rayLength * 1.25f, LayerMask.GetMask("Default", "Environment")) ||
-                Physics.Raycast(rayOrigin, Quaternion.Euler(0, 0, -45) * Vector3.down, out hit, rayLength * 1.25f, LayerMask.GetMask("Default", "Environment")));
+
+            //LayerMask.GetMask("Default", "Environment")
+            return (Physics.Raycast(rayOrigin, Vector3.down, out hit, rayLength, Physics.AllLayers) ||
+                Physics.Raycast(rayOrigin, Quaternion.Euler(45, 0, 0) * Vector3.down, out hit, rayLength * 1.25f, Physics.AllLayers) || 
+                Physics.Raycast(rayOrigin, Quaternion.Euler(-45, 0, 0) * Vector3.down, out hit, rayLength * 1.25f, Physics.AllLayers) ||
+                Physics.Raycast(rayOrigin, Quaternion.Euler(0, 0, 45) * Vector3.down, out hit, rayLength * 1.25f, Physics.AllLayers) ||
+                Physics.Raycast(rayOrigin, Quaternion.Euler(0, 0, -45) * Vector3.down, out hit, rayLength * 1.25f, Physics.AllLayers));
         }
 
         public void EnableGravity() => SetGravity(true);
@@ -105,6 +107,7 @@ namespace WindTurbineVR.Character.Movement
         // Update is called once per frame
         void FixedUpdate()
         {
+            //transform.rotation = mainCamera.rotation;
             if (!_climbing && !_lifelineHalt)
             {
                 EnableGravity();
