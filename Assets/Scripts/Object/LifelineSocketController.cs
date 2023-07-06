@@ -10,7 +10,7 @@ namespace WindTurbineVR.Object
     {
         TurbineSceneController sceneController;
 
-        UnityEvent ropeAttached;
+        [SerializeField] UnityEvent ropeAttached;
 
         // Start is called before the first frame update
         void Start()
@@ -23,6 +23,7 @@ namespace WindTurbineVR.Object
 
         private void CallRopeAttachedAndDeactivateSelf()
         {
+            Debug.Log("CallRopeAttachedAndDeactivateSelf");
             ropeAttached?.Invoke();
             StartCoroutine(Deactivate());
         }

@@ -28,6 +28,7 @@ namespace WindTurbineVR.Object
             rb = GetComponent<Rigidbody>();
             sceneController = GameObject.Find("SceneController").GetComponent<TurbineSceneController>();
             //Debug.Log("Event " + sceneController.RopeAttached);
+            Debug.Log("event: " + sceneController.RopeAttached);
             sceneController.RopeAttached.AddListener(Attach);
             sceneController.HarnessAttached.AddListener(HarnessAttach);
             sceneController.HarnessDetached.AddListener(HarnessDetach);

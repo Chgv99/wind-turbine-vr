@@ -16157,6 +16157,28 @@ Transform:
   m_Father: {fileID: 1375782109}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &598427877 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5589951948667693021, guid: e20ae3173268f454b8d739268f3772f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1084876003}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &598427881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598427877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d44abbcf434a8d41a7ddaffdfd921f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  harness: {fileID: 1084876005}
+  attached: 0
+  harnessAttached: 0
+  semaphore: 1
 --- !u!1 &600821953
 GameObject:
   m_ObjectHideFlags: 0
@@ -27964,66 +27986,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025859385}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1034241293 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5589951948667693021, guid: e20ae3173268f454b8d739268f3772f7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1084876003}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1034241295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034241293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51478d8f7e4167e40bacf38e835bb639, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Evaluators:
-  - rid: 8934543725118357504
-  references:
-    version: 2
-    RefIds:
-    - rid: 8934543725118357504
-      type: {class: XRDistanceEvaluator, ns: UnityEngine.XR.Interaction.Toolkit.Filtering,
-        asm: Unity.XR.Interaction.Toolkit}
-      data:
-        m_Filter: {fileID: 1034241295}
-        m_Enabled: 1
-        m_Weight:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0
-            inSlope: 0
-            outSlope: 0.5
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 2
-            outSlope: 2
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        m_MaxDistance: 1
---- !u!54 &1034241297 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 5721130495595474809, guid: e20ae3173268f454b8d739268f3772f7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1084876003}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1036551349
 GameObject:
   m_ObjectHideFlags: 0
@@ -38937,12 +38899,12 @@ HingeJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1084876008}
-  m_ConnectedBody: {fileID: 1034241297}
+  m_ConnectedBody: {fileID: 0}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -1.7291, y: -0.26300004, z: -21.0501}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -60141,6 +60103,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e104dcc78d5a548bea8d8846264c15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ropeAttached:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2113870819
 GameObject:
   m_ObjectHideFlags: 0
