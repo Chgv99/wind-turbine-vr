@@ -83,6 +83,13 @@ namespace WindTurbineVR.Core
             rc.TurnOff();
         }
 
+        public void SwitchStatus()
+        {
+            Active = !Active;
+            if (Active) rc.TurnOn();
+            else rc.TurnOff();
+        }
+
         void LoadStatus()
         {
 

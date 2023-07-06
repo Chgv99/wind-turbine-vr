@@ -20,7 +20,7 @@ namespace WindTurbineVR.Object
         public bool Attached { get => attached; set => attached = value; }
         public bool HarnessAttached { get => harnessAttached; set => harnessAttached = value; }
 
-        bool semaphore = true;
+        [SerializeField] bool semaphore = true;
 
         // Start is called before the first frame update
         void Start()
@@ -50,7 +50,7 @@ namespace WindTurbineVR.Object
                     rb.velocity = Vector3.zero;
                     rb.constraints = rb.constraints | RigidbodyConstraints.FreezePositionY;
                 }
-                if (harness.position.y >= transform.position.y - 0.4f && !semaphore) {
+                if (harness.position.y >= transform.position.y && !semaphore) {
                     Debug.Log("RELEASE MOVEMENT. PLAYER SAFE");
                     sceneController.LifelineRelease?.Invoke();
                     semaphore = true;

@@ -1055,6 +1055,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5698797097927341269, guid: 866ad03fed134a244a387aada1143a3e,
         type: 3}
+      propertyPath: m_text
+      value: Encender/Apagar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698797097927341269, guid: 866ad03fed134a244a387aada1143a3e,
+        type: 3}
       propertyPath: m_fontSize
       value: 7.5
       objectReference: {fileID: 0}
@@ -1062,6 +1067,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSizeBase
       value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698797097927341269, guid: 866ad03fed134a244a387aada1143a3e,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 5740023278989168510, guid: 866ad03fed134a244a387aada1143a3e,
         type: 3}
@@ -1171,7 +1181,7 @@ PrefabInstance:
     - target: {fileID: 5740023278989168511, guid: 866ad03fed134a244a387aada1143a3e,
         type: 3}
       propertyPath: m_Name
-      value: Button
+      value: SwitchButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866ad03fed134a244a387aada1143a3e, type: 3}
