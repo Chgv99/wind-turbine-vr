@@ -8,9 +8,14 @@ namespace WindTurbineVR.Core
     {
         List<BladeController> blades = new List<BladeController>();
 
-        [SerializeField] static float velocity; //degrees per frame
+        //[SerializeField] static float velocity; //degrees per frame
+
+        float bladeAngle;
+        float angularVelocity;
 
         public List<BladeController> Blades { get => blades; set => blades = value; }
+        public float BladeAngle { get => bladeAngle; set => bladeAngle = value; }
+        public float AngularVelocity { get => angularVelocity; set => angularVelocity = value; }
 
         [SerializeField] Rigidbody rotorParent;
 
@@ -29,7 +34,9 @@ namespace WindTurbineVR.Core
         // Update is called once per frame
         void FixedUpdate()
         {
-            velocity = 0;
+            float velocity = 0;
+
+            bladeAngle = Blades[0].Angle;
             foreach (BladeController blade in Blades)
             {
                 velocity += blade.Contribution;
@@ -42,6 +49,7 @@ namespace WindTurbineVR.Core
             Debug.DrawRay(transform.position, -transform.forward * 10, Color.yellow, 1);
             GetComponent<Rigidbody>().AddTorque(transform.forward * -velocity * 0.005f);
             //transform.localEulerAngles = new Vector3(0, 0, transform.localEulerAngles.z);   // evita rotación en otros ejes debido a inercias
+            angularVelocity = transform.InverseTransformDirection(GetComponent<Rigidbody>().angularVelocity).z * -1;
         }
 
         public Quaternion GetRotation()

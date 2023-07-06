@@ -18,6 +18,8 @@ namespace WindTurbineVR.Core
 
         float littleSpeed = -0.0515f;
 
+        float angle;
+
         #region Internal rotational values
         float threshold = 90f;
 
@@ -29,6 +31,7 @@ namespace WindTurbineVR.Core
         #endregion
 
         public Quaternion DirectionObjective { get => directionObjective; set => directionObjective = value; }
+        public float Angle { get => angle; set => angle = value; }
 
         public Quaternion GetRotation()
         {
@@ -54,6 +57,13 @@ namespace WindTurbineVR.Core
                 float angle = Vector3.SignedAngle(forwardA, forwardB, Vector3.up);
                 //float angle = Quaternion.Angle(transform.rotation, directionObjective); 
                 littleCog.Rotate(new Vector3(0, 1, 0), ((angle < 0) ? 1 : -1) * littleSpeed * rotationSpeed);
+            }
+
+            //
+            angle = Vector3.SignedAngle(transform.forward * -1, Vector3.forward, Vector3.down);
+            if (angle < 0)
+            {
+                angle = 360 + angle;
             }
         }
     }

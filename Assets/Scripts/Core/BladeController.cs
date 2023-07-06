@@ -17,12 +17,14 @@ namespace WindTurbineVR.Core
         float moveSpeed = 0.1f;
         #endregion
 
-
-        public float Contribution { get => contribution; set => contribution = value; }
-
         Transform center;
 
         [SerializeField] bool debug;
+
+        float angle;
+
+        public float Contribution { get => contribution; set => contribution = value; }
+        public float Angle { get => angle; set => angle = value; }
 
         // Start is called before the first frame update
         void Start()
@@ -51,10 +53,11 @@ namespace WindTurbineVR.Core
             Debug.DrawRay(transform.position, -Vector3.forward.normalized * 100, Color.red);
             ///Blade
             Debug.DrawRay(center.position, transform.up.normalized * 10, new Color(0, 50, 0));
+            Debug.DrawRay(center.position, transform.right.normalized * 10, new Color(50, 0, 50));
             Debug.DrawRay(center.position, transform.parent.up.normalized * 10, new Color(50, 50, 0));
             ///Wind
-            //Debug.DrawRay(center.position, -climate.Wind.normalized * 10, Color.blue);
-            //Debug.DrawRay(center.position, climate.Wind.normalized * 10, Color.white);
+            Debug.DrawRay(center.position, -climate.Wind.normalized * 10, Color.blue);
+            Debug.DrawRay(center.position, climate.Wind.normalized * 10, Color.white);
 
             /*
             Debug.Log("------------");
@@ -74,6 +77,8 @@ namespace WindTurbineVR.Core
         // Update is called once per frame
         void Update()
         {
+            angle = Vector3.SignedAngle(transform.up, transform.parent.up, transform.right);
+
             //Debug.Log("Climate Wind (Blade Controller) = " + climate.Wind);
             /*float bwangle = Vector3.Angle(climate.WindDirection * -Vector3.forward, transform.up);
             if (debug) DrawDebug(bwangle);

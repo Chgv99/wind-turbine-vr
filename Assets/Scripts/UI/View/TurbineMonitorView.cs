@@ -19,12 +19,13 @@ namespace WindTurbineVR.UI
         const string rotorVelocityBase  = "Velocidad Rotor: ";
 
         #region Private
-        //status
+        bool status = false;
         float angleNacelle = -1;
         float angleBlades = -1;
         float rotorVelocity = -1;
         #endregion
 
+        public bool Status { get => status; set => status = value; }
         public float AngleNacelle { set => angleNacelle = value; }
         public float AngleBlades { set => angleBlades = value; }
         public float RotorVelocity { set => rotorVelocity = value; }
@@ -39,10 +40,10 @@ namespace WindTurbineVR.UI
         // Update is called once per frame
         void Update()
         {
-            //statusText = statusBase + 
-            angleNacelleText.text = angleNacelleBase + angleNacelle;
-            angleBladesText.text = angleBladesBase + angleNacelle;
-            rotorVelocityText.text = rotorVelocityBase + angleNacelle;
+            statusText.text = statusBase + (status ? "Encendido" : "Apagado");
+            angleNacelleText.text = angleNacelleBase + angleNacelle.ToString("n2") + "º";
+            angleBladesText.text = angleBladesBase + Mathf.RoundToInt(angleBlades) + "º";
+            rotorVelocityText.text = rotorVelocityBase + rotorVelocity.ToString("n2");
         }
     }
 }
