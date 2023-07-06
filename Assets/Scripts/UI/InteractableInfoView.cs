@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using WindTurbineVR.Core;
+//using WindTurbineVR.Core;
 using WindTurbineVR.Data;
 
 namespace WindTurbineVR.UI
@@ -154,7 +154,7 @@ namespace WindTurbineVR.UI
 
         protected override void EndPagination()
         {
-            throw new System.NotImplementedException();
+//            throw new System.NotImplementedException();
         }
 
         protected void NextPicture()
@@ -171,11 +171,11 @@ namespace WindTurbineVR.UI
             if (picture + 1 >= Info.Pictures.Length - 1)
             {
                 nextPicButton.GetComponent<Button>().interactable = false;
-                try
-                {
-                    EndPagination();
-                }
-                catch (Exception ex) { Error.LogExceptionNoBreak(ex.Message); }
+                //try
+                //{
+                EndPagination();
+                //}
+                //catch (Exception ex) { Error.LogExceptionNoBreak(ex.Message); }
             }
 
             if ((picture + 1) < Info.Pictures.Length)

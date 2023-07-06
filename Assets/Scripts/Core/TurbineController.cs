@@ -8,9 +8,9 @@ namespace WindTurbineVR.Core
     {
         TurbineDataController turbineDataController;
 
-        [SerializeField] RotorController rc;
-        [SerializeField] NacelleController nc;
-        [SerializeField] VaneController vc;
+        [SerializeField] public RotorController rc;
+        [SerializeField] public NacelleController nc;
+        [SerializeField] public VaneController vc;
         //[SerializeField] AnemometerController ac;
 
         #region private

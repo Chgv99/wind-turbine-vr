@@ -51,11 +51,11 @@ namespace WindTurbineVR.Core
             Debug.DrawRay(transform.position, -Vector3.forward.normalized * 100, Color.red);
             ///Blade
             Debug.DrawRay(center.position, transform.up.normalized * 10, new Color(0, 50, 0));
-            //Debug.DrawRay(transform.position, Vector3.ProjectOnPlane(transform.up.normalized, Vector3.left) * 50, Color.green);
+            Debug.DrawRay(center.position, transform.parent.up.normalized * 10, new Color(50, 50, 0));
             ///Wind
-            Debug.DrawRay(center.position, -climate.Wind.normalized * 10, Color.blue);
-            Debug.DrawRay(center.position, climate.Wind.normalized * 10, Color.white);
-            
+            //Debug.DrawRay(center.position, -climate.Wind.normalized * 10, Color.blue);
+            //Debug.DrawRay(center.position, climate.Wind.normalized * 10, Color.white);
+
             /*
             Debug.Log("------------");
             Debug.Log("Blade vector: " + transform.up.normalized);
@@ -89,6 +89,7 @@ namespace WindTurbineVR.Core
         private void FixedUpdate()
         {
             float bwangle = Vector3.Angle(climate.WindDirection * -Vector3.forward, transform.up);
+            Debug.Log("bwangle: " + bwangle);
             if (debug) DrawDebug(bwangle);
             Contribution = climate.WindSpeed * bwangle.Remap(90, 20, 0, 1);
             //Debug.Log(gameObject.name + " contribution: " + Contribution);
