@@ -7,6 +7,8 @@ namespace WindTurbineVR.Object
     [RequireComponent(typeof(LineRenderer))]
     public class RopeController : MonoBehaviour
     {
+        TurbineSceneController sceneController;
+
         [SerializeField] LineRenderer lr;
 
         [SerializeField] List<Transform> joints;
@@ -36,6 +38,8 @@ namespace WindTurbineVR.Object
         [SerializeField] bool showJoints = false;
         #endregion
 
+        bool halted;
+
         int numberJoints;
 
         #region Hidden variables
@@ -47,6 +51,10 @@ namespace WindTurbineVR.Object
         void Start()
         {
             #region Object init
+
+            sceneController = GameObject.Find("SceneController").GetComponent<TurbineSceneController>();
+            sceneController.LifelineHalt.AddListener(HaltOn);
+            sceneController.LifelineRelease.AddListener(HaltOff);
 
             jointPrefab = Resources.Load("Rope/RopeJoint") as GameObject;
 
@@ -122,16 +130,31 @@ namespace WindTurbineVR.Object
             #endregion
         }
 
+        private void OnDestroy()
+        {
+            sceneController.LifelineHalt.RemoveListener(HaltOn);
+            sceneController.LifelineRelease.RemoveListener(HaltOff);
+        }
+
         void Update()
         {
             #region Line Rendering
             int i = 0;
-            foreach (Transform joint in joints)
+            if (halted)
             {
-                //Debug.Log("i: " + i + "; joint: " + joint + "; lr: " + lr);
-                lr.SetPosition(i, joint.position);
-                i++;
+                lr.positionCount = 2;
+                lr.SetPosition(0, joints[0].position);
+                lr.SetPosition(1, joints[joints.Count - 1].position);
+            } else {
+                lr.positionCount = joints.Count;
+                foreach (Transform joint in joints)
+                {
+                    //Debug.Log("i: " + i + "; joint: " + joint + "; lr: " + lr);
+                    lr.SetPosition(i, joint.position);
+                    i++;
+                }
             }
+            
             #endregion
         }
 
@@ -174,5 +197,9 @@ namespace WindTurbineVR.Object
             joint.layer = LayerMask.NameToLayer("RopeJoint");
             joint.GetComponent<Rigidbody>().drag = airDrag;
         }
+
+        public void HaltOn() => halted = true;
+
+        public void HaltOff() => halted = false;
     }
 }
