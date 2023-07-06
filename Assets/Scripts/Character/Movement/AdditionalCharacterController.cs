@@ -20,6 +20,9 @@ namespace WindTurbineVR.Character.Movement
 
         CapsuleCollider capsuleCollider;
 
+        GameObject leftRayInteractor;
+        GameObject rightRayInteractor;
+
         //ClimbProvider climbProvider;
 
         public Transform mainCamera;
@@ -38,6 +41,9 @@ namespace WindTurbineVR.Character.Movement
 
             capsuleCollider = GetComponent<CapsuleCollider>();
             mainCamera = transform.Find("CameraOffset/Main Camera");
+
+            leftRayInteractor = transform.Find("CameraOffset/LeftHand Controller/Ray Interactor").gameObject;
+            rightRayInteractor = transform.Find("CameraOffset/RightHand Controller/Ray Interactor").gameObject;
 
             //ClimbProvider.ClimbActive += DisableGravity;
             ClimbProvider.ClimbActive += ClimbActive;
@@ -115,6 +121,13 @@ namespace WindTurbineVR.Character.Movement
                 DisableGravity();
             }
 
+            if (_climbing)
+            {
+                DisableRays();
+            } else {
+                EnableRays();
+            }
+
             if (!IsGrounded())
             {
                 DisableControl();
@@ -176,6 +189,16 @@ namespace WindTurbineVR.Character.Movement
         {
             _climbing = false;
             GetComponent<LocomotionSystem>().enabled = true;
+        }
+
+        void EnableRays() => SetRays(true);
+
+        void DisableRays() => SetRays(false);
+
+        void SetRays(bool enabled)
+        {
+            leftRayInteractor.SetActive(enabled);
+            rightRayInteractor.SetActive(enabled);
         }
 
         void EnableControl() => SetControl(true);
