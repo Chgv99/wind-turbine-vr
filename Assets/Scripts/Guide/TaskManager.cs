@@ -47,6 +47,7 @@ namespace WindTurbineVR.Guide
 
         public void CheckListCompleted()
         {
+            Debug.Log("TaskManager.CheckListCompleted");
             bool completed = true;
             //If list is completed raise listCompleted event
             foreach (TaskController taskController in tasks)

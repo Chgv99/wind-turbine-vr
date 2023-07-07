@@ -12,7 +12,7 @@ namespace WindTurbineVR.Guide
         // Start is called before the first frame update
         void Awake()
         {
-            Debug.Log(gameObject.name + "is awake");
+            //Debug.Log(gameObject.name + "is awake");
             lr = GetComponent<LineRenderer>();
             lr.positionCount = transform.childCount;
 

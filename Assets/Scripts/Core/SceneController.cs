@@ -54,7 +54,7 @@ namespace WindTurbineVR.Core
             if (camera == null) camera = xrOrigin.Find("CameraOffset/Main Camera");
 
             // Background music (only on menu)
-            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0)) audioController.Play("Test");
+            //if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0)) audioController.Play("Test");
 
             Time.fixedDeltaTime = 1 / 60f;
         }

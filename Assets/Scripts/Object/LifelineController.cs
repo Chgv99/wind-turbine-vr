@@ -45,14 +45,14 @@ namespace WindTurbineVR.Object
                 //check if distance is greater than X, so that the rope is more extended when halt
                 if (harness.position.y < transform.position.y - 0.4f && semaphore)
                 {
-                    Debug.Log("HALT MOVEMENT. PLAYER FALLING");
+                    //Debug.Log("HALT MOVEMENT. PLAYER FALLING");
                     sceneController.LifelineHalt?.Invoke();
                     semaphore = false;
                     rb.velocity = Vector3.zero;
                     rb.constraints = rb.constraints | RigidbodyConstraints.FreezePositionY;
                 }
                 if (harness.position.y >= transform.position.y && !semaphore) {
-                    Debug.Log("RELEASE MOVEMENT. PLAYER SAFE");
+                    //Debug.Log("RELEASE MOVEMENT. PLAYER SAFE");
                     sceneController.LifelineRelease?.Invoke();
                     semaphore = true;
                     rb.constraints =
@@ -74,7 +74,7 @@ namespace WindTurbineVR.Object
 
         void Attach()
         {
-            Debug.Log("Attached");
+            //Debug.Log("Attached");
             Attached = true;
             rb.constraints = 
                 RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ |

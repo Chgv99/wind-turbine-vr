@@ -156,6 +156,7 @@ namespace WindTurbineVR.UI
 
         public void UpdateTasks(List<Task> tasks)
         {
+            Debug.Log("InfoView.UpdateTasks");
             for (int i = 0; i < toggles.Count; i++)
             {
                 Debug.Log("checking " + i);

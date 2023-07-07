@@ -105,7 +105,7 @@ namespace WindTurbineVR.Character.Movement
 
         public void Move(Vector3 direction)
         {
-            Debug.Log("moving to " + direction.ToString());
+            //Debug.Log("moving to " + direction.ToString());
             //transform.Translate(direction);
             transform.position = transform.position + direction;
         }
@@ -141,7 +141,7 @@ namespace WindTurbineVR.Character.Movement
                 GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
 
-            if (IsGrounded() && !_climbing) Debug.Log("Grounded");
+            //if (IsGrounded() && !_climbing) Debug.Log("Grounded");
 
             /*if (_climbing || _lifelineHalt)
             {
