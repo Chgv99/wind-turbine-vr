@@ -17,7 +17,7 @@ MonoBehaviour:
   - La multiplicadora eleva las revoluciones del rotor por encima de las 100 veces
     mediante un sistema de engranajes.
   - "Estas revoluciones son transmitidas al generador el\xE9ctrico mediante el eje
-    r\xE1pido, que gira entorno a las 15000 revoluciones por minuto."
+    r\xE1pido, que gira entorno a las 1500 revoluciones por minuto."
   pictures:
   - {fileID: 21300000, guid: 6f4eadcd392af0a4899cb79e918c1f15, type: 3}
   video: 
