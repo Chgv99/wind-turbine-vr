@@ -104,6 +104,7 @@ namespace WindTurbineVR.UI
 
         //public GameObject ModalInstance { get => _modalInstance; set => _modalInstance = value; }
 
+        /*
         private class DirectionController
         {
             Transform camera;
@@ -130,6 +131,7 @@ namespace WindTurbineVR.UI
                 UI.rotation = Quaternion.LookRotation(UI.position - camera.position);
             }
         }
+         */
 
         protected virtual void Awake()
         {
