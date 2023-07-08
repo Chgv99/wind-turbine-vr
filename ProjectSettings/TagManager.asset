@@ -29,8 +29,8 @@ TagManager:
   - InvisibleCollisionNoRay
   - RotorCollision
   - Wear
-  - 
-  - 
+  - Terrain
+  - StairStep
   - 
   - 
   - 

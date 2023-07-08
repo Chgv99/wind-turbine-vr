@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.HID;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
@@ -16,20 +17,31 @@ namespace WindTurbineVR.Character.Movement
 
     public class AdditionalCharacterController : MonoBehaviour
     {
+        [SerializeField] public InputActionProperty movementDirection;
+
+        [SerializeField] LayerMask layerMask;
+
+        Vector2 direction;
+
         TurbineSceneController sceneController;
 
         CapsuleCollider capsuleCollider;
+        Rigidbody rb;
 
         GameObject leftRayInteractor;
         GameObject rightRayInteractor;
 
         //ClimbProvider climbProvider;
 
-        public Transform mainCamera;
+        Transform mainCamera;
 
-        [SerializeField] GameObject playerFloor;
+        [SerializeField] float jumpForce = 0.75f;
+
+        //[SerializeField] GameObject playerFloor;
 
         //private CharacterController _characterController;
+        private bool _grounded = false;
+        private bool _jumping = false;
         private bool _climbing = false;
 
         [SerializeField] private bool _lifelineHalt = false;
@@ -39,7 +51,11 @@ namespace WindTurbineVR.Character.Movement
         {
             sceneController = GameObject.Find("SceneController").GetComponent<TurbineSceneController>();
 
+            movementDirection.action.performed += OnMove;
+
             capsuleCollider = GetComponent<CapsuleCollider>();
+            rb = GetComponent<Rigidbody>();
+
             mainCamera = transform.Find("CameraOffset/Main Camera");
 
             leftRayInteractor = transform.Find("CameraOffset/LeftHand Controller/Ray Interactor").gameObject;
@@ -57,6 +73,7 @@ namespace WindTurbineVR.Character.Movement
         }
         private void OnDestroy()
         {
+            movementDirection.action.performed -= OnMove;
             //ClimbProvider.ClimbActive -= DisableGravity;
             ClimbProvider.ClimbActive -= ClimbActive;
             ClimbProvider.ClimbInActive -= ClimbInActive;
@@ -68,6 +85,39 @@ namespace WindTurbineVR.Character.Movement
         {
             capsuleCollider.center = new Vector3(0, (mainCamera.localPosition.y / 2) + 0.2f, 0);
             capsuleCollider.height = mainCamera.localPosition.y;
+        }
+
+        /** Enhancement:
+         * Make class for ray detection and draw
+         * (to not write 800 lines every time
+         * we want to test raycasts).*/
+        bool CheckStep()
+        {
+            if (this.direction == null || this.direction == new Vector2()) return false;
+            Vector3 direction = new Vector3(this.direction.x, 0, this.direction.y);
+            float rayLength = 0.3f;
+            
+            RaycastHit hit;
+
+            Vector3 rayOrigin = new Vector3(
+                transform.position.x + capsuleCollider.center.x,
+                transform.position.y + capsuleCollider.center.y - (capsuleCollider.height / 2) + 0.20f,//capsuleCollider.height / 5,
+                transform.position.z + capsuleCollider.center.z);
+            Debug.DrawRay(rayOrigin, direction * rayLength, Color.yellow);
+
+            bool lowerRay = Physics.Raycast(rayOrigin, direction, out hit, rayLength, layerMask);
+
+            rayOrigin = new Vector3(
+                transform.position.x + capsuleCollider.center.x,
+                transform.position.y + capsuleCollider.center.y - (capsuleCollider.height / 2) + 0.40f,//capsuleCollider.height / 5,
+                transform.position.z + capsuleCollider.center.z);
+            Debug.DrawRay(rayOrigin, direction * rayLength, Color.blue);
+
+            bool upperRay = Physics.Raycast(rayOrigin, direction, out hit, rayLength, layerMask);
+
+            // TODO: CHANGE FORWARD FOR MOVEMENT DIRECTION
+            if (lowerRay && !upperRay) return true;
+            return false;
         }
 
         bool IsGrounded()
@@ -101,7 +151,7 @@ namespace WindTurbineVR.Character.Movement
 
         public void DisableGravity() => SetGravity(false);
 
-        public void SetGravity(bool state) => GetComponent<Rigidbody>().useGravity = state;
+        public void SetGravity(bool state) => rb.useGravity = state;
 
         public void Move(Vector3 direction)
         {
@@ -110,9 +160,17 @@ namespace WindTurbineVR.Character.Movement
             transform.position = transform.position + direction;
         }
 
+        void OnMove(InputAction.CallbackContext ctx)
+        {
+            direction = ctx.ReadValue<Vector2>().normalized;
+        }
+
         // Update is called once per frame
         void FixedUpdate()
         {
+            _grounded = IsGrounded();
+            //direction = movementDirection.action.performed 
+
             //transform.rotation = mainCamera.rotation;
             if (!_climbing && !_lifelineHalt)
             {
@@ -128,17 +186,36 @@ namespace WindTurbineVR.Character.Movement
                 EnableRays();
             }
 
-            if (!IsGrounded())
+            if (_climbing || _lifelineHalt)
             {
                 DisableControl();
-                GetComponent<Rigidbody>().velocity = new Vector3(0, GetComponent<Rigidbody>().velocity.y, 0);
-            } else if (IsGrounded() && !_climbing && !_lifelineHalt) {
+            } else if (!_climbing && !_lifelineHalt) {
                 EnableControl();
             }
 
+            /*if (!_grounded && !_jumping)
+            {
+                DisableControl();
+                rb.velocity = new Vector3(0, rb.velocity.y, 0);
+            } else if (_grounded && !_climbing && !_lifelineHalt) {
+                EnableControl();
+            }*/
+
             if (_lifelineHalt)
             {
-                GetComponent<Rigidbody>().velocity = Vector3.zero;
+                rb.velocity = Vector3.zero;
+            }
+
+            /*if (_jumping && _grounded)
+            {
+                _jumping = false;
+            }*/
+
+            if (CheckStep() && _grounded)
+            {
+                Debug.Log("Step");
+                //_jumping = true;
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             }
 
             //if (IsGrounded() && !_climbing) Debug.Log("Grounded");
@@ -203,7 +280,11 @@ namespace WindTurbineVR.Character.Movement
 
         void EnableControl() => SetControl(true);
 
-        void DisableControl() => SetControl(false);
+        void DisableControl()
+        {
+            SetControl(false);
+            rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        }
 
         void SetControl(bool state)
         {
