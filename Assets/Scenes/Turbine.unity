@@ -3682,7 +3682,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destination
       value: 
-      objectReference: {fileID: 866982895}
+      objectReference: {fileID: 423056733}
     - target: {fileID: 5973740552487430310, guid: cafe09831c748e549afb4c804bee7278,
         type: 3}
       propertyPath: title
@@ -3701,7 +3701,7 @@ PrefabInstance:
     - target: {fileID: 5973740552487430310, guid: cafe09831c748e549afb4c804bee7278,
         type: 3}
       propertyPath: description.Array.data[0]
-      value: "\xBFQuiere ir directamente a"
+      value: "\xBFSubir directamente?"
       objectReference: {fileID: 0}
     - target: {fileID: 7898311722587093341, guid: cafe09831c748e549afb4c804bee7278,
         type: 3}
@@ -11124,14 +11124,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 423056732}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.081, y: -0.424, z: 0.3607}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.321, y: -0.424, z: 0}
   m_LocalScale: {x: 0.26639, y: 0.26639, z: 0.26639}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2079896979}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &423056734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17844,9 +17844,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7898311722587093341, guid: cafe09831c748e549afb4c804bee7278,
         type: 3}
+      propertyPath: size
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898311722587093341, guid: cafe09831c748e549afb4c804bee7278,
+        type: 3}
       propertyPath: parent
       value: 
-      objectReference: {fileID: 1120098971}
+      objectReference: {fileID: 2079896979}
     - target: {fileID: 7898311722587093341, guid: cafe09831c748e549afb4c804bee7278,
         type: 3}
       propertyPath: displayMode
@@ -19103,14 +19108,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696129168}
-  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: -3.72, z: -1.111}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1624213921}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 180}
 --- !u!1001 &698660690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23796,9 +23801,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7898311722587093341, guid: cafe09831c748e549afb4c804bee7278,
         type: 3}
+      propertyPath: size
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898311722587093341, guid: cafe09831c748e549afb4c804bee7278,
+        type: 3}
       propertyPath: parent
       value: 
-      objectReference: {fileID: 1120098971}
+      objectReference: {fileID: 2079896979}
     - target: {fileID: 7898311722587093341, guid: cafe09831c748e549afb4c804bee7278,
         type: 3}
       propertyPath: displayMode
@@ -31214,14 +31224,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1138571983}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.201, y: -23.41, z: -0.014}
+  m_LocalRotation: {x: 1.5975926e-23, y: 0.7071068, z: 3.9255742e-31, w: -0.70710677}
+  m_LocalPosition: {x: -0.201, y: -23.41, z: 0.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1459909818}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!1 &1139223452
 GameObject:
   m_ObjectHideFlags: 0
@@ -53109,7 +53119,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.259119, y: 0.88018537, z: 1.1958892}
-  m_Center: {x: -0.04810112, y: 0.3399073, z: -0.39558133}
+  m_Center: {x: -0.04810112, y: 0.3399073, z: 0.3955813}
 --- !u!1 &1899087698
 GameObject:
   m_ObjectHideFlags: 0
@@ -59034,7 +59044,7 @@ GameObject:
   - component: {fileID: 2079896981}
   - component: {fileID: 2079896980}
   m_Layer: 0
-  m_Name: Cylinder Con 2 agujeros
+  m_Name: Antesala
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

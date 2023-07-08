@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 using WindTurbineVR.Core.Audio;
 
 namespace WindTurbineVR.Core
@@ -71,12 +72,25 @@ namespace WindTurbineVR.Core
             //Debug.Break();
         }
 
-        public void TeleportPlayer(Vector3 destination)
+        #region PLAYER
+        public void TeleportPlayer(Vector3 position) => TeleportPlayer(position, false);
+
+        public void TeleportPlayer(Vector3 position, bool keepGaze)
         {
-            Debug.Log("teleporting player");
-            xrOrigin.position = destination;
-            //Debug.Break();
+            SetPlayerPosition(position);
+            if (!keepGaze) SetPlayerRotation(Quaternion.identity);
         }
+
+        public void TeleportPlayer(Vector3 position, Quaternion rotation)
+        {
+            SetPlayerPosition(position);
+            SetPlayerRotation(rotation);
+        }
+
+        void SetPlayerPosition(Vector3 position) => xrOrigin.position = position;
+
+        void SetPlayerRotation(Quaternion rotation) => xrOrigin.rotation = rotation;
+        #endregion
 
         public void Quit()
         {

@@ -18,6 +18,6 @@ namespace WindTurbineVR.Core
             if (destination == null) Error.LogException("Teleport destination is null");
         }
 
-        public void Teleport() => sceneController.TeleportPlayer(destination.position);
+        public void Teleport() => sceneController.TeleportPlayer(destination.position, destination.rotation);
     }
 }

@@ -37,7 +37,7 @@ namespace WindTurbineVR.Object
 
         [SerializeField] protected GameObject prefabUI;
 
-        [SerializeField] protected int size = 1;
+        [SerializeField] protected float size = 1;
 
         [SerializeField] private GameObject uiInstance;
 
