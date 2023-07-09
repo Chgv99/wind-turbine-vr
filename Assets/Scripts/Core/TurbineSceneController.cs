@@ -24,6 +24,8 @@ namespace WindTurbineVR.Core
 
         [SerializeField] GameObject climaticControl;
 
+        [SerializeField] GameObject guide;
+
         UnityEvent taskChecked;
         UnityEvent ropeAttached;
         UnityEvent harnessAttached;
@@ -81,6 +83,7 @@ namespace WindTurbineVR.Core
 
             //if (SceneManager.GetActiveScene().name == "Turbine")
             //StartCoroutine(SwitchSceneCo());
+            guide.SetActive(PlayerPrefs.HasKey("GUIDEMODE"));
         }
 
         IEnumerator SwitchSceneCo()

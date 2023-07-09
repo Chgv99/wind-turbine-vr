@@ -48700,7 +48700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1708633019
 Transform:
   m_ObjectHideFlags: 0
@@ -68875,6 +68875,7 @@ MonoBehaviour:
   wind_speed: 0
   wind_direction: 0
   climaticControl: {fileID: 457742387}
+  guide: {fileID: 1708633018}
 --- !u!114 &2251088845868656684
 MonoBehaviour:
   m_ObjectHideFlags: 0

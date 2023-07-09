@@ -62,6 +62,18 @@ namespace WindTurbineVR.Core
 
         public void ReturnToMenu() => PlayScene(0);
 
+        public void GuideMode()
+        {
+            PlayerPrefs.SetInt("GUIDEMODE", 1);
+            PlayScene("Turbine");
+        }
+
+        public void FreeMode()
+        {
+            PlayerPrefs.DeleteKey("GUIDEMODE");
+            PlayScene("Turbine");
+        }
+
         public void PlayScene(int i) => SceneManager.LoadScene(i);
 
         public void PlayScene(string name) => SceneManager.LoadScene(name);
