@@ -46,7 +46,7 @@ namespace WindTurbineVR.UI
         }
         public string Url { get => videoUrl; set => videoUrl = value; }
 
-        void Awake()
+        protected override void Awake()
         {
             base.Awake(); //unnecessary?
 
@@ -80,13 +80,13 @@ namespace WindTurbineVR.UI
         }
 
         // Start is called before the first frame update
-        void Start()
-        {
+        //void Start()
+        //{
             /*if (DisplayTrigger == DisplayTrigger.Hover ||
                 DisplayTrigger == DisplayTrigger.Selection) GetComponent<Canvas>().enabled = false;
             else GetComponent<Canvas>().enabled = false;*/
             //Show();
-        }
+        //}
 
         protected override void SetTeleportedAction()
         {

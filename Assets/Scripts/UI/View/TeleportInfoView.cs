@@ -22,7 +22,7 @@ namespace WindTurbineVR.UI
         public void SetBody(string text) { this.body.GetComponent<TextMeshProUGUI>().text = text; }
         public TeleportController TeleportController { set => teleportController = value; }
 
-        void Awake()
+        protected override void Awake()
         {
             base.Awake(); //unnecessary?
 
@@ -32,14 +32,16 @@ namespace WindTurbineVR.UI
             main = transform.Find("Main").gameObject;
             title = transform.Find("TitleText").gameObject;
             body = main.transform.Find("BodyText").gameObject;
+
+            if (DisplayTrigger == DisplayTrigger.Hover) GetComponent<Canvas>().enabled = false;
         }
 
         // Start is called before the first frame update
-        void Start()
-        {
-            if (DisplayTrigger == DisplayTrigger.Hover) GetComponent<Canvas>().enabled = false;
+        //void Start()
+        //{
+
             //Show();
-        }
+        //}
 
         public void Teleport()
         {

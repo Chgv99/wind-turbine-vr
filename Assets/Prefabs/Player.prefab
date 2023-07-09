@@ -777,8 +777,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb3a894670c3cb47b02fd2e608fd453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
-  playerFloor: {fileID: 0}
+  movementDirection:
+    m_UseReference: 0
+    m_Action:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  jumpForce: 0.75
   _lifelineHalt: 0
 --- !u!114 &26469887775650580
 MonoBehaviour:

@@ -44,6 +44,7 @@ namespace WindTurbineVR.UI
         Guide
     }
 
+    [RequireComponent(typeof(DirectionController))]
     public abstract class InfoView : MonoBehaviour
     {
         public TurbineSceneController sceneController;
@@ -141,7 +142,7 @@ namespace WindTurbineVR.UI
             sceneController = GameObject.Find("SceneController").GetComponent<TurbineSceneController>();
 
             modal = transform.Find("Modal");
-            dc = new DirectionController(sceneController, transform, DisplayMode);
+            dc = GetComponent<DirectionController>();//new DirectionController(sceneController, transform, DisplayMode);
 
             Completed = new UnityEvent();
 
@@ -155,10 +156,7 @@ namespace WindTurbineVR.UI
             GetComponent<Canvas>().worldCamera = sceneController.Camera.GetComponent<Camera>();
 
             ///////////sceneController.TaskChecked.AddListener(UpdateObjectTasks);            
-            if (displayMode != DisplayMode.StaticFixed && displayMode != DisplayMode.StaticAlternativeFixed)
-            {
-                dc.SetDirection();
-            }
+            
 
             try
             {
@@ -187,23 +185,15 @@ namespace WindTurbineVR.UI
 
         protected void Start()
         {
-            
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            //dc = new DirectionController(transform, displayMode);
-
-            if (!initializated)
+            if (displayMode != DisplayMode.StaticFixed && displayMode != DisplayMode.StaticAlternativeFixed)
             {
-                
+                dc.SetDirection();
             }
 
             switch (DisplayMode)
             {
                 case DisplayMode.StaticPivot:
-                    dc.SetDirection();
+                    dc.active = true;
                     break;
                 case DisplayMode.Static:
                     break;
@@ -216,8 +206,19 @@ namespace WindTurbineVR.UI
                 case DisplayMode.StaticAlternativeFixed:
                     break;
                 case DisplayMode.StaticAlternativePivot:
-                    dc.SetDirection();
+                    dc.active = true;
                     break;
+            }
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            //dc = new DirectionController(transform, displayMode);
+
+            if (!initializated)
+            {
+                
             }
         }
 
