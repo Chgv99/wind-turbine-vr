@@ -2432,6 +2432,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2039182582096460619}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3157636089746831929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45014994085117083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349ded5ec7699a8459defc609f823abd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 0
 --- !u!114 &4046477896824596970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2445,6 +2458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneController: {fileID: 0}
+  dc: {fileID: 0}
   normalColor: {r: 0, g: 0, b: 0, a: 0}
   highlightedColor: {r: 0, g: 0, b: 0, a: 0}
   pressedColor: {r: 0, g: 0, b: 0, a: 0}

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d47127905a0aea44b034da6d733f88d, type: 3}
+  m_Name: transformador
+  m_EditorClassIdentifier: 
+  title: Transformador
+  description:
+  - "Dispositivo que recoge la electricidad generada por el aerogenerador para elevar
+    su tensi\xF3n."
+  - "Tras ello, la corriente es transportada mediante cables subterr\xE1neos hasta
+    la subestaci\xF3n."
+  - "All\xED se vuelve a elevar su tensi\xF3n para introducirla en la red el\xE9ctrica."
+  pictures:
+  - {fileID: 21300000, guid: b646eebb8d24e854db8de56c1149dc7a, type: 3}
+  video: 
+  congratsMessage: 

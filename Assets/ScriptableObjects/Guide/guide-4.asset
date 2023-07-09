@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d47127905a0aea44b034da6d733f88d, type: 3}
+  m_Name: guide-4
+  m_EditorClassIdentifier: 
+  title: "Gu\xEDa"
+  description:
+  - "Dentro de la base del aerogenerador podemos encontrar un transformador. Pruebe
+    a interactuar con \xE9l. "
+  - "A continuaci\xF3n, vamos a realizar una peque\xF1a maniobra de subida por la
+    escalera. "
+  - "El dispositivo que se encuentra al otro extremo de la cuerda que ha enganchado
+    a su arn\xE9s, va tambi\xE9n enganchado a la l\xEDnea de vida (cable azul junto
+    a la escalera). "
+  - "Este le permite desplazarse de forma segura en ambas direcciones. Si se suelta
+    de la escalera, el dispositivo frenar\xE1 la ca\xEDda. "
+  - "En caso de soltarse de la escalera, no tiene m\xE1s que volverse a agarrar a
+    ella y subir un poco para desactivar el freno. "
+  pictures: []
+  video: 
+  congratsMessage: "Contin\xFAe al siguiente panel."

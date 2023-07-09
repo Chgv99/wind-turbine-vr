@@ -210,6 +210,8 @@ namespace WindTurbineVR.UI
             taskListTransform.gameObject.SetActive(false);
             modalText.gameObject.SetActive(false);
             completedText.gameObject.SetActive(true);
+            if (Info.CongratsMessage != "") 
+                completedText.GetComponent<TextMeshProUGUI>().text = Info.CongratsMessage;
             ShowCloseButton();
             HideContinueButton();
             HideNextPrev();

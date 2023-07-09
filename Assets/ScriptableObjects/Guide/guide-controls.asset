@@ -27,8 +27,9 @@ MonoBehaviour:
     joystick derecho. Mu\xE9valo hacia adelante y mant\xE9ngalo mientras apunta hacia
     donde quiere ir. "
   - "Cuando haya elegido donde quiere ir, suelte el joystick. Algunas superficies
-    no tienen permitido la teletransportaci\xF3n, como muebles o maquinaria. "
+    no tienen permitida la teletransportaci\xF3n, como muebles o maquinaria. "
   - "Por \xFAltimo, puede abrir el men\xFA de mu\xF1eca pulsando el bot\xF3n secundario
     de su mando derecho. "
   pictures: []
   video: 
+  congratsMessage: 

@@ -15,7 +15,7 @@ namespace WindTurbineVR.Data
         [SerializeField] string[] description;
         [SerializeField] Sprite[] pictures;
         [SerializeField] string video;
-
+        [SerializeField] string congratsMessage;
         public string Title 
         { 
             get
@@ -52,6 +52,13 @@ namespace WindTurbineVR.Data
                 return ConvertString(str);
             }
             set => video = value;
+        }
+        public string CongratsMessage //yes, this.congratsMessage has priority
+        {
+            get
+            {
+                return congratsMessage == "" ? infoCard.congratsMessage : congratsMessage;
+            }
         }
 
         string ConvertString(string input)

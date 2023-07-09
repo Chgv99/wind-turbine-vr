@@ -10,5 +10,7 @@ namespace WindTurbineVR.Data.Scriptable
         public string[] description;
         public Sprite[] pictures;
         public string video;
+        [Space]
+        public string congratsMessage;
     }
 }

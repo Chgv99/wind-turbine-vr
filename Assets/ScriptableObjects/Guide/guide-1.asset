@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: "Gu\xEDa"
   description:
-  - "\xA1Bienvenido al modo gu\xEDa de Wind Turbine VR! "
+  - "\xA1Bienvenido al modo gu\xEDa de Wind Turbine VR! Utilice el mando para apuntar
+    hacia el bot\xF3n y pulse el gatillo."
   - "Este modo le ense\xF1ar\xE1 a seguir los procedimientos de seguridad para entrar
     a un aerogenerador y desplazarse por \xE9l. "
   - "Para ello, se le mostrar\xE1n paneles naranjas como este, que le indicar\xE1n
@@ -30,4 +31,7 @@ MonoBehaviour:
   - 'Una vez finalice este modo, se le recomienda que visite el modo libre, para
     vivir la experiencia a su manera. '
   - "Cuando est\xE9 preparado, pulse continuar."
-  url: 
+  pictures: []
+  video: 
+  congratsMessage: "\xA1Bien hecho! Por favor, utilice el joystick izquierdo para
+    seguir la l\xEDnea naranja del suelo."
