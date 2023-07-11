@@ -47,6 +47,13 @@ namespace WindTurbineVR.Core
 
             //SwitchOn();
             SwitchOn();
+            //StartCoroutine(SwitchOffDelay(20));
+        }
+
+        IEnumerator SwitchOffDelay(int t)
+        {
+            yield return new WaitForSecondsRealtime(t);
+            SwitchOff();
         }
 
         void Update()
