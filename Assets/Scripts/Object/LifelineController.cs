@@ -77,7 +77,7 @@ namespace WindTurbineVR.Object
             //Debug.Log("Attached");
             Attached = true;
             rb.constraints = 
-                RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ |
+                RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ |
                 RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
             StartCoroutine(Deactivate());
         }
