@@ -42,7 +42,7 @@ namespace WindTurbineVR.UI
             //Debug.Log("DisplayMode: " + DisplayMode);
 
             //Debug.Log("Setting direction to " + (UI.position - camera.position));
-            Debug.Log("DIRECTIONCONTROLLER: " + camera);
+            //Debug.Log("DIRECTIONCONTROLLER: " + camera);
             transform.rotation = Quaternion.LookRotation(transform.position - camera.position);
         }
     }

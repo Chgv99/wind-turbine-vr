@@ -137,7 +137,7 @@ namespace WindTurbineVR.Core
         IEnumerator RotateOff()
         {
             // Stops rotation when the angles are near to the angle objective (0)
-            while (transform.localEulerAngles.x < -1.5f /*|| (transform.localEulerAngles.x > -1 && transform.localEulerAngles.x < 1)*/)
+            while (transform.localEulerAngles.x < 360-1.5f /*|| (transform.localEulerAngles.x > -1 && transform.localEulerAngles.x < 1)*/)
             {
                 transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(angleOff, 0, 0), moveSpeed * Time.deltaTime);
                 yield return null;
