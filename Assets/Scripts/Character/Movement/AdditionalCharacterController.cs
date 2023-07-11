@@ -94,26 +94,30 @@ namespace WindTurbineVR.Character.Movement
         bool CheckStep()
         {
             if (this.direction == null || this.direction == new Vector2()) return false;
-            Vector3 direction = new Vector3(this.direction.x, 0, this.direction.y);
-            float rayLength = 0.3f;
+            //Vector3 cameraForward = mainCamera.rotation * 
             
+            Vector3 direction = mainCamera.rotation * new Vector3(this.direction.x, 0, this.direction.y);
+            Vector3 finalDirection = new Vector3(direction.x, 0, direction.z).normalized;
+            float rayLength = 0.3f;
+
             RaycastHit hit;
 
             Vector3 rayOrigin = new Vector3(
                 transform.position.x + capsuleCollider.center.x,
                 transform.position.y + capsuleCollider.center.y - (capsuleCollider.height / 2) + 0.20f,//capsuleCollider.height / 5,
                 transform.position.z + capsuleCollider.center.z);
-            Debug.DrawRay(rayOrigin, direction * rayLength, Color.yellow);
+            //Debug.DrawRay(rayOrigin, finalDirection * 10, Color.green);
+            Debug.DrawRay(rayOrigin, finalDirection * rayLength, Color.yellow);
 
-            bool lowerRay = Physics.Raycast(rayOrigin, direction, out hit, rayLength, layerMask);
+            bool lowerRay = Physics.Raycast(rayOrigin, finalDirection, out hit, rayLength, layerMask);
 
             rayOrigin = new Vector3(
                 transform.position.x + capsuleCollider.center.x,
                 transform.position.y + capsuleCollider.center.y - (capsuleCollider.height / 2) + 0.40f,//capsuleCollider.height / 5,
                 transform.position.z + capsuleCollider.center.z);
-            Debug.DrawRay(rayOrigin, direction * rayLength, Color.blue);
+            Debug.DrawRay(rayOrigin, finalDirection * rayLength, Color.blue);
 
-            bool upperRay = Physics.Raycast(rayOrigin, direction, out hit, rayLength, layerMask);
+            bool upperRay = Physics.Raycast(rayOrigin, finalDirection, out hit, rayLength, layerMask);
 
             // TODO: CHANGE FORWARD FOR MOVEMENT DIRECTION
             if (lowerRay && !upperRay) return true;
@@ -127,11 +131,11 @@ namespace WindTurbineVR.Character.Movement
                 transform.position.y + capsuleCollider.center.y - (capsuleCollider.height / 2) + capsuleCollider.height / 4, 
                 transform.position.z + capsuleCollider.center.z);
             float rayLength = (capsuleCollider.height / 3);
-            Debug.DrawRay(rayOrigin, Vector3.down * rayLength, Color.red);
-            Debug.DrawRay(rayOrigin, Quaternion.Euler(45, 0, 0) * Vector3.down * rayLength * 1.25f, Color.green);
-            Debug.DrawRay(rayOrigin, Quaternion.Euler(-45, 0, 0) * Vector3.down * rayLength * 1.25f, Color.blue);
-            Debug.DrawRay(rayOrigin, Quaternion.Euler(0, 0, 45) * Vector3.down * rayLength * 1.25f, Color.yellow);
-            Debug.DrawRay(rayOrigin, Quaternion.Euler(0, 0, -45) * Vector3.down * rayLength * 1.25f, Color.white);
+            //Debug.DrawRay(rayOrigin, Vector3.down * rayLength, Color.red);
+            //Debug.DrawRay(rayOrigin, Quaternion.Euler(45, 0, 0) * Vector3.down * rayLength * 1.25f, Color.green);
+            //Debug.DrawRay(rayOrigin, Quaternion.Euler(-45, 0, 0) * Vector3.down * rayLength * 1.25f, Color.blue);
+            //Debug.DrawRay(rayOrigin, Quaternion.Euler(0, 0, 45) * Vector3.down * rayLength * 1.25f, Color.yellow);
+            //Debug.DrawRay(rayOrigin, Quaternion.Euler(0, 0, -45) * Vector3.down * rayLength * 1.25f, Color.white);
             RaycastHit hit;
             /*if (Physics.Raycast(rayOrigin, Vector3.down, out hit, rayLength, LayerMask.GetMask("Default", "Environment")))
             {
