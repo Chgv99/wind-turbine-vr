@@ -1907,7 +1907,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &68639838
 Transform:
   m_ObjectHideFlags: 0
@@ -20999,7 +20999,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &706006679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29182,6 +29182,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EngancheSeguridadPared
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922165474126100291, guid: 02968564a19cc7d4ead81d277809a2e1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6118567209565489880, guid: 02968564a19cc7d4ead81d277809a2e1,
         type: 3}
@@ -63304,7 +63309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2085886901
 Transform:
   m_ObjectHideFlags: 0
