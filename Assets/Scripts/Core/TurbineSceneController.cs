@@ -83,7 +83,8 @@ namespace WindTurbineVR.Core
 
             //if (SceneManager.GetActiveScene().name == "Turbine")
             //StartCoroutine(SwitchSceneCo());
-            guide.SetActive(PlayerPrefs.HasKey("GUIDEMODE"));
+            //guide.SetActive(PlayerPrefs.HasKey("GUIDEMODE"));
+            guide.SetActive(false);
         }
 
         IEnumerator SwitchSceneCo()

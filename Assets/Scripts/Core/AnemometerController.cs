@@ -34,7 +34,7 @@ namespace WindTurbineVR.Core
 
         void FixedUpdate()
         {
-            transform.Rotate(transform.up * -1, windSpeed * 60 * Time.deltaTime);
+            transform.Rotate(transform.up * -1, windSpeed * 10 * Time.deltaTime);
             //GetComponent<Rigidbody>().AddTorque(transform.up * windSpeed * 100);
         }
     }

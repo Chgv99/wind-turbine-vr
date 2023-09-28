@@ -14,7 +14,7 @@ namespace WindTurbineVR.Core
 
         [SerializeField] Transform littleCog;
 
-        [SerializeField] [Range(0,3)] float rotationSpeed = 1f;
+        [SerializeField] [Range(0,5)] float rotationSpeed = 1f;
 
         float littleSpeed = -0.0515f;
 

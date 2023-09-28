@@ -14,7 +14,7 @@ namespace WindTurbineVR.Core
         float contribution = 0f;
         float angleOn = -70;
         float angleOff = 0;
-        float moveSpeed = 0.1f;
+        [SerializeField] [Range(0.1f, 0.5f)] float moveSpeed = 0.1f;
         #endregion
 
         Transform center;
